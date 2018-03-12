@@ -7,11 +7,9 @@
 function field_not_empty($fieldValue) {
     $err = false;
     if (!empty($fieldValue)) { // if field is not empty     TRUE als hij leeg is. 
-        $err = false; // no, there is no error. The field is set
-        echo $fieldValue . "field is not empty";
+        $err = false; // no, there is no error. The field is set and not empty
     } else {
-        $err = true; // yes, there is a error
-        echo $fieldValue . "field is empty";
+        $err = true; // yes, there is a error, the field is empty
     }
     return $err;
 }
