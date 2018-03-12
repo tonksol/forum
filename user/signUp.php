@@ -5,8 +5,11 @@ $error = false;
 if (isset($_POST["submit"])) {
     // declare variables
     $email      =     $_POST["email"];
+    $email      =     mysql_prepare($email);        //prevent javascipt and sql injection for email
     $userName   =     $_POST["username"];
+    $userName   =     mysql_prepare($userName);     //prevent javascipt and sql injection for username
     $password   =     $_POST["password"];
+    $password   =     mysql_prepare($password);     //prevent javascipt and sql injection for password
 
     // put the result of the function in the variable
     $error1 = field_not_empty($email);
