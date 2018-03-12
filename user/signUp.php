@@ -1,6 +1,7 @@
 <?php
 require_once("./functions.php");
 $error = false; 
+$error_message = "";
 
 if (isset($_POST["submit"])) {
     // declare variables
@@ -19,37 +20,39 @@ if (isset($_POST["submit"])) {
     // check what field is empty and tell the user what field is empty 
     if ($error1) {
         $error = true;
-        echo "The email field is empty. <br>";
+        $error_message .= "The email field is empty. <br>";
+        
     } if ($error2) {
         $error = true;
-        "The username field is empty. <br>";
+        $error_message .= "The username field is empty. <br>";
     } if ($error3) {
         $error = true;
-        "The password field is empty. <br>";
+        $error_message .= "The password field is empty. <br>";
     } else {
         $error = false;
     }
-    
+
     // Check the characters of email. Returns true or false
     if (validate_email($email)) {
         $error = true;
+        $error_message .= "Oops, this doesn't look like an email adress. Here is an example for you: name@example.com <br>";
     } else {
         $error = false;
-        echo "Oops, this doesn't look like an email adress. Here is an example for you: name@example.com";
     }
 
 
-    // if error is not false but true then.... 
-    if (!$error) { // $error = false
+    if ($error) { // $error = true
+        $error_message .= "<br><b> Unsuccesful sign up! </b>";
+    } else {
         $query = "INSERT INTO User (email, userName, userPassword) VALUES ('$email','$userName', '$password')";
         $result = mysqli_query($connection, $query);    
         if ($result) {
                 echo "You got succesfully signed up!";
-            } else {
-                $error = true;
-                echo "Could not add to DB. ";
             }
     }
+
+    echo $error_message; // echo the error messages
+
 } 
  ?>
 
