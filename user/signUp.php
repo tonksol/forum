@@ -30,10 +30,6 @@ if (isset($_POST["submit"])) {
         $error = false;
     }
     
-    echo "<br><br>";
-    echo "resultaat van $ error: " . $error; 
-    echo "<br><br>";
-    
 
 
     // if error is not false but true then.... 
