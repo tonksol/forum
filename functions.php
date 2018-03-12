@@ -20,3 +20,11 @@ function field_not_empty($fieldValue) {
 
 
 // check of the password field is not empty 
+
+// prevent a SQL Injection by adding backslashes to some caracthers
+function mysql_prepare ($value) {
+    global $connection;
+    $value = mysqli_real_escape_string($connection, htmlspecialchars(
+        trim($value)));
+    return $value;
+}
