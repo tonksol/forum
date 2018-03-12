@@ -11,7 +11,7 @@ if (isset($_POST["submit"])) {
     $password   =     $_POST["password"];
     $password   =     mysql_prepare($password);     //prevent javascipt and sql injection for password
 
-    // put the result of the function in the variable
+    // put the result of the function in the variable. Result can be true or false
     $error1 = field_not_empty($email);
     $error2 = field_not_empty($userName);
     $error3 = field_not_empty($password);
@@ -30,6 +30,13 @@ if (isset($_POST["submit"])) {
         $error = false;
     }
     
+    // Check the characters of email. Returns true or false
+    if (validate_email($email)) {
+        $error = true;
+    } else {
+        $error = false;
+        echo "Oops, this doesn't look like an email adress. Here is an example for you: name@example.com";
+    }
 
 
     // if error is not false but true then.... 
