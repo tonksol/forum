@@ -56,9 +56,9 @@ if (isset($_POST["submit"])) {
             htmlspecialchars() prefent javascript injections by converting special characters to HTML entities.
             PHP_SELF after submit go to this page (signUp.php) 
             -->           
-            Email:          <input type="text" name="email"><br>
-            UserName:       <input type="text" name="username"><br>
-            UserPassword:   <input type="text" name="password"><br><br>           
+            Email:          <input class="form-control" placeholder="email" name="email"><br>
+            UserName:       <input class="form-control" type="text" placeholder="username" name="username"><br>
+            UserPassword:   <input class="form-control" type="text" placeholder="password" name="password"><br><br>           
             <input type="submit" name="submit">
         </form>
 

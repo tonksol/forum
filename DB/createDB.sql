@@ -1,6 +1,6 @@
--- DROP DATABASE IF EXISTS BoardgameForumDB;
--- CREATE DATABASE BoardgameForumDB;
--- USE BoardgameForumDB;
+ DROP DATABASE IF EXISTS boardgames_db;
+ CREATE DATABASE boardgames_db;
+ USE boardgames_db;
 -- GRANT ALL PRIVILEGES ON EmployeeDB. * To ''@'localhost' .....
 
 USE boardgames_db;
