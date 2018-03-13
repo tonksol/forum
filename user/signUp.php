@@ -42,13 +42,23 @@ if (isset($_POST["submit"])) {
     if ($error) { // $error = true
         $error_message .= "<br><b> Unsuccesful sign up! </b>";
     } else {
-        // prepare and bind statement for query
+        // PREPARE AND BIND THE STATEMENT (for query) 
+            //  // bindParam() instead of bind_param because bindParam() can be used for other databases as well (PDO)
+
+            // Step 1. Parsing the SQL statement: Verifies the SQL statement syntax and access rights and builds the best 
+            // (optimized) execution plan for the SQL statement. Placeholder variables are not known at this point.
         $statement = $connection->prepare("INSERT INTO User (email, userName, userPassword) VALUES (?,?,?)");
-        $statement->bindParam("sss", $email, $userName, $password);
-        // bindParam() instead of bind_param because bindParam() can be used for other databases as well (PDO)
+            // Step 2. Binding variables: Where the API provides the actual values for placeholders. 
+        $statement->bindParam(1, $email, PDO::PARAM_STR);
+        $statement->bindParam(2, $user, PDO::PARAM_STR);
+        $statement->bindParam(3, $user, PDO::PARAM_STR);
+            // Step 3. Execution: Done with the selected execution plan and actual value of the placeholder variables.
+        $statement->execute();
         $result = mysqli_query($connection, $statement);    
         if ($result) {
                 echo "You got succesfully signed up! <br>";
+                header("Location: /home.php");
+                
             }
     }
     echo $error_message; // echo the error messages
