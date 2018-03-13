@@ -1,10 +1,14 @@
 <?php
-// constants for Tonke's DB on her laptop
 
-define("DB_SERVER", "localhost"); 
+
+// constants for Tonke's DB on her laptop
+$db_name = "mysql:dbname=boardgames_db";
+$db_host = "host=localhost";
+$db_charset = "charset=utf8";
+
+define("DSN", "$db_name; $db_host; $db_charset;"); 
 define("DB_USER", "root");
 define("DB_PASS", "");
-define("DB_NAME", "boardgames_db");
 
 ?>
 

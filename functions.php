@@ -18,8 +18,8 @@ function field_not_empty($fieldValue) {
 // You can't enter javascript: <script>alert(1)</script>" litteraly
 function mysql_prepare ($value) {
     global $connection;
-    $value = mysqli_real_escape_string($connection, htmlspecialchars(
-        trim($value)));
+    // I don't use mysqli_real_escape_string() because I use PDO
+    $value = htmlspecialchars(trim($value));
     return $value;
 }
 

@@ -44,8 +44,11 @@ if (isset($_POST["submit"])) {
     if ($error) { // $error = true
         $error_message .= "<br><b> Unsuccesful sign up! </b>";
     } else {
-        $query = "INSERT INTO User (email, userName, userPassword) VALUES ('$email','$userName', '$password')";
-        $result = mysqli_query($connection, $query);    
+        // prepare and bind statement for query
+        $statement = $connection->prepare("INSERT INTO User (email, userName, userPassword) VALUES (?,?,?)");
+        $statement->bindParam("sss", $email, $userName, $password);
+        // bindParam() instead of bind_param because bindParam() can be used for other databases as well (PDO)
+        $result = mysqli_query($connection, $statement);    
         if ($result) {
                 echo "You got succesfully signed up!";
             }

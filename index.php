@@ -13,6 +13,7 @@
   <div class="card-body">
 
 <?php
+// include the php files.
 require ("include/connection.php");
 require ("user/signUp.php");
 // require ("functions.php");  
