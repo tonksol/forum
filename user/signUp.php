@@ -1,6 +1,6 @@
 <?php
-require_once("./functions.php");
-require_once("signUp_form.html");
+require_once("../functions.php");
+require_once("signUp_form.php");
 $error = false; 
 $error_message = "";
 

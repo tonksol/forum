@@ -1,6 +1,6 @@
 <html>
-    <body>
-        <?php header("Location: /home.php"); ?>
+    <body id="home">
+
         <div class="container">
             <h3>Home</h3>
             <p>This is a placeholder text</p>
