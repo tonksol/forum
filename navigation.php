@@ -19,10 +19,10 @@
           <!-- 
             Tonke local machine 
           -->
-          <a class="nav-link" class="sign-up" href="http://localhost:41062/www/Forum/user/signUp.php">Sign Up</a>
+          <a class="nav-link" class="sign-up" href="http://localhost:41062/www/Forum/user/logIn_form.php">Log in</a>
           <!-- 
             FRESOM.DK
-          <a class="nav-link" class="sign-up" href="http://fresom.dk/backend/user/signUp.php">Sign Up</a>
+          <a class="nav-link" class="sign-up" href="http://fresom.dk/backend/user/logIn_form.php">Sign Up</a>
           -->
         </li>
         <li class="nav-item">

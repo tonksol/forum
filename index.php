@@ -3,10 +3,9 @@
 <?php
 // include the php files.
 require ("include/connection.php");
-require ("header.php");
+// require ("header.php");
 require ("home.php");
-// require ("user/signUp.php");
-// require ("functions.php");  
+require ("footer.php"); 
 ?>
   </div>
 </div>
