@@ -18,14 +18,14 @@ if (isset($_POST["submit"])) {
     // check what field is empty and tell the user what field is empty 
     if (field_not_empty($email)) {
         $error = true;
-        $error_message .= "The email field is empty. <br>";
+        $error_message .= '<br><div class="alert alert-warning" role="alert">The email field is empty.<br></div>';
         
     } if (field_not_empty($userName)) {
         $error = true;
-        $error_message .= "The username field is empty. <br>";
+        $error_message .= '<div class="alert alert-warning" role="alert">The username field is empty. <br></div>';
     } if (field_not_empty($password)) {
         $error = true;
-        $error_message .= "The password field is empty. <br>";
+        $error_message .= '<div class="alert alert-warning" role="alert">The password field is empty. <br></div>';
     } else {
         $error = false;
     }
@@ -33,14 +33,14 @@ if (isset($_POST["submit"])) {
     // Check the characters of email. Returns true or false
     if (validate_email($email)) {
         $error = true;
-        $error_message .= "Oops, this doesn't look like an email adress. Here is an example for you: name@example.com <br>";
+        $error_message .= '<div class="alert alert-warning" role="alert">Oops, this doesn\'t look like an email adress. Here is an example for you: name@example.com <br></div>';
     } else {
         $error = false;
     }
 
 
     if ($error) { // $error = true
-        $error_message .= "<br><b> Unsuccesful sign up! </b>";
+        $error_message .= '<div class="alert alert-danger" role="alert"><b> Unsuccesful sign up! </b></div>';
     } else {
         // PREPARE AND BIND THE STATEMENT (for query) 
             //  // bindParam() instead of bind_param because bindParam() can be used for other databases as well (PDO)
@@ -61,6 +61,7 @@ if (isset($_POST["submit"])) {
                 
             }
     }
-    echo $error_message; // echo the error messages
+    echo $error_message;  // echo the error messages
+                
 } 
  ?> 
