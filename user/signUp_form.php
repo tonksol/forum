@@ -1,4 +1,6 @@
 <?php require ("../header.php"); ?> 
+<?php require_once("signUp.php"); ?>
+
 
 <html>
     <body id"sign-up">
@@ -14,4 +16,6 @@
             UserName:       <input class="form-control" type="text" placeholder="Username" name="username"><br>
             UserPassword:   <input class="form-control" type="text" placeholder="Password" name="password"><br><br>           
             <input type="submit" name="submit">
+            <p class="form-text text-muted" > Alrealdy signed up? please <a href="http://localhost:41062/www/Forum/user/login_form.php">log in </a></p>
+       
         </form>

@@ -1,6 +1,7 @@
 <?php
 require_once("../functions.php");
-require_once("signUp_form.php");
+require_once("../include/connection.php");
+
 $error = false; 
 $error_message = "";
 
@@ -9,6 +10,7 @@ if (isset($_POST["submit"])) {
     $email      =     mysql_prepare($_POST["email"]);        //prevent javascipt and sql injection for email
     $userName   =     mysql_prepare($_POST["username"]);     //prevent javascipt and sql injection for username
     $password   =     mysql_prepare($_POST["password"]);     //prevent javascipt and sql injection for password
+    // $connection = new PDO('mysql:host=localhost;dbname=boardgames_db', $email, $userName, $password);
 
     // put the result of the function in the variable. Result can be true or false
     // $error1 = field_not_empty($email);
@@ -50,17 +52,17 @@ if (isset($_POST["submit"])) {
         $statement = $connection->prepare("INSERT INTO User (email, userName, userPassword) VALUES (?,?,?)");
             // Step 2. Binding variables: Where the API provides the actual values for placeholders. 
         $statement->bindParam(1, $email, PDO::PARAM_STR);
-        $statement->bindParam(2, $user, PDO::PARAM_STR);
-        $statement->bindParam(3, $user, PDO::PARAM_STR);
+        $statement->bindParam(2, $userName, PDO::PARAM_STR);
+        $statement->bindParam(3, $password, PDO::PARAM_STR);
             // Step 3. Execution: Done with the selected execution plan and actual value of the placeholder variables.
         $statement->execute();
-        $result = mysqli_query($connection, $statement);    
-        if ($result) {
+
                 echo "You got succesfully signed up! <br>";
-                header("Location: /home.php");
-                
-            }
+                redirect_to("../home.php");
+                // http://localhost:41062/www/Forum/home.php
+
     }
+
     echo $error_message;  // echo the error messages
                 
 } 

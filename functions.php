@@ -2,6 +2,14 @@
 // write here all your functions
 // bedenk goed wat er in een functie gaat en wat eruit komt 
 
+
+// Redirect function 
+function redirect_to($location) {
+    header("Location: {$location}");
+    exit;
+}
+
+
 // Check of the email field is not empty and set $error to true or false.
 // Return the $error set with the new value.
 function field_not_empty($fieldValue) {
@@ -14,6 +22,7 @@ function field_not_empty($fieldValue) {
     return $err;
 }
 
+
 // prevent a SQL Injection by adding backslashes to some caracthers
 // You can't enter javascript: <script>alert(1)</script>" litteraly
 function mysql_prepare ($value) {
@@ -22,6 +31,7 @@ function mysql_prepare ($value) {
     $value = htmlspecialchars(trim($value));
     return $value;
 }
+
 
 // Check the caracters of email
 function validate_email($input_email) {
