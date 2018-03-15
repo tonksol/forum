@@ -4,6 +4,10 @@ require_once("../include/connection.php");
 
 $error = false; 
 $error_message = "";
+$msg_email_is_empty = "";
+$msg_username_is_empty = "";
+$msg_password_is_empty = "";
+$msg_not_an_email = "";
 
 if (isset($_POST["submit"])) {
     // declare variables
@@ -20,14 +24,15 @@ if (isset($_POST["submit"])) {
     // check what field is empty and tell the user what field is empty 
     if (field_not_empty($email)) {
         $error = true;
-        $error_message .= '<br><div class="alert alert-warning" role="alert">The email field is empty.<br></div>';
+        $msg_email_is_empty .= '<div class="alert alert-warning" role="alert">The email field is empty. <br></div>';
+        
         
     } if (field_not_empty($userName)) {
         $error = true;
-        $error_message .= '<div class="alert alert-warning" role="alert">The username field is empty. <br></div>';
+        $msg_username_is_empty .= '<div class="alert alert-warning" role="alert">The username field is empty. <br></div>';
     } if (field_not_empty($password)) {
         $error = true;
-        $error_message .= '<div class="alert alert-warning" role="alert">The password field is empty. <br></div>';
+        $msg_password_is_empty .= '<div class="alert alert-warning" role="alert">The password field is empty. <br></div>';
     } else {
         $error = false;
     }
@@ -35,7 +40,7 @@ if (isset($_POST["submit"])) {
     // Check the characters of email. Returns true or false
     if (validate_email($email)) {
         $error = true;
-        $error_message .= '<div class="alert alert-warning" role="alert">Oops, this doesn\'t look like an email adress. Here is an example for you: name@example.com <br></div>';
+        $msg_not_an_email .= '<div class="alert alert-warning" role="alert">Oops, this doesn\'t look like an email adress. Here is an example for you: name@example.com <br></div>';
     } else {
         $error = false;
     }
