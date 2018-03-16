@@ -19,7 +19,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- include the navbar -->
-    <?php require ("navigation.php"); ?>   
+    <?php require_once("include/session.php"); ?>
+    <?php require_once("include/connection.php"); ?>
+    <?php require_once("include/functions.php"); ?>
+    <?php // confirm_logged_in(); ?>
+    <?php require ("navigation.php"); ?>  
+
 
 
         

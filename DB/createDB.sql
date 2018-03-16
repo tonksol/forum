@@ -21,6 +21,7 @@ CREATE TABLE User (
     birthdate               date NULL,
     userImage               varchar(255) NULL,
     email                   varchar(255) NULL,
+    realEmail               boolean 0,
     userName                varchar(255) NULL,
     userPassword            varchar(50) NULL,
     themePreferences        varchar(255) NULL,

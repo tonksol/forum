@@ -1,73 +1,65 @@
 <?php
-    require_once ("../functions.php");
-    $error = false;
-    $error_message = "";
+require_once ("../header.php");
 
-            
-    if (isset($_POST["submit"])) {
+if (logged_in()) {
+		redirect_to("home.php");
+	}
+	// prefent that people can log in again when they are already logged in. 
+ ?>
+ 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15" />
+</head>
+<body>
 
-        $email          =     mysql_prepare($_POST["email"]);        //prevent javascipt and sql injection for email    
-        $password       =     mysql_prepare($_POST["password"]);    //prevent javascipt and sql injection for password
-        $db_email       =     $connection->prepare("SELECT email FROM `User` WHERE email = $email");
-        $db_password    =     $connection->prepare("SELECT email FROM `User` WHERE userPassword = $password");
+ <?php
+	// START FORM PROCESSING
+	if (isset($_POST['submit'])) { // Form has been submitted.
+		$email = trim(mysqli_real_escape_string($connection, $_POST['email']));
+		$password = trim(mysqli_real_escape_string($connection,$_POST['pass']));
+
+		$query = "SELECT id, user, pass FROM users WHERE user = '{$email}' LIMIT 1";
+		// select the user from the database with: {$email}
+		$result = mysqli_query($connection, $query);
+			
+			if (mysqli_num_rows($result) == 1) {
+				// email/password authenticated
+				// and only 1 match
+				$found_user = mysqli_fetch_array($result);
+                if(password_verify($password, $found_user['pass'])){
+					// password_verify matched the input password with the password on the datbase. 
+					// If it is a match you ...
+				    $_SESSION['user_id'] = $found_user['id'];
+					$_SESSION['email'] = $found_user['email'];
+					// store id and user in session on the server side.
+				    redirect_to("home.php");
+			} else {
+				// email/password combo was not found in the database
+				$message = "Email/password combination incorrect.<br />
+					Please make sure your caps lock key is off and try again.";
+			}}
+	} else { // Form has not been submitted.
+		if (isset($_GET['logout']) && $_GET['logout'] == 1) {
+			// isset = if it exsists 
+			// 1 = true
+			$message = "You are now logged out.";
+		} 
+	}
+if (!empty($message)) {echo "<p>" . $message . "</p>";} ?>
+
+<h2>Please login</h2>
+<form action="" method="post">
+Email:
+<input type="text" name="email" maxlength="30" value="" />
+Password:
+<input type="password" name="pass" maxlength="30" value="" />
+<input type="submit" name="submit" value="Login" />
+</form>
 
 
-        // check of the fields are not empty
-        if (field_not_empty($email)) {
-            $error = true;
-            $error_message .= '<br><div class="alert alert-warning" role="alert"> The email field is empty.<br></div>';            
-        } if (field_not_empty($password)) {
-            $error = true;
-            $error_message .= '<div class="alert alert-warning" role="alert"> The password field is empty. <br></div>';
-        } else {
-            $error = false;
-        }
-
-
-        // Check the characters of email. Returns true or false
-        if (validate_email($email)) {
-            $error = true;
-            $error_message .= '<div class="alert alert-warning" role="alert"> Oops, this doesn\'t look like an email adress. Here is an example for you: name@example.com <br></div>';
-        } else {
-            $error = false;
-        }
-
-
-        // check the email and password with db
-        if ($email = $db_email){
-            $error = false;
-        } else {
-            $error = true;
-            $error_message .= '<div class="alert alert-warning" role="alert"> the email doesn\'t exist </div>';
-        }
-
-        if ($password = $db_password){
-            $error = false;
-        } else {
-            $error = true;
-            $error_message .= '<div class="alert alert-warning" role="alert"> the email doesn\'t exist </div>';
-        }
-
-
-        // When $error is false log in
-        if ($error) { // $error = true
-            $error_message .= '<div class="alert alert-danger" role="alert"><b> Unsuccesful log in! </b></div>';
-        } else {
-            // PREPARE AND BIND THE STATEMENT (for query) 
-            $statement = $connection->prepare("INSERT INTO User (email, userName, userPassword) VALUES (?,?,?)");
-                // Step 2. Binding variables: Where the API provides the actual values for placeholders. 
-            $statement->bindParam(1, $email, PDO::PARAM_STR);
-            $statement->bindParam(2, $user, PDO::PARAM_STR);
-            $statement->bindParam(3, $user, PDO::PARAM_STR);
-                // Step 3. Execution: Done with the selected execution plan and actual value of the placeholder variables.
-            $statement->execute();
-            $result = mysqli_query($connection, $statement);    
-            if ($result) {
-                    echo "You got succesfully signed up! <br>";
-                    header("Location: /home.php");
-                    
-                }
-        }
-        echo $error_message;  // echo the error messages
-
-    } // end of if (isset)
+</body>
+</html>
+<?php
+if (isset($connection)){mysqli_close($connection);}
+?>

@@ -19,7 +19,7 @@
           <!-- 
             Tonke local machine 
           -->
-          <a class="nav-link" class="log-in" href="http://localhost:41062/www/Forum/user/login_form.php">Log in</a>
+          <a class="nav-link" class="log-in" href="http://localhost:41062/www/Forum/user/login.php">Log in</a>
           <!-- 
             FRESOM.DK
           <a class="nav-link" class="log-in" href="http://fresom.dk/backend/user/login_form.php">Log in</a>
