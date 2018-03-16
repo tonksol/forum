@@ -1,14 +1,16 @@
-<?php
+ <?php
 require("constants.php");
-
-try {
-    $connection = new PDO(DSN, DB_USER, DB_PASS);}
-    catch (PDOException $err) {
-        echo "Connection error: " . $err->getMessage();
-    }
-/*      
-        The connection will be closed automatically when the script ends. 
-        To close the connection before, use the following: $connection = null;
-        Prefent that other people getting acces to your database and change the data
-*/
- ?>
+$connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS);
+if(!$connection){
+    die("could not connect");
+}
+// always need the connection linl
+// functions whitout i is the other way around first DB_NAME, $connection
+$db_select = mysqli_select_db($connection, DB_NAME);
+if (!$db_select){
+    die("Database error: ". mysqli_error($connection));
+}
+// always close the connection
+// otherwise other people can acces your data and change it
+//mysqli_close($connection);
+?>

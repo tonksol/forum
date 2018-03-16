@@ -23,7 +23,7 @@ CREATE TABLE User (
     email                   varchar(255) NULL,
     realEmail               boolean 0,
     userName                varchar(255) NULL,
-    userPassword            varchar(50) NULL,
+    userPassword            varchar(255) NULL,
     themePreferences        varchar(255) NULL,
     quote                   varchar(255)
 );

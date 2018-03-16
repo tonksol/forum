@@ -2,7 +2,7 @@
 require_once ("../header.php");
 
 if (logged_in()) {
-		redirect_to("home.php");
+		redirect_to("../home.php");
 	}
 	// prefent that people can log in again when they are already logged in. 
  ?>
@@ -15,25 +15,31 @@ if (logged_in()) {
 
  <?php
 	// START FORM PROCESSING
-	if (isset($_POST['submit'])) { // Form has been submitted.
+		// Form has been submitted.
+	if (isset($_POST['submit'])) { 
 		$email = trim(mysqli_real_escape_string($connection, $_POST['email']));
-		$password = trim(mysqli_real_escape_string($connection,$_POST['pass']));
+		$password = trim(mysqli_real_escape_string($connection,$_POST['password']));
+		
 
-		$query = "SELECT id, user, pass FROM users WHERE user = '{$email}' LIMIT 1";
+		$query = "SELECT userID, email, userPassword FROM User WHERE email = '{$email}' LIMIT 1";
 		// select the user from the database with: {$email}
 		$result = mysqli_query($connection, $query);
+							echo "There is a connection with the db <br>";
 			
 			if (mysqli_num_rows($result) == 1) {
 				// email/password authenticated
 				// and only 1 match
 				$found_user = mysqli_fetch_array($result);
-                if(password_verify($password, $found_user['pass'])){
-					// password_verify matched the input password with the password on the datbase. 
+
+				// $password = password from form input. $found_user[] is hashed password from database
+                if(password_verify($password, $found_user['userPassword'])){
+					// password_verify matched the input password with the userPassword on the database. 
 					// If it is a match you ...
-				    $_SESSION['user_id'] = $found_user['id'];
+					
+				    $_SESSION['user_id'] = $found_user['userID'];
 					$_SESSION['email'] = $found_user['email'];
 					// store id and user in session on the server side.
-				    redirect_to("home.php");
+				    redirect_to("../home.php");
 			} else {
 				// email/password combo was not found in the database
 				$message = "Email/password combination incorrect.<br />
@@ -46,20 +52,12 @@ if (logged_in()) {
 			$message = "You are now logged out.";
 		} 
 	}
-if (!empty($message)) {echo "<p>" . $message . "</p>";} ?>
+if (!empty($message)) {
+	echo "<p>" . $message . "</p>";
+}
 
-<h2>Please login</h2>
-<form action="" method="post">
-Email:
-<input type="text" name="email" maxlength="30" value="" />
-Password:
-<input type="password" name="pass" maxlength="30" value="" />
-<input type="submit" name="submit" value="Login" />
-</form>
-
-
-</body>
-</html>
-<?php
-if (isset($connection)){mysqli_close($connection);}
+// close the connection
+if (isset($connection)){
+	mysqli_close($connection);
+}
 ?>

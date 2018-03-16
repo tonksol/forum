@@ -19,14 +19,14 @@
           <!-- 
             Tonke local machine 
           -->
-          <a class="nav-link" class="log-in" href="http://localhost:41062/www/Forum/user/login.php">Log in</a>
+          <a class="nav-link" class="log-in" href="http://localhost:41062/www/Forum/user/login_form.php">Log in</a>
           <!-- 
             FRESOM.DK
           <a class="nav-link" class="log-in" href="http://fresom.dk/backend/user/login_form.php">Log in</a>
           -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">test</a>
+          <a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/user/logout.php">Log out</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
