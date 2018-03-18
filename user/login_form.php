@@ -1,11 +1,14 @@
 <?php require ("../header.php"); ?> 
 <?php require_once ("login.php"); ?>
 <!-- <style><?php  // require ("../css/logOut.css")?></style> -->
+
+
 <html>
     <body id"log-in">
         <div class="card">
             <div class="card-body">
         <h1>Log in</h1><br>
+
 
         <!-- 
             form action keeps the user on the same page so you can see the sign up errors. 
