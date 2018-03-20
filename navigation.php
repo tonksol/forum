@@ -1,48 +1,49 @@
-<!-- Modal HTML Markup -->
-<div id="loginModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center">Log in</h4>
-            </div>
-            <div class="modal-body">
-                <form role="form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="">
-                    <div class="form-group">
-                        <label class="control-label">Email</label>
-                        <div>
-                            <input type="email" class="form-control input-lg" name="email" id="inputEmail" placeholder="name@example.com">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Password</label>
-                        <div>
-                            <input type="password" class="form-control input-lg" name="password" id="inputPassword" placeholder="your password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="remember"> Remember Me
-                                </label>
+ <!-- Modal HTML Markup -->
+    <div id="loginModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-xs-center">Log in</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="">
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <div>
+                                <input type="email" class="form-control input-lg" name="email" id="inputEmail" placeholder="name@example.com">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div>
-                            <a class="btn btn-link" href="">Forgot Your Password?</a>
-                            <button type="submit" class="btn btn-info btn-block">Login</button>
+                        <div class="form-group">
+                            <label class="control-label">Password</label>
+                            <div>
+                                <input type="password" class="form-control input-lg" name="password" id="inputPassword" placeholder="your password">
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer text-xs-center">
-                Don't have an account? <a href="http://localhost:41062/www/Forum/user/signUp_form.php">Sign up »</a>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+                        <div class="form-group">
+                            <div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember"> Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <a class="btn btn-link" href="">Forgot Your Password?</a>
+                                <button type="submit" class="btn btn-info btn-block">Login</button>
+                                <!-- https://stackoverflow.com/questions/32941321/change-button-login-to-logout-after-login-o-navbar-bootstrap/32941516 -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer text-xs-center">
+                    Don't have an account? <a href="http://localhost:41062/www/Forum/user/signUp_form.php">Sign up »</a>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
 
@@ -94,6 +95,7 @@
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
       </ul>
+      
       <!-- right -->
       <ul class="nav navbar-nav navbar-right"> 
         <li class="nav-item">
