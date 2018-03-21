@@ -21,7 +21,7 @@ CREATE TABLE User (
     birthdate               date NULL,
     userImage               varchar(255) NULL,
     email                   varchar(255) NULL,
-    realEmail               boolean 0,
+    realEmail               boolean,
     userName                varchar(255) NULL,
     userPassword            varchar(255) NULL,
     themePreferences        varchar(255) NULL,
@@ -107,3 +107,19 @@ CREATE TABLE UserAccesLevel (
     FOREIGN KEY (userID) REFERENCES User (userID),
     FOREIGN KEY (accesLevelID) REFERENCES AccesLevel (accesLevelID)
 );
+
+-- Create user and grant access to this specific database
+DROP USER 'dbuser'@'localhost';
+CREATE USER 'dbuser'@'localhost' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON boardgame_db.* To 'dbuser'@'localhost' IDENTIFIED BY '1234'; FLUSH PRIVILEGES;
+
+-- ---------------------------------
+-- STORED PROCEDURES
+-- ---------------------------------
+
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_email`(IN input_email VARCHAR(255)) 
+    BEGIN
+        SELECT userID, email, userPassword FROM User WHERE email = 'input_email' LIMIT 1;
+    END$$
+DELIMITER ;

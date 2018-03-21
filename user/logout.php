@@ -2,6 +2,7 @@
 <?php
 
 require_once('../include/functions.php'); // so we can actually use functions from our functions file. 
+require_once('../include/session.php');
 	// THIRD 3 
 		// Four steps to closing a session
 		// (i.e. logging out)

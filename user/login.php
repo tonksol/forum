@@ -1,8 +1,10 @@
 <?php
-require_once ("../header.php");
+require_once ("../include/functions.php");
+require_once ("../include/session.php");
 
 if (logged_in()) {
 		redirect_to("../home.php");
+		echo '<div class="alert alert-success" role="alert"><b> You got succesfully loged in </b></div>';
 	}
 	// prefent that people can log in again when they are already logged in. 
  ?>
@@ -21,7 +23,7 @@ if (logged_in()) {
 		$password = trim(mysqli_real_escape_string($connection,$_POST['password']));
 		
 
-		$query = "SELECT userID, email, userPassword FROM User WHERE email = '{$email}' LIMIT 1";
+		$query = "CALL proc_get_email('$email')";
 		// select the user from the database with: {$email}
 		$result = mysqli_query($connection, $query);
 							echo "There is a connection with the db <br>";

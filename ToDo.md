@@ -12,6 +12,7 @@
 # Log in
 - build the code for remember my email for the login (logIn_form.php)
 - Build a user login, with email sending to confirm your login
+- if the user doesn't exsits send a message
 
 #logout
 - adding a logout page
