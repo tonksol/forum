@@ -1,21 +1,15 @@
 <?php
 require_once ("../include/functions.php");
 require_once ("../include/session.php");
+// require_once ("../include/modal-form.js");
 
 if (logged_in()) {
-		redirect_to("../home.php");
+		//redirect_to("../home.php");
+		
 		echo '<div class="alert alert-success" role="alert"><b> You got succesfully loged in </b></div>';
 	}
 	// prefent that people can log in again when they are already logged in. 
- ?>
- 
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15" />
-</head>
-<body>
 
- <?php
 	// START FORM PROCESSING
 		// Form has been submitted.
 	if (isset($_POST['submit'])) { 
@@ -23,16 +17,17 @@ if (logged_in()) {
 		$password = trim(mysqli_real_escape_string($connection,$_POST['password']));
 		
 
-		$query = "CALL proc_get_email('$email')";
+		$query = "SELECT userID, email, userPassword FROM User WHERE email = '$email' LIMIT 1";
 		// select the user from the database with: {$email}
 		$result = mysqli_query($connection, $query);
-							echo "There is a connection with the db <br>";
+			echo "There is a connection with the db <br>";
 			
 			if (mysqli_num_rows($result) == 1) {
 				// email/password authenticated
 				// and only 1 match
 				$found_user = mysqli_fetch_array($result);
 
+				
 				// $password = password from form input. $found_user[] is hashed password from database
                 if(password_verify($password, $found_user['userPassword'])){
 					// password_verify matched the input password with the userPassword on the database. 
@@ -41,9 +36,11 @@ if (logged_in()) {
 				    $_SESSION['user_id'] = $found_user['userID'];
 					$_SESSION['email'] = $found_user['email'];
 					// store id and user in session on the server side.
-				    redirect_to("../home.php");
+					// redirect_to("../home.php");
+					redirect_to("../signUp_form.php");
 			} else {
 				// email/password combo was not found in the database
+				redirect_to("../signUp_form.php");
 				$message = "Email/password combination incorrect.<br />
 					Please make sure your caps lock key is off and try again.";
 			}}
@@ -52,6 +49,7 @@ if (logged_in()) {
 			// isset = if it exsists 
 			// 1 = true
 			$message = "You are now logged out.";
+			//header("Location: test.php");
 		} 
 	}
 if (!empty($message)) {
@@ -62,4 +60,3 @@ if (!empty($message)) {
 if (isset($connection)){
 	mysqli_close($connection);
 }
-?>

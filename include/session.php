@@ -10,4 +10,3 @@
 			redirect_to("login.php");
 		}
 	}
-?>

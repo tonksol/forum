@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <div>
                                 <a class="btn btn-link" href="">Forgot Your Password?</a>
-                                <button type="submit" class="btn btn-info btn-block">Login</button>
+                                <button type="submit" class="btn btn-info modalForm">Login</button>
                                 <!-- https://stackoverflow.com/questions/32941321/change-button-login-to-logout-after-login-o-navbar-bootstrap/32941516 -->
                             </div>
                         </div>
@@ -69,7 +69,7 @@
           <!-- 
             Tonke local machine 
           -->
-          <a class="nav-link" class="a link" href="#">Log in</a>
+          <a class="nav-link" class="a link" href="user/login_form.php"> LOG IN </a>
          
           <!-- 
             FRESOM.DK
@@ -78,7 +78,7 @@
           -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" class="log-out" href="user/logout.php">Log out</a>
+          <a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/user/logout.php">Log out</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -99,8 +99,13 @@
       <!-- right -->
       <ul class="nav navbar-nav navbar-right"> 
         <li class="nav-item">
-
-        <a class="nav-link" class="log-in" href="#" data-toggle="modal" data-target="#loginModal">Log in</a></li>
+        <?php   
+        if (!logged_in()) {
+            echo '<a class="nav-link" class="log-in" href="#" data-toggle="modal" data-target="#loginModal">Log in</a></li>';
+        } else {  
+            echo '<a class="nav-link" class="log-out" href="#">Log out</a></li>';
+        }
+        ?>
       </ul>
 
       </form>
