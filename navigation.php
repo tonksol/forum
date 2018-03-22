@@ -51,7 +51,7 @@
       <!-- 
         Tonke local machine 
       -->
-     <a class="navbar-brand" class="home" href="http://localhost:41062/www/Forum/home.php"> Boardgame Forum <span class="sr-only">(current)</span></a>
+     <a class="navbar-brand" class="home" href="../home.php"> Boardgame Forum <span class="sr-only">(current)</span></a>
       
      <!-- 
       FRESOM.DK
@@ -69,7 +69,7 @@
           <!-- 
             Tonke local machine 
           -->
-          <a class="nav-link" class="log-in" href="http://localhost:41062/www/Forum/user/login_form.php">Log in</a>
+          <a class="nav-link" class="a link" href="#">Log in</a>
          
           <!-- 
             FRESOM.DK
@@ -78,7 +78,7 @@
           -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/user/logout.php">Log out</a>
+          <a class="nav-link" class="log-out" href="user/logout.php">Log out</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
