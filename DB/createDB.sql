@@ -6,14 +6,14 @@
 USE boardgames_db;
 
 
-CREATE TABLE Badge (
+CREATE TABLE badge (
     badgeID                 int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     badgeName               varchar(100) NULL, 
     badgeImage              varchar(255) NULL,
     badgeDescription        varchar(255) NULL
 );
 
-CREATE TABLE User (
+CREATE TABLE user (
     userID                  int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     firstName               varchar(100) NULL,
     prefix                  varchar(30) NULL,
@@ -28,7 +28,7 @@ CREATE TABLE User (
     quote                   varchar(255)
 );
 
-CREATE TABLE UserBadge (
+CREATE TABLE userBadge (
     badgeID                 int NOT NULL,
     userID                  int NOT NULL,
     CONSTRAINT pk_UserBadge PRIMARY KEY (userID, badgeID),
@@ -36,7 +36,7 @@ CREATE TABLE UserBadge (
     FOREIGN KEY (userID) REFERENCES User (userID)
 );
 
-CREATE TABLE ForumPage (
+CREATE TABLE forumPage (
     forumPageID             int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     userID                  int NULL,
     forumPageName           varchar(100) NULL,
@@ -45,13 +45,13 @@ CREATE TABLE ForumPage (
     FOREIGN KEY (userID) REFERENCES User (userID)
 );
 
-CREATE TABLE Topic (
+CREATE TABLE topic (
     topicID                 int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     topicName               varchar(100) NULL,
     topicDescription        varchar(255) NULL
 );
 
-CREATE TABLE Category (
+CREATE TABLE category (
     categoryID              int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     topicID                 int NULL,
     categoryName            varchar(100),
@@ -59,7 +59,7 @@ CREATE TABLE Category (
     FOREIGN KEY (topicID) REFERENCES Topic (topicID)
 );
 
-CREATE TABLE Post (
+CREATE TABLE post (
     postID                  int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     userID                  int NULL,
     categoryID              int NULL,
@@ -76,7 +76,7 @@ CREATE TABLE Post (
     FOREIGN KEY (categoryID) REFERENCES Category (categoryID)
 );
 
-CREATE TABLE Reply (
+CREATE TABLE reply (
     replyID                 int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     userID                  int NULL,
     postID                  int NULL,
@@ -85,7 +85,7 @@ CREATE TABLE Reply (
     FOREIGN KEY (postID) REFERENCES Post (postID)
 );
 
-CREATE TABLE Tag (
+CREATE TABLE tag (
     tagID                   int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     postID                  int NULL,
     replyID                 int NULL,
@@ -94,13 +94,13 @@ CREATE TABLE Tag (
     FOREIGN KEY (replyID) REFERENCES Reply (replyID)
 );
 
-CREATE TABLE AccesLevel (
+CREATE TABLE accesLevel (
     accesLevelID            int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     accesName               varchar(100) NULL,
     accesDescription        varchar(255) NULL
 );
 
-CREATE TABLE UserAccesLevel (
+CREATE TABLE userAccesLevel (
     userID                  int NOT NULL,
     accesLevelID            int NOT NULL,
     CONSTRAINT pk_userAccesLevel PRIMARY KEY (userID, accesLevelID),

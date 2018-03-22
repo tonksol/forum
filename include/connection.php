@@ -4,7 +4,7 @@ $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS);
 if(!$connection){
     die("could not connect");
 }
-// always need the connection linl
+// always need the connection link
 // functions whitout i is the other way around first DB_NAME, $connection
 $db_select = mysqli_select_db($connection, DB_NAME);
 if (!$db_select){
