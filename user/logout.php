@@ -21,5 +21,5 @@ require_once('../include/session.php');
 		// 4. Destroy the session
 		session_destroy();
 		
-		redirect_to('login.php?logout=1');
+		redirect_to('http://localhost:41062/www/Forum/home.php?logout=1');
 ?>

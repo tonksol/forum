@@ -49,8 +49,7 @@ if (logged_in()) {
 		if (isset($_GET['logout']) && $_GET['logout'] == 1) {
 			// isset = if it exsists 
 			// 1 = true
-			$message = "You are now logged out.";
-			//header("Location: test.php");
+			$logout_message = "You are now logged out.";
 		} 
 	}
 if (!empty($message)) {

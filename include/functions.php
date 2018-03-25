@@ -43,3 +43,13 @@ function validate_email($input_email) {
      };
     return $err;
 }
+
+function logout_message() {
+    $logout_message = "";
+    if (isset($_GET['logout']) && $_GET['logout'] == 1) {
+        // isset = if it exsists 
+        // 1 = true
+        $logout_message = "You are now logged out.";
+    } 
+    return $logout_message;
+}

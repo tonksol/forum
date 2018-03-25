@@ -3,12 +3,15 @@
 
 <html>
     <body id="home">
+        <div class="alert alert-success" role="alert"> 
+            <?php echo logout_message() ?> 
+        </div>
 
         <div class="container">
             <h3>Home</h3>
             <p>This is a placeholder text</p>
-            <!-- <?php require_once("category/category.php"); ?> -->
-          </div>
+
+        </div> <!-- ./ container -->
 
     </body>
 </html>
