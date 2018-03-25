@@ -4,7 +4,7 @@
 // include the php files.
 require ("include/connection.php");
 require ("home.php");
-require ("footer.php"); 
+
 ?>
 
 

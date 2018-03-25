@@ -1,5 +1,6 @@
-<?php require ("../header.php"); ?> 
 <?php require_once ("login.php"); ?>
+<?php require ("../header.php"); ?> 
+
 <!-- <style><?php  // require ("../css/logOut.css")?></style> -->
 
 

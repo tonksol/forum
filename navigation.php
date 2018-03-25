@@ -6,7 +6,7 @@
                     <h4 class="modal-title text-xs-center">Log in</h4>
                 </div>
                 <div class="modal-body">
-                    <form role="form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="login.php" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="">
                         <div class="form-group">
                             <label class="control-label">Email</label>
@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <div>
                                 <a class="btn btn-link" href="">Forgot Your Password?</a>
-                                <button type="submit" class="btn btn-info modalForm">Login</button>
+                                <button type="submit" class="btn btn-info modalForm" name="submit">Login</button>
                                 <!-- https://stackoverflow.com/questions/32941321/change-button-login-to-logout-after-login-o-navbar-bootstrap/32941516 -->
                             </div>
                         </div>
@@ -47,7 +47,7 @@
 
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
       <!-- 
         Tonke local machine 
       -->

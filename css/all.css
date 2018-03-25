@@ -1,0 +1,27 @@
+/* 
+#77C9D4 Feather
+#57BC90 marine
+#015249 Forest
+#A5A5AF sleek grey
+*/
+
+/*
+-- NAVIGATION
+*/
+.navbar {
+    background-color: #FFFF;
+    color: #0000;
+}
+
+.navbar a {
+    color: #015249;
+}
+
+/*
+-- FOOTER
+
+.main-footer {
+    background-color: #A5A5AF;
+    color: #015249;
+}
+*/

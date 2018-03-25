@@ -1,6 +1,8 @@
 <?php
+require_once ("../include/connection.php");
 require_once ("../include/functions.php");
 require_once ("../include/session.php");
+
 // require_once ("../include/modal-form.js");
 
 if (logged_in()) {
@@ -20,7 +22,6 @@ if (logged_in()) {
 		$query = "SELECT userID, email, userPassword FROM User WHERE email = '$email' LIMIT 1";
 		// select the user from the database with: {$email}
 		$result = mysqli_query($connection, $query);
-			echo "There is a connection with the db <br>";
 			
 			if (mysqli_num_rows($result) == 1) {
 				// email/password authenticated
@@ -36,8 +37,8 @@ if (logged_in()) {
 				    $_SESSION['user_id'] = $found_user['userID'];
 					$_SESSION['email'] = $found_user['email'];
 					// store id and user in session on the server side.
-					// redirect_to("../home.php");
-					redirect_to("../signUp_form.php");
+					redirect_to("../home.php");
+					
 			} else {
 				// email/password combo was not found in the database
 				redirect_to("../signUp_form.php");

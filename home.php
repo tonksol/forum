@@ -1,4 +1,5 @@
 <?php require ("header.php"); ?>
+<?php require ("footer.php"); ?>
 
 <html>
     <body id="home">

@@ -12,6 +12,10 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.png" type="image/png"/>
+
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="css/all.css">
   </head>
 
   <body id="header">
@@ -28,11 +32,6 @@
     <?php require_once("include/session.php"); ?>
     <?php require_once("include/connection.php"); ?>
     <?php require_once("include/functions.php"); ?>
-    <?php require_once("include/session.php"); ?>
     
-    <script src="app.js"></script>
-    <?php require ("navigation.php"); ?>  
-    
-
-
-        
+   
+    <?php require ("navigation.php"); ?>        
