@@ -1,11 +1,10 @@
 <?php require ("header.php"); ?>
-<?php require ("footer.php"); ?>
+
 
 <html>
-    <body id="home">
-        <div class="alert alert-success" role="alert"> 
+    <body id="home">      
             <?php echo logout_message() ?> 
-        </div>
+
 
         <div class="container">
             <h3>Home</h3>
@@ -14,4 +13,6 @@
         </div> <!-- ./ container -->
 
     </body>
+    <?php require ("footer.php"); ?>
+
 </html>

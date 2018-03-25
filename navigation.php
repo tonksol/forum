@@ -56,10 +56,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" class="a link" href="http://localhost:41062/www/Forum/user/login_form.php"> LOG IN </a>
+                <a class="nav-link" class="a link" href="#"> Unknown </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/user/logout.php">Log out</a>
+                <a class="nav-link" class="log-out" href="#">Unknown2</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,13 +80,7 @@
       <!-- right -->
       <ul class="nav navbar-nav navbar-right"> 
         <li class="nav-item">
-            <?php   
-            if (!logged_in()) {
-                echo '<a class="nav-link" class="log-in" href="#" data-toggle="modal" data-target="#loginModal">Log in</a></li>';
-            } else {  
-                echo '<a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/user/logout.php">Log out</a></li>';
-            }
-            ?>
+            <?php echo login_logout_button_switch(); ?>
       </ul>
 
       </form>

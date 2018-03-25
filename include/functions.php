@@ -49,7 +49,17 @@ function logout_message() {
     if (isset($_GET['logout']) && $_GET['logout'] == 1) {
         // isset = if it exsists 
         // 1 = true
-        $logout_message = "You are now logged out.";
+        $logout_message = '<div class="alert alert-success" role="alert"> You have been succesfully logged out of you account! </div>';
     } 
     return $logout_message;
+}
+
+function login_logout_button_switch() {
+    $which_button = "";
+    if (!logged_in()) {
+        $which_button = '<a class="nav-link" class="log-in" href="#" data-toggle="modal" data-target="#loginModal">Log in</a></li>';
+    } else {  
+        $which_button = '<a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/user/logout.php">Log out</a></li>';
+    }
+    return $which_button;
 }
