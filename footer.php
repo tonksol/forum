@@ -1,15 +1,14 @@
-<body class="main-footer">
+<style> <?php require_once("css/all.css"); ?> </style>
+<!--Footer-->
+        <footer class="footer-body">
 
-        <!--Footer-->
-        <footer class="page-footer">
-
-            <div style="background-color: #21d192;">
+            <div class="colorful-footer-bar">
                 <div class="container">
                     <!--Grid row-->
                     <div class="row py-4 d-flex align-items-center">
 
                         <!--Grid column-->
-                        <div class="col-12 col-md-5 text-left mb-4 mb-md-0">
+                        <div class="col-12 col-md-5 text-left mb-4 mb-md-0" class="footer-body">
                             <h6 class="mb-0 white-text text-center text-md-left">
                                 <strong>Get connected with us on social networks!</strong>
                             </h6>
@@ -44,7 +43,7 @@
                     </div>
                     <!--Grid row-->
                 </div>
-            </div>
+            </div> <!-- ./ colorful-footer-bar -->
 
             <!--Footer Links-->
             <div class="container mt-5 mb-4 text-center text-md-left">
@@ -55,7 +54,7 @@
                         <h6 class="text-uppercase font-weight-bold">
                             <strong>Boardgame forum</strong>
                         </h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" >
                         <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
                             amet, consectetur adipisicing elit.</p>
                     </div>
@@ -64,20 +63,14 @@
                     <!--Second column-->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 dark-grey-text">
                         <h6 class="text-uppercase font-weight-bold">
-                            <strong>Products</strong>
+                            <strong>Category</strong>
                         </h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
                         <p>
-                            <a href="#!" class="dark-grey-text">MDBootstrap</a>
+                            <a href="#!">Recent posts</a>
                         </p>
                         <p>
-                            <a href="#!" class="dark-grey-text">MDWordPress</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="dark-grey-text">BrandFlow</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="dark-grey-text">Bootstrap Angular</a>
+                            <a href="#!">Popular posts</a>
                         </p>
                     </div>
                     <!--/.Second column-->
@@ -87,18 +80,15 @@
                         <h6 class="text-uppercase font-weight-bold">
                             <strong>Useful links</strong>
                         </h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
                         <p>
-                            <a href="#!" class="dark-grey-text">Log in</a>
+                            <a href="http://localhost:41062/www/Forum/user/signUp_form.php" class="dark-grey-text">Sign up</a>
                         </p>
                         <p>
-                            <a href="#!" class="dark-grey-text">Become an Affiliate</a>
+                            <a href="#!">About</a>
                         </p>
                         <p>
-                            <a href="#!" class="dark-grey-text">Shipping Rates</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="dark-grey-text">Help</a>
+                            <a href="#!">Boardgame forum rules</a>
                         </p>
                     </div>
                     <!--/.Third column-->
@@ -108,7 +98,7 @@
                         <h6 class="text-uppercase font-weight-bold">
                             <strong>Contact</strong>
                         </h6>
-                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
                         <p>
                             <i class="fa fa-envelope mr-3"></i> info@boardgameforum.com</p>
                     </div>
@@ -119,12 +109,11 @@
             <!--/.Footer Links-->
 
             <!-- Copyright-->
+            <div class="footer-end">
             <div class="footer-copyright py-3 text-center">
-                © 2018 Copyright:
-                <a href="https://mdbootstrap.com/material-design-for-bootstrap/">
-                    <strong> MDBootstrap.com</strong>
-                </a>
+                © 2018 Copyright
             </div>
+            </div> <!-- ./ footer-end -->
             <!--/.Copyright -->
 
         </footer>

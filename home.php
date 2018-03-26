@@ -7,8 +7,10 @@
 
 
         <div class="container">
+            <br><br>
             <h3>Home</h3>
             <p>This is a placeholder text</p>
+            <br><br>
 
         </div> <!-- ./ container -->
 

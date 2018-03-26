@@ -8,14 +8,17 @@
                 <div class="modal-body">
                     <form role="form" method="POST" action="http://localhost:41062/www/Forum/user/login.php" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="">
+                        <br>
                         <div class="form-group">
-                            <label class="control-label">Email</label>
+                        
+                            <label class="control-label">&#xf007;</label> <!-- email -->
                             <div>
                                 <input type="email" class="form-control input-lg" name="email" id="inputEmail" placeholder="name@example.com">
                             </div>
                         </div>
+                        <br>
                         <div class="form-group">
-                            <label class="control-label">Password</label>
+                            <label class="control-label">&#xf023;</label> <!-- password -->
                             <div>
                                 <input type="password" class="form-control input-lg" name="password" id="inputPassword" placeholder="your password">
                             </div>
@@ -46,8 +49,9 @@
 
 
 <!-- NAVBAR -->
+<div class="navbar-body">
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" class="home" href="http://localhost:41062/www/Forum/home.php"> Boardgame Forum <span class="sr-only">(current)</span></a>  
+    <a class="navbar-brand" class="home" href="http://localhost:41062/www/Forum/home.php"> BOARDGAME FORUM <span class="sr-only">(current)</span></a>  
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,14 +60,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" class="a link" href="#"> Unknown </a>
+                <a class="nav-link" class="a link" href="#"> About </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" class="log-out" href="#">Unknown2</a>
+                <a class="nav-link" class="log-out" href="#">Rules</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
+                Category
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Action</a>
@@ -71,10 +75,6 @@
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div> 
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
       </ul>
       
       <!-- right -->
@@ -86,3 +86,4 @@
       </form>
     </div>
   </nav>
+  </div> <!-- ./ navbar-body -->
