@@ -32,8 +32,8 @@ CREATE TABLE userBadge (
     badgeID                 int NOT NULL,
     userID                  int NOT NULL,
     CONSTRAINT pk_UserBadge PRIMARY KEY (userID, badgeID),
-    FOREIGN KEY (badgeID) REFERENCES Badge (badgeID),
-    FOREIGN KEY (userID) REFERENCES User (userID)
+    FOREIGN KEY (badgeID) REFERENCES badge (badgeID),
+    FOREIGN KEY (userID) REFERENCES user (userID)
 );
 
 CREATE TABLE forumPage (
@@ -42,7 +42,7 @@ CREATE TABLE forumPage (
     forumPageName           varchar(100) NULL,
     forumPageContent        varchar(1000) NULL,
     forumPageLastModifiedDate   date NULL,
-    FOREIGN KEY (userID) REFERENCES User (userID)
+    FOREIGN KEY (userID) REFERENCES user (userID)
 );
 
 CREATE TABLE topic (
@@ -56,7 +56,10 @@ CREATE TABLE category (
     topicID                 int NULL,
     categoryName            varchar(100),
     categoryDescription     varchar(255),
-    FOREIGN KEY (topicID) REFERENCES Topic (topicID)
+    img_path1               VARCHAR(255),
+    img_path2               VARCHAR(255),
+    img_path3               VARCHAR(255),
+    FOREIGN KEY (topicID) REFERENCES topic (topicID)
 );
 
 CREATE TABLE post (
@@ -72,8 +75,8 @@ CREATE TABLE post (
     fontColor               varchar(30),
     fontType                varchar(30),
     stickyPost              boolean,
-    FOREIGN KEY (userID) REFERENCES User (userID),
-    FOREIGN KEY (categoryID) REFERENCES Category (categoryID)
+    FOREIGN KEY (userID) REFERENCES user (userID),
+    FOREIGN KEY (categoryID) REFERENCES category (categoryID)
 );
 
 CREATE TABLE reply (
@@ -81,8 +84,8 @@ CREATE TABLE reply (
     userID                  int NULL,
     postID                  int NULL,
     replyContent            varchar(1000) NULL,
-    FOREIGN KEY (userID) REFERENCES User (userID),
-    FOREIGN KEY (postID) REFERENCES Post (postID)
+    FOREIGN KEY (userID) REFERENCES user (userID),
+    FOREIGN KEY (postID) REFERENCES post (postID)
 );
 
 CREATE TABLE tag (
@@ -90,8 +93,8 @@ CREATE TABLE tag (
     postID                  int NULL,
     replyID                 int NULL,
     tagName                 varchar(100),
-    FOREIGN KEY (postID) REFERENCES Post (postID),
-    FOREIGN KEY (replyID) REFERENCES Reply (replyID)
+    FOREIGN KEY (postID) REFERENCES post (postID),
+    FOREIGN KEY (replyID) REFERENCES reply (replyID)
 );
 
 CREATE TABLE accesLevel (
@@ -104,12 +107,12 @@ CREATE TABLE userAccesLevel (
     userID                  int NOT NULL,
     accesLevelID            int NOT NULL,
     CONSTRAINT pk_userAccesLevel PRIMARY KEY (userID, accesLevelID),
-    FOREIGN KEY (userID) REFERENCES User (userID),
-    FOREIGN KEY (accesLevelID) REFERENCES AccesLevel (accesLevelID)
+    FOREIGN KEY (userID) REFERENCES user (userID),
+    FOREIGN KEY (accesLevelID) REFERENCES accesLevel (accesLevelID)
 );
 
 -- Create user and grant access to this specific database
-DROP USER 'dbuser'@'localhost';
+DROP USER IF EXISTS 'dbuser'@'localhost';
 CREATE USER 'dbuser'@'localhost' IDENTIFIED BY '1234';
 GRANT ALL PRIVILEGES ON boardgame_db.* To 'dbuser'@'localhost' IDENTIFIED BY '1234'; FLUSH PRIVILEGES;
 
@@ -117,9 +120,18 @@ GRANT ALL PRIVILEGES ON boardgame_db.* To 'dbuser'@'localhost' IDENTIFIED BY '12
 -- STORED PROCEDURES
 -- ---------------------------------
 
+-- log in
 DELIMITER $$
 CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_email`(IN input_email VARCHAR(255)) 
     BEGIN
-        SELECT userID, email, userPassword FROM User WHERE email = 'input_email' LIMIT 1;
+        SELECT userID, email, userPassword FROM user WHERE email = 'input_email' LIMIT 1;
+    END$$
+DELIMITER ;
+
+-- Sign up
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_new_user(IN input_email VARCHAR(255), IN input_username VARCHAR(255), IN input_password VARCHAR(255))
+    BEGIN
+        INSERT INTO user (email, userName, userPassword) VALUES (email = input_email, userName = input_username, userPassword = input_password);
     END$$
 DELIMITER ;

@@ -55,19 +55,21 @@
                             <strong>Boardgame forum</strong>
                         </h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" >
-                        <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
-                            amet, consectetur adipisicing elit.</p>
+                        <p>Do you want to know more about the Boardgame forum? Please visit our <a href="#">about</a> page. </p>
                     </div>
                     <!--/.First column-->
 
                     <!--Second column-->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 dark-grey-text">
                         <h6 class="text-uppercase font-weight-bold">
-                            <strong>Category</strong>
+                            <strong>Category & posts</strong>
                         </h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
                         <p>
-                            <a href="#!">Recent posts</a>
+                            <a href="#!">Category overview</a>
+                        </p>
+                        <p>
+                            <a href="#!">Newest posts</a>
                         </p>
                         <p>
                             <a href="#!">Popular posts</a>
@@ -85,10 +87,10 @@
                             <a href="http://localhost:41062/www/Forum/user/signUp_form.php" class="dark-grey-text">Sign up</a>
                         </p>
                         <p>
-                            <a href="#!">About</a>
+                            <a href="#!">Rules</a>
                         </p>
                         <p>
-                            <a href="#!">Boardgame forum rules</a>
+                            <a href="#!">FAQ</a>
                         </p>
                     </div>
                     <!--/.Third column-->

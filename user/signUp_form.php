@@ -25,7 +25,7 @@
                     <input class="form-control" type="text" placeholder="Username" name="username"><br>
                     <?php echo $msg_username_is_empty; ?>
                     <!-- password -->
-                    <input class="form-control" type="text" placeholder="Password" name="password"><br><br>
+                    <input class="form-control" type="text" placeholder="Password" name="password"><br>
                     <?php echo $msg_password_is_empty; ?>           
                     <input class="btn btn-primary btn-block" type="submit" name="submit" value="submit">
                     <p class="form-text text-muted" > Alrealdy signed up? please <a href="http://localhost:41062/www/Forum/user/login_form.php">log in </a></p>
