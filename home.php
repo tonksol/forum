@@ -3,7 +3,7 @@
 
 <html>
     <body id="home">      
-            <?php echo logout_message() ?> 
+            <?php echo logout_login_message() ?> 
 
 
         <div class="container">

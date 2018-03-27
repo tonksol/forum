@@ -44,13 +44,15 @@ function validate_email($input_email) {
     return $err;
 }
 
-function logout_message() {
+function logout_login_message() {
     $logout_message = "";
     if (isset($_GET['logout']) && $_GET['logout'] == 1) {
         // isset = if it exsists 
         // 1 = true
-        $logout_message = '<div class="alert alert-success" role="alert"> You have been succesfully logged out of you account! </div>';
-    } 
+        $logout_message = '<div class="alert alert-success" role="alert"> You have been succesfully logged out of your account! </div>';
+    } elseif (logged_in()) {
+        $logout_message = '<div class="alert alert-success" role="alert"> You are logged in! </div>';
+    };
     return $logout_message;
 }
 
