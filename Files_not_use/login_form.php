@@ -1,6 +1,9 @@
 <?php require_once ("login.php"); ?>
 <?php require ("../header.php"); ?> 
-
+<!-- 
+I don't use this any more because I have now a modal in the navbar 
+Before it was in the "user" folder 
+-->
 
 <html>
     <body id"log-in">

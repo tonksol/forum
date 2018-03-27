@@ -44,17 +44,98 @@
 */
 
 .modal-header {
-    background-color: #57BC90;
+    background-color: #77C9D4;
     color: #FFFFFF;
 }
 
+
+
+
 .modal-body {
-    color: #015249;
+    color: #000000;
     font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
 }
 
+.modal-body button {
+    background-color: #77C9D4;
+    border-color: #77C9D4;
+}
+
+.modal-body button:hover {
+    background-color: #A5A5AF;
+    border-color: #A5A5AF;
+}
+
+.col-form-label {  /* change the icons */
+    color: #77C9D4;
+    font-size: 1.2em;
+}
+
+.modal-body ::placeholder { 
+    color: #DEDEDE;
+    opacity: 1; /* Firefox */
+}
+
+.modal-body a {
+    color: #A5A5AF;
+}
+
+.modal-body a:hover {
+    color: #77C9D4;
+}
 
 
+.modal-footer {
+    background-color: #77C9D4;
+    color: #FFFFFF;
+}
+
+.modal-footer a {
+    color: #015249;
+}
+
+.modal-footer a:hover {
+    color: #A5A5AF;
+}
+
+
+/*
+-- ------------------------------
+-- Sign Up
+-- ------------------------------
+*/
+
+h3 {
+    color: #77C9D4;
+    font-weight: 500;
+}
+
+.signup {
+    color: #000000;
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+}
+
+.signup a {
+    color: #77C9D4;
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+}
+
+.btn-primary {
+    background-color: #77C9D4;
+    border-color: #77C9D4;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #A5A5AF;
+    border-color: #A5A5AF;
+}
+
+.signup ::placeholder { 
+    color: #DEDEDE;
+    opacity: 1; /* Firefox */
+}
 /*
 -- ------------------------------
 -- FOOTER

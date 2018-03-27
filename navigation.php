@@ -10,37 +10,17 @@
                       <form role="form" method="POST" action="http://localhost:41062/www/Forum/user/login.php" enctype="multipart/form-data">
                         <br>
                         <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">&#xf007;</label> <!-- label: email -->
-                            <div class="col-sm-10">
+                        <label for="inputEmail" class="col-sm-1 col-form-label">&#xf007;</label> <!-- label: email -->
+                            <div class="col-sm-11">
                                 <input type="email" class="form-control" name="email" id="inputEmail" placeholder="name@example.com">
-                            </div> <!-- ./ col-sm-10 -->
+                            </div> <!-- ./ col-sm-11 -->
                         </div> <!-- ./ form-group row -->
                         <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">&#xf023;</label> <!-- label: password -->
-                            <div class="col-sm-10">
+                            <label for="inputPassword" class="col-sm-1 col-form-label">&#xf023;</label> <!-- label: password -->
+                            <div class="col-sm-11">
                                 <input type="password" class="form-control" name="password" id="inputPassword" placeholder="your password">
-                            </div> <!-- ./ col-sm-10 -->
+                            </div> <!-- ./ col-sm-11 -->
                         </div> <!-- ./ form-group row -->
-
-<!--
-                    <form role="form" method="POST" action="http://localhost:41062/www/Forum/user/login.php" enctype="multipart/form-data">
-                        <input type="hidden" name="_token" value="">
-                        <br>
-                        <div class="form-group">
-                        
-                            <label class="control-label">&#xf007;</label> <!-- email -->
-<!--                            <div>
-                                <input type="email" class="form-control input-lg" name="email" id="inputEmail" placeholder="name@example.com">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label class="control-label">&#xf023;</label> <!-- password -->
-<!--                            <div>
-                                <input type="password" class="form-control input-lg" name="password" id="inputPassword" placeholder="your password">
-                            </div>
-                        </div>
--->
 
                         <div class="form-group">
                             <div>
@@ -60,7 +40,7 @@
                     </form>
                 </div>
                 <div class="modal-footer text-xs-center">
-                    Don't have an account? <a href="http://localhost:41062/www/Forum/user/signUp_form.php">Sign up »</a>
+                    Don't have an account? &nbsp;<a href="http://localhost:41062/www/Forum/user/signUp_form.php">Sign up</a>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
