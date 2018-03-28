@@ -1,4 +1,6 @@
 <?php
+require_once ("session.php");
+require_once ("connection.php");
 // write here all your functions
 // bedenk goed wat er in een functie gaat en wat eruit komt 
 

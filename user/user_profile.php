@@ -1,6 +1,5 @@
 <?php require_once ("../include/functions.php"); ?>
 <?php require_once ("../include/session.php"); ?>
-<?php // require_once("include/connection.php"); ?>
 <?php member_area(); ?>
 <?php require_once ("../header.php"); ?> 
 

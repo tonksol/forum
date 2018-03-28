@@ -29,8 +29,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- include the session, connection, functions and navbar -->
-    <?php require_once("include/session.php"); ?>
-    <?php require_once("include/connection.php"); ?>
-    <?php require_once("include/functions.php"); ?>
+ 
    
     <?php require ("navigation.php"); ?>        

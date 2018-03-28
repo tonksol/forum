@@ -1,3 +1,5 @@
+<?php require_once ("include/functions.php"); ?>  
+
  <!-- Log in Modal  -->
     <div id="loginModal" class="modal fade">
         <div class="modal-dialog">
