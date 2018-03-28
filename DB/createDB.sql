@@ -124,7 +124,7 @@ GRANT ALL PRIVILEGES ON boardgame_db.* To 'dbuser'@'localhost' IDENTIFIED BY '12
 DELIMITER $$
 CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_email`(IN input_email VARCHAR(255)) 
     BEGIN
-        SELECT userID, email, userPassword FROM user WHERE email = 'input_email' LIMIT 1;
+        SELECT `userID`, `email`, `userPassword` FROM `user` WHERE email = input_email LIMIT 1;
     END$$
 DELIMITER ;
 
@@ -132,6 +132,6 @@ DELIMITER ;
 DELIMITER $$
 CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_new_user(IN input_email VARCHAR(255), IN input_username VARCHAR(255), IN input_password VARCHAR(255))
     BEGIN
-        INSERT INTO user (email, userName, userPassword) VALUES (email = input_email, userName = input_username, userPassword = input_password);
+        INSERT INTO `user` (`email`, `userName`, `userPassword`) VALUES (input_email, input_username, input_password);
     END$$
 DELIMITER ;

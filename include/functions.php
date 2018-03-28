@@ -55,6 +55,14 @@ function logout_login_message() {
     };
     return $logout_message;
 }
+// TO DO!!!!  to call on signup_form 
+function login_fail_message() {
+    $login_fail = "";
+    if (!password_verify($password, $found_user['userPassword'])) {
+        $login_fail = "Please sign up or try again";
+    };
+    return $login_fail;
+}
 
 function login_logout_button_switch() {
     $which_button = "";

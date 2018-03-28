@@ -2,6 +2,8 @@
 <?php require_once("signUp.php"); ?>
 
 <html>
+   
+<?php //  TO DO: SEE FUNCTIONS     echo login_fail_message(); ?> 
     <body id"sign-up">
     <div class="container">
     <br><br><br>
