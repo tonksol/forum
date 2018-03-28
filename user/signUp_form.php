@@ -1,8 +1,11 @@
+<?php require_once ("../include/functions.php"); ?>
+<?php require_once ("../include/session.php"); ?>
+<?php echo member_area() ?> 
 <?php require ("../header.php"); ?> 
 <?php require_once("signUp.php"); ?>
 
 <html>
-   
+  
 <?php //  TO DO: SEE FUNCTIONS     echo login_fail_message(); ?> 
     <body id"sign-up">
     <div class="container">

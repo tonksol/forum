@@ -135,3 +135,13 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_new_user(IN input_email
         INSERT INTO `user` (`email`, `userName`, `userPassword`) VALUES (input_email, input_username, input_password);
     END$$
 DELIMITER ;
+
+
+
+-- get username from logged in user
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_username`(IN input_email VARCHAR(255)) 
+    BEGIN
+        SELECT `userID`, `email`, `userPassword` FROM `user` WHERE email = input_email LIMIT 1;
+    END$$
+DELIMITER ;

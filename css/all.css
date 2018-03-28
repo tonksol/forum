@@ -136,6 +136,22 @@ h3 {
     color: #DEDEDE;
     opacity: 1; /* Firefox */
 }
+
+
+/*
+-- ------------------------------
+-- USER PROFILE
+-- ------------------------------
+*/
+
+.user-cover {
+        height: 40em;
+        background: url("../images/cover1.jpg") no-repeat center center fixed;
+        background-size: cover;
+      
+  }
+
+
 /*
 -- ------------------------------
 -- FOOTER

@@ -8,6 +8,9 @@ function redirect_to($location) {
     header("Location: {$location}");
 }
 
+// -------------------------------------
+// VALIDATIONS
+// -------------------------------------
 
 // Check of the email field is not empty and set $error to true or false.
 // Return the $error set with the new value.
@@ -44,6 +47,10 @@ function validate_email($input_email) {
     return $err;
 }
 
+
+// -------------------------------------
+// LOG IN / LOG OUT
+// -------------------------------------
 function logout_login_message() {
     $logout_message = "";
     if (isset($_GET['logout']) && $_GET['logout'] == 1) {
@@ -72,4 +79,15 @@ function login_logout_button_switch() {
         $which_button = '<a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/user/logout.php">Log out</a></li>';
     }
     return $which_button;
+}
+
+// see also session.php
+function member_area() {
+    $please_login_message = "";
+    if (!logged_in()) {
+        $please_login_message .= "Please log in first to see this page.";
+         redirect_to("http://localhost:41062/www/Forum/user/signUp_form.php");
+        die;
+    }
+    return $please_login_message;
 }
