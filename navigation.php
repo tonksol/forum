@@ -67,7 +67,7 @@
                 <a class="nav-link" class="log-out" href="#">Rules</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/user/user_profile.php">My profile</a>
+                <a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/user/user_profile_html.php">My profile</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

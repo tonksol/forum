@@ -87,9 +87,26 @@ function login_logout_button_switch() {
 function member_area() {
     $please_login_message = "";
     if (!logged_in()) {
-        $please_login_message .= "Please log in first to see this page.";
+        $please_login_message = "Please log in first to see this page.";
          redirect_to("http://localhost:41062/www/Forum/user/signUp_form.php");
         die;
     }
     return $please_login_message;
+}
+
+
+// ------------
+// user profile
+
+function set_user_image() {
+    $query = "SELECT * FROM user WHERE email = 'tonksol@gmail.com'";
+    $result = mysqli_query($connection, $query);
+    if ($result->num_rows > 0){
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            $userImage = $row["userImage"];
+        }
+    }  else {
+            $userImage = "../images/user-image-placeholder.png";
+    }
 }

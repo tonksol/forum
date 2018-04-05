@@ -26,6 +26,18 @@ mysqli is only for MYSQL
 - put your logic in different files 
 -- insert into variable = back practice put it in a stored procedure. 
 
+# Verslag
+login
+signup
+
+login in popup modal
+switch the button on navbar to login logout
+
+- maked the user profile
+- only give acces to the user profile if the user is logged in
+
+- changed birthdate into birthday
+
 
 
 

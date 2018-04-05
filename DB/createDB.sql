@@ -18,7 +18,7 @@ CREATE TABLE user (
     firstName               varchar(100) NULL,
     prefix                  varchar(30) NULL,
     lastName                varchar(100) NULL,
-    birthdate               date NULL,
+    birthday                date NULL,
     userImage               varchar(255) NULL,
     email                   varchar(255) NULL,
     realEmail               boolean,
@@ -145,3 +145,11 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_username`(IN input_email 
         SELECT `userID`, `email`, `userPassword` FROM `user` WHERE email = input_email LIMIT 1;
     END$$
 DELIMITER ;
+
+-- get everything from logged in user
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_userinfo`(IN input_email VARCHAR(255)) 
+    BEGIN
+        SELECT `*` FROM `user` WHERE email = input_email LIMIT 1;
+    END$$
+DELIMITER ; 
