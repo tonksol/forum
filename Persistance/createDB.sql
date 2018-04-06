@@ -128,6 +128,13 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_email`(IN input_email VAR
     END$$
 DELIMITER ;
 
+-- DELIMITER $$
+-- CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_getLoginCredentials`(IN input_email VARCHAR(255), IN input_pass VARCHAR(255)) 
+--     BEGIN
+--        SELECT `userID`, `email`, `userPassword` FROM `user` WHERE email = input_email AND userPassword = input_pass LIMIT 1;
+--     END$$
+-- DELIMITER ;
+
 -- Sign up
 DELIMITER $$
 CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_new_user(IN input_email VARCHAR(255), IN input_username VARCHAR(255), IN input_password VARCHAR(255))

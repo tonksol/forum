@@ -1,13 +1,17 @@
 <?php require_once ("../include/functions.php"); ?>  
 
-<?php // echo member_area() ?> 
+
 <?php require ("header.php"); ?> 
 <?php require_once("../business/signUp.php"); ?>
+
 
 <html>
   
 <?php //  TO DO: SEE FUNCTIONS     echo login_fail_message(); ?> 
     <body id"sign-up">
+    <?php // echo login_fail_message(); 
+    
+    ?>
     <div class="container">
     <br><br><br>
             <!-- 

@@ -65,13 +65,15 @@ function logout_login_message() {
     return $logout_message;
 }
 // TO DO!!!!  to call on signup_form 
-function login_fail_message() {
+/*
+ function login_fail_message() {
     $login_fail = "";
     if (!password_verify($password, $found_user['userPassword'])) {
         $login_fail = "Please sign up or try again";
     };
     return $login_fail;
 }
+*/
 
 function login_logout_button_switch() {
     $which_button = "";
@@ -84,15 +86,27 @@ function login_logout_button_switch() {
 }
 
 // see also session.php
+// used in userProfile_page.php
 function member_area() {
-    $please_login_message = "";
+    $member = true; // you are a member
     if (!logged_in()) {
-        $please_login_message = "Please log in first to see this page.";
-         redirect_to("http://localhost:41062/www/Forum/presentation/signUp_form.php");
+         $member = false; // you are not a member
+         redirect_to("http://localhost:41062/www/Forum/presentation/home.php");
         die;
+    } else {
+        $member = false; // you are not a member
     }
-    return $please_login_message;
+    return $member;
 }
+
+function loginFirst_message() {
+    if (member_area() == false) {
+        return '<div class="alert alert-success" role="alert"> You must be a member to see this area. Please log in or sign up. </div>';
+    }
+}
+
+
+
 
 
 // ------------

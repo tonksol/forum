@@ -26,8 +26,6 @@ if (logged_in()) {
 					// and only 1 match
 					
 					$found_user = mysqli_fetch_array($result);
-
-					
 					// $password = password from form input. $found_user[] is hashed password from database
 					if(password_verify($password, $found_user['userPassword'])){
 						// password_verify matched the input password with the userPassword on the database. 
