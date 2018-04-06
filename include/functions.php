@@ -78,7 +78,7 @@ function login_logout_button_switch() {
     if (!logged_in()) {
         $which_button = '<a class="nav-link" class="log-in" href="#" data-toggle="modal" data-target="#loginModal">Log in</a></li>';
     } else {  
-        $which_button = '<a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/user/logout.php">Log out</a></li>';
+        $which_button = '<a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/business/logout.php">Log out</a></li>';
     }
     return $which_button;
 }
@@ -88,7 +88,7 @@ function member_area() {
     $please_login_message = "";
     if (!logged_in()) {
         $please_login_message = "Please log in first to see this page.";
-         redirect_to("http://localhost:41062/www/Forum/user/signUp_form.php");
+         redirect_to("http://localhost:41062/www/Forum/presentation/signUp_form.php");
         die;
     }
     return $please_login_message;

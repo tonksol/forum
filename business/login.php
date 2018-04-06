@@ -42,7 +42,7 @@ if (logged_in()) {
 						
 				} else {
 					// email/password combo was not found in the database got redirected to signup_form.php
-					redirect_to("http://localhost:41062/www/Forum/user/signUp_form.php");
+					redirect_to("http://localhost:41062/www/Forum/presentation/signUp_form.php");
 					$message = "Email/password combination incorrect.<br />
 						Please make sure your caps lock key is off and try again.";
 				}}

@@ -84,7 +84,7 @@
                         </h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
                         <p>
-                            <a href="http://localhost:41062/www/Forum/user/signUp_form.php" class="dark-grey-text">Sign up</a>
+                            <a href="http://localhost:41062/www/Forum/presentation/signUp_form.php" class="dark-grey-text">Sign up</a>
                         </p>
                         <p>
                             <a href="#!">Rules</a>

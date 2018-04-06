@@ -33,7 +33,7 @@ Before it was in the "user" folder
             </div>
             --> 
             
-            <p class="form-text text-muted" > Don't have a login? please <a href="http://localhost:41062/www/Forum/user/signUp_form.php"> sign up </a></p>
+            <p class="form-text text-muted" > Don't have a login? please <a href="http://localhost:41062/www/Forum/presentation/signUp_form.php"> sign up </a></p>
             <button type="submit" class="btn btn-primary" name="submit">Log in</button>
             <button type="" class="btn btn-primary" class="log-out-btn">Log out</button>
         </form>

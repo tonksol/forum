@@ -2,8 +2,8 @@
 require_once ("../include/functions.php");
 // require_once ("../include/session.php");
 member_area();
-require_once ("../presentation/header.php");  
-require_once ("user-profile.php");
+require_once ("header.php");  
+require_once ("../business/userProfile.php");
 // require_once ("uploadImage.php");
 ?>
 
@@ -43,7 +43,7 @@ require_once ("user-profile.php");
                    <h1>Personal profile info</h1>  
                    <br> 
                    <br>                
-                        <form action="user_profile_html.php" method="POST">
+                        <form action="userProfile_form.php" method="POST">
                         <input type="hidden" name="userID" value="<?php echo $userID; ?>">
                             <div class="form-group row">
                                 <label for="firstname" class="col-sm-2 col-form-label"><b>Firstname: </b></label> 

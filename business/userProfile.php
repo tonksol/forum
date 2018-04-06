@@ -18,7 +18,7 @@ require_once ("../include/functions.php");
 
 		mysqli_query($connection, $query); 
 		$_SESSION['message'] = "Address saved"; 
-		header('location: user_profile_html.php');
+		header('location: userProfile_page.php');
     }
     
     // update sql + id 

@@ -1,4 +1,4 @@
-<?php require_once ("../include/functions.php"); ?>  
+<?php require_once (__DIR__ . "/../include/functions.php"); ?>  
 
  <!-- Log in Modal  -->
     <div id="loginModal" class="modal fade">
@@ -9,7 +9,7 @@
                 </div>
                 <div class="modal-body">
 
-                      <form role="form" method="POST" action="http://localhost:41062/www/Forum/user/login.php" enctype="multipart/form-data">
+                      <form role="form" method="POST" action="http://localhost:41062/www/Forum/business/login.php" enctype="multipart/form-data">
                         <br>
                         <div class="form-group row">
                         <label for="inputEmail" class="col-sm-1 col-form-label">&#xf007;</label> <!-- label: email -->
@@ -42,7 +42,7 @@
                     </form>
                 </div>
                 <div class="modal-footer text-xs-center">
-                    Don't have an account? &nbsp;<a href="http://localhost:41062/www/Forum/user/signUp_form.php">Sign up</a>
+                    Don't have an account? &nbsp;<a href="http://localhost:41062/www/Forum/presentation/signUp_form.php">Sign up</a>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -67,7 +67,7 @@
                 <a class="nav-link" class="log-out" href="#">Rules</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/user/user_profile_html.php">My profile</a>
+                <a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/presentation/userProfile_page.php">My profile</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

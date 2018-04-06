@@ -1,8 +1,8 @@
 <?php require_once ("../include/functions.php"); ?>  
 
 <?php // echo member_area() ?> 
-<?php require ("../presentation/header.php"); ?> 
-<?php require_once("signUp.php"); ?>
+<?php require ("header.php"); ?> 
+<?php require_once("../business/signUp.php"); ?>
 
 <html>
   
@@ -55,4 +55,4 @@
     <br><br><br><br><br><br><br><br><br>
     </div> <!-- ./ container -->
 
-<?php require ("../presentation/footer.php"); ?>
+<?php require ("footer.php"); ?>
