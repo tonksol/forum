@@ -38,7 +38,7 @@ if (logged_in()) {
 						$_SESSION['userName'] = $found_user['userName'];
 						$_SESSION['email'] = $found_user['email'];
 						// store id and user in session on the server side.
-						redirect_to("http://localhost:41062/www/Forum/home.php");
+						redirect_to("http://localhost:41062/www/Forum/presentation/home.php");
 						
 				} else {
 					// email/password combo was not found in the database got redirected to signup_form.php

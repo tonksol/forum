@@ -1,9 +1,8 @@
 <?php
 require_once ("../include/functions.php");
 
-
 	if (isset($_POST['submit'])) {
-        
+        $userID = $_POST["userID"]; // is de id meegegeven
         $firstname = $_POST["firstName"];
         $prefix = $_POST["prefix"];
         $lastname = $_POST["lastName"];
@@ -13,6 +12,7 @@ require_once ("../include/functions.php");
         $username = $_POST["userName"];
         $quote = $_POST["quote"];
 
+        // veranderen naar update if geen id dan KAPOT anders update 
         $query = "INSERT INTO user (firstName, prefix, lastName, birthday, userImage, email, userName, quote) 
         VALUES ('$firstname', '$prefix', '$lastname', '$birthday', '$userImage', '$email' '$username', '$quote');";
 
@@ -23,8 +23,8 @@ require_once ("../include/functions.php");
     
     // update sql + id 
     // nieuwe data valideren 
-
-$query = "SELECT * FROM user WHERE email = 'tonksol@gmail.com'";
+    $userID = $_SESSION['user_id'];
+$query = "SELECT * FROM user WHERE userID = $userID";
 // "CALL proc_insert_new_user('tonksol@mail.com')";                  
 
     $result = mysqli_query($connection, $query);

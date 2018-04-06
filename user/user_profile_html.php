@@ -2,9 +2,9 @@
 require_once ("../include/functions.php");
 // require_once ("../include/session.php");
 member_area();
-require_once ("../header.php");  
+require_once ("../presentation/header.php");  
 require_once ("user-profile.php");
-require_once ("uploadImage.php");
+// require_once ("uploadImage.php");
 ?>
 
 
@@ -19,14 +19,16 @@ require_once ("uploadImage.php");
         <br>
         <div class="container">
             <div class="row">
-            <div class="col-sm-4"> <!-- the size of the row -->   
-            <img src="../images/user-image-placeholder.png" alt="profile-picture">
+            <div class="col-sm-4"> <!-- the size of the row --> 
+            <img src="<?php echo get_user_image($userImage) ?>" alt="profile-picture">
+
+                    <!--
                     <form action="uploadImage.php" method="post" enctype="multipart/form-data">
                         Select image to upload:
                         <input type="file" name="image"/>
                         <input type="submit" name="submit" value="UPLOAD"/>
                     </form>       
-                    
+                    -->
                     <!-- 
                         ../images/user-image-placeholder.png 
                         getUserImage.php?id=1
@@ -42,6 +44,7 @@ require_once ("uploadImage.php");
                    <br> 
                    <br>                
                         <form action="user_profile_html.php" method="POST">
+                        <input type="hidden" name="userID" value="<?php echo $userID; ?>">
                             <div class="form-group row">
                                 <label for="firstname" class="col-sm-2 col-form-label"><b>Firstname: </b></label> 
                                 <div class="col-sm-10">                              
@@ -67,7 +70,7 @@ require_once ("uploadImage.php");
                             <div class="form-group row">
                                 <label for="username" class="col-sm-2 col-form-label"><b>Username: </b></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="username"><br>
+                                    <input type="text" name="username" value="<?php echo $username ?>"><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
 
@@ -143,4 +146,10 @@ require_once ("uploadImage.php");
     </body>
 
 
-<?php require ("../footer.php"); ?>
+<?php require ("../presentation/footer.php"); ?>
+
+<!-- 
+ UPDATE fixen
+ Formulier fixen
+ 
+    -->

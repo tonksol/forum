@@ -98,15 +98,10 @@ function member_area() {
 // ------------
 // user profile
 
-function set_user_image() {
-    $query = "SELECT * FROM user WHERE email = 'tonksol@gmail.com'";
-    $result = mysqli_query($connection, $query);
-    if ($result->num_rows > 0){
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            $userImage = $row["userImage"];
-        }
-    }  else {
-            $userImage = "../images/user-image-placeholder.png";
+function get_user_image($imageUrl) {
+    if ($imageUrl == "" || $imageUrl == NULL){
+        return "../images/user-image-placeholder.png";       
+    } else {
+        return "../" . $imageUrl;
     }
 }

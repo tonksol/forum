@@ -3,7 +3,7 @@
 <?php
 // include the php files.
 require ("include/connection.php");
-require ("home.php");
+require ("presentation/home.php");
 
 ?>
 

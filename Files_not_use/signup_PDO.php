@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
         $statement->execute();
 
                 echo "You got succesfully signed up! <br>";
-                redirect_to("../home.php");
+                redirect_to("../presentation/home.php");
                 // http://localhost:41062/www/Forum/home.php
 
     }

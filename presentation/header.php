@@ -15,7 +15,7 @@
 
 
     <!-- My CSS -->
-    <link rel="stylesheet" type="text/css" href="css/all.css">
+    <link rel="stylesheet" type="text/css" href="all.css">
   </head>
 
   <body id="header">

@@ -1,4 +1,4 @@
-<?php require_once ("include/functions.php"); ?>  
+<?php require_once ("../include/functions.php"); ?>  
 
  <!-- Log in Modal  -->
     <div id="loginModal" class="modal fade">
@@ -52,7 +52,7 @@
 <!-- NAVBAR -->
 <div class="navbar-body">
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" class="home" href="http://localhost:41062/www/Forum/home.php"> BOARDGAME FORUM <span class="sr-only">(current)</span></a>  
+    <a class="navbar-brand" class="home" href="http://localhost:41062/www/Forum/presentation/home.php"> BOARDGAME FORUM <span class="sr-only">(current)</span></a>  
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>

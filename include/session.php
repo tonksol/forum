@@ -7,6 +7,6 @@
 	
 	function confirm_logged_in() {
 		if (!logged_in()) {
-			redirect_to("home.php");
+			redirect_to("/presentation/home.php");
 		}
 	}

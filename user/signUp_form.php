@@ -1,7 +1,7 @@
 <?php require_once ("../include/functions.php"); ?>  
 
 <?php // echo member_area() ?> 
-<?php require ("../header.php"); ?> 
+<?php require ("../presentation/header.php"); ?> 
 <?php require_once("signUp.php"); ?>
 
 <html>
@@ -55,4 +55,4 @@
     <br><br><br><br><br><br><br><br><br>
     </div> <!-- ./ container -->
 
-<?php require ("../footer.php"); ?>
+<?php require ("../presentation/footer.php"); ?>

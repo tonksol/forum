@@ -1,4 +1,4 @@
-<style> <?php require_once("css/all.css"); ?> </style>
+<style> <?php require_once("all.css"); ?> </style>
 <!--Footer-->
         <footer class="footer-body">
 
