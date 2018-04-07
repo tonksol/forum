@@ -6,7 +6,7 @@ require_once ("../include/session.php");
 // require_once ("../include/modal-form.js");
 
 if (logged_in()) {
-		// redirect_to("../home.php");
+		redirect_to("../home.php");
 		
 	}
 		// prefent that people can log in again when they are already logged in. 
@@ -17,6 +17,7 @@ if (logged_in()) {
 			$email = trim(mysqli_real_escape_string($connection, $_POST['email']));
 			$password = trim(mysqli_real_escape_string($connection,$_POST['password']));
 			// $query = "SELECT userID, email, userPassword FROM user WHERE email = '$email' LIMIT 1;";
+			// stored proc_get_user_by_email 
 			$query = "CALL proc_get_email('$email')";
 			// select the user from the database with: {$email}
 			$result = mysqli_query($connection, $query);
@@ -36,7 +37,7 @@ if (logged_in()) {
 						$_SESSION['userName'] = $found_user['userName'];
 						$_SESSION['email'] = $found_user['email'];
 						// store id and user in session on the server side.
-						redirect_to("http://localhost:41062/www/Forum/presentation/home.php");
+						header("Location: http://localhost:41062/www/forum/presentation/home.php");
 						
 				} else {
 					// email/password combo was not found in the database got redirected to signup_form.php
