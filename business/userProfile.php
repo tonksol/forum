@@ -11,20 +11,13 @@
         $email = $_POST["email"];
         $username = $_POST["username"];
         $quote = $_POST["quote"];
+        // UPDATE user SET firstName = '$firstname', prefix = '$prefix', lastName = '$lastname', birthday = '$birthday', email = '$email', userName = '$username', quote = '$quote'
+        // WHERE userID = $userID;
+        $query = "CALL proc_update_userinfo('$userID','$firstname', '$prefix', '$lastname', '$birthday', '$email', '$username', '$quote')";
 
-        // add `quote` = '$quote' to the set. 
-        $query = "UPDATE user
-            SET firstName = '$firstname', prefix = '$prefix', lastName = '$lastname', birthday = '$birthday', email = '$email', userName = '$username', quote = '$quote'
-            WHERE userID = $userID;";
 
-// , birthday = '$birthday', email = '$email', userName = '$username', quote = '$quote'
 
-        // veranderen naar update if geen id dan KAPOT anders update 
-        // $query = "INSERT INTO user (firstName, prefix, lastName, birthday, userImage, email, userName, quote) 
-        // VALUES ('$firstname', '$prefix', '$lastname', '$birthday', '$userImage', '$email' '$username', '$quote');";
-        if (isset($userID)) {       
-            
-            echo $firstname;     
+        if (isset($userID)) {    
             mysqli_query($connection, $query);
         } else {
             $_SESSION['update_failed_message'] = 'chancing user information not successful';
