@@ -23,6 +23,7 @@
             $_SESSION['update_failed_message'] = 'chancing user information not successful';
         }
     }
+  
     
     // update sql + id 
     // nieuwe data valideren 
@@ -43,4 +44,6 @@ $query = "SELECT * FROM user WHERE userID = $userID";
             $username = $row["userName"];
             $quote = $row["quote"];
         }
+        
     } 
+    

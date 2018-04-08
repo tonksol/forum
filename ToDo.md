@@ -1,17 +1,17 @@
 #TO DO
 
-- Create a user (test data)
-- adding css, bootstrap icons
-
 #USER
 - update the user information 
+- make the user information read only unless you are additing
+- https://www.w3schools.com/tags/att_input_readonly.asp
+- function for the submit and edit button
+- make the upload profile pic 
 
 # Sign up
 - sign in -- authentication if the email is a real email (boolean) add a column in the database 
 
 # Log in
 - build the code for remember my email for the login (logIn_form.php)
-- Build a user login, with email sending to confirm your login
 - if the user doesn't exsits send a message
 
 #logout
@@ -37,6 +37,8 @@ switch the button on navbar to login logout
 - only give acces to the user profile if the user is logged in
 
 - changed birthdate into birthday
+
+- put all the queries into stored procedures to prefent SQL injection
 
 
 
