@@ -38,8 +38,8 @@ if (isset($_POST['submit'])) {
 	} else {
 		// email/password combo was not found in the database got redirected to signup_form.php
 		redirect_to("http://localhost:41062/www/Forum/presentation/signUp_form.php");
-		$_SESSION['login_failed_message'] = "Email/password combination incorrect.<br />
-			Please make sure your caps lock key is off and try again.";
+		$_SESSION['login_failed_message'] = '<div class="alert alert-mygrey" role="alert">Email/password combination incorrect.<br/>
+			Please make sure your caps lock key is off and try again.</div>;';
 	}
 }
 

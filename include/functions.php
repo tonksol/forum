@@ -106,6 +106,6 @@ function get_user_image($imageUrl) {
     if ($imageUrl == "" || $imageUrl == NULL){
         return "../images/profilepic0.png";       
     } else {
-        return "../" . $imageUrl;
+        return "../images/" . $imageUrl;
     }
 }

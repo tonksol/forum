@@ -53,14 +53,14 @@ require_once ("../business/userProfile.php");
                             <div class="form-group row">
                             <label for="prefix" class="col-sm-2 col-form-label"><b>Prefix: </b></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="prefix"><br>
+                                    <input type="text" name="prefix" value="<?php echo $prefix ?>"><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
                             
                             <div class="form-group row">
                                 <label for="lastname" class="col-sm-2 col-form-label"><b>Lastname: </b></label>
                                 <div class="col-sm-10"> 
-                                    <input type="text" name="lastname"><br>
+                                    <input type="text" name="lastname" value="<?php echo $lastname ?>"><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
 
@@ -72,16 +72,23 @@ require_once ("../business/userProfile.php");
                             </div> <!-- ./ form-group row -->
 
                             <div class="form-group row">
+                                <label for="email" class="col-sm-2 col-form-label"><b>Email: </b></label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="email" value="<?php echo $email ?>"><br>
+                                </div> <!-- col-sm-10 -->
+                            </div> <!-- ./ form-group row -->
+
+                            <div class="form-group row">
                                 <label for="birthday" class="col-sm-2 col-form-label"><b>Birthday: </b></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="birthday"><br>
+                                    <input type="text" name="birthday" value="<?php echo $birthday?>"><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
 
                             <div class="form-group row">
                             <label for="birthday" class="col-sm-2 col-form-label"><b>Quote: </b></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="quote"><br>
+                                    <input type="text" name="quote" value="<?php echo $quote?>"><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
 
