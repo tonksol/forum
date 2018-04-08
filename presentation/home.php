@@ -8,9 +8,8 @@ require_once ("header.php");
 <html>
     <body id="home">      
             <?php 
-            // echo loginFirst_message();
-            // echo member_area();
-            echo logout_login_message();
+            echo login_succes_message();
+            echo logout_succes_message();
             ?>
 
 

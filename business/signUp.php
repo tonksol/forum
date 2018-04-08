@@ -19,6 +19,7 @@ if (isset($_POST["submit"])) {
 
     // Associative array where 'cost' is the name and 15 the value
     $iterations = ['cost' => 15];
+    // create the hasshed password: input password, using blowfish algo
     $hashed_password = password_hash($password, PASSWORD_BCRYPT, $iterations);
     // check what field is empty and tell the user what field is empty 
     if (field_not_empty($email)) {

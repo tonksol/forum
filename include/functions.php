@@ -9,6 +9,7 @@ require_once ("connection.php");
 function redirect_to($location) {
     header("Location: {$location}");
 }
+// set location header in the response header (request can only be set by the browser.)
 
 // -------------------------------------
 // VALIDATIONS
@@ -53,27 +54,28 @@ function validate_email($input_email) {
 // -------------------------------------
 // LOG IN / LOG OUT
 // -------------------------------------
-function logout_login_message() {
-    $logout_message = "";
-    if (isset($_GET['logout']) && $_GET['logout'] == 1) {
-        // isset = if it exsists 
-        // 1 = true
-        $logout_message = '<div class="alert alert-success" role="alert"> You have been succesfully logged out of your account! </div>';
-    } elseif (logged_in()) {
-        $logout_message = '<div class="alert alert-success" role="alert"> You are logged in! </div>';
-    };
-    return $logout_message;
+
+    // called on home.php
+function login_succes_message() {
+    if (logged_in()) {
+        return '<div class="alert alert-mygreen" role="alert"> Log in successful </div>';
+    }
 }
-// TO DO!!!!  to call on signup_form 
-/*
+
+    // calles on home.php
+function logout_succes_message() {
+    if (!isset($_COOKIE[session_name()])){
+        return '<div class="alert alert-mygrey" role="alert"> Log out successful </div>';
+    }
+}
+
+    // called on signUp_form
  function login_fail_message() {
-    $login_fail = "";
-    if (!password_verify($password, $found_user['userPassword'])) {
-        $login_fail = "Please sign up or try again";
-    };
-    return $login_fail;
+    if (!empty($_SESSION['login_failed_message'])) {
+        echo "<p>" . $_SESSION['login_failed_message'] . "</p>";
+    }
 }
-*/
+
 
 function login_logout_button_switch() {
     $which_button = "";
@@ -102,7 +104,7 @@ function member_area() {
 
 function get_user_image($imageUrl) {
     if ($imageUrl == "" || $imageUrl == NULL){
-        return "../images/user-image-placeholder.png";       
+        return "../images/profilepic0.png";       
     } else {
         return "../" . $imageUrl;
     }

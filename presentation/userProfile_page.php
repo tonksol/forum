@@ -29,10 +29,7 @@ require_once ("../business/userProfile.php");
                         <input type="submit" name="submit" value="UPLOAD"/>
                     </form>       
                     -->
-                    <!-- 
-                        ../images/user-image-placeholder.png 
-                        getUserImage.php?id=1
-                    -->
+            
                     <br>
                         <div class="caption">
                         <p>Lorem ipsum...</p>

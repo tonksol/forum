@@ -25,7 +25,8 @@ CREATE TABLE user (
     userName                varchar(255) NULL,
     userPassword            varchar(255) NULL,
     themePreferences        varchar(255) NULL,
-    quote                   varchar(255)
+    quote                   varchar(255),
+    CONSTRAINT uc_email UNIQUE(email)
 );
 
 CREATE TABLE userBadge (
@@ -124,7 +125,7 @@ GRANT ALL PRIVILEGES ON boardgame_db.* To 'dbuser'@'localhost' IDENTIFIED BY '12
 DELIMITER $$
 CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_email`(IN input_email VARCHAR(255)) 
     BEGIN
-        SELECT `userID`, `email`, `userPassword` FROM `user` WHERE email = input_email LIMIT 1;
+        SELECT `userID`, `email`, `userPassword` FROM `user` WHERE email = input_email;
     END$$
 DELIMITER ;
 

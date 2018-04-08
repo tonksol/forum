@@ -17,9 +17,10 @@ require_once('../include/session.php');
 		if(isset($_COOKIE[session_name()])) {
 			setcookie(session_name(), '', time()-42000, '/');
 		}
+		// Send extra header to set the cookie whith the expire date in the past. And the browser will clean up the cookie.
 		
-		// 4. Destroy the session
+		// 4. Destroy the session at the server side
 		session_destroy();
 		
-		redirect_to('http://localhost:41062/www/Forum/presentation/home.php?logout=1');
+		redirect_to('http://localhost:41062/www/Forum/presentation/home.php');
 ?>

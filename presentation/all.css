@@ -1,6 +1,7 @@
 /* 
     #77C9D4 Feather
     #57BC90 marine
+        #abddc7 same green but lighter 
     #015249 Forest
     #A5A5AF sleek grey
     #F5F5F5 very light grey
@@ -151,6 +152,20 @@ h3 {
       
   }
 
+/*
+-- ------------------------------
+-- ALERTS messages
+-- ------------------------------
+*/
+    .alert-mygreen {
+        color: #015249;
+        background-color: #abddc7;
+    }
+
+    .alert-mygrey {
+        color: #000000;
+        background-color: #DEDEDE;
+    }
 
 /*
 -- ------------------------------
