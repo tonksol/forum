@@ -72,7 +72,7 @@ function logout_succes_message() {
     // called on signUp_form
  function login_fail_message() {
     if (!empty($_SESSION['login_failed_message'])) {
-        echo "<p>" . $_SESSION['login_failed_message'] . "</p>";
+        echo '<div class="alert alert-mygrey" role="alert">' . $_SESSION['login_failed_message'] . '</div>;';
     }
 }
 
@@ -107,5 +107,12 @@ function get_user_image($imageUrl) {
         return "../images/profilepic0.png";       
     } else {
         return "../images/" . $imageUrl;
+    }
+}
+
+   // called on userProfile_page.php
+   function update_userinfo_fail_message() {
+    if (!empty($_SESSION['update_failed_message'])) {
+        echo '<div class="alert alert-mygrey" role="alert">' . $_SESSION['update_failed_message'] . '<br/></div>';
     }
 }

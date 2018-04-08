@@ -14,11 +14,10 @@ if (logged_in()) {
 	// Form has been submitted.
 if (isset($_POST['submit'])) { 
 	$email = trim(mysqli_real_escape_string($connection, $_POST['email']));
-		// trim removes, whitespace like tab or space.
+		// trim removes, whitespace (like tab or space.)
 		// mysqli_real_escape_string senatise the data. Prefent SQL injection by adding /. 
 	$password = trim(mysqli_real_escape_string($connection,$_POST['password']));
 		// $query = "SELECT userID, email, userPassword FROM user WHERE email = '$email' LIMIT 1;";
-		// stored proc_get_user_by_email 
 	$query = "CALL proc_get_email('$email')";
 		// select the user from the database with: {$email}
 	$result = mysqli_query($connection, $query);
@@ -38,8 +37,7 @@ if (isset($_POST['submit'])) {
 	} else {
 		// email/password combo was not found in the database got redirected to signup_form.php
 		redirect_to("http://localhost:41062/www/Forum/presentation/signUp_form.php");
-		$_SESSION['login_failed_message'] = '<div class="alert alert-mygrey" role="alert">Email/password combination incorrect.<br/>
-			Please make sure your caps lock key is off and try again.</div>;';
+		$_SESSION['login_failed_message'] = 'Email/password combination incorrect.<br/> Please make sure your caps lock key is off and try again.';
 	}
 }
 

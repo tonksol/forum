@@ -12,7 +12,7 @@ require_once ("../business/userProfile.php");
     <!-- https://www.codeply.com/view/r0DGunLiWs -->
     <body>      
         <div class = "user-cover">
-        
+        <?php echo update_userinfo_fail_message(); ?>
         </div> <!-- ./ user-cover -->
         <br>
         <br>
