@@ -10,147 +10,108 @@ require_once ("../business/userProfile.php");
 
 <html>
     <!-- https://www.codeply.com/view/r0DGunLiWs -->
-    <body>      
-        <div class = "user-cover">
+<body>      
+    <div class = "user-cover">
         <?php echo update_userinfo_fail_message(); ?>
-        </div> <!-- ./ user-cover -->
-        <br>
-        <br>
-        <br>
-        <div class="container">
-            <div class="row">
-            <div class="col-sm-4"> <!-- the size of the row --> 
-            <img src="<?php echo get_user_image($userImage) ?>" alt="profile-picture">
+    </div> <!-- ./ user-cover -->
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-4"> <!-- the size of the row --> 
+        <center><img src="<?php echo get_user_image($userImage) ?>" alt="profile-picture"></center>
 
-                    <!--
-                    <form action="uploadImage.php" method="post" enctype="multipart/form-data">
-                        Select image to upload:
-                        <input type="file" name="image"/>
-                        <input type="submit" name="submit" value="UPLOAD"/>
-                    </form>       
-                    -->
-            
+                <!--
+                <form action="uploadImage.php" method="post" enctype="multipart/form-data">
+                    Select image to upload:
+                    <input type="file" name="image"/>
+                    <input type="submit" name="submit" value="UPLOAD"/>
+                </form>       
+                -->
+        
                     <br>
-                        <div class="caption">
-                        <p>Lorem ipsum...</p>
-                        </div>
+            <div class="caption">
+                <p><b><center><?php echo $username ?></center></b></p>
                 </div>
+            </div>
+        
+    
                 <!-- labels and info -->
-                <div class="col-sm-8">
-                   <h1>Personal profile info</h1>  
-                   <br> 
-                   <br>                
-                        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" id="userinfo">
-                        <input type="hidden" name="userID" value="<?php echo $userID; ?>">
-                            <div class="form-group row">
-                                <label for="firstname" class="col-sm-2 col-form-label"><b>Firstname: </b></label> 
-                                <div class="col-sm-10">                              
-                                    <input type="text" name="firstname" value="<?php echo $firstname ?>" <?php echo editable_form(); ?>><br>
-                                </div> <!-- col-sm-10 -->
-                            </div> <!-- ./ form-group row -->
-                            
+    <div class="col-sm-6">
+        <h1>Personal profile info</h1>  
+        <br> 
+        <br>                
+        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="userinfo">
 
-                            <div class="form-group row">
-                            <label for="prefix" class="col-sm-2 col-form-label"><b>Prefix: </b></label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="prefix" value="<?php echo $prefix ?>" <?php echo editable_form(); ?>><br>
-                                </div> <!-- col-sm-10 -->
-                            </div> <!-- ./ form-group row -->
-                            
-                            <div class="form-group row">
-                                <label for="lastname" class="col-sm-2 col-form-label"><b>Lastname: </b></label>
-                                <div class="col-sm-10"> 
-                                    <input type="text" name="lastname" value="<?php echo $lastname ?>" <?php echo editable_form(); ?>><br>
-                                </div> <!-- col-sm-10 -->
-                            </div> <!-- ./ form-group row -->
+        <input type="hidden" name="userID" value="<?php echo $userID; ?>">
+            <div class="form-group row">
+                <label for="firstname" class="col-sm-3 col-form-label"><b>Firstname: </b></label> 
+                <div class="col-sm-9">                              
+                    <input type="text" name="firstname" value="<?php echo $firstname ?>" <?php echo editable_form(); ?>><br>
+                </div> <!-- col-sm-10 -->
+            </div> <!-- ./ form-group row -->
+            
 
-                            <div class="form-group row">
-                                <label for="username" class="col-sm-2 col-form-label"><b>Username: </b></label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="username" value="<?php echo $username ?>" <?php echo editable_form(); ?>><br>
-                                </div> <!-- col-sm-10 -->
-                            </div> <!-- ./ form-group row -->
+            <div class="form-group row">
+            <label for="prefix" class="col-sm-3 col-form-label"><b>Prefix: </b></label>
+                <div class="col-sm-9">
+                    <input type="text" name="prefix" value="<?php echo $prefix ?>" <?php echo editable_form(); ?>><br>
+                </div> <!-- col-sm-9 -->
+            </div> <!-- ./ form-group row -->
+            
+            <div class="form-group row">
+                <label for="lastname" class="col-sm-3 col-form-label"><b>Lastname: </b></label>
+                <div class="col-sm-9"> 
+                    <input type="text" name="lastname" value="<?php echo $lastname ?>" <?php echo editable_form(); ?>><br>
+                </div> <!-- col-sm-9 -->
+            </div> <!-- ./ form-group row -->
 
-                            <div class="form-group row">
-                                <label for="email" class="col-sm-2 col-form-label"><b>Email: </b></label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="email" value="<?php echo $email ?>" <?php echo editable_form(); ?>><br>
-                                </div> <!-- col-sm-10 -->
-                            </div> <!-- ./ form-group row -->
+            <div class="form-group row">
+                <label for="username" class="col-sm-3 col-form-label"><b>Username: </b></label>
+                <div class="col-sm-9">
+                    <input type="text" name="username" value="<?php echo $username ?>" <?php echo editable_form(); ?>><br>
+                </div> <!-- col-sm-9 -->
+            </div> <!-- ./ form-group row -->
 
-                            <div class="form-group row">
-                                <label for="birthday" class="col-sm-2 col-form-label"><b>Birthday: </b></label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="birthday" value="<?php echo $birthday?>" <?php echo editable_form(); ?>><br>
-                                </div> <!-- col-sm-10 -->
-                            </div> <!-- ./ form-group row -->
+            <div class="form-group row">
+                <label for="email" class="col-sm-3 col-form-label"><b>Email: </b></label>
+                <div class="col-sm-9">
+                    <input type="text" name="email" value="<?php echo $email ?>" <?php echo editable_form(); ?>><br>
+                </div> <!-- col-sm-9 -->
+            </div> <!-- ./ form-group row -->
 
-                            <div class="form-group row">
-                            <label for="birthday" class="col-sm-2 col-form-label"><b>Quote: </b></label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="quote" value="<?php echo $quote?>" <?php echo editable_form(); ?>><br>
-                                </div> <!-- col-sm-10 -->
-                            </div> <!-- ./ form-group row -->
+            <div class="form-group row">
+                <label for="birthday" class="col-sm-3 col-form-label"><b>Birthday: </b></label>
+                <div class="col-9">
+                    <input type="text" name="birthday" value="<?php echo $birthday?>" <?php echo editable_form(); ?>><br>
+                </div> <!-- col-sm-9 -->
+            </div> <!-- ./ form-group row -->
 
-                            <input type="hidden" name="form_submitted" value="1" />
-                            
-                            <?php echo edit_submit_button_switch();?>                            
+            <div class="form-group row">
+            <label for="birthday" class="col-3 col-form-label"><b>Quote: </b></label>
+                <div class="col-lg-9">
+                    <input type="text" name="quote" value="<?php echo $quote?>" <?php echo editable_form(); ?>><br>
+                </div> <!-- col-sm-10 -->
+            </div> <!-- ./ form-group row -->
+            
+            <!-- edit or submit button-->
+            <?php echo edit_submit_button_switch();?>                            
+        </form>
+    <br>
+    <br>
+    <br>
 
-                        </form>
-                        <br>
-                        <br>
-                        <br>
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                <th scope="row">Firstname: </th>
-                                    <td><?php echo $firstname ?> </td>    
-                                </tr>
-                                <tr>
-                                <th scope="row">Prefix: </th>
-                                    <td><?php echo $prefix ?> </td>
-                                </tr>
-                                <tr>
-                                <th scope="row">Lastname: </th>
-                                    <td><?php echo $lastname ?></td>
-                                </tr>
-                                <tr>
-                                <th scope="row">Username: </th>
-                                <td><?php echo $username ?></td>
-                                </tr>
-                                <tr>
-                                <th scope="row">Birthday: </th>
-                                <td><?php echo $birthday ?></td>
-                                </tr>
-                                <tr>
-                                <th scope="row">Quote: </th>
-                                <td><?php echo $quote ?></td>
-                                </tr>
-                            </tbody>
-                        
-                        </table>
-                </div> <!-- ./ col-sm-8 -->
-            </div> <!-- ./ col-sm-4 -->
+        </div> <!-- ./ col-sm-6 -->
+        </div> <!-- ./ col-sm-4 -->
+        </div> <!-- ./ row -->
             
             <br>
             <br>
-            
-            <div class="col-sm-2">
-
-                <input class="btn btn-primary btn-block" type="button" name="edit" value="edit info"><br>
-            </div> <!-- ./ col-sm-2 -->
-            </div> <!-- ./ row -->
             <br>
             <br>
             <br>
-	    </div> <!-- ./ container --> 
-    </body>
-
+    </div> <!-- ./ container --> 
+</body>
 
 <?php require ("../presentation/footer.php"); ?>
-
-<!-- 
- UPDATE fixen
- Formulier fixen
- 
-    -->

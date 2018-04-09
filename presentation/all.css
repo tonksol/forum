@@ -133,6 +133,11 @@ h3 {
     border-color: #A5A5AF;
 }
 
+.btn-primary:active {
+    background-color: #DEDEDE;
+    border-color: #DEDEDE;
+}
+
 .signup ::placeholder { 
     color: #DEDEDE;
     opacity: 1; /* Firefox */
@@ -151,6 +156,11 @@ h3 {
         background-size: cover;
       
   }
+
+ .userinfo input{
+    border: 0px;
+    width: 100%;
+ }
 
 /*
 -- ------------------------------
