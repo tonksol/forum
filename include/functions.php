@@ -118,11 +118,19 @@ function get_user_image($imageUrl) {
 }
 
 
-// WERKT NOG NIET GOED!
 function edit_submit_button_switch() {
     if (isset($_POST["edit"]) && !empty($_POST["edit"])) {
         return "<input class='btn btn-primary btn-block' type='submit' name='submit' value='submit'>";
         } else {  
         return "<input class='btn btn-primary btn-block' type='submit' name='edit' value='edit info'>";
+    }
+}
+
+function editable_form() {
+    $readonly = "readonly";
+    if (isset($_POST["edit"]) && !empty($_POST["edit"])){
+        return ""; // editable, you can see the submit button
+    } else {
+        return "readonly "; // not editable, you can see the edit button
     }
 }

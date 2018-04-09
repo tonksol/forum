@@ -40,12 +40,12 @@ require_once ("../business/userProfile.php");
                    <h1>Personal profile info</h1>  
                    <br> 
                    <br>                
-                        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+                        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" id="userinfo">
                         <input type="hidden" name="userID" value="<?php echo $userID; ?>">
                             <div class="form-group row">
                                 <label for="firstname" class="col-sm-2 col-form-label"><b>Firstname: </b></label> 
                                 <div class="col-sm-10">                              
-                                    <input type="text" name="firstname" value="<?php echo $firstname ?>"><br>
+                                    <input type="text" name="firstname" value="<?php echo $firstname ?>" <?php echo editable_form(); ?>><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
                             
@@ -53,42 +53,42 @@ require_once ("../business/userProfile.php");
                             <div class="form-group row">
                             <label for="prefix" class="col-sm-2 col-form-label"><b>Prefix: </b></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="prefix" value="<?php echo $prefix ?>"><br>
+                                    <input type="text" name="prefix" value="<?php echo $prefix ?>" <?php echo editable_form(); ?>><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
                             
                             <div class="form-group row">
                                 <label for="lastname" class="col-sm-2 col-form-label"><b>Lastname: </b></label>
                                 <div class="col-sm-10"> 
-                                    <input type="text" name="lastname" value="<?php echo $lastname ?>"><br>
+                                    <input type="text" name="lastname" value="<?php echo $lastname ?>" <?php echo editable_form(); ?>><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
 
                             <div class="form-group row">
                                 <label for="username" class="col-sm-2 col-form-label"><b>Username: </b></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="username" value="<?php echo $username ?>"><br>
+                                    <input type="text" name="username" value="<?php echo $username ?>" <?php echo editable_form(); ?>><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
 
                             <div class="form-group row">
                                 <label for="email" class="col-sm-2 col-form-label"><b>Email: </b></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="email" value="<?php echo $email ?>"><br>
+                                    <input type="text" name="email" value="<?php echo $email ?>" <?php echo editable_form(); ?>><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
 
                             <div class="form-group row">
                                 <label for="birthday" class="col-sm-2 col-form-label"><b>Birthday: </b></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="birthday" value="<?php echo $birthday?>"><br>
+                                    <input type="text" name="birthday" value="<?php echo $birthday?>" <?php echo editable_form(); ?>><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
 
                             <div class="form-group row">
                             <label for="birthday" class="col-sm-2 col-form-label"><b>Quote: </b></label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="quote" value="<?php echo $quote?>"><br>
+                                    <input type="text" name="quote" value="<?php echo $quote?>" <?php echo editable_form(); ?>><br>
                                 </div> <!-- col-sm-10 -->
                             </div> <!-- ./ form-group row -->
 
