@@ -116,3 +116,13 @@ function get_user_image($imageUrl) {
         echo '<div class="alert alert-mygrey" role="alert">' . $_SESSION['update_failed_message'] . '<br/></div>';
     }
 }
+
+
+// WERKT NOG NIET GOED!
+function edit_submit_button_switch() {
+    if (isset($_POST["edit"]) && !empty($_POST["edit"])) {
+        return "<input class='btn btn-primary btn-block' type='submit' name='submit' value='submit'>";
+        } else {  
+        return "<input class='btn btn-primary btn-block' type='submit' name='edit' value='edit info'>";
+    }
+}

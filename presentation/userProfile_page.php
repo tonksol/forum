@@ -40,7 +40,7 @@ require_once ("../business/userProfile.php");
                    <h1>Personal profile info</h1>  
                    <br> 
                    <br>                
-                        <form action="userProfile_page.php" method="POST">
+                        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
                         <input type="hidden" name="userID" value="<?php echo $userID; ?>">
                             <div class="form-group row">
                                 <label for="firstname" class="col-sm-2 col-form-label"><b>Firstname: </b></label> 
@@ -94,10 +94,7 @@ require_once ("../business/userProfile.php");
 
                             <input type="hidden" name="form_submitted" value="1" />
                             
-                            <input class="btn btn-primary btn-block" type="submit" name="submit" value="submit">
-                            <input class="btn btn-primary btn-block" type="button" name="edit" value="edit info"><br>
-                            <br>
-                            
+                            <?php echo edit_submit_button_switch();?>                            
 
                         </form>
                         <br>

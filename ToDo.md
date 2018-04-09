@@ -1,7 +1,6 @@
 #TO DO
 
 #USER
-- update the user information 
 - make the user information read only unless you are additing
 - https://www.w3schools.com/tags/att_input_readonly.asp
 - function for the submit and edit button
