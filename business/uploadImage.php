@@ -30,6 +30,7 @@ if(isset($_POST["submit"])){
 
 // Defines (bepalen) a named constant
 define ("MAX_SIZE","3000");
+$userID = $_SESSION['user_id'];
 
  function getExtension($string) {
         // strrpos = Find the position of the last occurrence(laatste instantie) of a substring in a string
@@ -45,7 +46,7 @@ define ("MAX_SIZE","3000");
  }
 
 $errors=0;
-if (isset($_POST["submit"])) {
+if (isset($_POST["submit"])) { 
     $image = $_FILES['image']['name'];
  	if ($image) {
          // Un-quotes a quoted string
@@ -61,7 +62,7 @@ if (isset($_POST["submit"])) {
             // get filesize
             $size = filesize($_FILES['image']['tmp_name']);
             
-            // if the size is bigger then ... error message
+            // if the size is bigger then ... error message filesize = bytes ( calculation for mb)
             if ($size > MAX_SIZE*1024) {
                 echo '<h1>Image is to big: Max 3 Mb!</h1>';
                 $errors=1;
@@ -81,9 +82,9 @@ if (isset($_POST["submit"])) {
 }
 
 // if there are no errors execute query
-if(isset($_POST['Submit']) && !$errors) {
-    $query = "UPDATE user SET userImage = $filename WHERE userID = $userID";
+if(isset($_POST['submit']) && !$errors) {
+    $query = "UPDATE `user` SET `userImage` = '$image' WHERE `userID` = $userID";
     $result = mysqli_query($connection, $query);
     echo "<h1>Image succesful uploaded!</h1>";
-    redirect_to("userProfile_page.php");
+    redirect_to("../presentation/userProfile_page.php");
 }
