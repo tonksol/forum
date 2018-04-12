@@ -1,9 +1,6 @@
 #TO DO
 
 #USER
-- make the user information read only unless you are additing
-- https://www.w3schools.com/tags/att_input_readonly.asp
-- function for the submit and edit button
 - make the upload profile pic 
 
 # Sign up
@@ -23,7 +20,7 @@ mysqli is only for MYSQL
 
 
 - put your logic in different files 
--- insert into variable = back practice put it in a stored procedure. 
+- insert into variable = back practice put it in a stored procedure. 
 
 # Verslag
 login
@@ -38,6 +35,9 @@ switch the button on navbar to login logout
 - changed birthdate into birthday
 
 - put all the queries into stored procedures to prefent SQL injection
+- make the user information read only unless you are additing
+- function for switching the submit and edit button
+
 
 
 

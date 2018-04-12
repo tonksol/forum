@@ -22,13 +22,13 @@ require_once ("../business/userProfile.php");
         <div class="col-sm-4"> <!-- the size of the row --> 
         <center><img src="<?php echo get_user_image($userImage) ?>" alt="profile-picture"></center>
 
-                <!--
-                <form action="uploadImage.php" method="post" enctype="multipart/form-data">
+
+                <form action="../business/uploadImage.php" method="post" enctype="multipart/form-data">
                     Select image to upload:
                     <input type="file" name="image"/>
                     <input type="submit" name="submit" value="UPLOAD"/>
                 </form>       
-                -->
+
         
                     <br>
             <div class="caption">
