@@ -162,3 +162,21 @@ BEGIN
     WHERE userID = input_userID;
     END$$
 DELIMITER ; 
+
+-- update profile picture
+-- UPDATE `user` SET `userImage` = '$newname' WHERE `userID` = $userID
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_update_profilepicture`
+    (
+        IN input_userID int,
+        IN input_userImage varchar(255)
+    ) 
+BEGIN 
+    UPDATE `user`
+    SET `userImage` = input_userImage
+    WHERE `userID` = input_userID;
+    END$$
+DELIMITER ; 
+
+
+
