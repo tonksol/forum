@@ -1,7 +1,7 @@
 #TO DO
 
 #USER
-- make the upload profile pic 
+- resize the uploaded picture in uploadImage.php
 
 # Sign up
 - sign in -- authentication if the email is a real email (boolean) add a column in the database 
