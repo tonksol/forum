@@ -6,31 +6,54 @@ require_once("../business/categoryOverview.php");
 
 <br><br>
 <div class="container">
+        <?php 
+            for($i = 0; $i < count($row); ++$i) {
+                $row[$i];
+            }
+
+        ?>
+<!--
+        <?php //foreach ($categoryName as $name) { ?>
+        <td><?php //echo $name ?></td>
+        <br>
+        <?php // } ?>
+
+        <?php //if(is_array($categoryDescription)){
+            //foreach ($categoryDescription as $description) { ?>
+            <td><?php //echo $description ?></td>
+            <br>
+            <br>
+        <?php // }} ?>
+-->
     <table class="table table-striped">
     <thead>
         <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Number of posts</th>
-        <th scope="col">latest posts</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+        <th scope="col">Topic</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-        <th scope="row">1</th>
-        <td><?php echo $categoryName ?></td>
-        <td>10</td>
-        <td>12-04-2018 19:03</td>
-        </tr>
+        
+        <?php foreach ($categoryName as $name) { ?>
+        <?php echo '<tr><td>', $name, '</td>'?>
+        <?php } ?>
+        
+        <?php foreach ($categoryDescription as $d) { ?>
+        <?php echo '<td>', $d, '</td></tr>'?>
+        <?php } ?>
+
+
         <tr>
         <th scope="row">2</th>
-        <td><?php echo $categoryName ?></td>
+        <td></td>
         <td>Thornton</td>
         <td>@fat</td>
         </tr>
         <tr>
         <th scope="row">3</th>
-        <td><?php echo $categoryName ?></td>
+        <td></td>
         <td>the Bird</td>
         <td>@twitter</td>
         </tr>

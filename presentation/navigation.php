@@ -72,9 +72,12 @@
             <li class="nav-item">
                 <a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/presentation/category.php">Category</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/presentation/admin_page.php">Admin</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Category
+                example
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Action</a>

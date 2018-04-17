@@ -7,7 +7,6 @@
         $prefix = $_POST["prefix"];
         $lastname = $_POST["lastname"];
         $birthday = $_POST["birthday"];
-        // $userImage = $_POST["userImage"];
         $email = $_POST["email"];
         $username = $_POST["username"];
         $quote = $_POST["quote"];
@@ -25,10 +24,20 @@
   
     $userID = $_SESSION['user_id'];
 
-    $query = "SELECT * FROM user WHERE userID = $userID";
-     
-// "CALL proc_insert_new_user('tonksol@mail.com')";                  
+    // SELECT * FROM user WHERE userID = $userID
+    // CALL proc_select_all_from_user('$userId')
+    $query = "CALL proc_select_all_from_user('$userID')";
+            // $query2 = "CALL proc_select_the_badges('$userID')";
+                // SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID
+                // TO DO: change query to stored procedure. Stored procudure is working. 
+     $query2 = "SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID";  
+    
+    $result2 = mysqli_query($connection, $query2);        
+        //var_dump($result2);
     $result = mysqli_query($connection, $query);
+        // var_dump($result);
+    
+    // var_dump($result);
     if ($result->num_rows > 0){
         while ($row = $result->fetch_assoc()) {
             $userId = $row["userID"];
@@ -42,14 +51,12 @@
             $quote = $row["quote"];
 
             // SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID
-            $query2 = "SELECT * FROM badge as b
-            JOIN userBadge as ub ON b.badgeID = ub.badgeID
-            WHERE ub.userID = $userID";
-
-            $result2 = mysqli_query($connection, $query2);
-            while ($row = $result2->fetch_assoc()) {
-                    $badge[] = $row['badgeImage'];
-            }
+            // CALL proc_select_the_badges('$userID')
+           
+        
+             while ($row2 = $result2->fetch_array()) {
+                    $badge[] = $row2['badgeImage'];
+             }
         }
         
     } 

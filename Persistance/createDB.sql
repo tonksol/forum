@@ -117,8 +117,14 @@ DROP USER IF EXISTS 'dbuser'@'localhost';
 CREATE USER 'dbuser'@'localhost' IDENTIFIED BY '1234';
 GRANT ALL PRIVILEGES ON boardgame_db.* To 'dbuser'@'localhost' IDENTIFIED BY '1234'; FLUSH PRIVILEGES;
 
+
+
 -- ---------------------------------
 -- STORED PROCEDURES
+-- ---------------------------------
+
+-- ---------------------------------
+-- SELECT
 -- ---------------------------------
 
 -- log in
@@ -128,6 +134,35 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_email`(IN input_email VAR
         SELECT `userID`, `email`, `userPassword` FROM `user` WHERE email = input_email;
     END$$
 DELIMITER ;
+
+-- user profile page
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_select_all_from_user`
+    (
+        IN input_userID int
+    ) 
+BEGIN 
+    SELECT * 
+    FROM `user`
+    WHERE `userID` = input_userID;
+    END$$
+DELIMITER ; 
+
+-- badge 
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_select_the_badges`
+    (
+        IN input_userID int
+    )
+BEGIN
+    BEGIN
+    SELECT * 
+    FROM `badge`
+    JOIN `userBadge` ON `badge`.`badgeID` = `userBadge`.`badgeID`
+    WHERE `userBadge`.`userID` = input_userID;
+    END $$
+DELIMITER ; 
+
 
 -- --------------
 -- INSERT
@@ -177,6 +212,11 @@ BEGIN
     WHERE `userID` = input_userID;
     END$$
 DELIMITER ; 
+
+
+
+
+
 
 
 
