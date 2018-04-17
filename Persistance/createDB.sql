@@ -181,13 +181,22 @@ DELIMITER ;
 -- INSERT
 -- --------------
 
--- Sign up
+-- Sign up user table
 DELIMITER $$
 CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_new_user(IN input_email VARCHAR(255), IN input_username VARCHAR(255), IN input_password VARCHAR(255))
     BEGIN
         INSERT INTO `user` (`email`, `userName`, `userPassword`) VALUES (input_email, input_username, input_password);
     END$$
 DELIMITER ;
+
+-- sign up userAccesLevel NOG NIET KLAAR!!!!!!!!!!!!!
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_userAccesLevel()
+    BEGIN
+        INSERT INTO `userAccesLevel` VALUES (`userID`, `accesLevelID`) VALUES ('LAST_INSERT_ID()' ,2);
+    END $$
+DELIMITER ;
+
 
 -- --------------
 -- UPDATE

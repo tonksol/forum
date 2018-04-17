@@ -75,7 +75,7 @@ function logout_succes_message() {
     }
 }
 
-
+// navigation login logout
 function login_logout_button_switch() {
     $which_button = "";
     if (!logged_in()) {
@@ -84,6 +84,21 @@ function login_logout_button_switch() {
         $which_button = '<a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/business/logout.php">Log out</a></li>';
     }
     return $which_button;
+}
+// navigation my profile
+function myprofile_switch(){
+    $which_button = "";
+    if (logged_in()) {
+        return '<a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/presentation/userProfile_page.php">My profile</a>';
+    } 
+    return $which_button;
+}
+
+// navigation admin
+function visable_unvisable_admin_switch() {
+    if (logged_in() && isAdmin()){
+        return '<a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/presentation/admin_page.php">Admin</a>';
+    }
 }
 
 // see also session.php

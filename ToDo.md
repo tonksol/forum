@@ -6,6 +6,7 @@
 # Sign up
 - sign in -- authentication if the email is a real email (boolean) add a column in the database 
 - geef de user ook een acceslevel by default. 
+- geef de user ook een proflepic0.png by default 
 
 # Log in
 - build the code for remember my email for the login (logIn_form.php)

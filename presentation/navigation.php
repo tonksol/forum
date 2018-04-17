@@ -67,14 +67,9 @@
                 <a class="nav-link" class="log-out" href="#">Rules</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/presentation/userProfile_page.php">My profile</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/presentation/category.php">Category</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/presentation/admin_page.php">Admin</a>
-            </li>
+            
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 example
@@ -85,13 +80,20 @@
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div> 
-      </ul>
+        </ul>
       
-      <!-- right -->
-      <ul class="nav navbar-nav navbar-right"> 
-        <li class="nav-item">
-            <?php echo login_logout_button_switch(); ?>
-      </ul>
+        <!-- right -->
+        <ul class="nav navbar-nav navbar-right"> 
+            <li class="nav-item">
+                <?php echo visable_unvisable_admin_switch() ?>
+            </li>  
+            <li class="nav-item">
+                <?php echo myprofile_switch()?>
+            </li>
+            <li class="nav-item">
+                <?php echo login_logout_button_switch(); ?>
+            </li>
+        </ul>
 
       </form>
     </div>
