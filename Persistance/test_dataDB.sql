@@ -91,18 +91,20 @@ INSERT INTO `userBadge` (`badgeID`, `userID`)
 VALUES 
     (3, 2);
 
--- ------------------------------
--- TOPIC
--- ------------------------------
-INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
-VALUES
-    (1, 'Family Games', 'Everything about playing boardgames');
 
-INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
-VALUES
-    (2, 'Dexterity Games', 'Everything about designing new boardgames');
+-- ------------------------------
+-- Category
+-- ------------------------------
 
-INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
+INSERT INTO `category`(`categoryID`, `categoryName`,`categoryDescription`,`img1`, `img2`, `img3`)
+VALUES
+    (1, 'Family Games', 'Everything about playing boardgames' , '', '', '');
+
+INSERT INTO `category`(`categoryID`, `categoryName`,`categoryDescription`,`img1`, `img2`, `img3`)
+VALUES
+    (2, 'Dexterity Games', 'Everything about designing new boardgames' , '', '', '');
+
+INSERT INTO `category`(`categoryID`, `categoryName`,`categoryDescription`,`img1`, `img2`, `img3`)
 VALUES
     (3, 'Eurogames', 'Most Eurogames share the following elements:
 Player conflict is indirect and usually involves competition over resources or points. Combat is extremely rare.
@@ -110,36 +112,36 @@ Players are never eliminated from the game (All players are still playing when t
 There is very little randomness or luck. Randomness that is there is mitigated by having the player decide what to do after a random event happens rather than before. Dice are rare, but not unheard of, in a Euro.
 The Designer of the game is listed on the game\'s box cover. Though this is not particular to Euros, the Eurogame movement seems to have started this trend. This is why some gamers and designers call this genre of games Designer Games.
 Much attention is paid to the artwork and components. Plastic and metal are rare, more often pieces are made of wood.
-Eurogames have a definite theme, however, the theme most often has very little to do with the gameplay. The focus instead is on the mechanics; for example, a game about space may play the same as a game about ancient Rome.');
+Eurogames have a definite theme, however, the theme most often has very little to do with the gameplay. The focus instead is on the mechanics; for example, a game about space may play the same as a game about ancient Rome.', '','','');
+
 
 -- ------------------------------
--- Category
+-- TOPIC
 -- ------------------------------
 
-INSERT INTO `category`(`categoryID`, `topicID`, `categoryName`,`categoryDescription`,`img_path1`, `img_path2`, `img_path3`)
+INSERT INTO `topic` (`topicID`, `categoryID`,`topicName`, `topicDescription`, `topic_img1`, `topic_img2` , `topic_img3`)
 VALUES
     (1, 1, 'Monopoly', 'Monoply is a board game where players roll two six-sided dice to move around the game board, buying and trading properties, and develop them with houses and hotels. Players collect rent from their opponents, with the goal being to drive them into bankruptcy.', '', '', '');
 
-INSERT INTO `category`(`categoryID`, `topicID`, `categoryName`,`categoryDescription`,`img_path1`, `img_path2`, `img_path3`)
+INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
 VALUES
     (2, 1, 'Risk', 'Risk is a strategy board game of diplomacy, conflict and conquest[1] for two to six players. The standard version is played on a board depicting a political map of the earth, divided into forty-two territories, which are grouped into six continents.', '', '', '');
 
-
-INSERT INTO `category`(`categoryID`, `topicID`, `categoryName`,`categoryDescription`,`img_path1`, `img_path2`, `img_path3`)
+INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
 VALUES
-    (3, 2, 'Twister', 'This is a game of physical skill. It is played on a large plastic mat that is spread on the floor or ground.', '','','');
+    (3, 2, 'Twister', 'This is a game of physical skill. It is played on a large plastic mat that is spread on the floor or ground.', '', '', '');
 
-INSERT INTO `category`(`categoryID`, `topicID`, `categoryName`,`categoryDescription`,`img_path1`, `img_path2`, `img_path3`)
+INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
 VALUES
-    (4, 3, 'Catan', 'In Catan (formerly The Settlers of Catan), players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources (cards)—wood, grain, brick, sheep, or stone—to build up their civilizations to get to 10 victory points and win the game.', '','','');
+    (4, 3, 'Catan', 'In Catan (formerly The Settlers of Catan), players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources (cards)—wood, grain, brick, sheep, or stone—to build up their civilizations to get to 10 victory points and win the game.', '', '', '');
 
-INSERT INTO `category`(`categoryID`, `topicID`, `categoryName`,`categoryDescription`,`img_path1`, `img_path2`, `img_path3`)
+INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
 VALUES
-    (5, 3, 'Power Grid', 'Power Grid is the updated release of the Friedemann Friese crayon game Funkenschlag. It removes the crayon aspect from network building in the original edition, while retaining the fluctuating commodities market.', '','','');
+    (5, 3, 'Power Grid', 'Power Grid is the updated release of the Friedemann Friese crayon game Funkenschlag. It removes the crayon aspect from network building in the original edition, while retaining the fluctuating commodities market.', '', '', '');
 
-INSERT INTO `category`(`categoryID`, `topicID`, `categoryName`,`categoryDescription`,`img_path1`, `img_path2`, `img_path3`)
+INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
 VALUES
-    (6, 3, 'Carcassonne', 'Carcassonne is a tile-placement game in which the players draw and place a tile with a piece of southern French landscape on it. The tile might feature a city, a road, a cloister, grassland or some combination thereof, and it must be placed adjacent to tiles that have already been played, in such a way that cities are connected to cities, roads to roads, etcetera.', '','','');
+    (6, 3, 'Carcassonne', 'Carcassonne is a tile-placement game in which the players draw and place a tile with a piece of southern French landscape on it. The tile might feature a city, a road, a cloister, grassland or some combination thereof, and it must be placed adjacent to tiles that have already been played, in such a way that cities are connected to cities, roads to roads, etcetera.', '', '', '');
 
 
 -- ------------------------------

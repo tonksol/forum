@@ -47,27 +47,30 @@ CREATE TABLE forumPage (
     FOREIGN KEY (userID) REFERENCES user (userID)
 );
 
-CREATE TABLE topic (
-    topicID                 int AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    topicName               varchar(100) NULL,
-    topicDescription        varchar(255) NULL
-);
-
 CREATE TABLE category (
     categoryID              int AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    topicID                 int NULL,
     categoryName            varchar(100),
     categoryDescription     varchar(255),
-    img_path1               VARCHAR(255),
-    img_path2               VARCHAR(255),
-    img_path3               VARCHAR(255),
-    FOREIGN KEY (topicID) REFERENCES topic (topicID)
+    img1                    varchar(255),
+    img2                    varchar(255),
+    img3                    varchar(255)
+);
+
+CREATE TABLE topic (
+    topicID                 int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    categoryID              int NOT NULL,
+    topicName               varchar(100) NULL,
+    topicDescription        varchar(255) NULL,
+    topic_img1              varchar(255),
+    topic_img2              varchar(255),
+    topic_img3              varchar(255),
+    FOREIGN KEY (categoryID) REFERENCES category (categoryID)
 );
 
 CREATE TABLE post (
     postID                  int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     userID                  int NULL,
-    categoryID              int NULL,
+    topicID                 int NULL,
     postName                varchar(100),
     postContent             varchar(1000),
     postImage               varchar(255),
