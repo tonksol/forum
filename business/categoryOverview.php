@@ -1,53 +1,62 @@
 <?php
+// require_once("../include/connection.php");
 require_once("../include/functions.php");
 
-$query = "SELECT * FROM `category`";
-$result = mysqli_query($connection, $query);
 
 
-    if ($result->num_rows > 0 ){
-        while ($row = $result->fetch_assoc()){
-            
-            $categoryID[] = $row["categoryID"];
-            $topicID[] = $row["topicID"];
-            $categoryName[] = $row["categoryName"];
-            $categoryDescription[] = $row["categoryDescription"];
-            $img1[] = $row["img_path1"];
-            $img2[] = $row["img_path2"];
-            $img3[] = $row["img_path3"];
-            
+function getCategories() {
+    global $connection;
+    // $query = "SELECT * FROM `category`;";
+    $query = "SELECT `category`.`categoryName`, `category`.`categoryDescription`, COUNT(`post`.`categoryID`) as 'numberOfPosts'
+    FROM `post` 
+    JOIN `category` ON `category`.`categoryID` = `post`.`categoryID`
+    WHERE `category`.`categoryID` = `post`.`categoryID`
+    GROUP BY `post`.`categoryID`";
+    $result = mysqli_query($connection, $query);
 
-            // $categoryFields = array("Customer Name" => $row['Name'], 
-             //     "Customer Age"  => $row['Age']);
-
-            // return '<tr><td>' . $categoryName . '</td><td>' . $categoryDescription . '</td><td>';
-        }
-    }
-
-        
-
-        /*
-        $categoryID[] = $row["categoryID"];
-            $topicID[] = $row["topicID"];
-            $categoryName[] = $row["categoryName"];
-            $categoryDescription[] = $row["categoryDescription"];
-            $img1[] = $row["img_path1"];
-            $img2[] = $row["img_path2"];
-            $img3[] = $row["img_path3"];
-
-
-        echo "<table>";
-        echo "<tbody>";
-        echo "<tr>";
-
-        // echo '<th scope="row">1</th>';
-        echo "<td> {$row['categoryName']} </td>";
-        // echo "<td>" . $categoryName . "</td>";
-        echo "<td> {$row['categoryDescription']} </td>";
-        echo "<td>12-04-2018 19:03</td>";
-        
-        echo "</tr>";
-        echo "</tbody>";
-        echo "</table>";
-        */
+    $categories = "";
     
+        while ($row = mysqli_fetch_array($result)){
+            
+            $categories .= "<tr>";
+            $categories .= "<td>" . $row['categoryName'] . "</td>";
+            $categories .= "<td>" . $row['categoryDescription'] . "</td>";
+            $categories .= "<td>" . $row['numberOfPosts'] . "</td>";
+            $categories .= "</tr>";
+        }
+    return $categories;
+}
+    
+
+function getNumberOfposts() {
+    global $connection;
+    $query = "SELECT COUNT(`post`.`categoryID`) as 'numberOfPosts'
+        FROM `post` 
+        JOIN `category` ON `category`.`categoryID` = `post`.`categoryID`
+        WHERE `category`.`categoryID` = `post`.`categoryID`
+        GROUP BY `post`.`categoryID`";
+
+    $result = mysqli_query($connection, $query);
+    while ($row = mysqli_fetch_array($result)){
+        return "<tr><td>" . $row['numberOfPosts'] . "</td></tr>";
+    }
+}
+
+
+
+
+function getCategories1() {
+    global $connection;
+    $query = "SELECT * FROM `category`;";
+    $result = mysqli_query($connection, $query);
+    $categories = "";
+        while ($row = mysqli_fetch_array($result)){
+            
+            $categories .= "<tr>";
+            $categories .= "<td>" . $row['categoryName'] . "</td>";
+            $categories .= "<td>" . $row['categoryDescription'] . "</td>";
+            $categories .= "</tr>";
+        }
+    return $categories;
+}
+

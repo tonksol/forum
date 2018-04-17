@@ -37,6 +37,7 @@ CREATE TABLE userBadge (
     FOREIGN KEY (userID) REFERENCES user (userID)
 );
 
+
 CREATE TABLE forumPage (
     forumPageID             int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     userID                  int NULL,
@@ -129,9 +130,21 @@ GRANT ALL PRIVILEGES ON boardgame_db.* To 'dbuser'@'localhost' IDENTIFIED BY '12
 
 -- log in
 DELIMITER $$
-CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_email`(IN input_email VARCHAR(255)) 
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_get_user_by_email`(IN input_email VARCHAR(255)) 
     BEGIN
-        SELECT `userID`, `email`, `userPassword` FROM `user` WHERE email = input_email;
+        SELECT `user`.`userID`, `user`.`email`, `user`.`userPassword`, `accesLevel`.`accesLevelID`
+        FROM `user`
+        LEFT JOIN `userAccesLevel` ON `user`.`userID` = `userAccesLevel`.`userID`
+        LEFT JOIN `accesLevel` ON `userAccesLevel`.`accesLevelID` = `accesLevel`.`accesLevelID` AND `accesLevel`.`accesName` = 'admin'
+        WHERE `user`.`email` = input_email 
+
+        UNION -- all unique rows from above and below
+
+        SELECT `user`.`userID`, `user`.`email`, `user`.`userPassword`, `accesLevel`.`accesLevelID`
+        FROM `user`
+        RIGHT JOIN `userAccesLevel` ON `user`.`userID` = `userAccesLevel`.`userID`
+        RIGHT JOIN `accesLevel` ON `userAccesLevel`.`accesLevelID` = `accesLevel`.`accesLevelID`AND `accesLevel`.`accesName` = 'admin'
+        WHERE `user`.`email` = input_email;
     END$$
 DELIMITER ;
 

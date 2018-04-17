@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 		// mysqli_real_escape_string senatise the data. Prefent SQL injection by adding /. 
 	$password = trim(mysqli_real_escape_string($connection,$_POST['password']));
 		// $query = "SELECT userID, email, userPassword FROM user WHERE email = '$email' LIMIT 1;";
-	$query = "CALL proc_get_email('$email')";
+	$query = "CALL proc_get_user_by_email('$email')";
 		// select the user from the database with: {$email}
 	$result = mysqli_query($connection, $query);
 		// executing the query and put the result in $result.			
@@ -31,6 +31,7 @@ if (isset($_POST['submit'])) {
 		$_SESSION['user_id'] = $found_user['userID'];
 		$_SESSION['userName'] = $found_user['userName'];
 		$_SESSION['email'] = $found_user['email'];
+		$_SESSION['isadmin'] = $found_user['accesLevelID'] !== NULL;
 		// store id and user in session on the server side.
 		redirect_to("http://localhost:41062/www/forum/presentation/home.php");
 			

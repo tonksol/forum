@@ -4,7 +4,6 @@ require_once ("connection.php");
 // write here all your functions
 // bedenk goed wat er in een functie gaat en wat eruit komt 
 
-
 // Redirect function 
 function redirect_to($location) {
     header("Location: {$location}");
@@ -97,10 +96,29 @@ function member_area() {
     }
     return $please_login_message;
 }
+// -------------------------------------
+// Permission acces level
+// -------------------------------------
+function admin_area() {
+    if (!logged_in() || !isAdmin()) {
+        redirect_to("http://localhost:41062/www/Forum/presentation/home.php");  
+        die;
+    }
+}
 
 
-// ------------
-// user profile
+function isAdmin(){
+    if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// -------------------------------------
+// USER PROFILE
+// -------------------------------------
+
 
 function get_user_image($imageUrl) {
     if ($imageUrl == "" || $imageUrl == NULL){
