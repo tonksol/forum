@@ -89,9 +89,19 @@ require_once ("../business/userProfile.php");
             </div> <!-- ./ form-group row -->
 
             <div class="form-group row">
-            <label for="birthday" class="col-3 col-form-label"><b>Quote: </b></label>
+            <label for="quote" class="col-3 col-form-label"><b>Quote: </b></label>
                 <div class="col-lg-9">
                     <input type="text" name="quote" value="<?php echo $quote?>" <?php echo editable_form(); ?>><br>
+                </div> <!-- col-sm-10 -->
+            </div> <!-- ./ form-group row -->
+            
+            <div class="form-group row">
+            <label for="badge" class="col-3 col-form-label"><b>Badge: </b></label>
+                <div class="col-lg-9">
+                    <!-- <input type="image" name="badge" -->
+                    <?php foreach ($badge as $b) { ?>
+                    <img src="../images/badges/<?php echo $b?>">
+                    <?php } ?>
                 </div> <!-- col-sm-10 -->
             </div> <!-- ./ form-group row -->
             
