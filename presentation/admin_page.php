@@ -10,6 +10,7 @@ require_once("header.php");
   <a href="#">Pages</a> <br>
   <a href="#">Posts</a> <br>
   <a href="#">Profiles</a> <br>
+  <a href="#">Users</a> <br> <!-- manage the permissions, access levels -->
   <a href="#">Hot discussions</a> <br>
   <a href="#">Styling Settings</a> <br>
 </div>

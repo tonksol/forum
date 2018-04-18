@@ -81,7 +81,7 @@ CREATE TABLE post (
     fontType                varchar(30),
     stickyPost              boolean,
     FOREIGN KEY (userID) REFERENCES user (userID),
-    FOREIGN KEY (categoryID) REFERENCES category (categoryID)
+    FOREIGN KEY (topicID) REFERENCES topic (topicID)
 );
 
 CREATE TABLE reply (
@@ -164,7 +164,7 @@ BEGIN
     END$$
 DELIMITER ; 
 
--- badge 
+-- badge TO DO... ERRORS 
 DELIMITER $$
 CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_select_the_badges`
     (

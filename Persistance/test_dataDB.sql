@@ -123,23 +123,23 @@ INSERT INTO `topic` (`topicID`, `categoryID`,`topicName`, `topicDescription`, `t
 VALUES
     (1, 1, 'Monopoly', 'Monoply is a board game where players roll two six-sided dice to move around the game board, buying and trading properties, and develop them with houses and hotels. Players collect rent from their opponents, with the goal being to drive them into bankruptcy.', '', '', '');
 
-INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
+INSERT INTO `topic` (`topicID`, `categoryID`,`topicName`, `topicDescription`, `topic_img1`, `topic_img2` , `topic_img3`)
 VALUES
     (2, 1, 'Risk', 'Risk is a strategy board game of diplomacy, conflict and conquest[1] for two to six players. The standard version is played on a board depicting a political map of the earth, divided into forty-two territories, which are grouped into six continents.', '', '', '');
 
-INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
+INSERT INTO `topic` (`topicID`, `categoryID`,`topicName`, `topicDescription`, `topic_img1`, `topic_img2` , `topic_img3`)
 VALUES
     (3, 2, 'Twister', 'This is a game of physical skill. It is played on a large plastic mat that is spread on the floor or ground.', '', '', '');
 
-INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
+INSERT INTO `topic` (`topicID`, `categoryID`,`topicName`, `topicDescription`, `topic_img1`, `topic_img2` , `topic_img3`)
 VALUES
     (4, 3, 'Catan', 'In Catan (formerly The Settlers of Catan), players try to be the dominant force on the island of Catan by building settlements, cities, and roads. On each turn dice are rolled to determine what resources the island produces. Players collect these resources (cards)—wood, grain, brick, sheep, or stone—to build up their civilizations to get to 10 victory points and win the game.', '', '', '');
 
-INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
+INSERT INTO `topic` (`topicID`, `categoryID`,`topicName`, `topicDescription`, `topic_img1`, `topic_img2` , `topic_img3`)
 VALUES
     (5, 3, 'Power Grid', 'Power Grid is the updated release of the Friedemann Friese crayon game Funkenschlag. It removes the crayon aspect from network building in the original edition, while retaining the fluctuating commodities market.', '', '', '');
 
-INSERT INTO `topic` (`topicID`, `topicName`, `topicDescription`)
+INSERT INTO `topic` (`topicID`, `categoryID`,`topicName`, `topicDescription`, `topic_img1`, `topic_img2` , `topic_img3`)
 VALUES
     (6, 3, 'Carcassonne', 'Carcassonne is a tile-placement game in which the players draw and place a tile with a piece of southern French landscape on it. The tile might feature a city, a road, a cloister, grassland or some combination thereof, and it must be placed adjacent to tiles that have already been played, in such a way that cities are connected to cities, roads to roads, etcetera.', '', '', '');
 
@@ -150,7 +150,7 @@ VALUES
 
 INSERT INTO `post` (`postID`, 
                     `userID`, 
-                    `categoryID`, 
+                    `topicID`, 
                     `postName`, 
                     `postContent`, 
                     `postImage`,
@@ -183,7 +183,7 @@ VALUES
 
 INSERT INTO `post` (`postID`, 
                     `userID`, 
-                    `categoryID`, 
+                    `topicID`, 
                     `postName`, 
                     `postContent`, 
                     `postImage`,
@@ -209,7 +209,7 @@ VALUES
 
 INSERT INTO `post` (`postID`, 
                     `userID`, 
-                    `categoryID`, 
+                    `topicID`, 
                     `postName`, 
                     `postContent`, 
                     `postImage`,
@@ -236,7 +236,7 @@ VALUES
 
     INSERT INTO `post` (`postID`, 
                     `userID`, 
-                    `categoryID`, 
+                    `topicID`, 
                     `postName`, 
                     `postContent`, 
                     `postImage`,
@@ -263,7 +263,7 @@ VALUES
 
     INSERT INTO `post` (`postID`, 
                     `userID`, 
-                    `categoryID`, 
+                    `topicID`, 
                     `postName`, 
                     `postContent`, 
                     `postImage`,
@@ -290,7 +290,7 @@ VALUES
 
     INSERT INTO `post` (`postID`, 
                     `userID`, 
-                    `categoryID`, 
+                    `topicID`, 
                     `postName`, 
                     `postContent`, 
                     `postImage`,
@@ -317,7 +317,7 @@ VALUES
 
     INSERT INTO `post` (`postID`, 
                     `userID`, 
-                    `categoryID`, 
+                    `topicID`, 
                     `postName`, 
                     `postContent`, 
                     `postImage`,
@@ -351,7 +351,7 @@ VALUES
 
     INSERT INTO `post` (`postID`, 
                     `userID`, 
-                    `categoryID`, 
+                    `topicID`, 
                     `postName`, 
                     `postContent`, 
                     `postImage`,
@@ -381,7 +381,7 @@ VALUES
 
     INSERT INTO `post` (`postID`, 
                     `userID`, 
-                    `categoryID`, 
+                    `topicID`, 
                     `postName`, 
                     `postContent`, 
                     `postImage`,
@@ -420,8 +420,23 @@ VALUES
 
 
 -- ------------------------------
+-- forumPage
+-- ------------------------------
+
+-- ------------------------------
+-- tag
+-- ------------------------------
+
+
+-- ------------------------------
 -- 
 -- ------------------------------
+
+
+-- ------------------------------
+-- 
+-- ------------------------------
+
 
 -- ------------------------------
 -- 

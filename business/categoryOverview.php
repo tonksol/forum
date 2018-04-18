@@ -7,11 +7,14 @@ require_once("../include/functions.php");
 function getCategories() {
     global $connection;
     // $query = "SELECT * FROM `category`;";
-    $query = "SELECT `category`.`categoryName`, `category`.`categoryDescription`, COUNT(`post`.`categoryID`) as 'numberOfPosts'
+    $query = "SELECT `category`.`categoryName`, `topic`.`topicName`, `topic`.`topicDescription`, COUNT(`post`.`topicID`) as 'numberOfPosts'
     FROM `post` 
-    JOIN `category` ON `category`.`categoryID` = `post`.`categoryID`
-    WHERE `category`.`categoryID` = `post`.`categoryID`
-    GROUP BY `post`.`categoryID`";
+    JOIN `topic` ON `topic`.`topicID` = `post`.`topicID`
+    JOIN `category` ON `category`.`categoryID` = `topic`.`categoryID`
+    WHERE `topic`.`topicID` = `post`.`topicID`
+    GROUP BY `category`.`categoryName`, `topic`.`topicName`
+    ORDER BY `category`.`categoryName`, `topic`.`topicName` ASC";
+
     $result = mysqli_query($connection, $query);
 
     $categories = "";
@@ -20,7 +23,8 @@ function getCategories() {
             
             $categories .= "<tr>";
             $categories .= "<td>" . $row['categoryName'] . "</td>";
-            $categories .= "<td>" . $row['categoryDescription'] . "</td>";
+            $categories .= "<td>" . $row['topicName'] . "</td>";
+            $categories .= "<td>" . $row['topicDescription'] . "</td>";
             $categories .= "<td>" . $row['numberOfPosts'] . "</td>";
             $categories .= "</tr>";
         }

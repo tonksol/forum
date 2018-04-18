@@ -31,6 +31,7 @@
                 // SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID
                 // TO DO: change query to stored procedure. Stored procudure is working. 
      $query2 = "SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID";  
+     // CALL proc_select_the_badges('$userID')
     
     $result2 = mysqli_query($connection, $query2);        
         //var_dump($result2);
@@ -50,8 +51,7 @@
             $username = $row["userName"];
             $quote = $row["quote"];
 
-            // SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID
-            // CALL proc_select_the_badges('$userID')
+            
            
         
              while ($row2 = $result2->fetch_array()) {

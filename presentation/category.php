@@ -10,6 +10,7 @@ require_once("../business/categoryOverview.php");
     <table class="table table-striped">
     <thead>
         <tr>
+        <th scope="col">Topic</th>
         <th scope="col">Category</th>
         <th scope="col">Description</th>
         <th scope="col">number of posts</th>
