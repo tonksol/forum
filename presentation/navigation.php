@@ -72,11 +72,11 @@
             
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                example
+                Overview
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="http://localhost:41062/www/Forum/presentation/category.php">Categories</a>
+                        <a class="dropdown-item" href="http://localhost:41062/www/Forum/presentation/topic.php">Topics</a>
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div> 
