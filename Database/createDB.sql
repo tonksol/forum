@@ -170,12 +170,11 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_select_the_badges`
     (
         IN input_userID int
     )
-BEGIN
     BEGIN
-    SELECT * 
-    FROM `badge`
-    JOIN `userBadge` ON `badge`.`badgeID` = `userBadge`.`badgeID`
-    WHERE `userBadge`.`userID` = input_userID;
+        SELECT * 
+        FROM `badge`
+        JOIN `userBadge` ON `badge`.`badgeID` = `userBadge`.`badgeID`
+        WHERE `userBadge`.`userID` = input_userID;
     END $$
 DELIMITER ; 
 
@@ -193,12 +192,12 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_new_user(IN input_email
 DELIMITER ;
 
 -- sign up userAccesLevel NOG NIET KLAAR!!!!!!!!!!!!!
-DELIMITER $$
-CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_userAccesLevel()
-    BEGIN
-        INSERT INTO `userAccesLevel` VALUES (`userID`, `accesLevelID`) VALUES ('LAST_INSERT_ID()' ,2);
-    END $$
-DELIMITER ;
+-- DELIMITER $$
+-- CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_userAccesLevel()
+--     BEGIN
+--         INSERT INTO `userAccesLevel` VALUES (`userID`, `accesLevelID`) VALUES ('LAST_INSERT_ID()' ,2);
+--     END $$
+-- DELIMITER ;
 
 
 -- --------------
@@ -216,10 +215,10 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_update_userinfo`
         IN input_username VARCHAR(255),
         IN input_quote VARCHAR(255)
     ) 
-BEGIN 
-    UPDATE user
-    SET firstName = input_firstname, prefix = input_prefix, lastName = input_lastname, birthday = input_birthday, email = input_email, userName = input_username, quote = input_quote
-    WHERE userID = input_userID;
+    BEGIN 
+        UPDATE user
+        SET firstName = input_firstname, prefix = input_prefix, lastName = input_lastname, birthday = input_birthday, email = input_email, userName = input_username, quote = input_quote
+        WHERE userID = input_userID;
     END$$
 DELIMITER ; 
 
@@ -231,10 +230,10 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_update_profilepicture`
         IN input_userID int,
         IN input_userImage varchar(255)
     ) 
-BEGIN 
-    UPDATE `user`
-    SET `userImage` = input_userImage
-    WHERE `userID` = input_userID;
+    BEGIN 
+        UPDATE `user`
+        SET `userImage` = input_userImage
+        WHERE `userID` = input_userID;
     END$$
 DELIMITER ; 
 

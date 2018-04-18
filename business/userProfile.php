@@ -24,40 +24,28 @@
   
     $userID = $_SESSION['user_id'];
 
-    // SELECT * FROM user WHERE userID = $userID
-    // CALL proc_select_all_from_user('$userId')
-    $query = "CALL proc_select_all_from_user('$userID')";
-            // $query2 = "CALL proc_select_the_badges('$userID')";
-                // SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID
-                // TO DO: change query to stored procedure. Stored procudure is working. 
-     $query2 = "SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID";  
-     // CALL proc_select_the_badges('$userID')
-    
-    $result2 = mysqli_query($connection, $query2);        
-        //var_dump($result2);
-    $result = mysqli_query($connection, $query);
-        // var_dump($result);
-    
-    // var_dump($result);
-    if ($result->num_rows > 0){
-        while ($row = $result->fetch_assoc()) {
-            $userId = $row["userID"];
-            $firstname = $row["firstName"];
-            $prefix = $row["prefix"];
-            $lastname = $row["lastName"];
-            $birthday = $row["birthday"];
-            $userImage = $row["userImage"];
-            $email = $row["email"];
-            $username = $row["userName"];
-            $quote = $row["quote"];
 
-            
-           
-        
-             while ($row2 = $result2->fetch_array()) {
-                    $badge[] = $row2['badgeImage'];
-             }
-        }
-        
-    } 
+
+    $row = getUserProfile($userID);
+    //$row = getUserBadges($userID);
+
+
+    // global $connection; 
+    $query2 = "CALL proc_select_the_badges('$userID')";
+    // echo $userID;
+    $connection2 = mysqli_connect('localhost', 'root', '');
+    $db_select = mysqli_select_db($connection2, 'boardgames_db');
+   // echo connectDatabase();
+    //$query2 = "SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID";  
+
+    $result2 = mysqli_query($connection2, $query2);        
+    var_dump($result2);
+    
+    while ($row2 = $result2->fetch_array()) {
+        $badge[] = $row2['badgeImage'];
+    }
+
+    
+
+
     

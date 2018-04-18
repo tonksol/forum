@@ -167,3 +167,38 @@ function editable_form() {
         return "readonly "; // not editable, you can see the edit button
     }
 }
+
+
+
+
+function getUserProfile($userID) {
+    global $connection;
+    // SELECT * FROM user WHERE userID = $userID
+    $query = "CALL proc_select_all_from_user('$userID')";
+    $result = mysqli_query($connection, $query);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+    }   
+    return $row;
+}
+
+function getUserBadges() {
+    global $connection; 
+    $query2 = "CALL proc_select_the_badges('$userID')";
+    echo $userID;
+    $connection2 = mysqli_connect('localhost', 'root', '');
+    $db_select = mysqli_select_db($connection2, 'boardgames_db');
+   // echo connectDatabase();
+    //$query2 = "SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID";  
+
+    $result2 = mysqli_query($connection2, $query2);        
+    var_dump($result2);
+    
+    while ($row2 = $result2->fetch_array()) {
+        $badge[] = $row2['badgeImage'];
+    }
+}
+
+
+    // $query2 = "CALL proc_select_the_badges('$userID')";
+    // $query2 = "SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID"; 

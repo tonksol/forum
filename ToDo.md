@@ -1,6 +1,6 @@
 #TO DO
-- topic en category omgedraaid check de category page 
-- en insert de nieuwe data in de database
+- connection in function en call the the function instead of global $connection
+- connection in the presistance layer
 
 - meer testdata
 
@@ -21,9 +21,12 @@
 #logout
 - adding a logout page
 
+#posts
+- getdate() for new posts and getTime()
 # category overview site.
 - Number of threads/discussions (loaded from database)
 - A newest discussions section (loaded from database)
+
 
 #The front page must contain (loaded from database):
 - Hot Discussions
@@ -53,6 +56,8 @@ mysqli is only for MYSQL
 - put your logic in different files 
 - insert into variable = back practice put it in a stored procedure. 
 - topic en category omgedraaid
+- post = discussion
+- post->topic->category / category->topic->post
 
 # Verslag
 login
