@@ -17,7 +17,7 @@ VALUES
 -- password = test
 INSERT INTO `user` (`userID`, `firstName`, `prefix`, `lastName`, `birthday`, `userImage`, `email`, `userName`, `userPassword`, `themePreferences`, `quote`) 
 VALUES
-    (4, 'Arthur', 'the', 'King', NULL, '', 'arthur@king.com', 'THE_KING', '$2y$15$43cjmaiBAzoBT.BI2q9EleSVjcgJdjvRamlYdLPi27PZrnGSKnYRu', '', 'I have knights at my round table!');
+    (3, 'Arthur', 'the', 'King', NULL, '', 'arthur@king.com', 'THE_KING', '$2y$15$43cjmaiBAzoBT.BI2q9EleSVjcgJdjvRamlYdLPi27PZrnGSKnYRu', '', 'I have knights at my round table!');
 
 
 -- ------------------------------
@@ -172,7 +172,7 @@ VALUES
         Does this game exists? <br>
         <br>
         Thank you.',
-        '',
+        'post_img1.jpg',
         '2018-02-16',
         '11:34:02',
         '',
@@ -195,7 +195,7 @@ INSERT INTO `post` (`postID`,
                     `stickyPost`)
 VALUES
     (   2, 
-        1, 
+        3, 
         1, 
         "jail `as` a strategy", 'I don\'t know `if` this has been asked before so forgive if it has. Does anyone else out there use Jail as a strategy to avoid paying rent while collecting rent?',
         '',
@@ -248,7 +248,7 @@ VALUES
                     `stickyPost`)
 VALUES
     (   4, 
-        1, 
+        2, 
         3, 
         "Reasonable max number of players?", 
         'I\'m thinking of using Twister in a language class, but I need to know what a reasonable max number of players is. It\'ll be for a very large kindergarten I visit, with an upwards of 30 or 40 students. I need to figure out how many copies of the game I would need to buy so I can see if I can get funding approved. Can I get away with 3 or 4, or am I looking at closer to 10 copies?',
@@ -365,7 +365,7 @@ VALUES
     (   8, 
         1, 
         6, 
-        'CARCASSONNE´S FUN FACTS', 
+        'CARCASSONNE\´S FUN FACTS', 
         'Hi everyone! <br>
         I´m preparing a video about Carcassonne and I´m recolecting information not commonly known about the game, like fun facts about the author, records, things people do because of the game, you name it.
         So, I would be truly greatful if you could help me with that. <br>
@@ -394,7 +394,7 @@ VALUES
 VALUES
     (  
         9, 
-        1, 
+        2, 
         6, 
         'A display showing what tiles have been picked?', 
         'Has anyone done something like blow up the "tile quantity list" images and created a board so everyone can see the likelihood of being able to finish that city, etc? Especially when playing with expansions. <br>
@@ -416,6 +416,167 @@ VALUES
 -- ------------------------------
 -- Reply
 -- ------------------------------
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 1, 2, 1, "I saw this. I wanted BGGs opinion on this also. Thank you though.");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 2, 3, 1, "Mighty peculiar question from a person with a 450-game collection.");
+
+
+
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 3, 3, 2, "Early on it's better to spend the money and get out so you can buy properties. Later in the game when everything has been bought you're better off in jail not paying rent. That's a strategy I use when I play.");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 4, 2, 2, "Yep, I like to stay in jail as long as possible when the houses and hotels start coming out. But you need to get out fast early in the game to stay in the property race.");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 5, 3, 2, "Do you still get to collect rent on your properties while you are in jail?");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 6, 1, 2, "Yes, \as long as you remember to ask for it.");
+
+
+
+
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 7, 2, 6, "(Almost -- see post below) All of the expansions were designed to go with the original game. Deluxe is effectively a stand-alone -- though its pieces, plants, and market can theoretically be adapted to any map. <br>
+There is a conversion kit that adds extra oil and garbage tokens so you can mix and match sets, but I don't think it would be easy to play regular PG maps with deluxe tokens. ");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 8, 3, 6, "I bought the Deluxe version and then decided I wanted some expansion maps. So, as mentioned above, I bought the conversion kit and the new power plant cards. It works great! However, if you know for sure that you want some expansions, just go for the original.");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 9, 2, 6, "The two most recent expansions, Power Grid: Fabled Expansion and Power Grid: The Stock Companies are compatible with both the original Power Grid and the Deluxe game. The earlier expansions were only designed for original Power Grid, because the Deluxe version didn't exist yet. And as Alex says, most of them would be difficult to use with Deluxe.
+
+I haven't played Deluxe, but I'm very happy with my original Power Grid and its many expansions! Deluxe does have better 2-player rules (Against the Trust) but even those are available for original Power Grid, downloadable for free from 2F's website. (Although Power Grid is not at its best with 2 anyway.)");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 10, 1, 6, "The deluxe edition is not as attractive to me, and the classic game has a better footprint.");
+
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 11, 2, 6, "Both are good, but go with classic. Less space on the table, and you'll find more people who know the game immediately. The transition from one version to the other is very easy, but the original version has more exposure.");
+
+
+
+
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 12, 2, 5, "I think they are there for variety. E.g. once you get sick of always having the wheat port there, you can cover it up with another port. But I'm just guessing.");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 13, 3, 5, "That's what I've been hearing around these forums.");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 14, 1, 5, "We shuffle them up and put them down after we get the map set. They are just for some randomness. You could leave them hidden until you take the harbor.");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 15, 2, 5, "Seems unnecessary since the hexes are going to be placed randomly anyway.
+
+It doesn't matter where the harbors are at. What matters is if something like a 6 or 8 wood is placed next to the wood harbor.");
+
+INSERT INTO `reply`(
+    `replyID`,
+    `userID`,
+    `postID`,
+    `replyContent`
+)
+VALUES 
+( 16, 3, 5, "It DOES matter where the 3:1 harbors are located. The game feels much different if they are scattered evenly than when they are all on the same side of the board.");
 
 
 

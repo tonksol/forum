@@ -6,11 +6,13 @@ require_once("../include/functions.php");
 
 function getNewestPosts() {
     global $connection;
-    $query = "SELECT `post`.`postName`, `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOFreplies`
-    FROM `post`
-    LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID`
-    GROUP BY `post`.`postName`
-    ORDER BY `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime` ASC";
+    $query = " SELECT `topic`.`topicName`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
+        FROM `topic`
+        JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
+        JOIN `user` ON `post`.`userID` = `user`.`userID`
+        LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID` 
+            GROUP BY `post`.`postName`
+            ORDER BY `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime` ASC;";
 
     // add topic.. topic<posts<reply
 
@@ -23,18 +25,34 @@ function getNewestPosts() {
             $newPosts .= "<tr>";
             $newPosts .= "<td>" . $row['topicName'] . "</td>";
             $newPosts .= "<td>" . $row['postName'] . "</td>";
+            $newPosts .= "<td>" . $row['userName'] . "</td>";
             $newPosts .= "<td>" . $row['lastModifiedPostDate'] . "</td>";
             $newPosts .= "<td>" . $row['lastModifiedPostTime'] . "</td>";
             $newPosts .= "<td>" . $row['numberOfReplies'] . "</td>";
+            $newPosts .= "<dd><a href=postReplies.php?postID=" . $row['postID'] . ">" . $row['postName']."</a></dd>";
             $newPosts .= "</tr>";
+
+            // learn more about the http 
+            // https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data
         }
     return $newPosts;
 }
 
-// SELECT `topic`.`topicName`, `post`.`postName`, `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOFreplies`
-// FROM `topic`
-// JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
-// LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID`
+// mysqli_close($connection);
+
+//  SELECT `topic`.`topicName`, `post`.`postName`, `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOFreplies`
+//  FROM `topic`
+//  JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
+//  LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID`
+//  
+//  GROUP BY `post`.`postName`
+//  ORDER BY `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime` ASC
 // 
-// GROUP BY `post`.`postName`
-// ORDER BY `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime` ASC
+// 
+// 
+// SELECT `topic`.`topicName`, `post`.`postName`, `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOFreplies`
+// 	FROM `topic`
+//     JOIN `post` ON `topic`.`topicID` = `topic`.`topicID`
+//     LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID`
+//     GROUP BY `post`.`postName`
+//     ORDER BY `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime` ASC
