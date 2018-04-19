@@ -22,6 +22,7 @@ function getCategories() {
         while ($row = mysqli_fetch_array($result)){
             
             $categories .= "<tr>";
+            // "<dd><a href=category_page.php.php?postID=" . $row['postID'] . ">" . $row['postName']."</a></dd>"
             $categories .= "<td>" . $row['categoryName'] . "</td>";
             $categories .= "<td>" . $row['topicName'] . "</td>";
             $categories .= "<td>" . $row['topicDescription'] . "</td>";

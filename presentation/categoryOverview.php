@@ -9,22 +9,18 @@ require_once("../business/categoryOverview.php");
     <h1> Category overview</h1>
     <br><br>
     <table class="table table-striped">
-    <thead>
-        <tr>
-        <th scope="col">Category</th>
-        <th scope="col">Description</th>
-        <th scope="col">number of topics</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-        <?php 
-        echo getTopics(); 
-        ?>
-        
-</tbody>
-    </table>
+        <thead>
+            <tr>
+            <th scope="col">Category</th>
+            <th scope="col-3">Description</th>
+            <th scope="col">number of topics</th>
+            </tr>
+        </thead>
 
+        <tbody>
+            <?php echo getTopics(); ?>
+        </tbody>
+    </table>
 </div> <!-- ./ container -->
 <br><br><br>
 

@@ -4,6 +4,9 @@
 
 - meer testdata
 
+#POST
+maken nieuwe post. imagePost vullen met blank.png
+
 #USER
 - check welke acces level de user heeft (alleen relevant voor de back-end)
 
@@ -75,6 +78,8 @@ switch the button on navbar to login logout
 - make the user information read only unless you are additing
 - function for switching the submit and edit button
 - resize the uploaded picture in uploadImage.php
+
+- I add replyDate and replyTime to the reply table. Because the user want to know when somebody writes a reply.
 
 
 

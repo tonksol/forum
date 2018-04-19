@@ -202,3 +202,10 @@ function getUserBadges() {
 
     // $query2 = "CALL proc_select_the_badges('$userID')";
     // $query2 = "SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID"; 
+
+
+
+// -------------------------------------
+// POSTS AND REPLIES
+// -------------------------------------
+

@@ -89,6 +89,8 @@ CREATE TABLE reply (
     userID                  int NULL,
     postID                  int NULL,
     replyContent            varchar(1000) NULL,
+    replyDate               date NULL,
+    replyTime               time NULL,
     FOREIGN KEY (userID) REFERENCES user (userID),
     FOREIGN KEY (postID) REFERENCES post (postID)
 );
