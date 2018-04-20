@@ -83,6 +83,7 @@ switch the button on navbar to login logout
 - I add replyDate and replyTime to the reply table. Because the user want to know when somebody writes a reply.
 - check welke acces level de user heeft (alleen relevant voor de back-end)
 - make all the read queries and functions for post, topics, and category. And make links
+- add a rule table
 
 
 

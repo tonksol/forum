@@ -17,3 +17,18 @@ function getPage ($pagename) {
         }
         return $pageContent;
 }
+
+function getRules() {
+    global $connection;
+    $query = "SELECT * FROM rule";
+    $result = mysqli_query($connection, $query);
+    
+    $rules = "";
+    echo $rules;
+        while ($row = mysqli_fetch_array($result)){
+            $rules .= "<ul>";
+            $rules .= "#<b>" . $row['ruleID'] . " </b><br>" . $row['ruleDescription'] . "<br><br>";
+            $rules .= "</ul>";
+        }
+    return $rules;
+}

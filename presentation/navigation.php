@@ -64,7 +64,7 @@
                 <a class="nav-link" class="a link" href="http://localhost:41062/www/Forum/presentation/aboutPage.php"> About </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" class="log-out" href="#">Rules</a>
+                <a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/presentation/rulePage.php">Rules</a>
             </li>
             
             <li class="nav-item dropdown">

@@ -38,10 +38,18 @@ require_once ("../business/forumPageDAO.php");
             <?php echo getNewestPosts(); ?>
             </tbody>
             </table>
-            <br><br><br>
+            <br><br><hr><br><br>
 
             <!-- about the forum -->
             <?php echo getPage ("About") ?>
+            
+            <br><br><hr><br><br>
+
+            <!-- rules -->
+            <?php
+            echo getPage ("Rules and regulations");
+            echo getRules();
+            ?>
         </div> <!-- ./ container -->
 
     </body>
