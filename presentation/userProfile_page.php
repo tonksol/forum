@@ -99,7 +99,7 @@ require_once ("../business/userProfile.php");
             <label for="badge" class="col-3 col-form-label"><b>Badge: </b></label>
                 <div class="col-lg-9">
                     <!-- <input type="image" name="badge" -->
-                    <?php foreach ($badge as $b) { ?>
+                    <?php foreach ($badges as $b) { ?>
                     <img src="../images/badges/<?php echo $b?>">
                     <?php } ?>
                 </div> <!-- col-sm-10 -->

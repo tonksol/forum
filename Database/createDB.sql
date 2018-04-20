@@ -225,9 +225,9 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_update_userinfo`
         IN input_quote VARCHAR(255)
     ) 
     BEGIN 
-        UPDATE user
-        SET firstName = input_firstname, prefix = input_prefix, lastName = input_lastname, birthday = input_birthday, email = input_email, userName = input_username, quote = input_quote
-        WHERE userID = input_userID;
+        UPDATE `user`
+        SET `firstName` = input_firstname, `prefix` = input_prefix, `lastName` = input_lastname, `birthday` = input_birthday, `email` = input_email, `userName` = input_username, `quote` = input_quote
+        WHERE `userID` = input_userID;
     END$$
 DELIMITER ; 
 

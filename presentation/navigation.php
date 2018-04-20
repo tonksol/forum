@@ -12,13 +12,13 @@
                       <form role="form" method="POST" action="http://localhost:41062/www/Forum/business/login.php" enctype="multipart/form-data">
                         <br>
                         <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-1 col-form-label">&#xf007;</label> <!-- label: email -->
+                        <label for="inputEmail" class="col-sm-1 col-form-label" class="icon-for-login">&#xf007;</label> <!-- label: email -->
                             <div class="col-sm-11">
                                 <input type="email" class="form-control" name="email" id="inputEmail" placeholder="name@example.com">
                             </div> <!-- ./ col-sm-11 -->
                         </div> <!-- ./ form-group row -->
                         <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-1 col-form-label">&#xf023;</label> <!-- label: password -->
+                            <label for="inputPassword" class="col-sm-1 col-form-label" class="icon-for-login">&#xf023;</label> <!-- label: password -->
                             <div class="col-sm-11">
                                 <input type="password" class="form-control" name="password" id="inputPassword" placeholder="your password">
                             </div> <!-- ./ col-sm-11 -->
@@ -65,6 +65,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/presentation/rulePage.php">Rules</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/presentation/contactPage.php">Contact</a>
             </li>
             
             <li class="nav-item dropdown">

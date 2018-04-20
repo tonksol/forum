@@ -26,11 +26,12 @@ user can make a new post.
 - adding a logout page
 
 #posts
-- getdate() for new posts and getTime()
-# category overview site.
-- Number of threads/discussions (loaded from database)
-- A newest discussions section (loaded from database)
+- update getdate() for new posts and getTime()
 
+
+# contactpage
+- html form
+- send a message to admin. 
 
 #The front page must contain (loaded from database):
 - Hot Discussions

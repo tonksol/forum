@@ -103,6 +103,9 @@ INSERT INTO `forumPage` (`forumPageID`, `userID`, `forumPageName`, `forumPageCon
 VALUES 
     (NULL, '1', 'Rules and regulations', 'Boardgame Forum is a community of individuals of all ages who are here to learn new information, to help each other, and to help their fellow peers. With that in mind, we ask that all members please follow these simple rules in order to create an atmosphere where everyone feels comfortable.', '2018-04-19');
 
+INSERT INTO `forumPage` (`forumPageID`, `userID`, `forumPageName`, `forumPageContent`, `forumPageLastModifiedDate`) 
+VALUES 
+    (NULL, '1', 'Contact', 'This is the contact page. ', '2018-04-19');
 
 -- ------------------------------
 -- Rule
