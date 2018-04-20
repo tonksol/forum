@@ -47,6 +47,13 @@ CREATE TABLE forumPage (
     FOREIGN KEY (userID) REFERENCES user (userID)
 );
 
+CREATE TABLE rule (
+    ruleID                  int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    forumPageID             int NULL,
+    ruleDescription         varchar(500),
+    FOREIGN KEY (forumPageID) REFERENCES forumPage (forumPageID)
+);
+
 CREATE TABLE category (
     categoryID              int AUTO_INCREMENT NOT NULL PRIMARY KEY,
     categoryName            varchar(100),

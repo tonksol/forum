@@ -16,7 +16,7 @@ if (logged_in()) {
 if (isset($_POST['submit'])) { 
 
 	// set session for user to show the Log in succesful message just once.
-	// $_SESSION['justLoggedIn'] = true;
+	$_SESSION['justLoggedIn'] = true;
 	
 
 	$email = trim(mysqli_real_escape_string($connection, $_POST['email']));

@@ -91,6 +91,29 @@ INSERT INTO `userBadge` (`badgeID`, `userID`)
 VALUES 
     (3, 2);
 
+-- ------------------------------
+-- forumPage
+-- ------------------------------
+
+INSERT INTO `forumPage` (`forumPageID`, `userID`, `forumPageName`, `forumPageContent`, `forumPageLastModifiedDate`) 
+VALUES 
+    (NULL, '1', 'About Boardgame Forum', 'This is the best boardgame forum you can find on the internet. Custum made and it is awesome. You can read everything about it in this section.', '2018-04-20');
+
+INSERT INTO `forumPage` (`forumPageID`, `userID`, `forumPageName`, `forumPageContent`, `forumPageLastModifiedDate`) 
+VALUES 
+    (NULL, '1', 'Rules and regulations', 'Boardgame Forum is a community of individuals of all ages who are here to learn new information, to help each other, and to help their fellow peers. With that in mind, we ask that all members please follow these simple rules in order to create an atmosphere where everyone feels comfortable.', '2018-04-19');
+
+
+-- ------------------------------
+-- Rule
+-- ------------------------------
+
+INSERT INTO `rule` (`ruleID`, `forumPageID`, `ruleDescription`) 
+VALUES 
+    (NULL, '2', 'All information and instructions given within these forums is to be used at your own risk. By following or using any of this information you give up the right to hold Boardgame Forum liable for any damages.'), 
+    (NULL, '2', 'All the forums are categorized by topics and categories. Please post your questions or messages in the appropriate forum. '),
+    (NULL, '2', 'If a topic is posted in a forum that is not appropriate for the question, the staff has the right to move that topic to another better suited forum.'), 
+    (NULL, '2', 'Posting links in order to generate affiliate commissions is not permitted at Boardgame Forum. Any posts that are deemed to be posted in order to generate affiliate commissions, regardless of the product being promoted, will be deleted. If a user continues to create affiliate SPAM posts, they will be banned.');
 
 -- ------------------------------
 -- Category

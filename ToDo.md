@@ -7,10 +7,10 @@
 - meer testdata
 
 #POST
-maken nieuwe post. imagePost vullen met blank.png
+user can make a new post. 
 
 #USER
-- check welke acces level de user heeft (alleen relevant voor de back-end)
+
 
 # Sign up
 - sign in -- authentication if the email is a real email (boolean) add a column in the database 
@@ -81,6 +81,8 @@ switch the button on navbar to login logout
 - resize the uploaded picture in uploadImage.php
 
 - I add replyDate and replyTime to the reply table. Because the user want to know when somebody writes a reply.
+- check welke acces level de user heeft (alleen relevant voor de back-end)
+- make all the read queries and functions for post, topics, and category. And make links
 
 
 
