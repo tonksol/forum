@@ -1,29 +1,22 @@
 <?php
 require_once("../include/functions.php");
 
-
 $postID = $_GET['postID'];
 
 function getSelectedPostsHead($postID) {
     global $connection;
-    $query = "SELECT `post`.`postName`, `user`.`userName`, DAYNAME(`post`.`lastModifiedPostDate`) as 'dayname',`post`.`lastModifiedPostDate`, `topic`.`topicName` 
+    $query = "SELECT `post`.`postName`, `user`.`userName`, DAYNAME(`post`.`lastModifiedPostDate`) as 'dayname',`post`.`lastModifiedPostDate`, `topic`.`topicName`, `topic`.`topicID` 
         FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` 
         JOIN `topic` ON `topic`.`topicID` = `post`.`topicID`
         WHERE `postID` = $postID";
-
     $result = mysqli_query($connection, $query);
-
     $postHead = "";
     
         while ($row = mysqli_fetch_array($result)){
-
-  
             $postHead .=  '<h3 class="card-title">' . $row['postName'] .'</h3> ';
             $postHead .=  '<h5>Posted by: <b>' . $row['userName'] . '</b></h5>';
             $postHead .=  '<p class="card-text">' . $row['dayname'] . ' '. $row['lastModifiedPostDate'];
-            $postHead .=  ' in ' . $row['topicName'] . '</p>';
-
-
+            $postHead .=  ' in <a href=topicPosts.php?topicID=' . $row['topicID'] . '>' . $row['topicName'] . '</a></p>';
         }
     return $postHead;
 }
@@ -33,14 +26,9 @@ function getSelectedPostsContent($postID) {
     global $connection;
     $query = "SELECT `post`.`postImage`, `user`.`userName`, `post`.`postName`, `post`.`postContent` 
                 FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` WHERE `postID` = $postID";
-
     $result = mysqli_query($connection, $query);
-
-    $newPosts = "";
-    
+    $newPosts = "";    
         while ($row = mysqli_fetch_array($result)){
-
-            // $newPosts .=  ' <div class="container">';
             $newPosts .=  '     <div class="card" >';
             // $newPosts .=  '         <img class="card-img-top" src=" ../images/' . $row['postImage'] . '" alt="Card image">';
             $newPosts .=  '        <div class="card-body"> ';
@@ -48,13 +36,11 @@ function getSelectedPostsContent($postID) {
             $newPosts .=  '     </div> ';
             $newPosts .=  ' </div> ';
             $newPosts .=  ' <br><br><br>';
-
-
         }
     return $newPosts;
 }
 
-
+/*
 function getSelectedPosts($postID) {
     global $connection;
     $query = "SELECT `post`.`postImage`, `user`.`userName`, `post`.`postName`, `post`.`postContent` 
@@ -83,7 +69,7 @@ function getSelectedPosts($postID) {
         }
     return $newPosts;
 }
-
+*/
 
 function getReplies($postID) {
     global $connection;
@@ -97,38 +83,17 @@ function getReplies($postID) {
     $replies = "";
     
         while ($row = mysqli_fetch_array($result)){
-
             $replies .=  ' <div class="container">';
             $replies .=  '     <div class="card" >';
             $replies .=  '        <div class="card-body"> ';
             $replies .=  '         <h5>Posted by: <b>' . $row['userName'] . '</b></h5>';
-            $replies .=  '         <p class="card-text">' . $row['replyDate'] . '<p>';
-            $replies .=  '         <p class="card-text">' . $row['replyTime'] . '<p>';
+            $replies .=  '         <p class="card-text">' . $row['replyDate'] . '      ' . $row['replyTime'] . '<p>';
+            $replies .=  '         <p class="card-text">' .  '<p>';
             $replies .=  '         <p class="card-text">' . $row['replyContent'] . '</p>';
             $replies .=  '     </div> ';
             $replies .=  '     </div> ';
             $replies .=  '     </div> ';
             $replies .=  ' <br> ';
-
         }
         return $replies;
 }
-
-// mysqli_close($connection);
-
-//  SELECT `topic`.`topicName`, `post`.`postName`, `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOFreplies`
-//  FROM `topic`
-//  JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
-//  LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID`
-//  
-//  GROUP BY `post`.`postName`
-//  ORDER BY `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime` ASC
-// 
-// 
-// 
-// SELECT `topic`.`topicName`, `post`.`postName`, `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOFreplies`
-// 	FROM `topic`
-//     JOIN `post` ON `topic`.`topicID` = `topic`.`topicID`
-//     LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID`
-//     GROUP BY `post`.`postName`
-//     ORDER BY `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime` ASC

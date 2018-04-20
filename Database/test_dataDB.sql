@@ -98,11 +98,11 @@ VALUES
 
 INSERT INTO `category`(`categoryID`, `categoryName`,`categoryDescription`,`img1`, `img2`, `img3`)
 VALUES
-    (1, 'Family Games', 'Everything about playing boardgames' , '', '', '');
+    (1, 'Family Games', 'Family Games are popular games that you can play with a family. Not too complicated. So your grandparents can play with you as well.' , '', '', '');
 
 INSERT INTO `category`(`categoryID`, `categoryName`,`categoryDescription`,`img1`, `img2`, `img3`)
 VALUES
-    (2, 'Dexterity Games', 'Everything about designing new boardgames' , '', '', '');
+    (2, 'Dexterity Games', 'these are games that meet all of the following criteria: (1) dexterity (in some form, as in, flicking, pulling, pushing, twisting, etc.) as a key element or requirement for play; and (2) fun to play.', '', '', '');
 
 INSERT INTO `category`(`categoryID`, `categoryName`,`categoryDescription`,`img1`, `img2`, `img3`)
 VALUES

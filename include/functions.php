@@ -106,7 +106,7 @@ function member_area() {
     $please_login_message = "";
     if (!logged_in()) {
         $please_login_message = "Please log in first to see this page.";
-         redirect_to("http://localhost:41062/www/Forum/presentation/signUp_form.php");
+         redirect_to("http://localhost:41062/www/Forum/presentation/noMember.php");
         die;
     }
     return $please_login_message;

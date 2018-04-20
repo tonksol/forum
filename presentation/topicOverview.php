@@ -1,21 +1,20 @@
 <?php
 // overview of all categories
 require_once ("header.php");
-require_once("../business/categoryOverviewDAO.php");
+require_once("../business/topicOverviewDAO.php");
 ?>
 
 <br><br>
 <div class="container">
-    <h1> Category overview</h1>
+    <h1> Topic overview</h1>
     <br><br>
-    <a href="http://localhost:41062/www/Forum/presentation/newestPostsOverview.php">Go to the newest discussions</a>
-   <br><br><br>
     <table class="table table-striped">
         <thead>
             <tr>
+            <th scope="col">Topic</th>
+            <th scope="col">Description</th>
+            <th scope="col">number of posts</th>
             <th scope="col">Category</th>
-            <th scope="col-3">Description</th>
-            <th scope="col">number of topics</th>
             </tr>
         </thead>
 

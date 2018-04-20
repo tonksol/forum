@@ -72,9 +72,8 @@
                 Overview
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="http://localhost:41062/www/Forum/presentation/category.php">Categories</a>
-                        <a class="dropdown-item" href="http://localhost:41062/www/Forum/presentation/topic.php">Topics</a>
-                        <a class="dropdown-item" href="http://localhost:41062/www/Forum/presentation/newest_posts.php">Newest discussions</a>
+                        <a class="dropdown-item" href="http://localhost:41062/www/Forum/presentation/categoryOverview.php">Categories</a>
+                        <a class="dropdown-item" href="http://localhost:41062/www/Forum/presentation/newestPostsOverview.php">Newest discussions</a>
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div> 

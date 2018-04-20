@@ -39,7 +39,7 @@
     //$query2 = "SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID";  
 
     $result2 = mysqli_query($connection2, $query2);        
-    var_dump($result2);
+    // var_dump($result2);
     
     while ($row2 = $result2->fetch_array()) {
         $badge[] = $row2['badgeImage'];

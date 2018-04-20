@@ -2,6 +2,8 @@
 - connection in function en call the the function instead of global $connection
 - connection in the presistance layer
 
+- alle users linken naar profilepage. Maar daar mag je alleen komen als je member bent. anders not a member pagina. 
+
 - meer testdata
 
 #POST
