@@ -54,9 +54,49 @@ function validate_email($input_email) {
 // LOG IN / LOG OUT
 // -------------------------------------
 
+/*
+// used in member_area
+function logoutAfter15min(){
+	// Expire the session if user is inactive for 15 minutes or more.
+    $expireAfter = 1;
+    //Assign the current timestamp as the user's latest activity
+	$_SESSION['last_action'] = time();
+	// Check to see if the "last action" session variable has been set.
+	if(isset($_SESSION['last_action'])){
+		//Figure out how many seconds have passed since the user was last active.
+		$secondsInactive = time() - $_SESSION['last_action'];
+		//Convert minutes into seconds.
+		$expireAfterSeconds = $expireAfter * 60;
+		//Check to see if they have been inactive for too long.
+		if($secondsInactive >= $expireAfterSeconds){
+			//User has been inactive for too long. Kill their session.
+			session_unset();
+            session_destroy();
+            redirect_to('http://localhost:41062/www/Forum/presentation/logout.php');
+        }
+
+    }
+
+}
+
+// used in userprofile admin.
+// https://phppot.com/php/user-login-session-timeout-logout-in-php/
+function isLoginSessionExpired() {
+	$login_session_duration = 10; 
+	$current_time = time(); 
+	if(isset($_SESSION['loggedin_time']) and isset($_SESSION["user_id"])){  
+		if(((time() - $_SESSION['loggedin_time']) > $login_session_duration)){ 
+			return true; 
+		} 
+	}
+	return false;
+}
+*/
+
     // called on home.php
 function login_succes_message() {
-    if (logged_in()) {
+    if (logged_in() && $_SESSION['justLoggedIn'] == true) {
+        $_SESSION['justLoggedIn'] = false;
         return '<div class="alert alert-mygreen" role="alert"> Log in successful </div>';
     }
 }
@@ -106,7 +146,7 @@ function member_area() {
     $please_login_message = "";
     if (!logged_in()) {
         $please_login_message = "Please log in first to see this page.";
-         redirect_to("http://localhost:41062/www/Forum/presentation/noMember.php");
+         redirect_to("http://localhost:41062/www/Forum/presentation/noAccess.php");
         die;
     }
     return $please_login_message;

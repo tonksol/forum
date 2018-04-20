@@ -8,11 +8,17 @@ require_once ("../include/session.php");
 if (logged_in()) {
 	redirect_to("../home.php");	
 }
+
 // prefent that people can log in again when they are already logged in. 
 
 // START FORM PROCESSING
 	// Form has been submitted.
 if (isset($_POST['submit'])) { 
+
+	// set session for user to show the Log in succesful message just once.
+	// $_SESSION['justLoggedIn'] = true;
+	
+
 	$email = trim(mysqli_real_escape_string($connection, $_POST['email']));
 		// trim removes, whitespace (like tab or space.)
 		// mysqli_real_escape_string senatise the data. Prefent SQL injection by adding /. 
@@ -29,9 +35,10 @@ if (isset($_POST['submit'])) {
 		// password_verify matched the input password with the userPassword on the database. 
 		// If it is a match you get redirected to the home.php
 		$_SESSION['user_id'] = $found_user['userID'];
-		$_SESSION['userName'] = $found_user['userName'];
-		$_SESSION['email'] = $found_user['email'];
+		// $_SESSION['userName'] = $found_user['userName'];
+		// $_SESSION['email'] = $found_user['email'];
 		$_SESSION['isadmin'] = $found_user['accesLevelID'] !== NULL;
+		
 		// store id and user in session on the server side.
 		redirect_to("http://localhost:41062/www/forum/presentation/home.php");
 			
@@ -41,6 +48,7 @@ if (isset($_POST['submit'])) {
 		$_SESSION['login_failed_message'] = 'Email/password combination incorrect.<br/> Please make sure your caps lock key is off and try again.';
 	}
 }
+
 
 
 // close the connection

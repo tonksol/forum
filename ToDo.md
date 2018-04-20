@@ -20,7 +20,6 @@ maken nieuwe post. imagePost vullen met blank.png
 # Log in
 - build the code for remember my email for the login (logIn_form.php)
 - if the user doesn't exsits send a message
-- fix the you are succesfully logged in message
 - expire log in session after... https://stackoverflow.com/questions/20516969/automatic-logout-after-15-minutes-of-inactive-in-php?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 
 #logout

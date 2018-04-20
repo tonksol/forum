@@ -31,4 +31,4 @@
     <!-- include the session, connection, functions and navbar -->
  
    
-    <?php require ("navigation.php"); ?>        
+    <?php require ("navigation.php");?>        
