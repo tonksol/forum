@@ -1,0 +1,16 @@
+<?php
+require_once("../include/functions.php");
+admin_area();
+require_once("header.php");
+
+
+?>
+<!-- Side navigation -->
+<div class="sidenav">
+  <a href="http://localhost:41062/www/Forum/presentation/pageManager.php">Pages</a> <br>
+  <a href="#">Posts</a> <br>
+  <a href="#">Profiles</a> <br>
+  <a href="#">Users</a> <br> <!-- manage the permissions, access levels -->
+  <a href="#">Hot discussions</a> <br>
+  <a href="#">Styling Settings</a> <br>
+</div>

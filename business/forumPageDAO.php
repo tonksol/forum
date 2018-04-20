@@ -1,6 +1,7 @@
 <?php
 require_once("../include/functions.php");
 
+// READ
 function getPage ($pagename) {
     global $connection;
     $query = "SELECT * 
@@ -18,6 +19,7 @@ function getPage ($pagename) {
         return $pageContent;
 }
 
+// READ
 function getRules() {
     global $connection;
     $query = "SELECT * FROM rule";
