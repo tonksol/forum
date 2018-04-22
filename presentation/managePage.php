@@ -2,6 +2,7 @@
 <?php
 require_once ("../include/functions.php"); 
 require_once ("../business/adminDAO.php"); 
+member_area();
 require_once ("header.php"); 
 require_once ("adminNavigation.php");
 ?>

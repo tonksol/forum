@@ -152,7 +152,7 @@ h3 {
 
 .user-cover {
         height: 40em;
-        background: url("../images/cover1.jpg") no-repeat center center fixed;
+        background: url("images/cover1.jpg") no-repeat center center fixed;
         background-size: cover;
       
   }

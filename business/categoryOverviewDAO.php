@@ -19,7 +19,7 @@ function getTopicsForOverview() {
         while ($row = mysqli_fetch_array($result)){ 
             $topics .= "<tr>";
             // $topics .= "<td>" . $row['categoryName'] . "</td>";
-            $topics .= "<td><a href=categoryTopics.php?categoryID=" . $row['categoryID'] . ">" . $row['categoryName']."</a></td>";
+            $topics .= "<td><a href=presentation/categoryTopics.php?categoryID=" . $row['categoryID'] . ">" . $row['categoryName']."</a></td>";
             $topics .= "<td>" . $row['categoryDescription'] . "</td>";
             $topics .= "<td>" . $row['numberOfTopics'] . "</td>";
             $topics .= "</tr>";

@@ -16,7 +16,7 @@ function getSelectedTopicHead($topicID) {
             $topicHead .= '     <div class="card" >';
             $topicHead .= '        <div class="card-body"> ';
             $topicHead .= '             <h1 class="card-title">' . $row['topicName'] .'</h1>';
-            $topicHead .= '             <p class="card-text"> in <a href=categoryTopics.php?categoryID=' . $row['categoryID'] . '>' . $row['categoryName'] . '</a></p>';
+            $topicHead .= '             <p class="card-text"> in <a href=presentation/categoryTopics.php?categoryID=' . $row['categoryID'] . '>' . $row['categoryName'] . '</a></p>';
             $topicHead .= '             <p class="card-text">' . $row['topicDescription'] .'</p> ';
             $topicHead .= '         </div> ';
             $topicHead .= '     </div> ';
@@ -91,7 +91,7 @@ function getPosts($topicID) {
         while ($row = mysqli_fetch_array($result)){
             $posts .= "<tr>";
             
-            $posts .= '<td><p class="card-text"><a href=postReplies.php?postID=' . $row['postID'] . '>' . $row['postName'] . '</a></p></td>';
+            $posts .= '<td><p class="card-text"><a href=presentation/postReplies.php?postID=' . $row['postID'] . '>' . $row['postName'] . '</a></p></td>';
             // $posts .= "<td>" . $row['postName'] . "</td>";
             $posts .= "<td>" . $row['userName'] . "</td>";
             $posts .= '<td><p class="card-text">' . $row['lastModifiedPostDate'] . '      ' . $row['lastModifiedPostTime'] . '<p></td>';

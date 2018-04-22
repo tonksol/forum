@@ -20,10 +20,10 @@ require_once ("../business/userProfile.php");
     <div class="container">
         <div class="row">
         <div class="col-sm-4"> <!-- the size of the row --> 
-        <center><img src="../images/<?php echo get_user_image($row["userImage"]) ?>" alt="profile-picture"></center>
+        <center><img src="images/<?php echo get_user_image($row["userImage"]) ?>" alt="profile-picture"></center>
 
 
-                <form action="../business/uploadImage.php" method="post" enctype="multipart/form-data">
+                <form action="business/uploadImage.php" method="post" enctype="multipart/form-data">
                     Select image to upload:
                     <input type="file" name="image"/>
                     <input type="submit" name="submit" value="UPLOAD"/>

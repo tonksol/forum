@@ -9,7 +9,7 @@
                 </div>
                 <div class="modal-body">
 
-                      <form role="form" method="POST" action="http://localhost:41062/www/Forum/business/login.php" enctype="multipart/form-data">
+                      <form role="form" method="POST" action="business/login.php" enctype="multipart/form-data">
                         <br>
                         <div class="form-group row">
                         <label for="inputEmail" class="col-sm-1 col-form-label" class="icon-for-login">&#xf007;</label> <!-- label: email -->
@@ -42,7 +42,7 @@
                     </form>
                 </div>
                 <div class="modal-footer text-xs-center">
-                    Don't have an account? &nbsp;<a href="http://localhost:41062/www/Forum/presentation/signUp_form.php">Sign up</a>
+                    Don't have an account? &nbsp;<a href="presentation/signUp_form.php">Sign up</a>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -52,7 +52,7 @@
 <!-- NAVBAR -->
 <div class="navbar-body">
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" class="home" href="http://localhost:41062/www/Forum/presentation/home.php"> BOARDGAME FORUM <span class="sr-only">(current)</span></a>  
+    <a class="navbar-brand" class="home" href="presentation/home.php"> BOARDGAME FORUM <span class="sr-only">(current)</span></a>  
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -61,13 +61,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" class="a link" href="http://localhost:41062/www/Forum/presentation/aboutPage.php"> About </a>
+                <a class="nav-link" class="a link" href="presentation/aboutPage.php"> About </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/presentation/rulePage.php">Rules</a>
+                <a class="nav-link" class="log-out" href="presentation/rulePage.php">Rules</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/presentation/contactPage.php">Contact</a>
+                <a class="nav-link" class="log-out" href="presentation/contactPage.php">Contact</a>
             </li>
             
             <li class="nav-item dropdown">
@@ -75,8 +75,8 @@
                 Overview
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="http://localhost:41062/www/Forum/presentation/categoryOverview.php">Categories</a>
-                        <a class="dropdown-item" href="http://localhost:41062/www/Forum/presentation/newestPostsOverview.php">Newest discussions</a>
+                        <a class="dropdown-item" href="presentation/categoryOverview.php">Categories</a>
+                        <a class="dropdown-item" href="presentation/newestPostsOverview.php">Newest discussions</a>
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div> 

@@ -7,7 +7,7 @@ require_once("../business/topicPostsDAO.php");
 <br><br>
 <div class="container">
     <br><br>
-    <a href="http://localhost:41062/www/Forum/presentation/topicOverview.php">Go to all topics (overview)</a>
+    <a href="presentation/topicOverview.php">Go to all topics (overview)</a>
     <table class="table table-striped">
         <thead>
             <tr>

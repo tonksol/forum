@@ -1,6 +1,5 @@
 <?php
 require_once("../include/functions.php");
-admin_area();
 require_once("header.php");
 require_once("../business/forumPageDAO.php");
 

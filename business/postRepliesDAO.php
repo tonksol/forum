@@ -16,7 +16,7 @@ function getSelectedPostsHead($postID) {
             $postHead .=  '<h3 class="card-title">' . $row['postName'] .'</h3> ';
             $postHead .=  '<h5>Posted by: <b>' . $row['userName'] . '</b></h5>';
             $postHead .=  '<p class="card-text">' . $row['dayname'] . ' '. $row['lastModifiedPostDate'];
-            $postHead .=  ' in <a href=topicPosts.php?topicID=' . $row['topicID'] . '>' . $row['topicName'] . '</a></p>';
+            $postHead .=  ' in <a href=presentation/topicPosts.php?topicID=' . $row['topicID'] . '>' . $row['topicName'] . '</a></p>';
         }
     return $postHead;
 }

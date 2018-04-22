@@ -8,7 +8,7 @@ require_once("../business/newestPostsOverviewDAO.php");
 <div class="container">
     <h1>Newest discussions</h1>
     <br><br>
-    <a href="http://localhost:41062/www/Forum/presentation/categoryOverview.php">Go to category overview</a>
+    <a href="presentation/categoryOverview.php">Go to category overview</a>
     <br><br>
 
     <table class="table table-striped">

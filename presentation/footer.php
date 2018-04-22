@@ -55,7 +55,7 @@
                             <strong>Boardgame forum</strong>
                         </h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" >
-                        <p>Do you want to know more about the Boardgame forum? Please visit our <a href="#">about</a> page. </p>
+                        <p>Do you want to know more about the Boardgame forum? Please visit our <a href=presentation/aboutPage.php>about</a> page. </p>
                     </div>
                     <!--/.First column-->
 
@@ -66,10 +66,10 @@
                         </h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
                         <p>
-                            <a href="#!">Category overview</a>
+                            <a href="presentation/categoryOverview.php">Category overview</a>
                         </p>
                         <p>
-                            <a href="#!">Newest posts</a>
+                            <a href="presentation/newestPostsOverview.php">Newest posts</a>
                         </p>
                         <p>
                             <a href="#!">Popular posts</a>
@@ -84,13 +84,13 @@
                         </h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto">
                         <p>
-                            <a href="http://localhost:41062/www/Forum/presentation/signUp_form.php" class="dark-grey-text">Sign up</a>
+                            <a href="presentation/signUp_form.php" class="dark-grey-text">Sign up</a>
                         </p>
                         <p>
-                            <a href="#!">Rules</a>
+                            <a href="presentation/rulePage.php">Rules</a>
                         </p>
                         <p>
-                            <a href="#!">FAQ</a>
+                            <a href="presentation/contactPage.php">Contact</a>
                         </p>
                     </div>
                     <!--/.Third column-->

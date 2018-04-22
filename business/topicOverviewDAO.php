@@ -17,14 +17,14 @@ function getTopicsForOverview() {
     
         while ($row = mysqli_fetch_array($result)){ 
             $topics .= "<tr>";
-            $topics .= "<td><a href=topicPosts.php?topicID=" . $row['topicID'] . ">" . $row['topicName']."</a></td>";
+            $topics .= "<td><a href=presentation/topicPosts.php?topicID=" . $row['topicID'] . ">" . $row['topicName']."</a></td>";
             $topics .= "<td>" . $row['topicDescription'] . "</td>";
             $topics .= "<td>" . $row['numberOfPosts'] . "</td>";
             // $topics .= "<td>" . $row['categoryName'] . "</td>";
-            $topics .= "<td><a href=categoryTopics.php?categoryID=" . $row['categoryID'] . ">" . $row['categoryName']."</a></td>";
+            $topics .= "<td><a href=presentation/categoryTopics.php?categoryID=" . $row['categoryID'] . ">" . $row['categoryName']."</a></td>";
             $topics .= "</tr>";
         }
     return $topics;
 }
-// <a href=postReplies.php?postID=" . $row['postID'] . ">" . $row['postName']."</a>
+// <a href=presentation/postReplies.php?postID=" . $row['postID'] . ">" . $row['postName']."</a>
 

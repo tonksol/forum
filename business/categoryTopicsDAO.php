@@ -1,5 +1,4 @@
 <?php
-// require_once("../include/connection.php");
 require_once("../include/functions.php");
 
 function getCategoryHead($categoryID){
@@ -103,7 +102,7 @@ function getPostsOverviewFromTopic($categoryID) {
         while ($row = mysqli_fetch_array($result)){ 
             $topics .= "<tr>";
             // $topics .= "<td>" . $row['categoryName'] . "</td>";
-            $topics .= "<td><a href=topicPosts.php?topicID=" . $row['topicID'] . ">" . $row['topicName']."</a></td>";
+            $topics .= "<td><a href=presentation/topicPosts.php?topicID=" . $row['topicID'] . ">" . $row['topicName']."</a></td>";
             $topics .= "<td>" . $row['topicDescription'] . "</td>";
             $topics .= "<td>" . $row['numberOfPosts'] . "</td>";
             $topics .= "</tr>";

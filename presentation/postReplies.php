@@ -7,7 +7,7 @@ require_once("../business/postRepliesDAO.php");
 <br><br>
 <div class="container">
         <div class="container">  
-            <a href="http://localhost:41062/www/Forum/presentation/newestPostsOverview.php">Go back to newest discussion</a>
+            <a href="presentation/newestPostsOverview.php">Go back to newest discussion</a>
             <br><br><br>
             
             <?php 

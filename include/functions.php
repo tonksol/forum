@@ -121,7 +121,7 @@ function login_logout_button_switch() {
     if (!logged_in()) {
         $which_button = '<a class="nav-link" class="log-in" href="#" data-toggle="modal" data-target="#loginModal">Log in</a></li>';
     } else {  
-        $which_button = '<a class="nav-link" class="log-out" href="http://localhost:41062/www/Forum/business/logout.php">Log out</a></li>';
+        $which_button = '<a class="nav-link" class="log-out" href="business/logout.php">Log out</a></li>';
     }
     return $which_button;
 }
@@ -129,7 +129,7 @@ function login_logout_button_switch() {
 function myprofile_switch(){
     $which_button = "";
     if (logged_in()) {
-        return '<a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/presentation/userProfile_page.php">My profile</a>';
+        return '<a class="nav-link" class="my-profile" href="presentation/userProfile_page.php">My profile</a>';
     } 
     return $which_button;
 }
@@ -137,7 +137,7 @@ function myprofile_switch(){
 // navigation admin
 function visable_unvisable_admin_switch() {
     if (logged_in() && isAdmin()){
-        return '<a class="nav-link" class="my-profile" href="http://localhost:41062/www/Forum/presentation/admin_page.php">Admin</a>';
+        return '<a class="nav-link" class="my-profile" href="presentation/admin_page.php">Admin</a>';
     }
 }
 

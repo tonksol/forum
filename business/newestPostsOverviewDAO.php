@@ -22,8 +22,8 @@ function getNewestPosts() {
     
         while ($row = mysqli_fetch_array($result)){
             $newPosts .= "<tr>";
-            $newPosts .= "<td><a href=topicPosts.php?topicID=" . $row['topicID'] . ">" . $row['topicName']."</a></td>";
-            $newPosts .= "<td><a href=postReplies.php?postID=" . $row['postID'] . ">" . $row['postName']."</a></td>";
+            $newPosts .= "<td><a href=presentation/topicPosts.php?topicID=" . $row['topicID'] . ">" . $row['topicName']."</a></td>";
+            $newPosts .= "<td><a href=presentation/postReplies.php?postID=" . $row['postID'] . ">" . $row['postName']."</a></td>";
             $newPosts .= '<td>' . $row['userName'] . "</td>";
             $newPosts .= "<td>" . $row['lastModifiedPostDate'] . "</td>";
             $newPosts .= "<td>" . $row['lastModifiedPostTime'] . "</td>";

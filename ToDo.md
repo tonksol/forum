@@ -7,7 +7,7 @@
 user can make a new post. 
 
 #USER
-
+- voeg eigen cover toe (nieuwe rij in database) en laad de cover vanuit de db. userprofile_page.php en userprofile.php
 
 # Sign up
 - sign in -- authentication if the email is a real email (boolean) add a column in the database 

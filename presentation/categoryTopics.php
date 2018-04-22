@@ -7,13 +7,13 @@ require_once("../business/categoryTopicsDAO.php");
 <br><br>
 <div class="container">
     <br><br>
-    <a href="http://localhost:41062/www/Forum/presentation/categoryOverview.php">Go to category overview</a>
+    <a href="presentation/categoryOverview.php">Go to category overview</a>
     <!-- 
     <br><br>
     <a href="http://localhost:41062/www/Forum/presentation/topicOverview.php">Go to topic overview</a>
     -->
     <br><br>
-    <a href="http://localhost:41062/www/Forum/presentation/newestPostsOverview.php">Go to the newest discussions</a>
+    <a href="presentation/newestPostsOverview.php">Go to the newest discussions</a>
    <br><br><br>
    <table class="table table-striped">
         <thead>
