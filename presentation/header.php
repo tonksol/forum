@@ -16,7 +16,8 @@
 
     <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="all.css">
-    <!-- base: -->
+    <!-- base: so I can use relative paths-->
+    <base href="http://localhost:41062/www/Forum/">
   </head>
 
   <body id="header">

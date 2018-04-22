@@ -2,9 +2,6 @@
 - connection in function en call the the function instead of global $connection
 - connection in the presistance layer
 
-- alle users linken naar profilepage. Maar daar mag je alleen komen als je member bent. anders not a member pagina. 
-
-- meer testdata
 
 #POST
 user can make a new post. 
@@ -28,7 +25,8 @@ user can make a new post.
 #posts
 - update getdate() for new posts and getTime()
 
-
+# NIEUWE USER
+- geef elke nieuwe user een badge 
 # contactpage
 - html form
 - send a message to admin. 

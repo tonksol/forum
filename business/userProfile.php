@@ -8,8 +8,7 @@ if (isset($_POST['submit'])) {
     updateUserInfo($_POST["userID"], $_POST["firstname"], $_POST["prefix"], $_POST["lastname"], $_POST["birthday"], $_POST["email"], $_POST["username"], $_POST["quote"]); 
 }
 
-// UPDATE THE USER INFO
-    
+// UPDATE - User info
 function updateUserInfo($userID, $firstname, $prefix, $lastname, $birthday, $email, $username, $quote) {
     global $connection;
     $query = "CALL proc_update_userinfo('$userID','$firstname', '$prefix', '$lastname', '$birthday', '$email', '$username', '$quote')";
@@ -23,33 +22,33 @@ function updateUserInfo($userID, $firstname, $prefix, $lastname, $birthday, $ema
     
 }
 
-
+// READ - Badges
 function getBadges($userID) {    
-    //$row = getUserBadges($userID);
-    // global $connection; 
+
+    //$query2 = "SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID";  
     $query2 = "CALL proc_select_the_badges('$userID')";
-    // echo $userID;
+    // making a new connection because some how the stored procedure killed the connection
     $connection2 = mysqli_connect('localhost', 'root', '');
     $db_select = mysqli_select_db($connection2, 'boardgames_db');
-    // echo connectDatabase();
-    //$query2 = "SELECT * FROM badge as b JOIN userBadge as ub ON b.badgeID = ub.badgeID WHERE ub.userID = $userID";  
-
     $result2 = mysqli_query($connection2, $query2);        
-    // var_dump($result2);
-
     while ($row2 = $result2->fetch_array()) {
         $badge[] = $row2['badgeImage'];
     }
     return $badge;
 }
 
-// {} so php can correctly identify the variable. 
+// READ - User info
+function getUserProfile($userID) {
+    global $connection;
+    // SELECT * FROM user WHERE userID = $userID
+    $query = "CALL proc_select_all_from_user('$userID')";
+    $result = mysqli_query($connection, $query);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+    }   
+    return $row;
+}
 
 $userID = $_SESSION['user_id'];
 $row = getUserProfile($userID); // row = array
-$badges = getBadges($userID); // badges = array
-
-    
-
-
-    
+$badges = getBadges($userID); // badges = array 

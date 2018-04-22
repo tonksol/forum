@@ -211,16 +211,7 @@ function editable_form() {
 
 
 
-function getUserProfile($userID) {
-    global $connection;
-    // SELECT * FROM user WHERE userID = $userID
-    $query = "CALL proc_select_all_from_user('$userID')";
-    $result = mysqli_query($connection, $query);
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-    }   
-    return $row;
-}
+
 
 function getUserBadges() {
     global $connection; 
