@@ -1,9 +1,9 @@
 <?php 
 require_once (__DIR__ . "/../include/functions.php");
- // echo loginFirst_message();
-require_once ("header.php"); 
-require_once ("../business/newestPostsOverviewDAO.php"); 
-require_once ("../business/forumPageDAO.php"); 
+require_once (__DIR__ . "/../business/newestPostsOverviewDAO.php"); 
+require_once (__DIR__ . "/../business/forumPageDAO.php"); 
+require_once (__DIR__ . "/../presentation/header.php"); 
+// echo loginFirst_message();
 ?>
 
 
@@ -53,6 +53,6 @@ require_once ("../business/forumPageDAO.php");
         </div> <!-- ./ container -->
 
     </body>
-    <?php require ("footer.php"); ?>
+    <?php require (__DIR__ . "/../presentation/footer.php"); ?>
 
 </html>

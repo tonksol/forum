@@ -1,9 +1,7 @@
-
-
 <?php
+require (__DIR__ . "/include/connection.php");
+require (__DIR__ . "/presentation/home.php");
 // include the php files.
-require ("include/connection.php");
-require ("presentation/home.php");
 
 ?>
 

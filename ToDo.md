@@ -86,6 +86,8 @@ switch the button on navbar to login logout
 
 
 
+#PLUGIN IDEE
 
+plugin die alle relatieve paden goed zet zodat je makkelijk kan switchen tussen localhost en je webhost
 
 

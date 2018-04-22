@@ -1,5 +1,5 @@
 <?php
-require_once ("../include/functions.php");
+require_once (__DIR__ . "/../include/functions.php");
 
 // Defines (defineren) a named constant
 define ("MAX_SIZE",3000);
@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
             }
 
             $image_name = $image_path;
-            $newname = "../images/".$image_name;
+            $newname = "images/".$image_name;
             $copied = copy($_FILES['image']['tmp_name'], $newname);
             // if not copied error message
             if (!$copied) {
@@ -137,7 +137,7 @@ if(isset($_POST['submit']) && !$errors) {
     $query = "CALL proc_update_profilepicture($userID, '$newname')";
     $result = mysqli_query($connection, $query);
     echo "<h1>Image succesful uploaded!</h1>";
-    redirect_to("../presentation/userProfile_page.php");
+    redirect_to("/../presentation/userProfile_page.php");
 }
 
 

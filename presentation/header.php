@@ -16,8 +16,12 @@
 
     <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="all.css">
-    <!-- base: so I can use relative paths-->
-    <base href="http://localhost:41062/www/Forum/">
+    <!-- 
+      base: so I can use relative paths change this if you are in another enviroment 
+      http://tonkebultnl.000webhostapp.com/
+      http://localhost:41062/www/Forum/
+  -->
+    <base href="http://tonkebultnl.000webhostapp.com/">
   </head>
 
   <body id="header">
@@ -33,4 +37,4 @@
     <!-- include the session, connection, functions and navbar -->
  
    
-    <?php require ("navigation.php");?>        
+    <?php require (__DIR__ . "/../presentation/navigation.php");?>        

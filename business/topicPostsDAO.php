@@ -1,5 +1,5 @@
 <?php
-require_once("../include/functions.php");
+require_once(__DIR__ . "/../include/functions.php");
 
 // $postID = $_GET['postID'];
 $topicID = $_GET['topicID'];
@@ -36,7 +36,7 @@ function getSelectedTopicContent($topicID) {
     $newPosts = "";    
         while ($row = mysqli_fetch_array($result)){
             $newPosts .=  '     <div class="card" >';
-            // $newPosts .=  '         <img class="card-img-top" src=" ../images/' . $row['postImage'] . '" alt="Card image">';
+            // $newPosts .=  '         <img class="card-img-top" src=" images/' . $row['postImage'] . '" alt="Card image">';
             $newPosts .=  '        <div class="card-body"> ';
             $newPosts .=  '         <p class="card-text">' . $row['postContent'] . '</p>';
             $newPosts .=  '     </div> ';
@@ -60,7 +60,7 @@ function getSelectedPosts($postID) {
 
             // $newPosts .=  ' <div class="container">';
             $newPosts .=  '     <div class="card" >';
-            // $newPosts .=  '         <img class="card-img-top" src=" ../images/' . $row['postImage'] . '" alt="Card image">';
+            // $newPosts .=  '         <img class="card-img-top" src=" images/' . $row['postImage'] . '" alt="Card image">';
             $newPosts .=  '        <div class="card-body"> ';
             $newPosts .=  '         <h3 class="card-title">' . $row['postName'] .'</h3> ';
         

@@ -1,14 +1,15 @@
 
 <?php
+// 1. Find the session
+session_start();
 
-require_once('../include/functions.php'); // so we can actually use functions from our functions file. 
-require_once('../include/session.php');
+require_once(__DIR__ . "/../include/functions.php"); // so we can actually use functions from our functions file. 
+require_once(__DIR__ . "/../include/session.php");
 	// THIRD 3 
 		// Four steps to closing a session
 		// (i.e. logging out)
 
-		// 1. Find the session
-		 session_start();
+		
 		
 		// 2. Unset all the session variables
 		$_SESSION = array(); // good practise to do this
@@ -22,5 +23,5 @@ require_once('../include/session.php');
 		// 4. Destroy the session at the server side
 		session_destroy();
 		
-		redirect_to('http://localhost:41062/www/Forum/presentation/home.php');
+		redirect_to("/../presentation/home.php");
 ?>

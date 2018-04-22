@@ -1,8 +1,8 @@
-<?php require_once ("../include/functions.php"); ?>  
+<?php require_once (__DIR__ . "/../include/functions.php"); ?>  
 
 
-<?php require ("header.php"); ?> 
-<?php require_once("../business/signUp.php"); ?>
+<?php require (__DIR__ . "/../presentation/header.php"); ?> 
+<?php require_once(__DIR__ . "/../business/signUp.php"); ?>
 
 
 <html>
@@ -57,4 +57,4 @@
     <br><br><br><br><br><br><br><br><br>
     </div> <!-- ./ container -->
 
-<?php require ("footer.php"); ?>
+<?php require (__DIR__ . "/../presentation/footer.php"); ?>

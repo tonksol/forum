@@ -1,4 +1,4 @@
-USE boardgames_db;
+
 -- ------------------------------
 -- USER 
 -- ------------------------------
@@ -44,7 +44,7 @@ VALUES
 -- arthur the king - acces level - admin
 INSERT INTO `userAccesLevel` (`userID`, `accesLevelID`)
 VALUES 
-    (4,1);
+    (3,1);
 
 -- ------------------------------
 -- BADGE

@@ -1,7 +1,7 @@
 <?php
-require_once("../include/functions.php");
-require_once("header.php");
-require_once("../business/forumPageDAO.php");
+require_once(__DIR__ . "/../include/functions.php");
+require_once(__DIR__ . "/../presentation/header.php");
+require_once(__DIR__ . "/../business/forumPageDAO.php");
 ?>
 
 <body>
@@ -12,4 +12,4 @@ require_once("../business/forumPageDAO.php");
     </div>
 </body>
 
-<?php require_once("footer.php");?>
+<?php require_once(__DIR__ . "/../presentation/footer.php");?>

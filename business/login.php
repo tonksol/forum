@@ -1,12 +1,10 @@
 <?php
-require_once ("../include/connection.php");
-require_once ("../include/functions.php");
-require_once ("../include/session.php");
-
-// require_once ("../include/modal-form.js");
+require_once (__DIR__ . "/../include/connection.php");
+require_once (__DIR__ . "/../include/functions.php");
+require_once (__DIR__ . "/../include/session.php");
 
 if (logged_in()) {
-	redirect_to("../home.php");	
+	redirect_to("/../presentation/home.php");	
 }
 
 // prefent that people can log in again when they are already logged in. 
@@ -27,6 +25,7 @@ if (isset($_POST['submit'])) {
 	$query = "CALL proc_get_user_by_email('$email')";
 		// select the user from the database with: {$email}
 	$result = mysqli_query($connection, $query);
+	
 		// executing the query and put the result in $result.			
 	$found_user = mysqli_fetch_array($result);
 		// the result of the different columns are in the array $found_user (associative) 
@@ -40,11 +39,11 @@ if (isset($_POST['submit'])) {
 		$_SESSION['isadmin'] = $found_user['accesLevelID'] !== NULL;
 		
 		// store id and user in session on the server side.
-		redirect_to("http://localhost:41062/www/forum/presentation/home.php");
+		redirect_to("/../presentation/home.php");
 			
 	} else {
 		// email/password combo was not found in the database got redirected to signup_form.php
-		redirect_to("http://localhost:41062/www/Forum/presentation/signUp_form.php");
+		redirect_to("/../presentation/signUp_form.php");
 		$_SESSION['login_failed_message'] = 'Email/password combination incorrect.<br/> Please make sure your caps lock key is off and try again.';
 	}
 }

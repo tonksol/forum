@@ -1,6 +1,6 @@
 <?php
-require_once ("session.php");
-require_once ("connection.php");
+require_once (__DIR__ . "/../include/session.php");
+require_once (__DIR__ . "/../include/connection.php");
 // write here all your functions
 // bedenk goed wat er in een functie gaat en wat eruit komt 
 
@@ -72,7 +72,7 @@ function logoutAfter15min(){
 			//User has been inactive for too long. Kill their session.
 			session_unset();
             session_destroy();
-            redirect_to('http://localhost:41062/www/Forum/presentation/logout.php');
+            redirect_to("/../presentation/logout.php");
         }
 
     }
@@ -146,7 +146,7 @@ function member_area() {
     $please_login_message = "";
     if (!logged_in()) {
         $please_login_message = "Please log in first to see this page.";
-         redirect_to("http://localhost:41062/www/Forum/presentation/noAccess.php");
+         redirect_to("/../presentation/noAccess.php");
         die;
     }
     return $please_login_message;
@@ -156,7 +156,7 @@ function member_area() {
 // -------------------------------------
 function admin_area() {
     if (!logged_in() || !isAdmin()) {
-        redirect_to("http://localhost:41062/www/Forum/presentation/home.php");  
+        redirect_to("/../presentation/home.php");  
         die;
     }
 }
@@ -177,7 +177,7 @@ function isAdmin(){
 
 function get_user_image($imageUrl) {
     if ($imageUrl == "" || $imageUrl == NULL){
-        return "../images/profilepic0.png";       
+        return "images/profilepic0.png";       
     } else {
         return $imageUrl;
     }

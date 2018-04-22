@@ -1,5 +1,5 @@
 <?php
-require_once("../include/functions.php");
+require_once(__DIR__ . "/../include/functions.php");
 
  // if (isset($_POST["about"])){
  //     $forumpagename = $_POST["about"];
@@ -32,7 +32,7 @@ if (isset($_GET['forumPageID'])){
 
 if (isset($_POST['submit']) && isset($_GET['forumPageID'])) {
     updatePageInfo($userID, $_POST["pagename"], $_POST["content"], date("Y-m-d"), $_GET['forumPageID']); 
-    redirect_to("pageManager.php");
+    redirect_to("/../presentation/pageManager.php");
 }
 
 function updatePageInfo($userID, $pagename, $pagecontent, $todaysdate, $forumpageID) {
@@ -53,7 +53,7 @@ function updatePageInfo($userID, $pagename, $pagecontent, $todaysdate, $forumpag
  // INSERT new page
 if (isset($_POST['submit']) && !isset($_GET['forumPageID'])) {
     insertNewPage($userID, $_POST["pagename"], $_POST["content"], date("Y-m-d")); 
-    redirect_to("pageManager.php");
+    redirect_to("/../presentation/pageManager.php");
 }
 
  function insertNewPage($userID, $pagename, $pagecontent, $todaysdate) {
@@ -70,7 +70,7 @@ if (isset($_POST['submit']) && !isset($_GET['forumPageID'])) {
 
  if (isset($_POST['delete'])) {
      deletePage();
-     redirect_to("pageManager.php");
+     redirect_to("/../presentation/pageManager.php");
  }
  // DELETE page
  function deletePage($forumpageID) {

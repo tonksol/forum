@@ -1,9 +1,9 @@
 <?php 
-require_once ("../include/functions.php");
-// require_once ("../include/session.php");
+require_once (__DIR__ . "/../include/functions.php");
+// require_once ("include/session.php");
 member_area();
-require_once ("../presentation/header.php");  
-require_once ("../business/userProfile.php");
+require_once (__DIR__ . "/../presentation/header.php");  
+require_once (__DIR__ . "/../business/userProfile.php");
 // require_once ("uploadImage.php");
 ?>
 
@@ -100,7 +100,7 @@ require_once ("../business/userProfile.php");
                 <div class="col-lg-9">
                     <!-- <input type="image" name="badge" -->
                     <?php foreach ($badges as $b) { ?>
-                    <img src="../images/badges/<?php echo $b?>">
+                    <img src="images/badges/<?php echo $b?>">
                     <?php } ?>
                 </div> <!-- col-sm-10 -->
             </div> <!-- ./ form-group row -->
@@ -124,4 +124,4 @@ require_once ("../business/userProfile.php");
     </div> <!-- ./ container --> 
 </body>
 
-<?php require ("../presentation/footer.php"); ?>
+<?php require (__DIR__ . "/../presentation/footer.php"); ?>

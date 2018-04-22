@@ -1,9 +1,9 @@
 
 <?php
-require_once ("../include/functions.php"); 
-require_once ("../business/adminDAO.php"); 
-require_once ("header.php"); 
-require_once ("adminNavigation.php");
+require_once (__DIR__ . "/../include/functions.php"); 
+require_once (__DIR__ . "/../business/adminDAO.php"); 
+require_once (__DIR__ . "/../presentation/header.php"); 
+require_once (__DIR__ . "/../presentation/adminNavigation.php");
 ?>
 
 <div class="container">

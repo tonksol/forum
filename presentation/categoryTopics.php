@@ -1,7 +1,7 @@
 <?php
 // overview of all categories
-require_once ("header.php");
-require_once("../business/categoryTopicsDAO.php");
+require_once (__DIR__ . "/../presentation/header.php");
+require_once(__DIR__ . "/../business/categoryTopicsDAO.php");
 ?>
 
 <br><br>
@@ -32,4 +32,4 @@ require_once("../business/categoryTopicsDAO.php");
 </div> <!-- ./ container -->
 <br><br><br>
 
-<?php require ("footer.php"); ?>
+<?php require (__DIR__ . "/../presentation/footer.php"); ?>

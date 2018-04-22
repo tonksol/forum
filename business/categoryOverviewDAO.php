@@ -1,6 +1,5 @@
 <?php
-// require_once("../include/connection.php");
-require_once("../include/functions.php");
+require_once(__DIR__ . "/../include/functions.php");
 
 
 

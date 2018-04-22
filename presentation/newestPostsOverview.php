@@ -1,7 +1,7 @@
 <?php
-require_once("header.php");
-require_once("../include/functions.php");
-require_once("../business/newestPostsOverviewDAO.php");
+require_once(__DIR__ . "/../include/functions.php");
+require_once(__DIR__ . "/../business/newestPostsOverviewDAO.php");
+require_once(__DIR__ . "/../presentation/header.php");
 ?>
 
 <br><br>
@@ -33,4 +33,4 @@ require_once("../business/newestPostsOverviewDAO.php");
     <br><br><br>
 
 </div> <!-- ./ container -->
-<?php require_once("footer.php");
+<?php require_once(__DIR__ . "/../presentation/footer.php");

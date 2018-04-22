@@ -1,6 +1,6 @@
 <?php
-require_once("../functions.php");
-require_once("../include/connection.php");
+require_once("functions.php");
+require_once("include/connection.php");
 
 $error = false; 
 $error_message = "";
@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
         $statement->execute();
 
                 echo "You got succesfully signed up! <br>";
-                redirect_to("../presentation/home.php");
+                redirect_to("/../presentation/home.php");
                 // http://localhost:41062/www/Forum/home.php
 
     }

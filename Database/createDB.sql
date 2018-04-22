@@ -1,9 +1,15 @@
- DROP DATABASE IF EXISTS boardgames_db;
- CREATE DATABASE boardgames_db;
- USE boardgames_db;
+ --- DROP DATABASE IF EXISTS boardgames_db;
+ CREATE DATABASE id5487947_boardgames_db;
+ -- USE id5487947_boardgames_db;
 -- GRANT ALL PRIVILEGES ON EmployeeDB. * To ''@'localhost' .....
 
-USE boardgames_db;
+ USE boardgames_db;
+
+
+-- Create user and grant access to this specific database
+DROP USER IF EXISTS 'dbuser'@'localhost';
+CREATE USER 'dbuser'@'localhost' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON boardgame_db.* To 'dbuser'@'localhost' IDENTIFIED BY '1234'; FLUSH PRIVILEGES;
 
 
 CREATE TABLE badge (
@@ -125,10 +131,6 @@ CREATE TABLE userAccesLevel (
     FOREIGN KEY (accesLevelID) REFERENCES accesLevel (accesLevelID)
 );
 
--- Create user and grant access to this specific database
-DROP USER IF EXISTS 'dbuser'@'localhost';
-CREATE USER 'dbuser'@'localhost' IDENTIFIED BY '1234';
-GRANT ALL PRIVILEGES ON boardgame_db.* To 'dbuser'@'localhost' IDENTIFIED BY '1234'; FLUSH PRIVILEGES;
 
 
 

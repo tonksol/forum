@@ -1,5 +1,5 @@
  <?php
-require("constants.php");
+require(__DIR__ . "/../include/constants.php");
 
 // function with a return $connection;
 // function connectDatabase() {
