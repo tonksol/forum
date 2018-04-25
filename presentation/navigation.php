@@ -1,4 +1,5 @@
 <?php require_once (__DIR__ . "/../include/functions.php"); ?>  
+<?php require_once (__DIR__ . "/../business/adminDAO.php"); ?>  
 
  <!-- Log in Modal  -->
     <div id="loginModal" class="modal fade">
@@ -58,11 +59,18 @@
         </button>
 
         <!-- left -->
+        
+
+
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" class="a link" href="presentation/aboutPage.php"> About </a>
+            <?php $forumPageInfos = getPages();
+                foreach ($forumPageInfos as $page) { ?>
+            <li class="nav-item">
+                <a class="nav-link" class="a link" href="presentation/aboutPage.php"> <?php echo $page['name']?> </a>
             </li>
+                <?php } ?>
             <li class="nav-item">
                 <a class="nav-link" class="log-out" href="presentation/rulePage.php">Rules</a>
             </li>

@@ -1,6 +1,7 @@
 #TO DO
 - connection in function en call the the function instead of global $connection
 - connection in the presistance layer
+- forumPage add new colum in the database "pageOrder"
 
 
 #POST
@@ -89,5 +90,13 @@ switch the button on navbar to login logout
 #PLUGIN IDEE
 
 plugin die alle relatieve paden goed zet zodat je makkelijk kan switchen tussen localhost en je webhost
+
+
+# Uploaden voor tonkebult.nl
+- - BUSINESS
+- adminDAO.php
+
+- - PRESENTATION
+- navigation.php
 
 

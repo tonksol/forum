@@ -69,14 +69,14 @@ if (isset($_POST['submit']) && !isset($_GET['forumPageID'])) {
  }
 
  if (isset($_POST['delete'])) {
-     deletePage();
+     deletePage($_GET['forumPageID']);
      redirect_to("/../presentation/pageManager.php");
  }
  // DELETE page
  function deletePage($forumpageID) {
      global $connection;
      $query= "DELETE FROM `forumPage` WHERE forumPageID = $forumpageID";
-     return myswli_query($connection, $query);
+     return mysqli_query($connection, $query);
  }
 
 

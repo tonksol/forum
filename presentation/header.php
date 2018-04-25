@@ -21,7 +21,7 @@
       http://tonkebultnl.000webhostapp.com/
       http://localhost:41062/www/Forum/
   -->
-    <base href="http://tonkebultnl.000webhostapp.com/">
+    <base href="http://localhost:41062/www/Forum/"> 
   </head>
 
   <body id="header">

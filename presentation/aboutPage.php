@@ -8,7 +8,7 @@ require_once(__DIR__ . "/../business/forumPageDAO.php");
 <body>
     <div class="container">
     <br><br><br>
-        <?php echo getPage ("About") ?>
+        <?php echo getPage("About") ?>
         <br><br><br>
     </div>
 </body>
