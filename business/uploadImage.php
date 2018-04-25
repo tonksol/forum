@@ -130,6 +130,8 @@ if (isset($_POST["submit"])) {
 }
 
 
+
+
 echo $newname;
 // if there are no errors execute query
 if(isset($_POST['submit']) && !$errors) {

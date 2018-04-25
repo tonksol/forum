@@ -2,6 +2,9 @@
 - connection in function en call the the function instead of global $connection
 - connection in the presistance layer
 - forumPage add new colum in the database "pageOrder"
+- make something so you can change the order of the pages on the pageManager.php
+-  image resizer heigh and width... max above 15000 pixels wide / Aviary.com
+- fix userProfile_page.php on tonkebult.nl
 
 
 #POST
@@ -98,5 +101,11 @@ plugin die alle relatieve paden goed zet zodat je makkelijk kan switchen tussen 
 
 - - PRESENTATION
 - navigation.php
+- forumPage.php
 
+# delete voor tonkebult.nl
+- rulePage.php
+- contactPage.php
+- aboutPage.php
+- 
 

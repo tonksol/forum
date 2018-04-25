@@ -59,24 +59,22 @@
         </button>
 
         <!-- left -->
-        
-
-
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <?php $forumPageInfos = getPages();
                 foreach ($forumPageInfos as $page) { ?>
             <li class="nav-item">
-                <a class="nav-link" class="a link" href="presentation/aboutPage.php"> <?php echo $page['name']?> </a>
+                <a class="nav-link" class="a link" href="presentation/forumPage.php?forumPageID=<?php echo $page['id']?>"> <?php echo $page['name']?></a>
             </li>
                 <?php } ?>
+                <!--
             <li class="nav-item">
-                <a class="nav-link" class="log-out" href="presentation/rulePage.php">Rules</a>
+                <a class="nav-link" class="log-out" href="presentation/forumPage.php?forumPageID=">Rules</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" class="log-out" href="presentation/contactPage.php">Contact</a>
+                <a class="nav-link" class="log-out" href="presentation/forumPage.php?forumPageID=3">Contact</a>
             </li>
+                -->
             
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

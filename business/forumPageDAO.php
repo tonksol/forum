@@ -2,11 +2,11 @@
 require_once(__DIR__ . "/../include/functions.php");
 
 // READ
-function getPage ($pagename) {
+function getPage($pageID) {
     global $connection;
     $query = "SELECT * 
         FROM forumPage
-        WHERE forumPageName = '$pagename';";
+        WHERE forumPageID = '$pageID';";
 
     $result = mysqli_query($connection, $query);
 

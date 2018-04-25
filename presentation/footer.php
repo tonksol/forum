@@ -55,7 +55,7 @@
                             <strong>Boardgame forum</strong>
                         </h6>
                         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" >
-                        <p>Do you want to know more about the Boardgame forum? Please visit our <a href=presentation/aboutPage.php>about</a> page. </p>
+                        <p>Do you want to know more about the Boardgame forum? Please visit our <a href=presentation/forumPage.php?forumPageID=1>about</a> page. </p>
                     </div>
                     <!--/.First column-->
 
@@ -87,10 +87,10 @@
                             <a href="presentation/signUp_form.php" class="dark-grey-text">Sign up</a>
                         </p>
                         <p>
-                            <a href="presentation/rulePage.php">Rules</a>
+                            <a href="presentation/forumPage.php?forumPageID=2">Rules</a>
                         </p>
                         <p>
-                            <a href="presentation/contactPage.php">Contact</a>
+                            <a href="presentation/forumPage.php?forumPageID=3">Contact</a>
                         </p>
                     </div>
                     <!--/.Third column-->
