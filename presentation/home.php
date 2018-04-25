@@ -41,7 +41,7 @@ require_once (__DIR__ . "/../presentation/header.php");
             <br><br><hr><br><br>
 
             <!-- about the forum -->
-            <?php echo getPage ("About") ?>
+            <?php echo getPage(1) ?>
             
             <br><br><hr><br><br>
 

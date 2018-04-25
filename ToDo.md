@@ -5,6 +5,7 @@
 - make something so you can change the order of the pages on the pageManager.php
 -  image resizer heigh and width... max above 15000 pixels wide / Aviary.com
 - fix userProfile_page.php on tonkebult.nl
+- fix the homepage
 
 
 #POST

@@ -24,7 +24,6 @@ if (isset($_GET['forumPageID'])){
     $row = getPageInfo($_GET['forumPageID']);
     $querystring = "?forumPageID=". $row['forumPageID'];
 }
-// $forumpagename = $row['forumPageName'];
  
  
 
