@@ -1,4 +1,4 @@
-# Project Title
+# Boardgame Forum
 
 A forum written in php, html and css. In this case the forum is ment to be a discussion board for boardgames. 
 
