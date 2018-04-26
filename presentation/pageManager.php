@@ -11,14 +11,24 @@ require_once (__DIR__ . "/../presentation/adminNavigation.php");
   <div class="main">
   <br><br><br>
   <h1>Choose a page you want to manage?</h1>
-  <?php $forumPageInfos = getPages(); 
-        foreach ($forumPageInfos as $p) { ?>
   <br><br><br>
-  <a class="btn btn-primary" href="presentation/managePage.php?<?php echo $p['id']?>" role="button"><?php echo $p['name'] ?></a>
-  <?php } ?>
-  <br><br><br>
-  <h4>Or add a new page</h4>
-  <a class="btn btn-primary" href="presentation/createPage.php" role="button" name="addNewPage">Add new page</a>
+
+   <table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Content</th>
+            <th scope="col">Created by</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php echo getPagesForOverview(); ?>     
+    </tbody>
+    </table>
+    
+    <br>
+    <h4>Or add a new page</h4>
+    <a class="btn btn-primary" href="presentation/createPage.php" role="button" name="addNewPage">Add new page</a>
 
 
 </div> <!-- ./ main-->
