@@ -27,7 +27,7 @@ require_once(__DIR__ . "/../business/topicPostsDAO.php");
         </table>
 
            <?php
-             echo "number of posts for this topic:    " . getNumberOfPostsByTopic();
+             echo "number of posts for this topic:    " . getNumberOfPostsByTopic($_GET['topicID']);
             ?>
         
     

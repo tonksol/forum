@@ -1,7 +1,14 @@
 
 <?php
-require_once (__DIR__ . "/../include/functions.php"); 
-require_once (__DIR__ . "/../business/adminDAO.php"); 
+require_once (__DIR__ . "/../include/functions.php");  
+require_once (__DIR__ . "/../business/pagesDAO.php"); 
+
+if (isset($_POST['submit']) && !isset($_GET['forumPageID'])) {
+    // senatise met trim en htmlspecialchars.. parameters
+    insertNewPage($_SESSION['user_id'], $_POST["pagename"], $_POST["content"], date("Y-m-d")); 
+    redirect_to("/../presentation/pageManager.php");
+}
+
 require_once (__DIR__ . "/../presentation/header.php"); 
 require_once (__DIR__ . "/../presentation/adminNavigation.php");
 ?>

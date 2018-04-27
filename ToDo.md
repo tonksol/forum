@@ -8,6 +8,12 @@
 - fix the homepage
 - only insert a new page if the forumPageName !emtpy() && forumPageContent !empty()
 
+# strucuture
+- functies aanroepen in presentation layer
+- elke tabel een eigen DAO.
+- kijk naar wat hij terug geeft.. in die DAO moet hij 
+- category DAO, TopicDAO, postDAO
+
 - FEEDBACK 
 - every query in stored procedure 
 - html- realescape strings html special chars / trim (filter the (user) input)

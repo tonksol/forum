@@ -86,7 +86,7 @@ function getCategories1() {
 }
 */
 
-
+// topic DAO 
 function getPostsOverviewFromTopic($categoryID) {
     global $connection;
     $query = "SELECT DISTINCT  `topic`.`topicID`, `topic`.`topicName`, `topic`.`topicDescription`, COUNT(`post`.`topicID`) as 'numberOfPosts'

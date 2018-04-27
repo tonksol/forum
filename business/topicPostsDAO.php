@@ -101,10 +101,10 @@ function getPosts($topicID) {
         return $posts;
 }
 
-
-function getNumberOfPostsByTopic(){
+// topic ID omdat je het tootnt bij de topics. 
+// parameter
+function getNumberOfPostsByTopic($topicID){
     global $connection;
-    $topicID = $_GET['topicID'];
     $query = "SELECT COUNT(*) as numberOfPosts        
         FROM `post` 
         WHERE post.topicID = $topicID
