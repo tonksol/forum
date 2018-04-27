@@ -105,7 +105,10 @@ VALUES
 
 INSERT INTO `forumPage` (`forumPageID`, `userID`, `forumPageName`, `forumPageContent`, `forumPageLastModifiedDate`) 
 VALUES 
-    (NULL, '1', 'Contact', 'This is the contact page. ', '2018-04-19');
+    (NULL, '1', 'Contact', 'We love hearing from readers, visitors and people from the design community. We really appreciate you taking the time to get in touch. Please fill in the form below.
+
+*please note: We will get back to you shortly, usually within 2-3 days. Also note that if you send an email on a Friday, we may get back to you only on the following Monday or Tuesday.
+If you are contacting us for a business proposal or regarding advertising please mention it in your message.', '2018-04-19');
 
 -- ------------------------------
 -- Rule

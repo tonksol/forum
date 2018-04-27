@@ -22,6 +22,7 @@
       http://localhost:41062/www/Forum/
   -->
     <base href="http://localhost:41062/www/Forum/"> 
+
   </head>
 
   <body id="header">
@@ -34,7 +35,9 @@
     <!-- Font awesome CSS and JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- include the session, connection, functions and navbar -->
+
+    <!-- script for the text editor -->
+    <script src="presentation/bootstrap-wysiwyg.js"></script>
  
    
     <?php require (__DIR__ . "/../presentation/navigation.php");?>        

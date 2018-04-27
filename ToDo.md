@@ -6,6 +6,21 @@
 -  image resizer heigh and width... max above 15000 pixels wide / Aviary.com
 - fix userProfile_page.php on tonkebult.nl
 - fix the homepage
+- only insert a new page if the forumPageName !emtpy() && forumPageContent !empty()
+
+- FEEDBACK 
+- every query in stored procedure 
+- html- realescape strings html special chars / trim (filter the (user) input)
+- overview pages more structure (overview index) dropdown or horizontal menu + preview of the data that is in there
+- edit forum posts 
+- add new forum posts
+- exstend the user profile page
+    - statistics, graphs, how many posts did the user make... 
+    - build on the badges
+    - inspiration: stack overflow (gamafication and personalisation) make it fun to do more posts
+- check for the dimensions of the picture (image resizer) see facebook message max 1500 pixels wide
+- cdn (do some research for yourself)
+
 
 
 #POST
@@ -89,6 +104,17 @@ switch the button on navbar to login logout
 - make all the read queries and functions for post, topics, and category. And make links
 - add a rule table
 
+# feedback verslag
+- my profile page
+- prime feature - nested for each to show the badges
+- take some of the things that you are most proud of and describe them in higher detail. That will give a level of depth. Don't: then I did this then i did that, etc. The intation was to do this, this and that. I achieved that true a function that (example) loads the image, figure out the size of it, if every thing is okay, etc. 
+- only screenshots of some of the code. Here specificly i check for the file size.. to avoid huge files on my server, etc. Don't technally describe your code. 
+- What were the requirements? How did you implement the requirements. What where your thougts? What where the alternatives. 
+- Guide for report writing: not the methodology stuff. It's about the structure. title, preface, main part, conclusion, perspective.
+- problem: not much to write her. Pretend that the teachter is the customer/client who request a forum. 
+
+#bronnen
+- http://mindmup.github.io/bootstrap-wysiwyg/
 
 
 #PLUGIN IDEE

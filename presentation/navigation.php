@@ -1,5 +1,5 @@
 <?php require_once (__DIR__ . "/../include/functions.php"); ?>  
-<?php require_once (__DIR__ . "/../business/adminDAO.php"); ?>  
+<?php require_once (__DIR__ . "/../business/pagesDAO.php"); ?>  
 
  <!-- Log in Modal  -->
     <div id="loginModal" class="modal fade">

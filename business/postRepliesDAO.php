@@ -24,7 +24,7 @@ function getSelectedPostsHead($postID) {
 
 function getSelectedPostsContent($postID) {
     global $connection;
-    $query = "SELECT `post`.`postImage`, `user`.`userName`, `post`.`postName`, `post`.`postContent` 
+    $query = "SELECT `post`.`postImage`, `user`.`userID`, `user`.`userName`, `post`.`postName`, `post`.`postContent` 
                 FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` WHERE `postID` = $postID";
     $result = mysqli_query($connection, $query);
     $newPosts = "";    
@@ -97,3 +97,29 @@ function getReplies($postID) {
         }
         return $replies;
 }
+
+
+// INSERT new reply
+
+
+$userID = $_SESSION['user_id'];
+ // INSERT new page
+ if (isset($_POST['submit'])) {
+    insertNewReply($userID, $_POST['postID'], $_POST['replyContent']);    
+ }
+                
+
+ function insertNewReply($userID, $postID, $pagecontent) {
+    global $connection;
+    $query = "INSERT INTO `reply` ( `userID`, `postID`, `replyContent`, `replyDate`, `replyTime`) 
+                VALUES ($userID, $postID, '$pagecontent', CURRENT_DATE, CURRENT_TIME);";
+
+    // return mysqli_query($connection, $query);
+    if (isset($userID)) {    
+        // query uitvoeren
+        mysqli_query($connection, $query);
+        // return mysqli_fetch_array($result);
+    }
+ }
+
+ 
