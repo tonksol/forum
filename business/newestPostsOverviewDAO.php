@@ -11,7 +11,7 @@ function getNewestPosts() {
         JOIN `user` ON `post`.`userID` = `user`.`userID`
         LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID` 
             GROUP BY `post`.`postName`
-            ORDER BY `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime` ASC LIMIT 5;";
+            ORDER BY `post`.`lastModifiedPostDate` DESC, `post`.`lastModifiedPostTime` DESC LIMIT 5;";
 
     // add topic.. topic<posts<reply
 

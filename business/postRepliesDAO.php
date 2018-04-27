@@ -1,7 +1,6 @@
 <?php
 require_once(__DIR__ . "/../include/functions.php");
 
-$postID = $_GET['postID'];
 
 function getSelectedPostsHead($postID) {
     global $connection;
@@ -102,11 +101,7 @@ function getReplies($postID) {
 // INSERT new reply
 
 
-$userID = $_SESSION['user_id'];
- // INSERT new page
- if (isset($_POST['submit'])) {
-    insertNewReply($userID, $_POST['postID'], $_POST['replyContent']);    
- }
+
                 
 
  function insertNewReply($userID, $postID, $pagecontent) {
@@ -117,6 +112,7 @@ $userID = $_SESSION['user_id'];
     // return mysqli_query($connection, $query);
     if (isset($userID)) {    
         // query uitvoeren
+        echo "dit is een test"; 
         mysqli_query($connection, $query);
         // return mysqli_fetch_array($result);
     }
