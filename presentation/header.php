@@ -23,6 +23,12 @@
   -->
     <base href="http://localhost:41062/www/Forum/"> 
 
+    <!-- for text editor -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="external/jquery.hotkeys.js"></script>
+
+
   </head>
 
   <body id="header">

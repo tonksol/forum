@@ -129,12 +129,7 @@ plugin die alle relatieve paden goed zet zodat je makkelijk kan switchen tussen 
 
 
 # Uploaden voor tonkebult.nl
-- - BUSINESS
-- adminDAO.php
 
-- - PRESENTATION
-- navigation.php
-- forumPage.php
 
 # delete voor tonkebult.nl
 - rulePage.php
