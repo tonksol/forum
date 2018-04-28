@@ -23,5 +23,5 @@ require_once(__DIR__ . "/../include/session.php");
 		// 4. Destroy the session at the server side
 		session_destroy();
 		
-		redirect_to("/../presentation/home.php");
+		redirectTo("/../presentation/home.php");
 ?>

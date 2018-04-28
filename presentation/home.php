@@ -10,8 +10,8 @@ require_once (__DIR__ . "/../presentation/header.php");
 <html>
     <body id="home">      
             <?php 
-            echo login_succes_message();
-            echo logout_succes_message();
+            echo loginSuccesMessage();
+            echo ogoutSuccesMessage();
             ?>
 
 

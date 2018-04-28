@@ -22,13 +22,13 @@ if (isset($_POST["submit"])) {
     // create the hasshed password: input password, using blowfish algo
     $hashed_password = password_hash($password, PASSWORD_BCRYPT, $iterations);
     // check what field is empty and tell the user what field is empty 
-    if (field_not_empty($email)) {
+    if (fieldNotEmpty($email)) {
         $error = true;
         $msg_email_is_empty .= '<div class="alert alert-warning" role="alert">The email field is empty. <br></div>';        
-    } if (field_not_empty($userName)) {
+    } if (fieldNotEmpty($userName)) {
         $error = true;
         $msg_username_is_empty .= '<div class="alert alert-warning" role="alert">The username field is empty. <br></div>';
-    } if (field_not_empty($password)) {
+    } if (fieldNotEmpty($password)) {
         $error = true;
         $msg_password_is_empty .= '<div class="alert alert-warning" role="alert">The password field is empty. <br></div>';
     } else {
@@ -36,7 +36,7 @@ if (isset($_POST["submit"])) {
     }
 
     // Check the characters of email. Returns true or false
-    if (validate_email($email)) {
+    if (validateEmail($email)) {
         $error = true;
         $msg_not_an_email .= '<div class="alert alert-warning" role="alert">Oops, this doesn\'t look like an email adress. Here is an example for you: name@example.com <br></div>';
     } else {

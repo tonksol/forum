@@ -8,6 +8,9 @@
 - fix the homepage
 - only insert a new page if the forumPageName !emtpy() && forumPageContent !empty()
 
+- reply: Optie om te deleten als jij de eigenaar bent (user)
+- reply: optie om te updaten als jij de eigenaar bent (user)
+
 # strucuture
 - functies aanroepen in presentation layer
 - elke tabel een eigen DAO.

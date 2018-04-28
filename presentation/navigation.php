@@ -91,13 +91,13 @@
         <!-- right -->
         <ul class="nav navbar-nav navbar-right"> 
             <li class="nav-item">
-                <?php echo visable_unvisable_admin_switch() ?>
+                <?php echo visableUnvisableAdminSwitch() ?>
             </li>  
             <li class="nav-item">
-                <?php echo myprofile_switch()?>
+                <?php echo myprofileSwitch()?>
             </li>
             <li class="nav-item">
-                <?php echo login_logout_button_switch(); ?>
+                <?php echo loginLogoutButtonSwitch(); ?>
             </li>
         </ul>
 

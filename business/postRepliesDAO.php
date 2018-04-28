@@ -111,8 +111,7 @@ function getReplies($postID) {
 
     // return mysqli_query($connection, $query);
     if (isset($userID)) {    
-        // query uitvoeren
-        echo "dit is een test"; 
+        // query uitvoeren 
         mysqli_query($connection, $query);
         // return mysqli_fetch_array($result);
     }

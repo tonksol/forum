@@ -30,8 +30,8 @@ require_once(__DIR__ . "/../business/postRepliesDAO.php");
     <div class="form-group">
         <div class="col-sm-10">
         <input type="hidden" name="postID" value="<?php echo $_GET['postID'];?>">
-        <input class="form-control input-lg" type="text"  id="inputlg" name="replyContent" placeholder="Enter your reply...">
-        </div>
+        <textarea class="form-control texteditor" name="replyContent" placeholder="Enter your reply..." rows="5" id="comment"></textarea>  
+      </div>
     </div>
     <input class='btn btn-primary btn-block' type='submit' name='submit' value='submit'>
     </form>

@@ -4,7 +4,7 @@ require_once (__DIR__ . "/../include/functions.php");
 require_once (__DIR__ . "/../include/session.php");
 
 if (logged_in()) {
-	redirect_to("/../presentation/home.php");	
+	redirectTo("/../presentation/home.php");	
 }
 
 // prefent that people can log in again when they are already logged in. 
@@ -39,11 +39,11 @@ if (isset($_POST['submit'])) {
 		$_SESSION['isadmin'] = $found_user['accesLevelID'] !== NULL;
 		
 		// store id and user in session on the server side.
-		redirect_to("/../presentation/home.php");
+		redirectTo("/../presentation/home.php");
 			
 	} else {
 		// email/password combo was not found in the database got redirected to signup_form.php
-		redirect_to("/../presentation/signUp_form.php");
+		redirectTo("/../presentation/signUp_form.php");
 		$_SESSION['login_failed_message'] = 'Email/password combination incorrect.<br/> Please make sure your caps lock key is off and try again.';
 	}
 }

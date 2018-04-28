@@ -11,6 +11,6 @@
 	
 	function confirm_logged_in() {
 		if (!logged_in()) {
-			redirect_to("/../presentation/home.php");
+			redirectTo("/../presentation/home.php");
 		}
 	}

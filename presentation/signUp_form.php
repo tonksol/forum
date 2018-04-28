@@ -7,9 +7,9 @@
 
 <html>
   
-<?php //  TO DO: SEE FUNCTIONS     echo login_fail_message(); ?> 
+<?php //  TO DO: SEE FUNCTIONS     echo loginFailMessage(); ?> 
     <body id"sign-up">
-    <?php echo login_fail_message(); ?>
+    <?php echo loginFailMessage(); ?>
     <div class="container">
     <br><br><br>
             <!-- 

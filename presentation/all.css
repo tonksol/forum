@@ -244,6 +244,10 @@ h3 {
 -- Editor for post and replies
 -- ------------------------------
 */
+.texteditor {
+    height: 100px;
+    width: 67.8em;
+}
 
 
 #editor {

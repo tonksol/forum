@@ -11,26 +11,26 @@ $msg_not_an_email = "";
 
 if (isset($_POST["submit"])) {
     // declare variables
-    $email      =     mysql_prepare($_POST["email"]);        //prevent javascipt and sql injection for email
-    $userName   =     mysql_prepare($_POST["username"]);     //prevent javascipt and sql injection for username
-    $password   =     mysql_prepare($_POST["password"]);     //prevent javascipt and sql injection for password
+    $email      =     mysqlPrepare($_POST["email"]);        //prevent javascipt and sql injection for email
+    $userName   =     mysqlPrepare($_POST["username"]);     //prevent javascipt and sql injection for username
+    $password   =     mysqlPrepare($_POST["password"]);     //prevent javascipt and sql injection for password
     // $connection = new PDO('mysql:host=localhost;dbname=boardgames_db', $email, $userName, $password);
 
     // put the result of the function in the variable. Result can be true or false
-    // $error1 = field_not_empty($email);
-    // $error2 = field_not_empty($userName);
-    // $error3 = field_not_empty($password);
+    // $error1 = fieldNotEmpty($email);
+    // $error2 = fieldNotEmpty($userName);
+    // $error3 = fieldNotEmpty($password);
 
     // check what field is empty and tell the user what field is empty 
-    if (field_not_empty($email)) {
+    if (fieldNotEmpty($email)) {
         $error = true;
         $msg_email_is_empty .= '<div class="alert alert-warning" role="alert">The email field is empty. <br></div>';
         
         
-    } if (field_not_empty($userName)) {
+    } if (fieldNotEmpty($userName)) {
         $error = true;
         $msg_username_is_empty .= '<div class="alert alert-warning" role="alert">The username field is empty. <br></div>';
-    } if (field_not_empty($password)) {
+    } if (fieldNotEmpty($password)) {
         $error = true;
         $msg_password_is_empty .= '<div class="alert alert-warning" role="alert">The password field is empty. <br></div>';
     } else {
@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
     }
 
     // Check the characters of email. Returns true or false
-    if (validate_email($email)) {
+    if (validateEmail($email)) {
         $error = true;
         $msg_not_an_email .= '<div class="alert alert-warning" role="alert">Oops, this doesn\'t look like an email adress. Here is an example for you: name@example.com <br></div>';
     } else {
@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
         $statement->execute();
 
                 echo "You got succesfully signed up! <br>";
-                redirect_to("/../presentation/home.php");
+                redirectTo("/../presentation/home.php");
                 // http://localhost:41062/www/Forum/home.php
 
     }
