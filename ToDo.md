@@ -77,6 +77,14 @@ Must include:
 
 
 
+#insert this about text
+This boardgame forum is home to everything about boardgames. Think about endless conversation about boardgames and authentic human connection.
+
+<h5>Posts</h5>
+The community can share content by posting stories, questions and images.
+
+<h5>Replies</h5>
+The community comments on posts. Comments provide discussion, humor and help.
 
 
 

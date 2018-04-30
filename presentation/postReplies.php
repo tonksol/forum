@@ -5,7 +5,7 @@ require_once(__DIR__ . "/../business/postRepliesDAO.php");
  $userID = $_SESSION['user_id'];
  // INSERT new page
  if (isset($_POST['submit'])) { 
-  insertNewReply($userID, $_POST['postID'], $_POST['replyContent']);    
+  newReply($userID, $_POST['postID'], $_POST['replyContent']);    
  }
 
  require_once (__DIR__ . "/../presentation/header.php");

@@ -104,7 +104,7 @@ function getReplies($postID) {
 
                 
 
- function insertNewReply($userID, $postID, $pagecontent) {
+ function newReply($userID, $postID, $pagecontent) {
     global $connection;
     $query = "INSERT INTO `reply` ( `userID`, `postID`, `replyContent`, `replyDate`, `replyTime`) 
                 VALUES ($userID, $postID, '$pagecontent', CURRENT_DATE, CURRENT_TIME);";

@@ -8,7 +8,7 @@
 // -------------------------------------
 function getHotPosts() {
     global $connection;
-    $query = $query = "SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
+    $query = "SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
         FROM `topic`
         JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
         JOIN `user` ON `post`.`userID` = `user`.`userID`
@@ -26,7 +26,6 @@ function getHotPosts() {
             $hotPosts .= "<td><a href=presentation/postReplies.php?postID=" . $row['postID'] . ">" . $row['postName']."</a></td>";
             $hotPosts .= '<td>' . $row['userName'] . "</td>";
             $hotPosts .= "<td>" . $row['lastModifiedPostDate'] . "</td>";
-            $hotPosts .= "<td>" . $row['lastModifiedPostTime'] . "</td>";
             $hotPosts .= "<td>" . $row['numberOfReplies'] . "</td>";
             $hotPosts .= "</tr>";
             }
@@ -37,6 +36,12 @@ function getHotPosts() {
 // -------------------------------------
 // UPDATE
 // -------------------------------------
+
+function newPost(){
+    global $connection;
+    $query = "";
+    $result = mysqli_query($connection, $query);
+}
 
 
 // -------------------------------------
