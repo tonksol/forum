@@ -30,7 +30,8 @@ function getHotPosts() {
             $hotPosts .= "</tr>";
             }
     return $hotPosts;
-        }
+}
+
 
 
 // -------------------------------------
@@ -39,10 +40,23 @@ function getHotPosts() {
 
 function newPost(){
     global $connection;
-    $query = "";
+    $query = "INSERT INTO `post` (`userID`,``,``,)";
     $result = mysqli_query($connection, $query);
 }
 
+
+function newReply($userID, $postID, $pagecontent) {
+    global $connection;
+    $query = "INSERT INTO `reply` ( `userID`, `postID`, `replyContent`, `replyDate`, `replyTime`) 
+                VALUES ($userID, $postID, '$pagecontent', CURRENT_DATE, CURRENT_TIME);";
+
+    // return mysqli_query($connection, $query);
+    if (isset($userID)) {    
+        // query uitvoeren 
+        mysqli_query($connection, $query);
+        // return mysqli_fetch_array($result);
+    }
+ }
 
 // -------------------------------------
 // DELETE

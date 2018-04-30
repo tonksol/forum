@@ -68,14 +68,6 @@
                 <a class="nav-link" class="a link" href="presentation/forumPage.php?forumPageID=<?php echo $page['id']?>"> <?php echo $page['name']?></a>
             </li>
                 <?php } ?>
-                <!--
-            <li class="nav-item">
-                <a class="nav-link" class="log-out" href="presentation/forumPage.php?forumPageID=">Rules</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" class="log-out" href="presentation/forumPage.php?forumPageID=3">Contact</a>
-            </li>
-                -->
             
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,6 +77,7 @@
                         <a class="dropdown-item" href="presentation/categoryOverview.php">Categories</a>
                         <a class="dropdown-item" href="presentation/newestPostsOverview.php">Newest discussions</a>
                         <a class="dropdown-item" href="presentation/hotPostsOverview.php">Hot discussions</a>
+                        <a class="dropdown-item" href="presentation/newPost.php">new post</a>
         </ul>
       
         <!-- right -->
