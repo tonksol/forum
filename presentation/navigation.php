@@ -1,5 +1,6 @@
 <?php require_once (__DIR__ . "/../include/functions.php"); ?>  
 <?php require_once (__DIR__ . "/../business/pagesDAO.php"); ?>  
+<?php require_once (__DIR__ . "/../business/userDAO.php"); ?>  
 
  <!-- Log in Modal  -->
     <div id="loginModal" class="modal fade">
@@ -100,6 +101,8 @@
                 <?php echo loginLogoutButtonSwitch(); ?>
             </li>
         </ul>
+
+       <?php sessionExpire(); ?>
 
       </form>
     </div>
