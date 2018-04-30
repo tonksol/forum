@@ -84,6 +84,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="presentation/categoryOverview.php">Categories</a>
                         <a class="dropdown-item" href="presentation/newestPostsOverview.php">Newest discussions</a>
+                        <a class="dropdown-item" href="presentation/hotPostsOverview.php">Hot discussions</a>
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div> 
@@ -102,7 +103,7 @@
             </li>
         </ul>
 
-       <?php sessionExpire(); ?>
+       
 
       </form>
     </div>

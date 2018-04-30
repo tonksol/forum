@@ -11,7 +11,7 @@ require_once (__DIR__ . "/../presentation/header.php");
     <body id="home">      
             <?php 
             echo loginSuccesMessage();
-            echo ogoutSuccesMessage();
+            echo logoutSuccesMessage();
             ?>
 
 
