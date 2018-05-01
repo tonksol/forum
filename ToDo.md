@@ -87,6 +87,18 @@ The community can share content by posting stories, questions and images.
 <h5>Replies</h5>
 The community comments on posts. Comments provide discussion, humor and help.
 
+# insert this in contact text
+Please do not hesitate to contact us. 
+
+CONTACT
+Boardgame Forum 
++45 32 47 20 00
+E-mail: info@boardgameforum.nl
+
+PRESS
+E-mail: presse@boardgameforum.nl
+
+
 
 
 # Information

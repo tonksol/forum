@@ -127,13 +127,17 @@ function getSelectedPostsContent($postID) {
 // UPDATE
 // -------------------------------------
 
-function newPost($userID, $topicID, $postID, $postName, $postcontent){
+function newPost($userID, $topicID, $postName, $postcontent){
     global $connection;
-    $query = "INSERT INTO `post` (`userID`, `topicID`, `postID`, `postName` ,`postContent`, `lastModifiedPostDate`, `lastModifiedPostTime`)
-            VALUES ($userID, $topicID, $postID, '$postName', '$postcontent', CURRENT_DATE, CURRENT_TIME);";
+    $query = "INSERT INTO `post` (`userID`,`topicID`, `postName` ,`postContent`, `lastModifiedPostDate`, `lastModifiedPostTime`)
+            VALUES ($userID, $topicID, '$postName', '$postcontent', CURRENT_DATE, CURRENT_TIME);";
     if (isset($userID)) {
-        mysqli_query($connection, $query);
+        $result = mysqli_query($connection, $query);
+        if ($result) {
+            return mysqli_insert_id($connection);
+        }
     }
+    
 }
 
 
