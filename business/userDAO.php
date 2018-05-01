@@ -36,6 +36,17 @@ function sessionExpire() {
 // READ
 // -------------------------------------
 
+// READ - User info
+function getUserProfile($userID) {
+    global $connection;
+    // SELECT * FROM user WHERE userID = $userID
+    $query = "CALL proc_select_all_from_user('$userID')";
+    $result = mysqli_query($connection, $query);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+    }   
+    return $row;
+}
 // -------------------------------------
 // UPDATE
 // -------------------------------------
@@ -47,6 +58,19 @@ function updateUserinfoFailMessage() {
     }
 }
 
+// UPDATE - User info
+function updateUserInfo($userID, $firstname, $prefix, $lastname, $birthday, $email, $username, $quote) {
+    global $connection;
+    $query = "CALL proc_update_userinfo('$userID','$firstname', '$prefix', '$lastname', '$birthday', '$email', '$username', '$quote')";
+    
+        if (isset($userID)) {    
+            // query uitvoeren
+            mysqli_query($connection, $query);
+        } else {
+            $_SESSION['update_failed_message'] = 'chancing user information not successful';
+        }
+    
+}
 // -------------------------------------
 // DELETE
 // -------------------------------------

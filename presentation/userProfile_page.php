@@ -1,11 +1,18 @@
 <?php 
-require_once (__DIR__ . "/../include/functions.php");
+require_once (__DIR__ . "/../include/functions.php"); // still needed for memerArea()
 require_once (__DIR__ . "/../business/userDAO.php");
-// require_once ("include/session.php");
+require_once (__DIR__ . "/../business/badgeDAO.php");
 memberArea();
-require_once (__DIR__ . "/../presentation/header.php");  
-require_once (__DIR__ . "/../business/userProfile.php");
-// require_once ("uploadImage.php");
+require_once (__DIR__ . "/../presentation/header.php");
+
+$userID = $_SESSION['user_id'];
+$badges = getBadges($userID); // badges = array 
+$row = getUserProfile($userID); // row = array
+  
+if (isset($_POST['submit'])) {
+    
+    updateUserInfo($_POST["userID"], $_POST["firstname"], $_POST["prefix"], $_POST["lastname"], $_POST["birthday"], $_POST["email"], $_POST["username"], $_POST["quote"]); 
+}
 ?>
 
 

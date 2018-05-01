@@ -57,3 +57,8 @@ function getReplies($postID) {
 // DELETE
 // -------------------------------------
 
+function deleteReply($replyID, $userID) {
+    global $connection;
+    $query= "DELETE FROM `reply` WHERE `replyID` = $replyID AND `userID` = $userID";
+    return mysqli_query($connection, $query);
+}

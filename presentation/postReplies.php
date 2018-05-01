@@ -28,7 +28,7 @@ require_once(__DIR__ . "/../presentation/header.php");
     </div>
 
     <br><br>
-    <!-- <?php // echo htmlspecialchars($_SERVER["PHP_SELF"]);?> -->
+    <!-- form for new reply -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?postID=<?PHP echo $_GET['postID'] ?>" method="POST">
     <div class="form-group">
         <div class="col-sm-10">
