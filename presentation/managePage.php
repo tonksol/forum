@@ -1,7 +1,7 @@
 
 <?php
 require_once (__DIR__ . "/../include/functions.php"); 
-require_once (__DIR__ . "/../business/pagesDAO.php"); 
+require_once (__DIR__ . "/../business/forumPageDAO.php"); 
 require_once (__DIR__ . "/../business/userDAO.php"); 
 memberArea();
 

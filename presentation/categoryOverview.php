@@ -1,6 +1,6 @@
 <?php
 // overview of all categories
-require_once(__DIR__ . "/../business/categoryOverviewDAO.php");
+require_once(__DIR__ . "/../business/categoryDAO.php");
 require_once (__DIR__ . "/../presentation/header.php");
 ?>
 
@@ -20,7 +20,7 @@ require_once (__DIR__ . "/../presentation/header.php");
         </thead>
 
         <tbody>
-            <?php echo getTopicsForOverview(); ?>
+            <?php echo getCategoriesForOverview(); ?>
         </tbody>
     </table>
 </div> <!-- ./ container -->

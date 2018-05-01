@@ -17,7 +17,6 @@ require_once(__DIR__ . "/../presentation/header.php");
             <th scope="col">Post</th>
             <th scope="col">User</th>
             <th scope="col">Started on </th>
-            <th scope="col"> </th>
             <th scope="col">Number of Replies</th>
         </tr>
     </thead>

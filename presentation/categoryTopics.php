@@ -1,7 +1,8 @@
 <?php
 // overview of all categories
 require_once (__DIR__ . "/../presentation/header.php");
-require_once(__DIR__ . "/../business/categoryTopicsDAO.php");
+require_once(__DIR__ . "/../business/categoryDAO.php");
+require_once(__DIR__ . "/../business/topicDAO.php");
 ?>
 
 <br><br>
@@ -25,7 +26,7 @@ require_once(__DIR__ . "/../business/categoryTopicsDAO.php");
             </tr>
         </thead>
         <tbody>   
-            <?php  echo getCategoryHead($_GET['categoryID']); echo getPostsOverviewFromTopic($_GET['categoryID']);  ?>          
+            <?php  echo getCategoryHead($_GET['categoryID']); echo getTopicsAndNumberOfPosts($_GET['categoryID']);  ?>          
         </tbody>
     </table>
     Number op topics for this category: <?php echo getNumberOfTopicsForCategory(); ?>

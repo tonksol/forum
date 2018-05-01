@@ -1,6 +1,6 @@
 <?php
 require_once(__DIR__ . "/../include/functions.php");
-require_once(__DIR__ . "/../business/newestPostsOverviewDAO.php");
+require_once(__DIR__ . "/../business/postDAO.php");
 require_once(__DIR__ . "/../presentation/header.php");
 ?>
 

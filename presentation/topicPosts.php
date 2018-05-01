@@ -1,7 +1,8 @@
 <?php
 // see all topics from one category
-require_once (__DIR__ . "/../presentation/header.php");
-require_once(__DIR__ . "/../business/topicPostsDAO.php");
+require_once(__DIR__ . "/../presentation/header.php");
+require_once(__DIR__ . "/../business/postDAO.php");
+require_once(__DIR__ . "/../business/topicDAO.php");
 ?>
 
 <br><br>

@@ -1,7 +1,7 @@
 <?php
 // overview of all categories
 require_once (__DIR__ . "/../presentation/header.php");
-require_once(__DIR__ . "/../business/topicOverviewDAO.php");
+require_once(__DIR__ . "/../business/topicDAO.php");
 ?>
 
 <br><br>

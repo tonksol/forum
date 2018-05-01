@@ -33,7 +33,8 @@
 
 
 #POST
-user can make a new post. 
+- user can make a new post. 
+- voorkom dat de dropdown terug springen naar het eerste veld. (newPost.php)
 
 #USER
 - voeg eigen cover toe (nieuwe rij in database) en laad de cover vanuit de db. userprofile_page.php en userprofile.php

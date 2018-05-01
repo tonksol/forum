@@ -1,14 +1,16 @@
 <?php
 // overview of all categories
-require_once(__DIR__ . "/../business/postRepliesDAO.php");
+
+require_once(__DIR__ . "/../business/replyDAO.php");
+require_once(__DIR__ . "/../business/postDAO.php");
+require_once(__DIR__ . "/../business/topicDAO.php");
+require_once(__DIR__ . "/../presentation/header.php");
 
  $userID = $_SESSION['user_id'];
  // INSERT new page
  if (isset($_POST['submit'])) { 
   newReply($userID, $_POST['postID'], $_POST['replyContent']);    
  }
-
- require_once (__DIR__ . "/../presentation/header.php");
  ?>
 
 <br><br>
@@ -18,6 +20,7 @@ require_once(__DIR__ . "/../business/postRepliesDAO.php");
         <br><br><br>
         
         <?php 
+        // $topicID = $_GET['topicID'];
         echo getSelectedPostsHead($_GET['postID']);
         echo getSelectedPostsContent($_GET['postID']); // parameter = postID
         echo getReplies($_GET['postID']);
