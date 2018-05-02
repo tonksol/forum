@@ -7,10 +7,15 @@ require_once(__DIR__ . "/../business/topicDAO.php");
 require_once(__DIR__ . "/../presentation/header.php");
 
  $userID = $_SESSION['user_id'];
- // INSERT new page
+ // INSERT new reply
  if (isset($_POST['submit'])) { 
   newReply($userID, $_POST['postID'], $_POST['replyContent']);    
  }
+
+ if (isset($_POST['delete']) && isset($_POST['replyID'])) {
+  deleteReply($_POST['replyID'], $userID);
+ }
+
  ?>
 
 <br><br>
@@ -23,8 +28,32 @@ require_once(__DIR__ . "/../presentation/header.php");
         // $topicID = $_GET['topicID'];
         echo getSelectedPostsHead($_GET['postID']);
         echo getSelectedPostsContent($_GET['postID']); // parameter = postID
-        echo getReplies($_GET['postID']);
+        
         ?>
+
+
+         
+          <div class="container">
+            <?php $replies = getreplies($_GET['postID']); foreach ($replies as $reply) { ?>
+            <div class="card" >
+              <div class="card-body"> 
+                <h5>Posted by: <b> <?php echo $reply['userName'] ?></b></h5>
+                <p class="card-text"><?php echo $reply['date'] ?>&nbsp;&nbsp;&nbsp;<?php $reply['time']?><p>
+                <p class="card-text"> </p>
+                <p class="card-text"><?php echo $reply['content'] ?></p>
+                <?php if ($reply['userID'] == $userID){?> 
+                  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?postID=<?PHP echo $_GET['postID'] ?>" method="POST">
+                    <input type="hidden" name="replyID" value="<?php echo $reply['replyID'] ?>">
+                    <input class='btn btn-primary btn-block' type='submit' name='delete' value='delete'>
+                  </form>
+                <?php } ?>   
+              </div>
+            </div>
+            <br>
+            <?php } ?>
+          </div>
+          <br>
+        
     </div>
 
     <br><br>

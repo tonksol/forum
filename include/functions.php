@@ -81,14 +81,12 @@ function logoutSuccesMessage() {
 
 
 // see also session.php called on: managePage.php / pagemanager.php / userProfile_page.php
-function memberArea() {
-    $please_login_message = "";
+function memberArea() {   
     if (!logged_in()) {
-        $please_login_message = "Please log in first to see this page.";
         redirectTo("/../presentation/noAccess.php");
         die;
     }
-    return $please_login_message;
+    sessionExpire();
 }
 
 // called managePage.php and userProfile_page.php
