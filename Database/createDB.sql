@@ -167,6 +167,15 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_insertNewPage`(IN input_userI
 END$$
 DELIMITER ;
 
+-- postDAO
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_newPost`(IN input_userID INT, IN input_topicID INT, IN input_postName VARCHAR(100), IN input_postcontent VARCHAR(1000))
+    BEGIN
+        INSERT INTO `post` (`userID`,`topicID`, `postName` ,`postContent`, `lastModifiedPostDate`, `lastModifiedPostTime`)
+            VALUES (input_userID, input_topicID, input_postName, input_postcontent, CURRENT_DATE, CURRENT_TIME);
+END$$
+DELIMITER ;
+
 
 -- ---------------------------------
 -- SELECT
@@ -274,6 +283,108 @@ CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getNumberOfTopicsForCategory
     END $$
 DELIMITER ;
 
+-- forumPageDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getRules`()
+    BEGIN
+        SELECT * 
+        FROM `rule`;
+    END $$
+DELIMITER ;
+
+-- forumPageDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getPages`()
+    BEGIN
+        SELECT * 
+        FROM `forumPage`;
+    END $$
+DELIMITER ;
+
+-- forumPageDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getPageInfo`(IN input_forumPageID INT)
+    BEGIN
+        SELECT * 
+        FROM `forumPage` WHERE `forumPageID` = input_forumPageID;
+    END $$
+DELIMITER ;
+
+-- forumPageDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getPagesForOverview`()
+    BEGIN
+        SELECT * 
+        FROM `forumPage` 
+        JOIN `user` 
+        ON `forumPage`.`userID` = `user`.`userID`;
+    END $$
+DELIMITER ;
+
+-- postDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getPosts`(IN input_topicID INT)
+    BEGIN
+        SELECT `user`.`userName`, `post`.`postID`, `post`.`postName`, `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`
+        FROM `post` 
+        JOIN `user` ON `post`.`userID` = `user`.`userID`
+        WHERE `post`.`topicID` = input_topicID
+        ORDER BY `post`.`lastModifiedPostDate` DESC, `post`.`lastModifiedPostTime` DESC;
+    END $$
+DELIMITER ;
+
+-- postDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getHotPosts`()
+    BEGIN
+        SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
+        FROM `topic`
+        JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
+        JOIN `user` ON `post`.`userID` = `user`.`userID`
+        LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID` 
+        GROUP BY `post`.`postName`
+        ORDER BY `numberOfReplies` DESC LIMIT 5;
+    END $$
+DELIMITER ;
+
+-- postDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getNewestPosts`()
+    BEGIN
+        SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
+        FROM `topic`
+        JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
+        JOIN `user` ON `post`.`userID` = `user`.`userID`
+        LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID` 
+            GROUP BY `post`.`postName`
+            ORDER BY `post`.`lastModifiedPostDate` DESC, `post`.`lastModifiedPostTime` DESC LIMIT 5;
+    END $$
+DELIMITER ;
+
+-- postDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getSelectedPostsHead`(IN input_postID INT)
+    BEGIN
+        SELECT `post`.`postName`, `user`.`userName`, DAYNAME(`post`.`lastModifiedPostDate`) as 'dayname',`post`.`lastModifiedPostDate`, `topic`.`topicName`, `topic`.`topicID` 
+        FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` 
+        JOIN `topic` ON `topic`.`topicID` = `post`.`topicID`
+        WHERE `postID` = input_postID;
+    END $$
+DELIMITER ;
+
+-- postDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getSelectedPostsContent`(IN input_postID INT)
+    BEGIN
+        SELECT `post`.`postImage`, `user`.`userID`, `user`.`userName`, `post`.`postName`, `post`.`postContent` 
+        FROM `post` 
+        JOIN `user` ON `post`.`userID` = `user`.`userID` 
+        WHERE `postID` = input_postID;
+        
+    END $$
+DELIMITER ;
+
+
 
 -- --------------
 -- UPDATE
@@ -311,6 +422,41 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_update_profilepicture`
         WHERE `userID` = input_userID;
     END$$
 DELIMITER ; 
+
+-- forumPageDAO
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_updatePageInfo`
+    (
+    IN input_userID INT, 
+    IN input_pagename VARCHAR(100), 
+    IN input_pagecontent VARCHAR(1000), 
+    IN input_todaysdate date, 
+    IN input_forumpageID INT
+    )
+    BEGIN 
+        UPDATE `forumPage`
+        SET `userID` = input_userID, `forumPageName` = input_pagename, `forumPageContent` = input_pagecontent, `forumPageLastModifiedDate` = input_todaysdate
+        WHERE `forumPageID` = input_forumpageID;
+    END$$
+DELIMITER ; 
+
+ 
+
+-- --------------
+-- DELETE
+-- --------------
+
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_deletePage`
+    ( 
+    IN input_forumpageID INT
+    )
+    BEGIN 
+        DELETE FROM `forumPage` WHERE `forumPageID` = input_forumpageID;
+    END$$
+DELIMITER ; 
+
+
 
 
 

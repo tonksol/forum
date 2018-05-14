@@ -11,11 +11,12 @@
 
 function getPosts($topicID) {
     global $connection;
-    $query = "SELECT `user`.`userName`, `post`.`postID`, `post`.`postName`, `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`
-        FROM `post` 
-        JOIN `user` ON `post`.`userID` = `user`.`userID`
-        WHERE post.topicID = $topicID
-        ORDER BY `post`.`lastModifiedPostDate` DESC, `post`.`lastModifiedPostTime` DESC";
+    // $query = "SELECT `user`.`userName`, `post`.`postID`, `post`.`postName`, `post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`
+    //     FROM `post` 
+    //     JOIN `user` ON `post`.`userID` = `user`.`userID`
+    //     WHERE post.topicID = $topicID
+    //     ORDER BY `post`.`lastModifiedPostDate` DESC, `post`.`lastModifiedPostTime` DESC";
+    $query = "CALL proc_getPosts($topicID)";
 
     $result = mysqli_query($connection, $query);
     $posts = "";
@@ -33,6 +34,7 @@ function getPosts($topicID) {
         return $posts;
 }
 
+// TO DO Stored Procedure - Jonathan vragen
 function getHotPosts() {
     global $connection;
     $query = "SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
@@ -42,6 +44,7 @@ function getHotPosts() {
         LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID` 
         GROUP BY `post`.`postName`
         ORDER BY `numberOfReplies` DESC LIMIT 5;";
+    // $query = "CALL proc_getHotPosts";
     $result = mysqli_query($connection, $query);
     $hotPosts = "";
     
@@ -60,13 +63,14 @@ function getHotPosts() {
 
 function getNewestPosts() {
     global $connection;
-    $query = " SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
-        FROM `topic`
-        JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
-        JOIN `user` ON `post`.`userID` = `user`.`userID`
-        LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID` 
-            GROUP BY `post`.`postName`
-            ORDER BY `post`.`lastModifiedPostDate` DESC, `post`.`lastModifiedPostTime` DESC LIMIT 5;";
+    //$query = " SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
+    //    FROM `topic`
+    //    JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
+    //    JOIN `user` ON `post`.`userID` = `user`.`userID`
+    //    LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID` 
+    //        GROUP BY `post`.`postName`
+    //        ORDER BY `post`.`lastModifiedPostDate` DESC, `post`.`lastModifiedPostTime` DESC LIMIT 5;";
+     $query ="CALL proc_getNewestPosts()";
 
     // add topic.. topic<posts<reply
 
@@ -87,12 +91,14 @@ function getNewestPosts() {
     return $newPosts;
 }
 
+// TO DO stored procedure JONATHAN VRAGEN
 function getSelectedPostsHead($postID) {
     global $connection;
-    $query = "SELECT `post`.`postName`, `user`.`userName`, DAYNAME(`post`.`lastModifiedPostDate`) as 'dayname',`post`.`lastModifiedPostDate`, `topic`.`topicName`, `topic`.`topicID` 
-        FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` 
-        JOIN `topic` ON `topic`.`topicID` = `post`.`topicID`
-        WHERE `postID` = $postID";
+     $query = "SELECT `post`.`postName`, `user`.`userName`, DAYNAME(`post`.`lastModifiedPostDate`) as 'dayname',`post`.`lastModifiedPostDate`, `topic`.`topicName`, `topic`.`topicID` 
+         FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` 
+         JOIN `topic` ON `topic`.`topicID` = `post`.`topicID`
+         WHERE `postID` = $postID";
+    // $query = "CALL proc_getSelectedPostsHead($postID)";
     $result = mysqli_query($connection, $query);
     $postHead = "";
     
@@ -105,10 +111,12 @@ function getSelectedPostsHead($postID) {
     return $postHead;
 }
 
+// TO DO stored procedure JONATHAN VRAGEN
 function getSelectedPostsContent($postID) {
     global $connection;
-    $query = "SELECT `post`.`postImage`, `user`.`userID`, `user`.`userName`, `post`.`postName`, `post`.`postContent` 
-                FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` WHERE `postID` = $postID";
+     $query = "SELECT `post`.`postImage`, `user`.`userID`, `user`.`userName`, `post`.`postName`, `post`.`postContent` 
+                 FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` WHERE `postID` = $postID";
+    // $query = "CALL proc_getSelectedPostsContent";
     $result = mysqli_query($connection, $query);
     $newPosts = "";    
         while ($row = mysqli_fetch_array($result)){
@@ -131,6 +139,7 @@ function newPost($userID, $topicID, $postName, $postcontent){
     global $connection;
     $query = "INSERT INTO `post` (`userID`,`topicID`, `postName` ,`postContent`, `lastModifiedPostDate`, `lastModifiedPostTime`)
             VALUES ($userID, $topicID, '$postName', '$postcontent', CURRENT_DATE, CURRENT_TIME);";
+    // $query = "CALL proc_newPost($userID, $topicID, '$postName', '$postcontent')";
     if (isset($userID)) {
         $result = mysqli_query($connection, $query);
         if ($result) {
