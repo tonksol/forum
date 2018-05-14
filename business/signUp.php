@@ -50,6 +50,7 @@ if (isset($_POST["submit"])) {
          $query = "CALL proc_insert_new_user('$email', '$userName', '$hashed_password')";
         // $query = "INSERT INTO user (email, userName, userPassword) VALUES ('$email', '$userName', '$hashed_password')";
         $result = mysqli_query($connection, $query);
+        mysqli_next_result($connection);
         if ($result){
             echo '<div class="alert alert-success" role="alert"><b> You got succesfully signed up </b></div>';
         } 

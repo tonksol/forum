@@ -42,9 +42,9 @@ require_once (__DIR__ . "/../presentation/adminNavigation.php");
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+          <label for="content" class="col-sm-2 col-form-label">Description</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword3" placeholder="Password" name="content" value="<?php echo $row['forumPageContent']; ?>"<?php echo editableForm(); ?>>
+            <input type="text" class="form-control" id="content"  name="content" value="<?php echo $row['forumPageContent']; ?>"<?php echo editableForm(); ?>>
           </div>
         </div>
         <?php echo editSubmitButtonSwitch();?> 

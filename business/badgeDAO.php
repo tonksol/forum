@@ -12,5 +12,6 @@ function getBadges($userID) {
     while ($row2 = $result2->fetch_array()) {
         $badge[] = $row2['badgeImage'];
     }
+    mysqli_next_result($connection2);
     return $badge;
 }

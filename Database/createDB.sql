@@ -403,7 +403,62 @@ CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getReplies`(IN input_postID 
     END $$
 DELIMITER ;
 
+-- topicDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getTopics`(IN input_categoryID INT)
+    BEGIN
+        SELECT * 
+        FROM `topic` 
+        WHERE `categoryID` = input_categoryID;
+    END $$
+DELIMITER ;
 
+-- topicDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getTopicsForOverview`()
+    BEGIN
+        SELECT `category`.`categoryID`, `category`.`categoryName`, `topic`.`topicID`, `topic`.`topicName`, `topic`.`topicDescription`, COUNT(post.topicID) as `numberOfPosts`
+        FROM `topic` 
+        JOIN `category` ON `topic`.`categoryID` = `category`.`categoryID`
+        JOIN `post` on `topic`.`topicID` = `post`.`topicID`
+        GROUP BY `topic`.`topicID`;
+    END $$
+DELIMITER ;
+
+-- topicDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getTopicsAndNumberOfPosts`(IN input_categoryID INT)
+    BEGIN
+        SELECT DISTINCT  `topic`.`topicID`, `topic`.`topicName`, `topic`.`topicDescription`, COUNT(`post`.`topicID`) as `numberOfPosts`
+        FROM `topic` 
+        JOIN `post` ON `post`.`topicID` = `topic`.`topicID`
+        WHERE `topic`.`categoryID` = input_categoryID
+        GROUP BY `post`.`topicID`
+        ORDER BY `post`.`postName` ASC;
+    END $$
+DELIMITER ;
+
+-- topicDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getSelectedTopicHead`(IN input_topicID INT)
+    BEGIN
+        SELECT `topic`.`topicName`, `topic`.`topicDescription`, `topic`.`topicID`, `category`.`categoryID`, `category`.`categoryName` 
+        FROM `topic`  
+        JOIN `category` ON `topic`.`categoryID` = `category`.`categoryID`
+        WHERE `topicID` = input_topicID;
+    END $$
+DELIMITER ;
+
+-- topicDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getNumberOfPostsByTopic`(IN input_topicID INT)
+    BEGIN
+        SELECT COUNT(*) as `numberOfPosts`        
+        FROM `post` 
+        WHERE `post`.`topicID` = input_topicID
+        GROUP BY `post`.`topicID`;
+    END $$
+DELIMITER ;
 
 -- --------------
 -- UPDATE

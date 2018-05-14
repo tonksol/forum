@@ -8,9 +8,11 @@
 // READ
 // -------------------------------------
 
+// TO DO stored procedure Jonathan vragen
 function getTopics($categoryID) {
     global $connection;
-    $query = "SELECT * FROM `topic` WHERE categoryID = $categoryID;";
+    // $query = "SELECT * FROM `topic` WHERE categoryID = $categoryID;";
+    $query = "proc_getTopics(categoryID)";
     $result = mysqli_query($connection, $query);
         while ($row = mysqli_fetch_array($result)){   // one row in array
             // $selected = $_POST['category'] == $row['category'] ? 'selected' : '';
@@ -19,16 +21,19 @@ function getTopics($categoryID) {
                                     'descroption' => $row['topicDescription']);
             $topics[] = $topic;
         }
+    mysqli_next_result($connection);
     return $topics;  
 }
 
+// TO DO jonathan vragen stored procedure
 function getTopicsForOverview() {
     global $connection;
-    $query = "SELECT category.categoryID, category.categoryName, topic.topicID, topic.topicName, topic.topicDescription, COUNT(post.topicID) as numberOfPosts
-        FROM `topic` 
-        JOIN category ON topic.categoryID = category.categoryID
-        JOIN post on topic.topicID = post.topicID
-        GROUP BY topic.topicID";
+    // $query = "SELECT category.categoryID, category.categoryName, topic.topicID, topic.topicName, topic.topicDescription, COUNT(post.topicID) as numberOfPosts
+    //     FROM `topic` 
+    //     JOIN category ON topic.categoryID = category.categoryID
+    //     JOIN post on topic.topicID = post.topicID
+    //     GROUP BY topic.topicID";
+    $query = "CALL proc_getTopicsForOverview()";
 
     $result = mysqli_query($connection, $query);
     $topics = "";
@@ -42,19 +47,21 @@ function getTopicsForOverview() {
             $topics .= "<td><a href=presentation/categoryTopics.php?categoryID=" . $row['categoryID'] . ">" . $row['categoryName']."</a></td>";
             $topics .= "</tr>";
         }
+    mysqli_next_result($connection);
     return $topics;
 }
 
 // topic DAO 
-
+// TO DO jonathan vragen stored procedure
 function getTopicsAndNumberOfPosts($categoryID) {
     global $connection;
-    $query = "SELECT DISTINCT  `topic`.`topicID`, `topic`.`topicName`, `topic`.`topicDescription`, COUNT(`post`.`topicID`) as 'numberOfPosts'
-        FROM `topic` 
-        JOIN `post` ON `post`.`topicID` = `topic`.`topicID`
-        WHERE `topic`.`categoryID` = $categoryID
-        GROUP BY `post`.`topicID`
-        ORDER BY `post`.`postName` ASC;";
+    // $query = "SELECT DISTINCT  `topic`.`topicID`, `topic`.`topicName`, `topic`.`topicDescription`, COUNT(`post`.`topicID`) as 'numberOfPosts'
+    //     FROM `topic` 
+    //     JOIN `post` ON `post`.`topicID` = `topic`.`topicID`
+    //     WHERE `topic`.`categoryID` = $categoryID
+    //     GROUP BY `post`.`topicID`
+    //     ORDER BY `post`.`postName` ASC;";
+     $query = "CALL proc_getTopicsAndNumberOfPosts($categoryID)";
 
     $result = mysqli_query($connection, $query);
     $topics = "";
@@ -67,16 +74,18 @@ function getTopicsAndNumberOfPosts($categoryID) {
             $topics .= "<td>" . $row['numberOfPosts'] . "</td>";
             $topics .= "</tr>";
         }
+    mysqli_next_result($connection);
     return $topics;
 }
 
-
+// TO DO stored procedure Jonathan vragen
 function getSelectedTopicHead($topicID) {
     global $connection;
-    $query = "SELECT `topic`.`topicName`, `topic`.`topicDescription`, `topic`.`topicID`, `category`.`categoryID`, `category`.`categoryName` 
-        FROM `topic`  
-        JOIN `category` ON `topic`.`categoryID` = `category`.`categoryID`
-        WHERE `topicID` = $topicID";
+    //$query = "SELECT `topic`.`topicName`, `topic`.`topicDescription`, `topic`.`topicID`, `category`.`categoryID`, `category`.`categoryName` 
+    //    FROM `topic`  
+    //    JOIN `category` ON `topic`.`categoryID` = `category`.`categoryID`
+    //    WHERE `topicID` = $topicID";
+     $query = "CALL proc_getSelectedTopicHead($topicID)";
     $result = mysqli_query($connection, $query);
     $topicHead = "";   
         while ($row = mysqli_fetch_array($result)){
@@ -89,17 +98,20 @@ function getSelectedTopicHead($topicID) {
             $topicHead .= '     </div> ';
             $topicHead .= ' <br> ';
         }
+    mysqli_next_result($connection);
     return $topicHead;
 }
 
 // topic ID omdat je het tootnt bij de topics. 
+// TO DO stored procedure jonahthan vragen
 // parameter
 function getNumberOfPostsByTopic($topicID){
     global $connection;
-    $query = "SELECT COUNT(*) as numberOfPosts        
-        FROM `post` 
-        WHERE post.topicID = $topicID
-        GROUP BY post.topicID";
+    //$query = "SELECT COUNT(*) as numberOfPosts        
+    //    FROM `post` 
+    //    WHERE post.topicID = $topicID
+    //    GROUP BY post.topicID";
+    $query = "CALL proc_getNumberOfPostsByTopic($topicID)";
 
     $result = mysqli_query($connection, $query);
     $numberOfPosts = "";
@@ -109,7 +121,8 @@ function getNumberOfPostsByTopic($topicID){
             $numberOfPosts .= "<td>" . $row['numberOfPosts'] . "</td>";
             $numberOfPosts .= "</tr>";
         }
-        return $numberOfPosts;
+    mysqli_next_result($connection);
+    return $numberOfPosts;
 
 }
 

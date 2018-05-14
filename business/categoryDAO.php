@@ -18,6 +18,8 @@ function getCategories() {
                                     'name' => $row['categoryName']);
             $categories[] = $category;
         }
+    
+    mysqli_next_result($connection);
     return $categories;  
 }
 
@@ -35,6 +37,8 @@ function getCategoriesForOverview() {
             $categories .= "<td>" . $row['numberOfTopics'] . "</td>";
             $categories .= "</tr>";
         }
+    
+    mysqli_next_result($connection);
     return $categories;
 }
 
@@ -44,7 +48,8 @@ function getCategoryHead($categoryID){
     
     // SELECT * FROM category WHERE categoryID = $categoryID
     // TO DO: CALL proc_getCategoryHead('$categoryID') - JONATHAN VRAGEN
-    $query = "SELECT * FROM category WHERE categoryID = $categoryID;";
+    $query = "CALL proc_getCategoryHead($categoryID)";
+    // $query = "SELECT * FROM category WHERE categoryID = $categoryID;";
     $result = mysqli_query($connection, $query);
     $category = "";
 
@@ -59,6 +64,8 @@ function getCategoryHead($categoryID){
 
         $category .= ' <br> ';
     }
+    // need this line if you want to use multiple stored procedures
+    mysqli_next_result($connection);
     return $category;
 }
 
@@ -66,14 +73,21 @@ function getNumberOfTopicsForCategory() {
     global $connection;
     $categoryID = $_GET['categoryID'];
 
-    $query = "CALL proc_getNumberOfTopicsForCategory('$categoryID')";
+    $query = "CALL proc_getNumberOfTopicsForCategory($categoryID)";
 
     $result = mysqli_query($connection, $query);
+    if (!$result) {
+        printf("Error: %s\n", mysqli_error($connection));
+        exit();
+    }
+
     $numberOfTopics = "";
     
-        while ($row = mysqli_fetch_array($result)){ 
-            $numberOfTopics .=  $row['numberOfTopics'];         
-        }
+    while ($row = mysqli_fetch_array($result)) { 
+        $numberOfTopics .=  $row['numberOfTopics'];     
+    }
+
+    mysqli_next_result($connection);
     return $numberOfTopics;
 }
 

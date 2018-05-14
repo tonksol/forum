@@ -31,20 +31,21 @@ function getPosts($topicID) {
             $posts .= "</tr>";
             
         }
+        mysqli_next_result($connection);
         return $posts;
 }
 
 // TO DO Stored Procedure - Jonathan vragen
 function getHotPosts() {
     global $connection;
-    $query = "SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
-        FROM `topic`
-        JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
-        JOIN `user` ON `post`.`userID` = `user`.`userID`
-        LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID` 
-        GROUP BY `post`.`postName`
-        ORDER BY `numberOfReplies` DESC LIMIT 5;";
-    // $query = "CALL proc_getHotPosts";
+    // $query = "SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
+    //     FROM `topic`
+    //     JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
+    //     JOIN `user` ON `post`.`userID` = `user`.`userID`
+    //     LEFT JOIN `reply` ON `post`.`postID` = `reply`.`postID` 
+    //     GROUP BY `post`.`postName`
+    //     ORDER BY `numberOfReplies` DESC LIMIT 5;";
+    $query = "CALL proc_getHotPosts";
     $result = mysqli_query($connection, $query);
     $hotPosts = "";
     
@@ -56,7 +57,8 @@ function getHotPosts() {
             $hotPosts .= "<td>" . $row['lastModifiedPostDate'] . "</td>";
             $hotPosts .= "<td>" . $row['numberOfReplies'] . "</td>";
             $hotPosts .= "</tr>";
-            }
+        }
+    mysqli_next_result($connection);
     return $hotPosts;
 }
 
@@ -87,18 +89,19 @@ function getNewestPosts() {
             $newPosts .= "<td>" . $row['lastModifiedPostTime'] . "</td>";
             $newPosts .= "<td>" . $row['numberOfReplies'] . "</td>";
             $newPosts .= "</tr>";
-            }
+        }
+    mysqli_next_result($connection);
     return $newPosts;
 }
 
 // TO DO stored procedure JONATHAN VRAGEN
 function getSelectedPostsHead($postID) {
     global $connection;
-     $query = "SELECT `post`.`postName`, `user`.`userName`, DAYNAME(`post`.`lastModifiedPostDate`) as 'dayname',`post`.`lastModifiedPostDate`, `topic`.`topicName`, `topic`.`topicID` 
-         FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` 
-         JOIN `topic` ON `topic`.`topicID` = `post`.`topicID`
-         WHERE `postID` = $postID";
-    // $query = "CALL proc_getSelectedPostsHead($postID)";
+    // $query = "SELECT `post`.`postName`, `user`.`userName`, DAYNAME(`post`.`lastModifiedPostDate`) as 'dayname',`post`.`lastModifiedPostDate`, `topic`.`topicName`, `topic`.`topicID` 
+    //     FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` 
+    //     JOIN `topic` ON `topic`.`topicID` = `post`.`topicID`
+    //     WHERE `postID` = $postID";
+     $query = "CALL proc_getSelectedPostsHead($postID)";
     $result = mysqli_query($connection, $query);
     $postHead = "";
     
@@ -108,15 +111,16 @@ function getSelectedPostsHead($postID) {
             $postHead .=  '<p class="card-text">' . $row['dayname'] . ' '. $row['lastModifiedPostDate'];
             $postHead .=  ' in <a href=presentation/topicPosts.php?topicID=' . $row['topicID'] . '>' . $row['topicName'] . '</a></p>';
         }
+    mysqli_next_result($connection);
     return $postHead;
 }
 
 // TO DO stored procedure JONATHAN VRAGEN
 function getSelectedPostsContent($postID) {
     global $connection;
-     $query = "SELECT `post`.`postImage`, `user`.`userID`, `user`.`userName`, `post`.`postName`, `post`.`postContent` 
-                 FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` WHERE `postID` = $postID";
-    // $query = "CALL proc_getSelectedPostsContent";
+    // $query = "SELECT `post`.`postImage`, `user`.`userID`, `user`.`userName`, `post`.`postName`, `post`.`postContent` 
+    //             FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` WHERE `postID` = $postID";
+     $query = "CALL proc_getSelectedPostsContent($postID)";
     $result = mysqli_query($connection, $query);
     $newPosts = "";    
         while ($row = mysqli_fetch_array($result)){
@@ -128,6 +132,7 @@ function getSelectedPostsContent($postID) {
             $newPosts .=  ' </div> ';
             $newPosts .=  ' <br><br><br>';
         }
+    mysqli_next_result($connection);
     return $newPosts;
 }
 
@@ -137,13 +142,15 @@ function getSelectedPostsContent($postID) {
 
 function newPost($userID, $topicID, $postName, $postcontent){
     global $connection;
-    $query = "INSERT INTO `post` (`userID`,`topicID`, `postName` ,`postContent`, `lastModifiedPostDate`, `lastModifiedPostTime`)
-            VALUES ($userID, $topicID, '$postName', '$postcontent', CURRENT_DATE, CURRENT_TIME);";
-    // $query = "CALL proc_newPost($userID, $topicID, '$postName', '$postcontent')";
+    // $query = "INSERT INTO `post` (`userID`,`topicID`, `postName` ,`postContent`, `lastModifiedPostDate`, `lastModifiedPostTime`)
+    //        VALUES ($userID, $topicID, '$postName', '$postcontent', CURRENT_DATE, CURRENT_TIME);";
+     $query = "CALL proc_newPost($userID, $topicID, '$postName', '$postcontent')";
     if (isset($userID)) {
         $result = mysqli_query($connection, $query);
         if ($result) {
-            return mysqli_insert_id($connection);
+            $postID = mysqli_insert_id($connection);
+            mysqli_next_result($connection);
+            return $postID;
         }
     }
     

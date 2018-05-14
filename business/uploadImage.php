@@ -138,6 +138,7 @@ if(isset($_POST['submit']) && !$errors) {
     // UPDATE `user` SET `userImage` = '$newname' WHERE `userID` = $userID
     $query = "CALL proc_update_profilepicture($userID, '$newname')";
     $result = mysqli_query($connection, $query);
+    mysqli_next_result($connection);
     echo "<h1>Image succesful uploaded!</h1>";
     redirectTo("/../presentation/userProfile_page.php");
 }

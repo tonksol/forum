@@ -43,8 +43,8 @@ function getPage($pageID) {
 // TO DO Stored procedure JONATHAN VRAGEN
 function getRules() {
     global $connection;
-    // $query = "CALL proc_getRules()";
-    $query = "SELECT * FROM rule";
+    $query = "CALL proc_getRules()";
+    // $query = "SELECT * FROM rule";
     $result = mysqli_query($connection, $query);
     
     $rules = "";
@@ -54,6 +54,7 @@ function getRules() {
             $rules .= "#<b>" . $row['ruleID'] . " </b><br>" . $row['ruleDescription'] . "<br><br>";
             $rules .= "</ul>";
         }
+    mysqli_next_result($connection);
     return $rules;
 }
 
@@ -61,18 +62,19 @@ function getRules() {
 // TO DO Stored procedure JONATHAN VRAGEN
 function getPages() {
     global $connection;
-    $query = "SELECT * FROM forumPage;";
-    // $query = "CALL proc_getPages()";
+    // $query = "SELECT * FROM forumPage;";
+    $query = "CALL proc_getPages()";
     $result = mysqli_query($connection, $query);
-        while ($row = mysqli_fetch_array($result)){   // one row in array
-            $forumPageInfo = array('id' => $row['forumPageID'],
-                                    'name' => $row['forumPageName'],
-                                    'content' => $row['forumPageContent']);
-                                    
-            //$forumPageInfo['name'] = $row['forumPageName'];
-            // $forumPageInfo['content'] = $row['forumPageContent'];
-            $forumPageInfos[] = $forumPageInfo;
-        }
+    while ($row = mysqli_fetch_array($result)){   // one row in array
+        $forumPageInfo = array('id' => $row['forumPageID'],
+                                'name' => $row['forumPageName'],
+                                'content' => $row['forumPageContent']);
+                                
+        //$forumPageInfo['name'] = $row['forumPageName'];
+        // $forumPageInfo['content'] = $row['forumPageContent'];
+        $forumPageInfos[] = $forumPageInfo;
+    }
+    mysqli_next_result($connection);
     return $forumPageInfos;    
 }
 
@@ -83,7 +85,8 @@ function getPageInfo($forumpageID) {
     $result = mysqli_query($connection, $query);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-     }   
+     }  
+     mysqli_next_result($connection); 
     return $row;
 }
 
@@ -102,7 +105,8 @@ function getPagesForOverview() {
             $pages .= '<td>' . substr($row['forumPageContent'], 0, 100) . "...</td>";
             $pages .= "<td>" . $row['userName'] . "</td>";
             $pages .= "</tr>";
-            }
+        }
+    mysqli_next_result($connection);
     return $pages;
 }
 
@@ -114,14 +118,16 @@ function getPagesForOverview() {
 // TO DO Stored procedure JONATHAN VRAGEN
 function updatePageInfo($userID, $pagename, $pagecontent, $todaysdate, $forumpageID) {
     global $connection;
-     $query = "UPDATE `forumPage`
-               SET `userID` = $userID, `forumPageName` = '$pagename', `forumPageContent` = '$pagecontent', forumPageLastModifiedDate = '$todaysdate'
-               WHERE `forumPageID` = '$forumpageID'";
-    // $query = "CALL proc_updatePageInfo($userID, '$pagename', '$pagecontent', '$todaysdate', $forumpageID)";
+    // $query = "UPDATE `forumPage`
+    //           SET `userID` = $userID, `forumPageName` = '$pagename', `forumPageContent` = '$pagecontent', forumPageLastModifiedDate = '$todaysdate'
+    //           WHERE `forumPageID` = '$forumpageID'";
+     $query = "CALL proc_updatePageInfo($userID, '$pagename', '$pagecontent', '$todaysdate', $forumpageID)";
     if (isset($userID)) {    
         // execute query 
         mysqli_query($connection, $query);
+        mysqli_next_result($connection);
     }
+ 
 }
 
 // -------------------------------------

@@ -35,7 +35,8 @@ function getUserProfile($userID) {
     $result = mysqli_query($connection, $query);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-    }   
+    }  
+    mysqli_next_result($connection); 
     return $row;
 }
 // -------------------------------------
@@ -57,6 +58,7 @@ function updateUserInfo($userID, $firstname, $prefix, $lastname, $birthday, $ema
         if (isset($userID)) {    
             // query uitvoeren
             mysqli_query($connection, $query);
+            mysqli_next_result($connection);
         } else {
             $_SESSION['update_failed_message'] = 'chancing user information not successful';
         }

@@ -6,17 +6,21 @@ require_once(__DIR__ . "/../business/postDAO.php");
 require_once(__DIR__ . "/../business/topicDAO.php");
 require_once(__DIR__ . "/../presentation/header.php");
 
- $userID = $_SESSION['user_id'];
- // INSERT new reply
- if (isset($_POST['submit'])) { 
+if (isset($_SESSION['user_id'])) {
+    $userID = $_SESSION['user_id'];
+} else {
+  $userID = -1;
+}
+// INSERT new reply
+if (isset($_POST['submit'])) { 
   newReply($userID, $_POST['postID'], $_POST['replyContent']);    
- }
+}
 
- if (isset($_POST['delete']) && isset($_POST['replyID'])) {
+if (isset($_POST['delete']) && isset($_POST['replyID'])) {
   deleteReply($_POST['replyID'], $userID);
- }
+}
 
- ?>
+?>
 
 <br><br>
 <div class="container">

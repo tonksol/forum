@@ -26,7 +26,10 @@ require_once(__DIR__ . "/../business/topicDAO.php");
             </tr>
         </thead>
         <tbody>   
-            <?php  echo getCategoryHead($_GET['categoryID']); echo getTopicsAndNumberOfPosts($_GET['categoryID']);  ?>          
+            <?php
+                echo getCategoryHead($_GET['categoryID']);
+                echo getTopicsAndNumberOfPosts($_GET['categoryID']);
+            ?>          
         </tbody>
     </table>
     Number op topics for this category: <?php echo getNumberOfTopicsForCategory(); ?>
