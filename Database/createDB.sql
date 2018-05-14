@@ -176,6 +176,14 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_newPost`(IN input_userID INT,
 END$$
 DELIMITER ;
 
+-- replyDAO
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_newReply`(IN input_userID INT, IN input_postID INT, IN input_postcontent VARCHAR(1000))
+    BEGIN
+        INSERT INTO `reply` ( `userID`, `postID`, `replyContent`, `replyDate`, `replyTime`) 
+        VALUES (input_userID, input_postID, input_postcontent, CURRENT_DATE, CURRENT_TIME);
+    END$$
+DELIMITER ;
 
 -- ---------------------------------
 -- SELECT
@@ -379,8 +387,19 @@ CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getSelectedPostsContent`(IN 
         SELECT `post`.`postImage`, `user`.`userID`, `user`.`userName`, `post`.`postName`, `post`.`postContent` 
         FROM `post` 
         JOIN `user` ON `post`.`userID` = `user`.`userID` 
-        WHERE `postID` = input_postID;
-        
+        WHERE `postID` = input_postID;     
+    END $$
+DELIMITER ;
+
+-- replyDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getReplies`(IN input_postID INT)
+    BEGIN
+        SELECT `user`.`userName`, `reply`.`replyID`, `reply`.`userID`, `reply`.`replyDate`, `reply`.`replyTime`, `reply`.`replyContent`
+        FROM `reply` 
+        JOIN `user` ON `reply`.`userID` = `user`.`userID`
+        WHERE postID = input_postID
+        ORDER BY `reply`.`replyDate`, `reply`.`replyTime` ASC;
     END $$
 DELIMITER ;
 
@@ -453,6 +472,18 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_deletePage`
     )
     BEGIN 
         DELETE FROM `forumPage` WHERE `forumPageID` = input_forumpageID;
+    END$$
+DELIMITER ; 
+
+-- replyDOA
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_deleteReply`
+    ( 
+    IN input_replyID INT,
+    IN input_userID INT
+    )
+    BEGIN 
+        DELETE FROM `reply` WHERE `replyID` = input_replyID AND `userID` = input_userID;
     END$$
 DELIMITER ; 
 
