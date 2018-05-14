@@ -97,6 +97,11 @@ if (isset($_POST["submit"])) {
             // Get current dimensions
             $old_width  = imagesx($image);
             $old_height = imagesy($image);
+            if ($old_width > 1500 || $old_height > 1500) {
+                echo '<h1>Image is too wide or too heigh: Max 1500!</h1>';
+                $errors = 1;
+                return;
+            }
             // Calculate the scaling we need to do to fit the image
             $scale      = min($max_width/$old_width, $max_height/$old_height);
 
