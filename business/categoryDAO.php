@@ -10,7 +10,8 @@
 
 function getCategories() {
     global $connection;
-    $query = "SELECT * FROM `category`;";
+    // SELECT * FROM `category`;
+    $query = "CALL proc_select_all_from_category()";
     $result = mysqli_query($connection, $query);
         while ($row = mysqli_fetch_array($result)){   // one row in array
             $category = array('id' => $row['categoryID'],
@@ -22,13 +23,7 @@ function getCategories() {
 
 function getCategoriesForOverview() {
     global $connection;
-    $query = "SELECT DISTINCT `category`.`categoryID`, `category`.`categoryName`, `category`.`categoryDescription`, COUNT(`topic`.`categoryID`) as 'numberOfTopics'
-        FROM `category` 
-        JOIN `topic` ON `category`.`categoryID` = `topic`.`categoryID`
-        WHERE `category`.`categoryID` = `topic`.`categoryID`
-	    GROUP BY `topic`.`categoryID`
-        ORDER BY `category`.`categoryName` ASC;";
-
+    $query = "CALL proc_getCategoriesForOverview()";
     $result = mysqli_query($connection, $query);
     $categories = "";
     
@@ -45,8 +40,11 @@ function getCategoriesForOverview() {
 
 function getCategoryHead($categoryID){
     global $connection;
+    // $categoryID = $_GET['categoryID'];
     
-    $query = "SELECT * FROM category WHERE categoryID = $categoryID";
+    // SELECT * FROM category WHERE categoryID = $categoryID
+    // TO DO: CALL proc_getCategoryHead('$categoryID') - JONATHAN VRAGEN
+    $query = "SELECT * FROM category WHERE categoryID = $categoryID;";
     $result = mysqli_query($connection, $query);
     $category = "";
 
@@ -67,12 +65,8 @@ function getCategoryHead($categoryID){
 function getNumberOfTopicsForCategory() {
     global $connection;
     $categoryID = $_GET['categoryID'];
-    $query = "SELECT DISTINCT  `category`.`categoryName`, `topic`.`topicName`, COUNT(`topic`.`categoryID`) as 'numberOfTopics'
-        FROM `topic` 
-        JOIN `category` ON `category`.`categoryID` = `topic`.`categoryID`
-        WHERE `topic`.`categoryID` = $categoryID
-        GROUP BY `topic`.`categoryID`
-        ORDER BY `category`.`categoryName` ASC;";
+
+    $query = "CALL proc_getNumberOfTopicsForCategory('$categoryID')";
 
     $result = mysqli_query($connection, $query);
     $numberOfTopics = "";

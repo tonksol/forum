@@ -8,8 +8,7 @@ require_once(__DIR__ . "/../include/functions.php");
  // INSERT new page used on createPage.php
  function insertNewPage($userID, $pagename, $pagecontent, $todaysdate) {
     global $connection;
-    $query = "INSERT INTO `forumPage` ( `userID`, `forumPageName`, `forumPageContent`, `forumPageLastModifiedDate`) 
-                VALUES ($userID, '$pagename', '$pagecontent', '$todaysdate');";
+   $query = "CALL proc_insertNewPage($userID, '$pagename', '$pagecontent', '$todaysdate')";
     // return mysqli_query($connection, $query);
     if (isset($userID)) {    
         // query uitvoeren
@@ -24,9 +23,10 @@ require_once(__DIR__ . "/../include/functions.php");
 
 function getPage($pageID) {
     global $connection;
-    $query = "SELECT * 
-        FROM forumPage
-        WHERE forumPageID = '$pageID';";
+    // $query = "SELECT * 
+    //     FROM forumPage
+    //     WHERE forumPageID = '$pageID';";
+    $query = "CALL proc_getPage($pageID)";
 
     $result = mysqli_query($connection, $query);
 

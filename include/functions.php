@@ -86,7 +86,7 @@ function memberArea() {
         redirectTo("/../presentation/noAccess.php");
         die;
     }
-    sessionExpire();
+    // sessionExpire();
 }
 
 // called managePage.php and userProfile_page.php

@@ -27,9 +27,9 @@ require_once (__DIR__ . "/../presentation/adminNavigation.php");
     </table>
     
     <br>
-    <h4>Or add a new page</h4>
+    <h4>Add a new page</h4>
     <a class="btn btn-primary" href="presentation/createPage.php" role="button" name="addNewPage">Add new page</a>
-
+    
 
 </div> <!-- ./ main-->
 </div> <!-- ./ container-->

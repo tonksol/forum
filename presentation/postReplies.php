@@ -21,18 +21,16 @@ require_once(__DIR__ . "/../presentation/header.php");
 <br><br>
 <div class="container">
     <div class="container">  
-        <a href="presentation/newestPostsOverview.php">Go back to newest discussion</a>
-        <br><br><br>
-        
-        <?php 
-        // $topicID = $_GET['topicID'];
-        echo getSelectedPostsHead($_GET['postID']);
-        echo getSelectedPostsContent($_GET['postID']); // parameter = postID
-        
-        ?>
+      <a href="presentation/newestPostsOverview.php">Go back to newest discussion</a>
+      <br><br><br>
+      
+      <?php 
+      // $topicID = $_GET['topicID'];
+      echo getSelectedPostsHead($_GET['postID']);
+      echo getSelectedPostsContent($_GET['postID']); // parameter = postID
+      ?>
 
-
-         
+         <!-- get replies and delete and update button if you are the logged in user -->
           <div class="container">
             <?php $replies = getreplies($_GET['postID']); foreach ($replies as $reply) { ?>
             <div class="card" >
@@ -43,14 +41,21 @@ require_once(__DIR__ . "/../presentation/header.php");
                 <p class="card-text"><?php echo $reply['content'] ?></p>
                 <?php if ($reply['userID'] == $userID){?> 
                   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?postID=<?PHP echo $_GET['postID'] ?>" method="POST">
-                    <input type="hidden" name="replyID" value="<?php echo $reply['replyID'] ?>">
-                    <input class='btn btn-primary btn-block' type='submit' name='delete' value='delete'>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <input type="hidden" name="replyID" value="<?php echo $reply['replyID'] ?>">
+                        <input class='btn btn-primary btn-block btn-xs' type='submit' name='delete' value='delete'>
+                      </div>
+                      <div class="col-sm-3">
+                        <input class='btn btn-primary btn-block btn-xs' type='submit' name='update' value='update'>
+                      </div>
+                    </div> 
                   </form>
-                <?php } ?>   
+                <?php } ?>   <!-- ./ if -->
               </div>
             </div>
             <br>
-            <?php } ?>
+            <?php } ?> <!-- ./ foreach -->
           </div>
           <br>
         

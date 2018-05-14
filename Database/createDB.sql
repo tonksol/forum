@@ -138,6 +138,36 @@ CREATE TABLE userAccesLevel (
 -- STORED PROCEDURES
 -- ---------------------------------
 
+-- --------------
+-- CREATE / INSERT
+-- --------------
+
+-- Sign up user table
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_insert_new_user`(IN input_email VARCHAR(255), IN input_username VARCHAR(255), IN input_password VARCHAR(255))
+    BEGIN
+        INSERT INTO `user` (`email`, `userName`, `userPassword`) VALUES (input_email, input_username, input_password);
+    END$$
+DELIMITER ;
+
+-- sign up userAccesLevel NOG NIET KLAAR!!!!!!!!!!!!!
+-- DELIMITER $$
+-- CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_userAccesLevel()
+--     BEGIN
+--         INSERT INTO `userAccesLevel` VALUES (`userID`, `accesLevelID`) VALUES ('LAST_INSERT_ID()' ,2);
+--     END $$
+-- DELIMITER ;
+
+-- forumPageDAO
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_insertNewPage`(IN input_userID INT, IN input_pagename VARCHAR(100), IN input_pagecontent VARCHAR(1000), IN input_todaysdate DATE)
+    BEGIN
+        INSERT INTO `forumPage` ( `userID`, `forumPageName`, `forumPageContent`, `forumPageLastModifiedDate`) 
+                VALUES (input_userID, input_pagename, input_pagecontent, input_todaysdate);
+END$$
+DELIMITER ;
+
+
 -- ---------------------------------
 -- SELECT
 -- ---------------------------------
@@ -189,26 +219,60 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_select_the_badges`
     END $$
 DELIMITER ; 
 
-
--- --------------
--- INSERT
--- --------------
-
--- Sign up user table
+-- forumPageDAO
 DELIMITER $$
-CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_new_user(IN input_email VARCHAR(255), IN input_username VARCHAR(255), IN input_password VARCHAR(255))
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_getPage`(IN input_pageID INT)
     BEGIN
-        INSERT INTO `user` (`email`, `userName`, `userPassword`) VALUES (input_email, input_username, input_password);
-    END$$
+        SELECT * 
+        FROM forumPage
+        WHERE forumPageID = input_pageID;
+    END $$
 DELIMITER ;
 
--- sign up userAccesLevel NOG NIET KLAAR!!!!!!!!!!!!!
--- DELIMITER $$
--- CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_userAccesLevel()
---     BEGIN
---         INSERT INTO `userAccesLevel` VALUES (`userID`, `accesLevelID`) VALUES ('LAST_INSERT_ID()' ,2);
---     END $$
--- DELIMITER ;
+-- categoryDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_select_all_from_category`()
+    BEGIN
+        SELECT * 
+        FROM `category`;
+    END $$
+DELIMITER ; 
+
+-- categoryDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getCategoriesForOverview`()
+    BEGIN
+        SELECT DISTINCT `category`.`categoryID`, `category`.`categoryName`, `category`.`categoryDescription`, COUNT(`topic`.`categoryID`) as 'numberOfTopics'
+        FROM `category` 
+        JOIN `topic` ON `category`.`categoryID` = `topic`.`categoryID`
+        WHERE `category`.`categoryID` = `topic`.`categoryID`
+	    GROUP BY `topic`.`categoryID`
+        ORDER BY `category`.`categoryName` ASC;
+    END $$
+DELIMITER ; 
+
+-- categoryDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getCategoryHead`(IN input_categoryID int)
+    BEGIN
+        SELECT * 
+        FROM category 
+        WHERE categoryID = input_categoryID;
+    END $$
+DELIMITER ;
+
+--categoryDAO
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getNumberOfTopicsForCategory`(IN input_categoryID int)
+    BEGIN
+        SELECT DISTINCT  `category`.`categoryName`, `topic`.`topicName`, COUNT(`topic`.`categoryID`) as 'numberOfTopics'
+        FROM `topic` 
+        JOIN `category` ON `category`.`categoryID` = `topic`.`categoryID`
+        WHERE `topic`.`categoryID` = input_categoryID
+        GROUP BY `topic`.`categoryID`
+        ORDER BY `category`.`categoryName` ASC;
+    END $$
+DELIMITER ;
 
 
 -- --------------
