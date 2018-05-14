@@ -44,6 +44,16 @@
 
     <!-- script for the text editor -->
     <script src="presentation/bootstrap-wysiwyg.js"></script>
+
+<!-- TO DO: settings tabel boolean, dark theme. functie maken in settingsDAO en hier gebruiken -->
+    <?php if() { ?>
+    <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    </style>
+    <?php } ?>
  
    
     <?php require (__DIR__ . "/../presentation/navigation.php");?>        

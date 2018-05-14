@@ -19,16 +19,20 @@
 
 - FEEDBACK 
 + every query in stored procedure 
-- html- realescape strings first() (trim() second. output anders krijg je html/js op je site!) html special chars(alleen speciale caracters eruit filteren) / trim (filter the (user) input)
-- overview pages more structure (overview index) dropdown or horizontal menu + preview of the data that is in there
-- edit forum posts 
-- add new forum posts
-- exstend the user profile page
+1. html- realescape strings first() (trim() second. output anders krijg je html/js op je site!) html special chars(alleen speciale caracters eruit filteren) / trim (filter the (user) input)
++ overview pages more structure (overview index) dropdown or horizontal menu + preview of the data that is in there
+2. edit forum posts 
++ add new forum posts
+6. exstend the user profile page
     - statistics, graphs, how many posts did the user make... 
     - build on the badges
     - inspiration: stack overflow (gamafication and personalisation) make it fun to do more posts
 + check for the dimensions of the picture (image resizer) see facebook message max 1500 pixels wide
 - cdn (do some research for yourself)
+3. reply updaten 
+4. sticky posts
+5. stylings settings
+
 
 - TO DO: overal een knop naar add new post (nu in navigatie)
 

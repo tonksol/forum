@@ -1,10 +1,12 @@
 <?php
 // overview of all categories
 
-require_once(__DIR__ . "/../business/replyDAO.php");
+require_once(__DIR__ . "/../business/ReplyDAO.php");
 require_once(__DIR__ . "/../business/postDAO.php");
 require_once(__DIR__ . "/../business/topicDAO.php");
 require_once(__DIR__ . "/../presentation/header.php");
+
+$replyDAO = new ReplyDAO($connection);
 
 if (isset($_SESSION['user_id'])) {
     $userID = $_SESSION['user_id'];
@@ -13,11 +15,11 @@ if (isset($_SESSION['user_id'])) {
 }
 // INSERT new reply
 if (isset($_POST['submit'])) { 
-  newReply($userID, $_POST['postID'], $_POST['replyContent']);    
+  $replyDAO->newReply($userID, $_POST['postID'], $_POST['replyContent']);    
 }
 
 if (isset($_POST['delete']) && isset($_POST['replyID'])) {
-  deleteReply($_POST['replyID'], $userID);
+  $replyDAO->deleteReply($_POST['replyID'], $userID);
 }
 
 ?>
@@ -36,7 +38,7 @@ if (isset($_POST['delete']) && isset($_POST['replyID'])) {
 
          <!-- get replies and delete and update button if you are the logged in user -->
           <div class="container">
-            <?php $replies = getreplies($_GET['postID']); foreach ($replies as $reply) { ?>
+            <?php $replies = $replyDAO->getreplies($_GET['postID']); foreach ($replies as $reply) { ?>
             <div class="card" >
               <div class="card-body"> 
                 <h5>Posted by: <b> <?php echo $reply['userName'] ?></b></h5>
