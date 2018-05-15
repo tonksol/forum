@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 		// mysqli_real_escape_string senatise the data. Prefent SQL injection by adding /. 
 	$password = trim(mysqli_real_escape_string($connection,$_POST['password']));
 		// $query = "SELECT userID, email, userPassword FROM user WHERE email = '$email' LIMIT 1;";
-	$query = "CALL proc_get_user_by_email('$email')";
+	$query = "CALL proc_get_user_by_email(" . trim(mysqli_real_escape_string('$email')) . ")";
 		// select the user from the database with: {$email}
 	$result = mysqli_query($connection, $query);
 	
@@ -47,8 +47,6 @@ if (isset($_POST['submit'])) {
 		$_SESSION['login_failed_message'] = 'Email/password combination incorrect.<br/> Please make sure your caps lock key is off and try again.';
 	}
 }
-
-
 
 // close the connection
 if (isset($connection)){
