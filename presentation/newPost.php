@@ -18,7 +18,7 @@ require_once(__DIR__ . "/../presentation/header.php");
 <div class="container"> 
     <br><br>             
     <div class="form-group">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        <form action="<?php echo mysqlPrepare($_SERVER["PHP_SELF"]);?>" method="post">
         <label for="categories"><h5>choose a category:</h5></label>
             <!-- select instead of input -->
             <select onchange="this.form.submit()" class="form-control" id="category" name="selectedCategory">
@@ -35,7 +35,7 @@ require_once(__DIR__ . "/../presentation/header.php");
 
     <br><br>
     <h5>Create a new discussion</h5>   
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+    <form action="<?php echo mysqlPrepare(($_SERVER["PHP_SELF"]);?>" method="POST">
     
     <div class="form-group">
         <label for="topics">choose a topic:</label>

@@ -33,7 +33,7 @@ require_once (__DIR__ . "/../presentation/adminNavigation.php");
     <br><br><br>
     <h1><?php echo $row['forumPageName'] ?> page</h1>
     <br><br><br>
-    <form action="<?php echo $_SERVER['PHP_SELF'] . $querystring;?>" method="POST">
+    <form action="<?php echo mysqlPrepare($_SERVER['PHP_SELF'] . $querystring);?>" method="POST">
       
         <div class="form-group row">
           <label for="pagename" class="col-sm-2 col-form-label">Name</label>

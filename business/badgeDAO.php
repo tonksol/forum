@@ -1,5 +1,4 @@
 <?php
-    // TO DO
     function getBadges($userID) {   
         global $connection; 
         $query2 = "CALL proc_select_the_badges(" . trim(mysqli_real_escape_string($connection, $userID)) . ")";

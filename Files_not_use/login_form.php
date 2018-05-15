@@ -15,7 +15,7 @@ Before it was in the "user" folder
         <!-- 
             form action keeps the user on the same page so you can see the sign up errors. 
         -->
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">         
+        <form action="<?php echo mysqlPrepare($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">         
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" name="email">

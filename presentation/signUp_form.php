@@ -21,7 +21,7 @@
             <div class="col-5 align-self-center">
             <h3>Sign up today for <br>
                 the boardgame forum!</h3><br>
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">          
+                <form action="<?php echo mysqlPrepare($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">          
                     <!-- email -->
                     <div class="form-group row">
                         <label for="inputEmail" class="col-sm-1 col-form-label">&#xf0e0;</label> <!-- label: email -->

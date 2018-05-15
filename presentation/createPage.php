@@ -20,7 +20,7 @@ require_once (__DIR__ . "/../presentation/adminNavigation.php");
 
         <br><br><br>
         
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>"  method="POST">
+        <form action="<?php echo mysqlPrepare($_SERVER['PHP_SELF']) ?>"  method="POST">
             <div class="form-group row">
             <label for="inputName" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">

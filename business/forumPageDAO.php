@@ -5,14 +5,14 @@ require_once(__DIR__ . "/../include/functions.php");
 // CREATE / INSERT
 // -------------------------------------
 
- // TO DO: real_escape_string
+
  // Used on createPage.php
  function insertNewPage($userID, $pagename, $pagecontent, $todaysdate) {
     global $connection;
-    // $userID = mysqli_real_escape_string(trim($userID));
-    // $pagename = mysqli_real_escape_string(trim($pagename));
-    // $pagecontent = mysqli_real_escape_string(trim($pagecontent));
-    // $todaysdate = mysqli_real_escape_string(trim($todaysdate));
+    $userID = trim(mysqli_real_escape_string($connection, $userID));
+    $pagename = trim(mysqli_real_escape_string($connection, $pagename));
+    $pagecontent = trim(mysqli_real_escape_string($connection, $pagecontent));
+    $todaysdate = trim(mysqli_real_escape_string($connection, $todaysdate));
     $query = "CALL proc_insertNewPage($userID, '$pagename', '$pagecontent', '$todaysdate')";
     if (isset($userID)) {    
         // Execute query
@@ -25,10 +25,10 @@ require_once(__DIR__ . "/../include/functions.php");
 // READ
 // -------------------------------------
 
-// TO DO real escape string
+
 function getPage($pageID) {
     global $connection;
-    // $pageID = mysqli_real_escape_string(trim($pageID));
+    $pageID = trim(mysqli_real_escape_string($connection, $pageID));
     $query = "CALL proc_getPage($pageID)";
     $result = mysqli_query($connection, $query);
     $pageContent = "";
@@ -108,7 +108,6 @@ function getPagesForOverview() {
 // -------------------------------------
 
 // UPDATE existing page - used on managePage.php
-// TO DO Stored procedure JONATHAN VRAGEN
 function updatePageInfo($userID, $pagename, $pagecontent, $todaysdate, $forumpageID) {
     global $connection;
     $userID = trim(mysqli_real_escape_string($connection, $userID));
@@ -130,10 +129,8 @@ function updatePageInfo($userID, $pagename, $pagecontent, $todaysdate, $forumpag
 // -------------------------------------
 
 // NOT IN USE TO DO
-// TO DO Stored procedure JONATHAN VRAGEN
 function deletePage($forumpageID) {
     global $connection;
-    //$query= "DELETE FROM `forumPage` WHERE forumPageID = $forumpageID";
     $query= "CALL proc_deletePage(" . trim(mysqli_real_escape_string($connection, $forumpageID)) . ")";
     $result = mysqli_query($connection, $query);
     mysqli_next_result($connection);

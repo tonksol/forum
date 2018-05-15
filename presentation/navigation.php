@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-body">
 
-                      <form role="form" method="POST" action="business/login.php" enctype="multipart/form-data">
+                      <form role="form" method="POST" action="<php? echo mysqlPrepare(business/login.php) ?>" enctype="multipart/form-data">
                         <br>
                         <div class="form-group row">
                         <label for="inputEmail" class="col-sm-1 col-form-label" class="icon-for-login">&#xf007;</label> <!-- label: email -->

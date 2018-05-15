@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
         <div class="col-sm-4"> <!-- the size of the row --> 
         <center><img src="images/<?php echo getUserImage($row["userImage"]) ?>" alt="profile-picture"></center>
 
-
+                <!-- TO DO mysqlPrepare() form action -->
                 <form action="business/uploadImage.php" method="post" enctype="multipart/form-data">
                     Select image to upload:
                     <input type="file" name="image"/>
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
         <h1>Personal profile info</h1>  
         <br> 
         <br>                
-        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="userinfo">
+        <form action="<?php echo mysqlPrepare($_SERVER['PHP_SELF']);?>" method="POST" class="userinfo">
 
         <input type="hidden" name="userID" value="<?php echo $userID; ?>">
             <div class="form-group row">

@@ -46,7 +46,7 @@ if (isset($_POST['delete']) && isset($_POST['replyID'])) {
                 <p class="card-text"> </p>
                 <p class="card-text"><?php echo $reply['content'] ?></p>
                 <?php if ($reply['userID'] == $userID){?> 
-                  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?postID=<?PHP echo $_GET['postID'] ?>" method="POST">
+                  <form action="<?php echo mysqlPrepare($_SERVER["PHP_SELF"]);?>?postID=<?PHP echo $_GET['postID'] ?>" method="POST">
                     <div class="row">
                       <div class="col-sm-3">
                         <input type="hidden" name="replyID" value="<?php echo $reply['replyID'] ?>">
@@ -69,7 +69,7 @@ if (isset($_POST['delete']) && isset($_POST['replyID'])) {
 
     <br><br>
     <!-- form for new reply -->
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?postID=<?PHP echo $_GET['postID'] ?>" method="POST">
+    <form action="<?php echo mysqlPrepare($_SERVER["PHP_SELF"]);?>?postID=<?PHP echo $_GET['postID'] ?>" method="POST">
     <div class="form-group">
         <div class="col-sm-10">
         <input type="hidden" name="postID" value="<?php echo $_GET['postID'];?>">

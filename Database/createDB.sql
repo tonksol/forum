@@ -222,7 +222,7 @@ BEGIN
     END$$
 DELIMITER ; 
 
--- badge TO DO... ERRORS 
+-- badgeDAO 
 DELIMITER $$
 CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_select_the_badges`
     (
