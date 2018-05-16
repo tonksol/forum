@@ -44,14 +44,35 @@ class ReplyDAO {
         return $replies;
     }
 
+    public function getReplyContent($replyID) {
+        $query = "CALL proc_getReplyContent(" . trim(mysqli_real_escape_string($this->connection, $replyID)) . ")";
+        $result = mysqli_query($this->connection, $query);
+        if (!$result) {
+            echo "Something went wrong here: " . mysqli_error($this->connection);
+            exit();
+        }
+
+        $content = mysqli_fetch_array($result)["replyContent"];
+        mysqli_next_result($this->connection);
+        return $content;
+    }
+
     // -------------------------------------
     // UPDATE
     // -------------------------------------
 
-    public function updateReply($replyID, $userID, $postID, $replyContent) {
-        $query = "UPDATE `reply`
-        SET `replyID` = $replyID, `userID` = $userID, `postID` = $postID, `replyContent` = $replyContent, `replyDate` = CURRENT_DATE, `replyTime` = CURRENT_TIME
-        WHERE `replyID` = $replyID AND `userID` = $userID;";
+    public function updateReply($replyID, $replyContent) {
+        $query = "CALL proc_updateReply(" . trim(mysqli_real_escape_string($this->connection, $replyID)) . ", '"
+                                          . trim(mysqli_real_escape_string($this->connection, $replyContent)) . "')";
+        $result = mysqli_query($this->connection, $query);
+        if (!$result) {
+            echo "Something went wrong here: " . mysqli_error($this->connection);
+            exit();
+        }
+
+        $postID = mysqli_fetch_array($result)["postID"];
+        mysqli_next_result($this->connection);
+        return $postID;
     }
 
 

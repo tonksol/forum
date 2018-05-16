@@ -50,46 +50,24 @@ require_once(__DIR__ . "/../presentation/header.php");
          <!-- get replies and delete and update button if you are the logged in user -->
           <div class="container">
             <?php $replies = $replyDAO->getreplies(mysqlPrepare($_GET['postID'])); foreach ($replies as $reply) { ?>
-            <div class="card" >
+            <div class="card">
               <div class="card-body"> 
                 <h5>Posted by: <b> <?php echo mysqlPrepare($reply['userName']) ?></b></h5>
                 <p class="card-text"><?php echo mysqlPrepare($reply['date']) ?>&nbsp;&nbsp;&nbsp;<?php mysqlPrepare($reply['time'])?><p>
                 <p class="card-text"> </p>
                 <p class="card-text"><?php echo mysqlPrepare($reply['content']) ?></p>
                 <?php if (mysqlPrepare($reply['userID']) == $userID){?> 
-                  <form action="<?php echo mysqlPrepare($_SERVER["PHP_SELF"]);?>?postID=<?PHP echo mysqlPrepare($_GET['postID']); ?>" method="POST">
-                    <div class="row">
-                      <div class="col-sm-3">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <form action="<?php echo mysqlPrepare($_SERVER["PHP_SELF"]);?>?postID=<?PHP echo mysqlPrepare($_GET['postID']); ?>" method="POST">
                         <input type="hidden" name="replyID" value="<?php echo mysqlPrepare($reply['replyID']) ?>">
                         <input class='btn btn-primary btn-block btn-xs' type='submit' name='delete' value='delete'>
-                      </div>
-                      <div class="col-sm-3">
-
-<!--
-                         <button onclick="myFunction()">Update</button>
-                         <div id="myDIV"> 
-                          
-                          something
-                         </div>
-                    
-
-                         <script>
-                         
-                         //  function myFunction() {
-                         //      console.log("kom ik hier?");
-                         //      var x = document.getElementById("myDIV");
-                         //      if (x.style.display === "none") {
-                         //          x.style.display = "block";
-                         //      } else {
-                         //          x.style.display = "none";
-                         //      }
-                         //  }
-                         //  </script>
-                         -->
-                        <!-- <input class='btn btn-primary btn-block btn-xs' type='submit' name='update' value='update'> -->
-                      </div>
-                    </div> 
-                  </form>
+                      </form>
+                    </div>
+                    <div class="col-sm-3">
+                      <a class='btn btn-primary btn-block btn-xs' href="presentation/editReply.php?replyID=<?php echo $reply['replyID']; ?>">update</a>
+                    </div>
+                  </div> 
                 <?php } ?>   <!-- ./ if -->
               </div>
             </div>

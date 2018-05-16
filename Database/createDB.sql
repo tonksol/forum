@@ -415,6 +415,19 @@ CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getReplies`(IN input_postID 
     END $$
 DELIMITER ;
 
+-- replyDAO
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_getReplyContent`
+    (
+    IN input_replyID INT
+    )
+    BEGIN 
+        SELECT `replyContent`
+        FROM `reply`
+        WHERE `replyID` = input_replyID; 
+     END$$
+DELIMITER ;
+
 -- topicDAO
 DELIMITER $$
 CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getTopics`(IN input_categoryID INT)
@@ -470,7 +483,7 @@ CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getNumberOfPostsByTopic`(IN 
         WHERE `post`.`topicID` = input_topicID
         GROUP BY `post`.`topicID`;
     END $$
-DELIMITER ;
+DELIMITER ; 
 
 -- --------------
 -- UPDATE
@@ -541,6 +554,23 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_updatePost`
     END$$
 DELIMITER ; 
  
+ -- replyDAO
+ DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_updateReply`
+    (
+    IN input_replyID INT,
+    IN input_replyContent VARCHAR(1000)
+    )
+    BEGIN 
+        UPDATE `reply`
+        SET `replyContent` = input_replyContent
+        WHERE `replyID` = input_replyID;
+
+        SELECT `postID`
+        FROM `reply`
+        WHERE `replyID` = input_replyID; 
+     END$$
+DELIMITER ; 
 
 -- --------------
 -- DELETE
