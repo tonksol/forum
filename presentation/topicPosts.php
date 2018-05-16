@@ -30,8 +30,12 @@ require_once(__DIR__ . "/../business/topicDAO.php");
            <?php
              echo "number of posts for this topic:    " . getNumberOfPostsByTopic($_GET['topicID']);
             ?>
-        
-    
+        <br><br>
+    <!-- Create new post -->
+    <?php if (logged_in()) { ?>
+    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Post</a>
+    <?php } ?>
+
 </div> <!-- ./ container -->
 <br><br><br>
 

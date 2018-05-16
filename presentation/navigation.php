@@ -78,7 +78,6 @@
                         <a class="dropdown-item" href="presentation/categoryOverview.php">Categories</a>
                         <a class="dropdown-item" href="presentation/newestPostsOverview.php">Newest discussions</a>
                         <a class="dropdown-item" href="presentation/hotPostsOverview.php">Hot discussions</a>
-                        <a class="dropdown-item" href="presentation/newPost.php">new post</a>
         </ul>
       
         <!-- right -->

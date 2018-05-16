@@ -33,6 +33,12 @@ require_once(__DIR__ . "/../business/topicDAO.php");
         </tbody>
     </table>
     Number op topics for this category: <?php echo getNumberOfTopicsForCategory(); ?>
+    <br><br>
+
+    <!-- Create new post -->
+    <?php if (logged_in()) { ?>
+    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Post</a>
+    <?php } ?>
 </div> <!-- ./ container -->
 <br><br><br>
 

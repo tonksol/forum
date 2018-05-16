@@ -4,6 +4,9 @@ require_once (__DIR__ . "/../business/postDAO.php");
 require_once (__DIR__ . "/../business/forumPageDAO.php"); 
 require_once (__DIR__ . "/../presentation/header.php"); 
 // echo loginFirst_message();
+if (isset($_POST['newpost'])) {
+    redirectTo("/../presentation/newPost.php");
+}
 ?>
 
 
@@ -19,13 +22,12 @@ require_once (__DIR__ . "/../presentation/header.php");
             <br><br>
             <h3>Welcome to the boardgame forum</h3>
             <br><br>
-            <!-- about the forum -->
-            <?php echo getPage(1) ?>
-            <br><br><hr><br><br>
+            
+            
             
 
-            <!-- Latest posts -->
-            <h4> Hot discussion </h4>
+            <!-- hot posts -->
+            <h4> Hot Discussions </h4>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -42,15 +44,39 @@ require_once (__DIR__ . "/../presentation/header.php");
             </table>
             <br><br><hr><br><br>
 
+            <!-- creat new post -->
+            <h4> Create New Post </h4>
+            <?php if (logged_in()) { ?>
+            <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Post</a>
+            <?php } ?>
+            <br><br><hr><br><br>
             
-            
-            
-
-            <!-- rules -->
+            <!-- Latest post -->
+            <h4> Latest Discussions </h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Topic</th>
+                        <th scope="col">Post</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Started on </th>
+                        <th scope="col"> </th>
+                        <th scope="col">Number of Replies</th>
+                    </tr>
+                </thead>
+                <tbody>
             <?php
-            echo getPage(2);
-            echo getRules();
-            ?>
+            echo getNewestPosts(); 
+             ?>
+                </tbody>
+            </table>
+            <br><br><hr><br><br>
+            
+            <!-- about the forum -->
+            <?php echo getPage(1); ?>
+            <br><br><hr><br><br>
+
+
         </div> <!-- ./ container -->
 
     </body>

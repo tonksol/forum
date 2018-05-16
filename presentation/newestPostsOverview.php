@@ -30,7 +30,12 @@ require_once(__DIR__ . "/../presentation/header.php");
         
     </tbody>
     </table>
-    <br><br><br>
 
+    <!-- Create new post -->
+    <?php if (logged_in()) { ?>
+    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Post</a>
+    <?php } ?>
+
+    <br><br><br>
 </div> <!-- ./ container -->
 <?php require_once(__DIR__ . "/../presentation/footer.php");

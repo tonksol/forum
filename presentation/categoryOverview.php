@@ -23,6 +23,11 @@ require_once (__DIR__ . "/../presentation/header.php");
             <?php echo getCategoriesForOverview(); ?>
         </tbody>
     </table>
+
+    <!-- Create new post -->
+    <?php if (logged_in()) { ?>
+    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Post</a>
+    <?php } ?>
 </div> <!-- ./ container -->
 <br><br><br>
 

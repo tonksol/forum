@@ -60,7 +60,29 @@ if (isset($_POST['delete']) && isset($_POST['replyID']) && logged_in()) {
                         <input class='btn btn-primary btn-block btn-xs' type='submit' name='delete' value='delete'>
                       </div>
                       <div class="col-sm-3">
-                        <input class='btn btn-primary btn-block btn-xs' type='submit' name='update' value='update'>
+
+<!--
+                         <button onclick="myFunction()">Update</button>
+                         <div id="myDIV"> 
+                          
+                          something
+                         </div>
+                    
+
+                         <script>
+                         
+                         //  function myFunction() {
+                         //      console.log("kom ik hier?");
+                         //      var x = document.getElementById("myDIV");
+                         //      if (x.style.display === "none") {
+                         //          x.style.display = "block";
+                         //      } else {
+                         //          x.style.display = "none";
+                         //      }
+                         //  }
+                         //  </script>
+                         -->
+                        <!-- <input class='btn btn-primary btn-block btn-xs' type='submit' name='update' value='update'> -->
                       </div>
                     </div> 
                   </form>
