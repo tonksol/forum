@@ -42,9 +42,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    <!-- script for the text editor -->
-    <script src="presentation/bootstrap-wysiwyg.js"></script>
-
 <!-- TO DO: settings tabel boolean, dark theme. functie maken in settingsDAO en hier gebruiken 
    <?php // if() { ?>
    <style>

@@ -7,20 +7,20 @@ memberArea();
 
 // insert new page
 if (isset($_POST['submit']) && isset($_GET['forumPageID'])) {
-  updatePageInfo($_SESSION['user_id'], $_POST["pagename"], $_POST["content"], date("Y-m-d"), $_GET['forumPageID']); 
+  updatePageInfo(mysqlPrepare($_SESSION['user_id']), mysqlPrepare($_POST["pagename"]), mysqlPrepare($_POST["content"]), mysqlPrepare(date("Y-m-d")), mysqlPrepare($_GET['forumPageID'])); 
   redirectTo("/../presentation/pageManager.php");
 }
 
 // Pass the forumPageID on to the form action on managePage.php to update an exsisting page.
 $querystring = "";
 if (isset($_GET['forumPageID'])){
-    $row = getPageInfo($_GET['forumPageID']);
+    $row = getPageInfo(mysqlPrepare($_GET['forumPageID']));
     $querystring = "?forumPageID=". mysqlPrepare($row['forumPageID']);
 }
 
 // delete a page
 if (isset($_POST['delete'])) {
-  deletePage($_GET['forumPageID']);
+  deletePage(mysqlPrepare($_GET['forumPageID']));
   redirectTo("/../presentation/pageManager.php");
 }
 

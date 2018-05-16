@@ -27,8 +27,8 @@ require_once(__DIR__ . "/../business/topicDAO.php");
         </thead>
         <tbody>   
             <?php
-                echo getCategoryHead($_GET['categoryID']);
-                echo getTopicsAndNumberOfPosts($_GET['categoryID']);
+                echo getCategoryHead(mysqlPrepare($_GET['categoryID']));
+                echo getTopicsAndNumberOfPosts(mysqlPrepare($_GET['categoryID']));
             ?>          
         </tbody>
     </table>

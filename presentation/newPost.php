@@ -5,9 +5,10 @@ require_once(__DIR__ . "/../business/categoryDAO.php");
 require_once(__DIR__ . "/../business/postDAO.php");
 
 $userID = $_SESSION['user_id'];
+$userID = mysqlPrepare($userID);
 
 if (isset($_POST['submit'])) {
-    $result = newPost($userID, $_POST['selectedTopic'], $_POST['postName'], $_POST['postContent']);
+    $result = newPost($userID, mysqlPrepare($_POST['selectedTopic']), mysqlPrepare($_POST['postName']), mysqlPrepare($_POST['postContent']));
    redirectTo("postReplies.php?postID=" . $result);
 }
 
@@ -41,7 +42,7 @@ require_once(__DIR__ . "/../presentation/header.php");
         <label for="topics">choose a topic:</label>
             <select class="form-control" id="topic" name="selectedTopic">
             <?php 
-            $topics = getTopics($_POST['selectedCategory']);
+            $topics = getTopics(mysqlPrepare($_POST['selectedCategory']));
             foreach ($topics as $topic) { ?> 
                 <option value="<?php echo $topic['id']; ?>"><?php echo $topic['name']?></option>
                 <?php } ?>

@@ -5,7 +5,7 @@ require_once (__DIR__ . "/../business/forumPageDAO.php");
 
 if (isset($_POST['submit']) && !isset($_GET['forumPageID'])) {
     // senatise met trim en htmlspecialchars.. parameters
-    insertNewPage($_SESSION['user_id'], $_POST["pagename"], $_POST["content"], date("Y-m-d")); 
+    insertNewPage(mysqlPrepare($_SESSION['user_id']), mysqlPrepare($_POST["pagename"]), mysqlPrepare($_POST["content"]), mysqlPrepare(date("Y-m-d"))); 
     redirectTo("/../presentation/pageManager.php");
 }
 
@@ -20,7 +20,7 @@ require_once (__DIR__ . "/../presentation/adminNavigation.php");
 
         <br><br><br>
         
-        <form action="<?php echo mysqlPrepare($_SERVER['PHP_SELF']) ?>"  method="POST">
+        <form action="<?php echo mysqlPrepare($_SERVER['PHP_SELF']) ?>" method="POST">
             <div class="form-group row">
             <label for="inputName" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">

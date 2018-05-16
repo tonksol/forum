@@ -48,6 +48,28 @@ class ReplyDAO {
     // UPDATE
     // -------------------------------------
 
+    public function updateReply($replyID, $userID, $postID, $replyContent) {
+        $query = "UPDATE `reply`
+        SET `replyID` = $replyID, `userID` = $userID, `postID` = $postID, `replyContent` = $replyContent, `replyDate` = CURRENT_DATE, `replyTime` = CURRENT_TIME
+        WHERE `replyID` = $replyID AND `userID` = $userID;";
+    }
+
+
+    // function updatePageInfo($userID, $pagename, $pagecontent, $todaysdate, $forumpageID) {
+    //    global $connection;
+    //    $userID = trim(mysqli_real_escape_string($connection, $userID));
+    //    $pagename = trim(mysqli_real_escape_string($connection, $pagename));
+    //    $pagecontent = trim(mysqli_real_escape_string($connection, $pagecontent));
+    //    $todaysdate = trim(mysqli_real_escape_string($connection, $todaysdate));
+    //    $forumpageID = trim(mysqli_real_escape_string($connection, $forumpageID));
+    //    $query = "CALL proc_updatePageInfo($userID, '$pagename', '$pagecontent', '$todaysdate', $forumpageID)";
+    //    if (isset($userID)) {    
+    //        // execute query 
+    //        mysqli_query($connection, $query);
+    //        mysqli_next_result($connection);
+    //    }
+     
+    // }
 
     // -------------------------------------
     // DELETE
