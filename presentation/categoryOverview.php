@@ -6,10 +6,10 @@ require_once (__DIR__ . "/../presentation/header.php");
 
 <br><br>
 <div class="container">
+    <a href="/../presentation/newestPostsOverview.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussions</a>
+    <br><br><br>
     <h1> Category overview</h1>
     <br><br>
-    <a href="presentation/newestPostsOverview.php">Go to the newest discussions</a>
-   <br><br><br>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -26,7 +26,7 @@ require_once (__DIR__ . "/../presentation/header.php");
 
     <!-- Create new post -->
     <?php if (logged_in()) { ?>
-    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Post</a>
+    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New discussion</a>
     <?php } ?>
 </div> <!-- ./ container -->
 <br><br><br>

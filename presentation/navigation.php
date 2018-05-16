@@ -76,8 +76,8 @@
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="presentation/categoryOverview.php">Categories</a>
-                        <a class="dropdown-item" href="presentation/newestPostsOverview.php">Newest discussions</a>
-                        <a class="dropdown-item" href="presentation/hotPostsOverview.php">Hot discussions</a>
+                        <a class="dropdown-item" href="presentation/newestPostsOverview.php">New Discussions</a>
+                        <a class="dropdown-item" href="presentation/hotPostsOverview.php">Hot Discussions</a>
         </ul>
       
         <!-- right -->

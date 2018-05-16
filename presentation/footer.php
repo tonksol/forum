@@ -69,7 +69,7 @@
                             <a href="presentation/categoryOverview.php">Category overview</a>
                         </p>
                         <p>
-                            <a href="presentation/newestPostsOverview.php">Newest posts</a>
+                            <a href="presentation/newestPostsOverview.php">New posts</a>
                         </p>
                         <p>
                             <a href="#!">Popular posts</a>

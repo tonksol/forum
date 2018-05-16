@@ -5,9 +5,10 @@ require_once(__DIR__ . "/../presentation/header.php");
 
 <br><br>
 <div class="container">
-    <h1>Newest discussions</h1>
     <br><br>
-    <a href="presentation/newestPostsOverview.php">Newest Discussions</a>
+    <a href="/../presentation/newestPostsOverview.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
+    <br><br><br>
+    <h1>Hot Discussions</h1>
     <br><br>
 
     <table class="table table-striped">

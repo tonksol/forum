@@ -8,7 +8,8 @@ require_once(__DIR__ . "/../business/topicDAO.php");
 <br><br>
 <div class="container">
     <br><br>
-    <a href="presentation/topicOverview.php">Go to all topics (overview)</a>
+    <a href="/../presentation/topicOverview.php" class="btn btn-primary btn-block btn-xs" role="button">Topic Overview</a>
+    <br><br>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -33,7 +34,7 @@ require_once(__DIR__ . "/../business/topicDAO.php");
         <br><br>
     <!-- Create new post -->
     <?php if (logged_in()) { ?>
-    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Post</a>
+    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
     <?php } ?>
 
 </div> <!-- ./ container -->

@@ -47,7 +47,7 @@ if (isset($_POST['newpost'])) {
             <!-- creat new post -->
             <h4> Create New Post </h4>
             <?php if (logged_in()) { ?>
-            <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Post</a>
+            <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
             <?php } ?>
             <br><br><hr><br><br>
             

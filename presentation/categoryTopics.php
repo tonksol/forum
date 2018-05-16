@@ -8,14 +8,17 @@ require_once(__DIR__ . "/../business/topicDAO.php");
 <br><br>
 <div class="container">
     <br><br>
-    <a href="presentation/categoryOverview.php">Go to category overview</a>
+    <a href="/../presentation/newestPostsOverview.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussions</a>
+    <br>
+    <a href="presentation/categoryOverview.php" class="btn btn-primary btn-block btn-xs" role="button">Category Overview</a>
+    <br><br><br>
+    
     <!-- 
     <br><br>
     <a href="http://localhost:41062/www/Forum/presentation/topicOverview.php">Go to topic overview</a>
     -->
     <br><br>
-    <a href="presentation/newestPostsOverview.php">Go to the newest discussions</a>
-   <br><br><br>
+
    <table class="table table-striped">
         <thead>
             <tr>
@@ -37,7 +40,7 @@ require_once(__DIR__ . "/../business/topicDAO.php");
 
     <!-- Create new post -->
     <?php if (logged_in()) { ?>
-    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Post</a>
+    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
     <?php } ?>
 </div> <!-- ./ container -->
 <br><br><br>

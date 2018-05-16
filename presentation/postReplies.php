@@ -33,9 +33,10 @@ if (isset($_POST['delete']) && isset($_POST['replyID']) && logged_in()) {
 
 <br><br>
 <div class="container">
-    <div class="container">  
-      <a href="presentation/newestPostsOverview.php">Go back to newest discussion</a>
-      <br><br><br>
+    <div class="container"> 
+    <br><br> 
+    <a href="/../presentation/newestPostsOverview.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
+    <br><br><br>
       
       <?php 
       // $topicID = $_GET['topicID'];
