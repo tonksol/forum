@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
     <div class="container">
         <div class="row">
         <div class="col-sm-4"> <!-- the size of the row --> 
-        <center><img src="images/<?php echo getUserImage($row["userImage"]) ?>" alt="profile-picture"></center>
+        <center><img src="images/<?php echo getUserImage(mysqlPrepare($row["userImage"])) ?>" alt="profile-picture"></center>
 
                 <!-- TO DO mysqlPrepare() form action -->
                 <form action="business/uploadImage.php" method="post" enctype="multipart/form-data">
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
         
                     <br>
             <div class="caption">
-                <p><b><center><?php echo $row["userName"] ?></center></b></p>
+                <p><b><center><?php echo mysqlPrepare($row["userName"]) ?></center></b></p>
                 </div>
             </div>
         
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
             <div class="form-group row">
                 <label for="firstname" class="col-sm-3 col-form-label"><b>Firstname: </b></label> 
                 <div class="col-sm-9">                              
-                    <input type="text" name="firstname" value="<?php echo $row["firstName"]; ?>" <?php echo editableForm(); ?>><br>
+                    <input type="text" name="firstname" value="<?php echo mysqlPrepare($row["firstName"]); ?>" <?php echo editableForm(); ?>><br>
                 </div> <!-- col-sm-10 -->
             </div> <!-- ./ form-group row -->
             
@@ -64,42 +64,42 @@ if (isset($_POST['submit'])) {
             <div class="form-group row">
             <label for="prefix" class="col-sm-3 col-form-label"><b>Prefix: </b></label>
                 <div class="col-sm-9">
-                    <input type="text" name="prefix" value="<?php echo $row["prefix"] ?>" <?php echo editableForm(); ?>><br>
+                    <input type="text" name="prefix" value="<?php echo mysqlPrepare($row["prefix"]) ?>" <?php echo editableForm(); ?>><br>
                 </div> <!-- col-sm-9 -->
             </div> <!-- ./ form-group row -->
             
             <div class="form-group row">
                 <label for="lastname" class="col-sm-3 col-form-label"><b>Lastname: </b></label>
                 <div class="col-sm-9"> 
-                    <input type="text" name="lastname" value="<?php echo $row["lastName"] ?>" <?php echo editableForm(); ?>><br>
+                    <input type="text" name="lastname" value="<?php echo mysqlPrepare($row["lastName"]) ?>" <?php echo editableForm(); ?>><br>
                 </div> <!-- col-sm-9 -->
             </div> <!-- ./ form-group row -->
 
             <div class="form-group row">
                 <label for="username" class="col-sm-3 col-form-label"><b>Username: </b></label>
                 <div class="col-sm-9">
-                    <input type="text" name="username" value="<?php echo $row["userName"] ?>" <?php echo editableForm(); ?>><br>
+                    <input type="text" name="username" value="<?php echo mysqlPrepare($row["userName"]) ?>" <?php echo editableForm(); ?>><br>
                 </div> <!-- col-sm-9 -->
             </div> <!-- ./ form-group row -->
 
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label"><b>Email: </b></label>
                 <div class="col-sm-9">
-                    <input type="text" name="email" value="<?php echo $row["email"]; ?>" <?php echo editableForm(); ?>><br>
+                    <input type="text" name="email" value="<?php echo mysqlPrepare($row["email"]); ?>" <?php echo editableForm(); ?>><br>
                 </div> <!-- col-sm-9 -->
             </div> <!-- ./ form-group row -->
 
             <div class="form-group row">
                 <label for="birthday" class="col-sm-3 col-form-label"><b>Birthday: </b></label>
                 <div class="col-9">
-                    <input type="text" name="birthday" value="<?php echo $row["birthday"];?>" <?php echo editableForm(); ?>><br>
+                    <input type="text" name="birthday" value="<?php echo mysqlPrepare($row["birthday"]);?>" <?php echo editableForm(); ?>><br>
                 </div> <!-- col-sm-9 -->
             </div> <!-- ./ form-group row -->
 
             <div class="form-group row">
             <label for="quote" class="col-3 col-form-label"><b>Quote: </b></label>
                 <div class="col-lg-9">
-                    <input type="text" name="quote" value="<?php echo $row["quote"]?>" <?php echo editableForm(); ?>><br>
+                    <input type="text" name="quote" value="<?php echo mysqlPrepare($row["quote"]);?>" <?php echo editableForm(); ?>><br>
                 </div> <!-- col-sm-10 -->
             </div> <!-- ./ form-group row -->
             

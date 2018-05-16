@@ -19,7 +19,7 @@
 
 - FEEDBACK 
 + every query in stored procedure 
-1. html- realescape strings first() (trim() second. output anders krijg je html/js op je site!) html special chars(alleen speciale caracters eruit filteren) / trim (filter the (user) input)
++ html- realescape strings first() (trim() second. output anders krijg je html/js op je site!) html special chars(alleen speciale caracters eruit filteren) / trim (filter the (user) input)
 + overview pages more structure (overview index) dropdown or horizontal menu + preview of the data that is in there
 2. edit forum posts 
 + add new forum posts

@@ -11,9 +11,9 @@ class ReplyDAO {
 
     
     public function newReply($userID, $postID, $postcontent) {
-        $userID = trim(mysqli_real_escape_string($connection, $userID));
-        $postID = trim(mysqli_real_escape_string($connection, $postID));
-        $postcontent = trim(mysqli_real_escape_string($connection, $postcontent));
+        $userID = trim(mysqli_real_escape_string($this->connection, $userID));
+        $postID = trim(mysqli_real_escape_string($this->connection, $postID));
+        $postcontent = trim(mysqli_real_escape_string($this->connection, $postcontent));
         $query = "CALL proc_newReply($userID, $postID, '$postcontent')";
         if (isset($userID)) {                
             mysqli_query($this->connection, $query); // Execute query
@@ -26,7 +26,7 @@ class ReplyDAO {
     // -------------------------------------
 
     public function getReplies($postID) {
-        $query = "CALL proc_getReplies(" . trim(mysqli_real_escape_string($connection, $postID)) . ")";
+        $query = "CALL proc_getReplies(" . trim(mysqli_real_escape_string($this->connection, $postID)) . ")";
         $result = mysqli_query($this->connection, $query);
         $replies = array();
         while ($row = mysqli_fetch_array($result)) { // one row in array 
@@ -54,8 +54,8 @@ class ReplyDAO {
     // -------------------------------------
 
     public function deleteReply($replyID, $userID) {
-        $replyID = trim(mysqli_real_escape_string($connection, $replyID));
-        $userID = trim(mysqli_real_escape_string($connection, $userID));
+        $replyID = trim(mysqli_real_escape_string($this->connection, $replyID));
+        $userID = trim(mysqli_real_escape_string($this->connection, $userID));
         $query = "CALL proc_deleteReply($replyID, $userID)";
         mysqli_query($this->connection, $query);
         mysqli_next_result($this->connection);

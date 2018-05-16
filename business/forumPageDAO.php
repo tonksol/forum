@@ -94,7 +94,7 @@ function getPagesForOverview() {
         while ($row = mysqli_fetch_array($result)){
             $pagecontent = mysqlPrepare($row['forumPageContent']);
             $pages .= "<tr>";
-            $pages .= "<td><a href=presentation/managePage.php?forumPageID=" . $row['forumPageID'] . ">" . $row['forumPageName']."</a></td>";
+            $pages .= "<td><a href=presentation/managePage.php?forumPageID=" . mysqlPrepare($row['forumPageID']) . ">" . mysqlPrepare($row['forumPageName']) . "</a></td>";
             $pages .= '<td>' . substr($pagecontent, 0, 100) . "...</td>";
             $pages .= "<td>" . mysqlPrepare($row['userName']) . "</td>";
             $pages .= "</tr>";

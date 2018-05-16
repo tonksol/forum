@@ -20,20 +20,20 @@ if ($result->num_rows > 0) {
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100 slider" src='/* Imagepath from database*/. $row["imgpath1"] . ' alt="First slide">
+              <img class="d-block w-100 slider" src='/* Imagepath from database*/. mysqlPrepare($row["imgpath1"]) . ' alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100 slider" src='./* Imagepath from database*/ $row["imgpath2"] . ' alt="Second slide">
+              <img class="d-block w-100 slider" src='./* Imagepath from database*/ mysqlPrepare($row["imgpath2"]) . ' alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100 slider" src='./* Imagepath from database*/ $row["imgpath3"] . ' alt="Third slide">
+              <img class="d-block w-100 slider" src='./* Imagepath from database*/ mysqlPrepare($row["imgpath3"]) . ' alt="Third slide">
             </div>
            </div>
         </div>
     </div>
     <div class="card-body">
-        <h5 class="card-title">'/* Category name from database*/ . $row["categoryName"] . '</h5>
-        <p class="card-text">'/* Category description from database*/ . $row["categoryDescription"] . '</p>
+        <h5 class="card-title">'/* Category name from database*/ . mysqlPrepare($row["categoryName"]) . '</h5>
+        <p class="card-text">'/* Category description from database*/ . mysqlPrepare($row["categoryDescription"]) . '</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
 </div><br>';
