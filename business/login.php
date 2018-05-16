@@ -22,7 +22,11 @@ if (isset($_POST['submit'])) { // Form has been submitted.
 		// $password = password from form input. $found_user[] is hashed password from database
 		// Password_verify matched the input password with the userPassword on the database. 	
 		$_SESSION['user_id'] = mysqlPrepare($found_user['userID']); // Store id and user in session on the server side.
-		$_SESSION['isadmin'] = mysqlPrepare($found_user['accesLevelID']) !== NULL;	
+		if ($found_user['accesLevelID'] === NULL) {
+			unset($_SESSION['isadmin']);
+		} else {
+			$_SESSION['isadmin'] = true;
+		}
 		redirectTo("/../presentation/home.php"); // If it is a match you get redirected to the home.php		
 	} else {
 		redirectTo("/../presentation/signUp_form.php");

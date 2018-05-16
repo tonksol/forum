@@ -345,7 +345,9 @@ DELIMITER ;
 DELIMITER $$
 CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getHotPosts`()
     BEGIN
-        SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, COUNT(`reply`.`replyID`) as `numberOfReplies`
+        SELECT `topic`.`topicName`, `topic`.`topicID`, `post`.`postID`, `post`.`postName`, 
+                `user`.`userName`,`post`.`lastModifiedPostDate`, `post`.`lastModifiedPostTime`, 
+                COUNT(`reply`.`replyID`) as `numberOfReplies`
         FROM `topic`
         JOIN `post` ON `topic`.`topicID` = `post`.`topicID`
         JOIN `user` ON `post`.`userID` = `user`.`userID`
@@ -373,9 +375,19 @@ DELIMITER ;
 DELIMITER $$
 CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getSelectedPostsHead`(IN input_postID INT)
     BEGIN
-        SELECT `post`.`postName`, `user`.`userName`, DAYNAME(`post`.`lastModifiedPostDate`) as 'dayname',`post`.`lastModifiedPostDate`, `topic`.`topicName`, `topic`.`topicID` 
+        SELECT `post`.`postName`, `user`.`userID`, `user`.`userName`, DAYNAME(`post`.`lastModifiedPostDate`) as 'dayname',`post`.`lastModifiedPostDate`, `topic`.`topicName`, `topic`.`topicID` 
         FROM `post` JOIN `user` ON `post`.`userID` = `user`.`userID` 
         JOIN `topic` ON `topic`.`topicID` = `post`.`topicID`
+        WHERE `postID` = input_postID;
+    END $$
+DELIMITER ;
+
+-- editPost
+DELIMITER $$
+CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getPostDetails`(IN input_postID INT)
+    BEGIN
+        SELECT `postName`, `postContent` 
+        FROM `post`
         WHERE `postID` = input_postID;
     END $$
 DELIMITER ;
@@ -514,6 +526,20 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_updatePageInfo`
     END$$
 DELIMITER ; 
 
+--postDAO
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_updatePost`
+    (
+    IN input_postID INT,
+    IN input_postName VARCHAR(100),
+    IN input_postcontent VARCHAR(1000) 
+    )
+    BEGIN 
+        UPDATE `post`
+        SET `postName`= input_postName ,`postContent` = input_postcontent
+        WHERE `postID` = input_postID;
+    END$$
+DELIMITER ; 
  
 
 -- --------------
@@ -542,6 +568,17 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_deleteReply`
     END$$
 DELIMITER ; 
 
+--postDOA
+DELIMITER $$
+CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_deletePost`
+(
+    IN input_postID INT
+)
+BEGIN
+    DELETE FROM `reply` WHERE `postID` = input_postID; 
+    DELETE FROM `post` WHERE `postID` = input_postID; 
+END $$
+DELIMITER ; 
 
 
 

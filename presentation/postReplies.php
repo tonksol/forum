@@ -4,7 +4,6 @@
 require_once(__DIR__ . "/../business/ReplyDAO.php");
 require_once(__DIR__ . "/../business/postDAO.php");
 require_once(__DIR__ . "/../business/topicDAO.php");
-require_once(__DIR__ . "/../presentation/header.php");
 
 $replyDAO = new ReplyDAO($connection);
 
@@ -19,16 +18,16 @@ if (isset($_POST['submit'])) {
   $replyDAO->newReply($userID, mysqlPrepare($_POST['postID']), mysqlPrepare($_POST['replyContent']));    
 }
 
+if (isset($_POST['delete']) && isset($_POST['postID']) && logged_in()) {
+  deletePost(trim(mysqli_real_escape_string($connection, $_POST['postID'])));
+  redirectTo('home.php');
+}
+
 if (isset($_POST['delete']) && isset($_POST['replyID']) && logged_in()) {
   $replyDAO->deleteReply(mysqlPrepare($_POST['replyID']), $userID);
 }
 
-// TO DO
-// if (isset($_POST['update']) && isset($_POST['replyID']) && logged_in()) {
-//   //$replyDAO->updateReply($_POST['replyID'], $userID, $_POST['postID'], $_POST['replyContent']);
-//   redirectTo();
-// }
-
+require_once(__DIR__ . "/../presentation/header.php");
 ?>
 
 <br><br>
@@ -37,12 +36,16 @@ if (isset($_POST['delete']) && isset($_POST['replyID']) && logged_in()) {
     <br><br> 
     <a href="/../presentation/newestPostsOverview.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
     <br><br><br>
-      
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+      <input type="hidden" name="postID" value="<?php echo $_GET['postID']; ?>" />
       <?php 
       // $topicID = $_GET['topicID'];
       echo getSelectedPostsHead(mysqlPrepare($_GET['postID']));
       echo getSelectedPostsContent(mysqlPrepare($_GET['postID'])); // parameter = postID
       ?>
+      </form>
+
+      
 
          <!-- get replies and delete and update button if you are the logged in user -->
           <div class="container">

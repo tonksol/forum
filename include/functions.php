@@ -33,7 +33,6 @@ function fieldNotEmpty($fieldValue) {
 // called on signup_PDO (files not_in use)
 function mysqlPrepare($value) {
     global $connection;
-    // I don't use mysqli_real_escape_string() because I use PDO
     $value = htmlspecialchars(trim($value));
     return $value;
 }
@@ -135,7 +134,6 @@ function loginLogoutButtonSwitch() {
 // Permission acces level
 // -------------------------------------
 
-// called on admin_page.php and adminNaviagtion.php
 function admin_area() {
     if (!logged_in() || !isAdmin()) {
         redirectTo("/../presentation/home.php");  
@@ -143,7 +141,6 @@ function admin_area() {
     }
 }
 
-// called on functions.php to use in visableUnvisableAdminSwitch()
 function isAdmin(){
     if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == true) {
         return true;
