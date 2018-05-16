@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . "/../include/functions.php");
+
 // -------------------------------------
 // CREATE
 // -------------------------------------
@@ -14,9 +16,9 @@ function getTopics($categoryID) {
     $result = mysqli_query($connection, $query);
     while ($row = mysqli_fetch_array($result)){   // one row in array
         // $selected = $_POST['category'] == $row['category'] ? 'selected' : '';
-        $topic = array('id' => $row['topicID'],
-                        'name' => $row['topicName'],
-                        'descroption' => $row['topicDescription']);
+        $topic = array('id' => mysqlPrepare($row['topicID']),
+                        'name' => mysqlPrepare($row['topicName']),
+                        'description' => mysqlPrepare($row['topicDescription']));
         $topics[] = $topic;
     }
     mysqli_next_result($connection);
@@ -31,10 +33,10 @@ function getTopicsForOverview() {
     $topics = ""; 
     while ($row = mysqli_fetch_array($result)){ 
         $topics .= "<tr>";
-        $topics .= "<td><a href=presentation/topicPosts.php?topicID=" . $row['topicID'] . ">" . $row['topicName']."</a></td>";
-        $topics .= "<td>" . $row['topicDescription'] . "</td>";
-        $topics .= "<td>" . $row['numberOfPosts'] . "</td>";
-        $topics .= "<td><a href=presentation/categoryTopics.php?categoryID=" . $row['categoryID'] . ">" . $row['categoryName']."</a></td>";
+        $topics .= "<td><a href=presentation/topicPosts.php?topicID=" . mysqlPrepare($row['topicID']) . ">" . mysqlPrepare($row['topicName']) . "</a></td>";
+        $topics .= "<td>" . mysqlPrepare($row['topicDescription']) . "</td>";
+        $topics .= "<td>" . mysqlPrepare($row['numberOfPosts']) . "</td>";
+        $topics .= "<td><a href=presentation/categoryTopics.php?categoryID=" . mysqlPrepare($row['categoryID']) . ">" . mysqlPrepare($row['categoryName']) . "</a></td>";
         $topics .= "</tr>";
     }
     mysqli_next_result($connection);
@@ -49,10 +51,9 @@ function getTopicsAndNumberOfPosts($categoryID) {
     $topics = "";
     while ($row = mysqli_fetch_array($result)){ 
         $topics .= "<tr>";
-        // $topics .= "<td>" . $row['categoryName'] . "</td>";
-        $topics .= "<td><a href=presentation/topicPosts.php?topicID=" . $row['topicID'] . ">" . $row['topicName']."</a></td>";
-        $topics .= "<td>" . $row['topicDescription'] . "</td>";
-        $topics .= "<td>" . $row['numberOfPosts'] . "</td>";
+        $topics .= "<td><a href=presentation/topicPosts.php?topicID=" . mysqlPrepare($row['topicID']) . ">" . mysqlPrepare($row['topicName']) . "</a></td>";
+        $topics .= "<td>" . mysqlPrepare($row['topicDescription']) . "</td>";
+        $topics .= "<td>" . mysqlPrepare($row['numberOfPosts']) . "</td>";
         $topics .= "</tr>";
     }
     mysqli_next_result($connection);
@@ -68,9 +69,9 @@ function getSelectedTopicHead($topicID) {
     while ($row = mysqli_fetch_array($result)){
         $topicHead .= '     <div class="card" >';
         $topicHead .= '        <div class="card-body"> ';
-        $topicHead .= '             <h1 class="card-title">' . $row['topicName'] .'</h1>';
-        $topicHead .= '             <p class="card-text"> in <a href=presentation/categoryTopics.php?categoryID=' . $row['categoryID'] . '>' . $row['categoryName'] . '</a></p>';
-        $topicHead .= '             <p class="card-text">' . $row['topicDescription'] .'</p> ';
+        $topicHead .= '             <h1 class="card-title">' . mysqlPrepare($row['topicName']) .'</h1>';
+        $topicHead .= '             <p class="card-text"> in <a href=presentation/categoryTopics.php?categoryID=' . mysqlPrepare($row['categoryID']) . '>' . mysqlPrepare($row['categoryName']) . '</a></p>';
+        $topicHead .= '             <p class="card-text">' . mysqlPrepare($row['topicDescription']) .'</p> ';
         $topicHead .= '         </div> ';
         $topicHead .= '     </div> ';
         $topicHead .= ' <br> ';
@@ -87,7 +88,7 @@ function getNumberOfPostsByTopic($topicID){
     $numberOfPosts = "";  
     while ($row = mysqli_fetch_array($result)){
         $numberOfPosts .= "<tr>";   
-        $numberOfPosts .= "<td>" . $row['numberOfPosts'] . "</td>";
+        $numberOfPosts .= "<td>" . mysqlPrepare($row['numberOfPosts']) . "</td>";
         $numberOfPosts .= "</tr>";
     }
     mysqli_next_result($connection);

@@ -167,3 +167,5 @@ plugin die alle relatieve paden goed zet zodat je makkelijk kan switchen tussen 
 - aboutPage.php
 - 
 
+# Conclusion
+- expire after 15 minutes

@@ -35,7 +35,7 @@ require_once(__DIR__ . "/../presentation/header.php");
 
     <br><br>
     <h5>Create a new discussion</h5>   
-    <form action="<?php echo mysqlPrepare(($_SERVER["PHP_SELF"]);?>" method="POST">
+    <form action="<?php echo mysqlPrepare($_SERVER["PHP_SELF"]);?>" method="POST">
     
     <div class="form-group">
         <label for="topics">choose a topic:</label>

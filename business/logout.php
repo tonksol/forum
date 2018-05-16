@@ -8,9 +8,7 @@ require_once(__DIR__ . "/../include/session.php");
 	// THIRD 3 
 		// Four steps to closing a session
 		// (i.e. logging out)
-
-		
-		
+	
 		// 2. Unset all the session variables
 		$_SESSION = array(); // good practise to do this
 		

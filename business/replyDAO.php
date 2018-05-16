@@ -31,12 +31,12 @@ class ReplyDAO {
         $replies = array();
         while ($row = mysqli_fetch_array($result)) { // one row in array 
             $reply = array(
-                'replyID' => $row['replyID'],
-                'userID' => $row['userID'],
-                'userName' => $row['userName'],
-                'date' => $row['replyDate'],
-                'time' => $row['replyTime'],
-                'content' => $row['replyContent']
+                'replyID' => htmlspecialchars(trim($row['replyID'])),
+                'userID' => htmlspecialchars(trim($row['userID'])),
+                'userName' => htmlspecialchars(trim($row['userName'])),
+                'date' => htmlspecialchars(trim($row['replyDate'])),
+                'time' => htmlspecialchars(trim($row['replyTime'])),
+                'content' => htmlspecialchars(trim($row['replyContent']))
             );
             $replies[] = $reply;
         }

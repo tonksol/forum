@@ -3,46 +3,28 @@ require_once (__DIR__ . "/../include/connection.php");
 require_once (__DIR__ . "/../include/functions.php");
 require_once (__DIR__ . "/../include/session.php");
 
+// Prefent that people can log in again when they are already logged in. 
 if (logged_in()) {
 	redirectTo("/../presentation/home.php");	
 }
 
-// prefent that people can log in again when they are already logged in. 
-
-// START FORM PROCESSING
-	// Form has been submitted.
-if (isset($_POST['submit'])) { 
-
-	// set session for user to show the Log in succesful message just once.
-	$_SESSION['justLoggedIn'] = true;
-	
-
-	$email = trim(mysqli_real_escape_string($connection, $_POST['email']));
-		// trim removes, whitespace (like tab or space.)
-		// mysqli_real_escape_string senatise the data. Prefent SQL injection by adding /. 
+// START FORM PROCESSING	
+if (isset($_POST['submit'])) { // Form has been submitted.	
+	$_SESSION['justLoggedIn'] = true; // Set session for user to show the Log in succesful message just once.
 	$password = trim(mysqli_real_escape_string($connection,$_POST['password']));
-		// $query = "SELECT userID, email, userPassword FROM user WHERE email = '$email' LIMIT 1;";
-	$query = "CALL proc_get_user_by_email(" . trim(mysqli_real_escape_string('$email')) . ")";
-		// select the user from the database with: {$email}
-	$result = mysqli_query($connection, $query);
-	
-		// executing the query and put the result in $result.			
-	$found_user = mysqli_fetch_array($result);
-		// the result of the different columns are in the array $found_user (associative) 
-		// $password = password from form input. $found_user[] is hashed password from database
-	if(password_verify($password, $found_user['userPassword'])){
-		// password_verify matched the input password with the userPassword on the database. 
-		// If it is a match you get redirected to the home.php
-		$_SESSION['user_id'] = $found_user['userID'];
-		// $_SESSION['userName'] = $found_user['userName'];
-		// $_SESSION['email'] = $found_user['email'];
-		$_SESSION['isadmin'] = $found_user['accesLevelID'] !== NULL;
+	$email = trim(mysqli_real_escape_string($connection, $_POST['email']));
+	$query = "CALL proc_get_user_by_email('$email')"; // Select the user from the database with: {$email}	
+	$result = mysqli_query($connection, $query); // Executing the query and put the result in $result.			
+	$found_user = mysqli_fetch_array($result); // Result of the different columns are in the array $found_user (associative array)
+		 
 		
-		// store id and user in session on the server side.
-		redirectTo("/../presentation/home.php");
-			
+	if(password_verify($password, mysqlPrepare($found_user['userPassword']))){ 
+		// $password = password from form input. $found_user[] is hashed password from database
+		// Password_verify matched the input password with the userPassword on the database. 	
+		$_SESSION['user_id'] = mysqlPrepare($found_user['userID']); // Store id and user in session on the server side.
+		$_SESSION['isadmin'] = mysqlPrepare($found_user['accesLevelID']) !== NULL;	
+		redirectTo("/../presentation/home.php"); // If it is a match you get redirected to the home.php		
 	} else {
-		// email/password combo was not found in the database got redirected to signup_form.php
 		redirectTo("/../presentation/signUp_form.php");
 		$_SESSION['login_failed_message'] = 'Email/password combination incorrect.<br/> Please make sure your caps lock key is off and try again.';
 	}

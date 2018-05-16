@@ -47,8 +47,10 @@ if (isset($_POST["submit"])) {
     if ($error) { 
         $error_message .= '<div class="alert alert-danger" role="alert"><b> Unsuccesful sign up! </b></div>';
     } else {
+        $email = trim(mysqli_real_escape_string($connection, $email));
+        $userName = trim(mysqli_real_escape_string($connection, $userName));
+        $hashed_password = trim(mysqli_real_escape_string($connection, $hashed_password));
          $query = "CALL proc_insert_new_user('$email', '$userName', '$hashed_password')";
-        // $query = "INSERT INTO user (email, userName, userPassword) VALUES ('$email', '$userName', '$hashed_password')";
         $result = mysqli_query($connection, $query);
         mysqli_next_result($connection);
         if ($result){

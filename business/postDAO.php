@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . "/../include/functions.php");
+
 // -------------------------------------
 // CREATE
 // -------------------------------------
@@ -16,9 +18,9 @@ function getPosts($topicID) {
     $posts = "";
     while ($row = mysqli_fetch_array($result)){
         $posts .= "<tr>";
-        $posts .= '<td><p class="card-text"><a href=presentation/postReplies.php?postID=' . $row['postID'] . '>' . $row['postName'] . '</a></p></td>';
-        $posts .= "<td>" . $row['userName'] . "</td>";
-        $posts .= '<td><p class="card-text">' . $row['lastModifiedPostDate'] . '      ' . $row['lastModifiedPostTime'] . '<p></td>';
+        $posts .= '<td><p class="card-text"><a href=presentation/postReplies.php?postID=' . mysqlPrepare($row['postID']) . '>' . mysqlPrepare($row['postName']) . '</a></p></td>';
+        $posts .= "<td>" . mysqlPrepare($row['userName']) . "</td>";
+        $posts .= '<td><p class="card-text">' . mysqlPrepare($row['lastModifiedPostDate']) . '      ' . mysqlPrepare($row['lastModifiedPostTime']) . '<p></td>';
         $posts .= "</tr>";
         
     }
@@ -34,11 +36,11 @@ function getHotPosts() {
     $hotPosts = "";  
     while ($row = mysqli_fetch_array($result)){
         $hotPosts .= "<tr>";
-        $hotPosts .= "<td><a href=presentation/topicPosts.php?topicID=" . $row['topicID'] . ">" . $row['topicName']."</a></td>";
-        $hotPosts .= "<td><a href=presentation/postReplies.php?postID=" . $row['postID'] . ">" . $row['postName']."</a></td>";
-        $hotPosts .= '<td>' . $row['userName'] . "</td>";
-        $hotPosts .= "<td>" . $row['lastModifiedPostDate'] . "</td>";
-        $hotPosts .= "<td>" . $row['numberOfReplies'] . "</td>";
+        $hotPosts .= "<td><a href=presentation/topicPosts.php?topicID=" . mysqlPrepare($row['topicID']) . ">" . mysqlPrepare($row['topicName']) . "</a></td>";
+        $hotPosts .= "<td><a href=presentation/postReplies.php?postID=" . mysqlPrepare($row['postID']) . ">" . mysqlPrepare($row['postName']) . "</a></td>";
+        $hotPosts .= '<td>' . mysqlPrepare($row['userName']) . "</td>";
+        $hotPosts .= "<td>" . mysqlPrepare($row['lastModifiedPostDate']) . "</td>";
+        $hotPosts .= "<td>" . mysqlPrepare($row['numberOfReplies']) . "</td>";
         $hotPosts .= "</tr>";
     }
     mysqli_next_result($connection);
@@ -53,12 +55,12 @@ function getNewestPosts() {
     $newPosts = "";  
     while ($row = mysqli_fetch_array($result)){
         $newPosts .= "<tr>";
-        $newPosts .= "<td><a href=presentation/topicPosts.php?topicID=" . $row['topicID'] . ">" . $row['topicName']."</a></td>";
-        $newPosts .= "<td><a href=presentation/postReplies.php?postID=" . $row['postID'] . ">" . $row['postName']."</a></td>";
-        $newPosts .= '<td>' . $row['userName'] . "</td>";
-        $newPosts .= "<td>" . $row['lastModifiedPostDate'] . "</td>";
-        $newPosts .= "<td>" . $row['lastModifiedPostTime'] . "</td>";
-        $newPosts .= "<td>" . $row['numberOfReplies'] . "</td>";
+        $newPosts .= "<td><a href=presentation/topicPosts.php?topicID=" . mysqlPrepare($row['topicID']) . ">" . mysqlPrepare($row['topicName']) . "</a></td>";
+        $newPosts .= "<td><a href=presentation/postReplies.php?postID=" . mysqlPrepare($row['postID']) . ">" . mysqlPrepare($row['postName']) . "</a></td>";
+        $newPosts .= '<td>' . mysqlPrepare($row['userName']) . "</td>";
+        $newPosts .= "<td>" . mysqlPrepare($row['lastModifiedPostDate']) . "</td>";
+        $newPosts .= "<td>" . mysqlPrepare($row['lastModifiedPostTime']) . "</td>";
+        $newPosts .= "<td>" . mysqlPrepare($row['numberOfReplies']) . "</td>";
         $newPosts .= "</tr>";
     }
     mysqli_next_result($connection);
@@ -72,10 +74,10 @@ function getSelectedPostsHead($postID) {
     $result = mysqli_query($connection, $query);
     $postHead = "";
     while ($row = mysqli_fetch_array($result)){
-        $postHead .=  '<h3 class="card-title">' . $row['postName'] .'</h3> ';
-        $postHead .=  '<h5>Posted by: <b>' . $row['userName'] . '</b></h5>';
-        $postHead .=  '<p class="card-text">' . $row['dayname'] . ' '. $row['lastModifiedPostDate'];
-        $postHead .=  ' in <a href=presentation/topicPosts.php?topicID=' . $row['topicID'] . '>' . $row['topicName'] . '</a></p>';
+        $postHead .=  '<h3 class="card-title">' . mysqlPrepare($row['postName']) .'</h3> ';
+        $postHead .=  '<h5>Posted by: <b>' . mysqlPrepare($row['userName']) . '</b></h5>';
+        $postHead .=  '<p class="card-text">' . mysqlPrepare($row['dayname']) . ' '. mysqlPrepare($row['lastModifiedPostDate']);
+        $postHead .=  ' in <a href=presentation/topicPosts.php?topicID=' . mysqlPrepare($row['topicID']) . '>' . mysqlPrepare($row['topicName']) . '</a></p>';
     }
     mysqli_next_result($connection);
     return $postHead;
@@ -89,7 +91,7 @@ function getSelectedPostsContent($postID) {
     while ($row = mysqli_fetch_array($result)){
         $newPosts .=  '     <div class="card" >';
         $newPosts .=  '        <div class="card-body"> ';
-        $newPosts .=  '         <p class="card-text">' . $row['postContent'] . '</p>';
+        $newPosts .=  '         <p class="card-text">' . mysqlPrepare($row['postContent']) . '</p>';
         $newPosts .=  '     </div> ';
         $newPosts .=  ' </div> ';
         $newPosts .=  ' <br><br><br>';

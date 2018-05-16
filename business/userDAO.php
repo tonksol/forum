@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . "/../include/functions.php");
 
 function getUserImage($imageUrl) {
     if ($imageUrl == "" || $imageUrl == NULL){

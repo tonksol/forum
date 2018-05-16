@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . "/../include/functions.php");
 // -------------------------------------
 // CREATE
 // -------------------------------------
@@ -13,8 +14,8 @@ function getCategories() {
     $query = "CALL proc_select_all_from_category()";
     $result = mysqli_query($connection, $query);
         while ($row = mysqli_fetch_array($result)){   // one row in an array
-            $category = array('id' => $row['categoryID'],
-                                    'name' => $row['categoryName']);
+            $category = array('id' => mysqlPrepare($row['categoryID']),
+                                    'name' => mysqlPrepare($row['categoryName']));
             $categories[] = $category;
         }
     // need this line if you want to use multiple stored procedures
@@ -29,9 +30,9 @@ function getCategoriesForOverview() {
     $categories = ""; 
         while ($row = mysqli_fetch_array($result)){ 
             $categories .= "<tr>";
-            $categories .= "<td><a href=presentation/categoryTopics.php?categoryID=" . $row['categoryID'] . ">" . $row['categoryName']."</a></td>";
-            $categories .= "<td>" . $row['categoryDescription'] . "</td>";
-            $categories .= "<td>" . $row['numberOfTopics'] . "</td>";
+            $categories .= "<td><a href=presentation/categoryTopics.php?categoryID=" . mysqlPrepare($row['categoryID']) . ">" . mysqlPrepare($row['categoryName']) ."</a></td>";
+            $categories .= "<td>" . mysqlPrepare($row['categoryDescription']) . "</td>";
+            $categories .= "<td>" . mysqlPrepare($row['numberOfTopics']) . "</td>";
             $categories .= "</tr>";
         }    
     mysqli_next_result($connection);
@@ -47,9 +48,9 @@ function getCategoryHead($categoryID){
     while ($row = mysqli_fetch_array($result)){
         $category .= '     <div class="card" >';
         $category .= '        <div class="card-body"> ';
-        $category .= '             <h1 class="card-title">' . $row['categoryName'] .'</h1>';
+        $category .= '             <h1 class="card-title">' . mysqlPrepare($row['categoryName']) .'</h1>';
 
-        $category .= '             <p class="card-text">' . $row['categoryDescription'] .'</p> ';
+        $category .= '             <p class="card-text">' . mysqlPrepare($row['categoryDescription']) .'</p> ';
         $category .= '         </div> ';
         $category .= '     </div> ';
 
@@ -70,7 +71,7 @@ function getNumberOfTopicsForCategory() {
     }
     $numberOfTopics = "";
     while ($row = mysqli_fetch_array($result)) { 
-        $numberOfTopics .=  $row['numberOfTopics'];     
+        $numberOfTopics .=  mysqlPrepare($row['numberOfTopics']);     
     }
     mysqli_next_result($connection);
     return $numberOfTopics;

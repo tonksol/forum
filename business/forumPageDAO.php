@@ -33,8 +33,8 @@ function getPage($pageID) {
     $result = mysqli_query($connection, $query);
     $pageContent = "";
     while ($row = mysqli_fetch_array($result)){
-        $pageContent .= '<h4>' . $row['forumPageName'] .'</h4>';
-        $pageContent .= '<p>' . $row['forumPageContent'] .'<p>';
+        $pageContent .= '<h4>' . mysqlPrepare($row['forumPageName']) .'</h4>';
+        $pageContent .= '<p>' . mysqlPrepare($row['forumPageContent']) .'<p>';
     }
     mysqli_next_result($connection);
     return $pageContent;
@@ -48,7 +48,7 @@ function getRules() {
     echo $rules;
         while ($row = mysqli_fetch_array($result)){
             $rules .= "<ul>";
-            $rules .= "#<b>" . $row['ruleID'] . " </b><br>" . $row['ruleDescription'] . "<br><br>";
+            $rules .= "#<b>" . mysqlPrepare($row['ruleID']) . " </b><br>" . mysqlPrepare($row['ruleDescription']) . "<br><br>";
             $rules .= "</ul>";
         }
     mysqli_next_result($connection);
@@ -61,10 +61,9 @@ function getPages() {
     $query = "CALL proc_getPages()";
     $result = mysqli_query($connection, $query);
     while ($row = mysqli_fetch_array($result)){   // one row in array
-        $forumPageInfo = array('id' => $row['forumPageID'],
-                                'name' => $row['forumPageName'],
-                                'content' => $row['forumPageContent']);
-                                
+        $forumPageInfo = array('id' => mysqlPrepare($row['forumPageID']),
+                                'name' => mysqlPrepare($row['forumPageName']),
+                                'content' => mysqlPrepare($row['forumPageContent']));                          
         //$forumPageInfo['name'] = $row['forumPageName'];
         // $forumPageInfo['content'] = $row['forumPageContent'];
         $forumPageInfos[] = $forumPageInfo;
@@ -93,10 +92,11 @@ function getPagesForOverview() {
     $result = mysqli_query($connection, $query);
     $pages = "";
         while ($row = mysqli_fetch_array($result)){
+            $pagecontent = mysqlPrepare($row['forumPageContent']);
             $pages .= "<tr>";
             $pages .= "<td><a href=presentation/managePage.php?forumPageID=" . $row['forumPageID'] . ">" . $row['forumPageName']."</a></td>";
-            $pages .= '<td>' . substr($row['forumPageContent'], 0, 100) . "...</td>";
-            $pages .= "<td>" . $row['userName'] . "</td>";
+            $pages .= '<td>' . substr($pagecontent, 0, 100) . "...</td>";
+            $pages .= "<td>" . mysqlPrepare($row['userName']) . "</td>";
             $pages .= "</tr>";
         }
     mysqli_next_result($connection);
