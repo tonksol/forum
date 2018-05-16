@@ -8,6 +8,8 @@ require_once(__DIR__ . "/../presentation/header.php");
 <div class="container">
     <a href="/../presentation/categoryOverview.php" class="btn btn-primary btn-block btn-xs" role="button">Category Overview</a>
     <br><br><br>
+    <a href="/../presentation/hotPostsOverview.php" class="btn btn-primary btn-block btn-xs" role="button">Hot Discussions</a>
+    <br><br><br>
     <h1>New discussions</h1>
     <br><br>
 

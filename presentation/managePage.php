@@ -3,7 +3,7 @@
 require_once (__DIR__ . "/../include/functions.php"); 
 require_once (__DIR__ . "/../business/forumPageDAO.php"); 
 require_once (__DIR__ . "/../business/userDAO.php"); 
-memberArea();
+admin_area();
 
 // insert new page
 if (isset($_POST['submit']) && isset($_GET['forumPageID'])) {
@@ -25,7 +25,7 @@ if (isset($_POST['delete'])) {
 }
 
 require_once (__DIR__ . "/../presentation/header.php"); 
-require_once (__DIR__ . "/../presentation/adminNavigation.php");
+// require_once (__DIR__ . "/../presentation/adminNavigation.php");
 ?>
 
 <div class="container">

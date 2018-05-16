@@ -115,7 +115,8 @@ function myprofileSwitch(){
 // navigation admin button called on navigation.php 
 function visableUnvisableAdminSwitch() {
     if (logged_in() && isAdmin()){
-        return '<a class="nav-link" class="my-profile" href="presentation/admin_page.php">Admin</a>';
+        //Before redirect to presentation/admin_page.php
+        return '<a class="nav-link" class="my-profile" href="presentation/pageManager.php">Admin</a>';
     }
 }
 

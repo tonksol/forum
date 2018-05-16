@@ -10,12 +10,12 @@ if (isset($_POST['submit']) && !isset($_GET['forumPageID'])) {
 }
 
 require_once (__DIR__ . "/../presentation/header.php"); 
-require_once (__DIR__ . "/../presentation/adminNavigation.php");
+// require_once (__DIR__ . "/../presentation/adminNavigation.php");
 ?>
 
 <div class="container">
     <div class="main">
-
+        <br><br>
         <h1>Make a new page</h1>
 
         <br><br><br>

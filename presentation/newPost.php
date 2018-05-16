@@ -3,6 +3,7 @@ require_once(__DIR__ . "/../include/functions.php");
 require_once(__DIR__ . "/../business/topicDAO.php");
 require_once(__DIR__ . "/../business/categoryDAO.php");
 require_once(__DIR__ . "/../business/postDAO.php");
+memberArea();
 
 $userID = $_SESSION['user_id'];
 $userID = mysqlPrepare($userID);

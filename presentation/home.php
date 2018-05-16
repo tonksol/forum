@@ -45,11 +45,11 @@ if (isset($_POST['newpost'])) {
             <br><br><hr><br><br>
 
             <!-- creat new post -->
-            <h4> Create New Post </h4>
             <?php if (logged_in()) { ?>
+            <h4> Create New Post </h4>
             <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
-            <?php } ?>
             <br><br><hr><br><br>
+            <?php } ?>
             
             <!-- Latest post -->
             <h4> Latest Discussions </h4>
