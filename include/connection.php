@@ -1,26 +1,16 @@
  <?php
-require(__DIR__ . "/../include/constants.php");
-
-// function with a return $connection;
-// function connectDatabase() {
-
-
-
-    
+require(__DIR__ . "/../include/constants.php");    
     $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS);
     if(!$connection){
         return die("could not connect");
     }
-    // always need the connection link
-    // functions whitout i is the other way around first DB_NAME, $connection
+    // Note: always need the connection link functions whitout i is the other way around first DB_NAME, $connection
     $db_select = mysqli_select_db($connection, DB_NAME);
     if (!$db_select){
         return die("Database error: ". mysqli_error($connection));
     } 
-    // always close the connection
-    // otherwise other people can acces your data and change it
-    //mysqli_close($connection);
-    // return $db_select; // als dit niet werkt return $db_select;
+    // Note: Always close the connection mysqli_close($connection);. Otherwise other people can acces your data and change it
+    
 
 
 /*
