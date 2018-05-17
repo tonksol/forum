@@ -16,46 +16,39 @@ function redirectTo($location) {
 
 // Check of the email field is not empty and set $error to true or false.
 // Return the $error set with the new value.
-// called on signUp.php / signup_PDO (not in use) / 
 function fieldNotEmpty($fieldValue) {
     $err = false;
-    if (!empty($fieldValue)) { // if field is not empty     TRUE als hij leeg is. 
-        $err = false; // no, there is no error. The field is set and not empty
+    if (!empty($fieldValue)) { // if field is not empty, if empty value is true. 
+        $err = false; // No, there is no error. The field is set and not empty
     } else {
-        $err = true; // yes, there is a error, the field is empty
+        $err = true; // Yes, there is a error, the field is empty.
     }
     return $err;
 }
 
+// Check the caracters of email with a regular expression 
+function validateEmail($input_email) {
+    $err = false;
+    $regular_expression ="/^[A-z0-9_-]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_-]+)*[.][A-z]{2,4}$/";
+    if (preg_match($regular_expression, $input_email)) {
+        $err = false; // No, there is no error. There isn't a wrong character.
+    } else {
+        $err = true; // Yes, there is a error, there is a wrong characters.
+    };
+    return $err;
+}
 
-// prevent a SQL Injection by adding backslashes to some caracthers
-// You can't enter javascript: <script>alert(1)</script>" litteraly
-// called on signup_PDO (files not_in use)
+// Prevent a SQL Injection by adding backslashes to the special caracthers. And you can't enter javascript: <script>alert(1)</script>" litteraly
 function mysqlPrepare($value) {
     global $connection;
     $value = htmlspecialchars(trim($value));
     return $value;
 }
 
-
-// Check the caracters of email called on signUp.php / signup_PDO (files_not_in use) / 
-function validateEmail($input_email) {
-    $err = false;
-    $regular_expression ="/^[A-z0-9_-]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_-]+)*[.][A-z]{2,4}$/";
-     if (preg_match($regular_expression, $input_email)) {
-         $err = false; // No, there is no error. There isn't a wrong character.
-     } else {
-         $err = true; // Yes, there is a error, there is a wrong characters.
-     };
-    return $err;
-}
-
-
 // -------------------------------------
 // Messages
 // -------------------------------------
 
-    // called on home.php
 function loginSuccesMessage() {
     if (logged_in() && $_SESSION['justLoggedIn'] == true) {
         $_SESSION['justLoggedIn'] = false;
@@ -63,43 +56,33 @@ function loginSuccesMessage() {
     }
 }
 
-    // calles on home.php
 function logoutSuccesMessage() {
     if (!isset($_COOKIE[session_name()])){
         return '<div class="alert alert-mygrey" role="alert"> Log out successful </div>';
     }
 }
 
-    // called on signUp_form
  function loginFailMessage() {
     if (!empty($_SESSION['login_failed_message'])) {
         echo '<div class="alert alert-mygrey" role="alert">' . $_SESSION['login_failed_message'] . '</div>;';
     }
 }
 
+// -------------------------------------
+// Readonly
+// -------------------------------------
 
-
-// see also session.php called on: managePage.php / pagemanager.php / userProfile_page.php
-function memberArea() {   
-    if (!logged_in()) {
-        redirectTo("/../presentation/noAccess.php");
-        die;
-    }
-    // sessionExpire();
-}
-
-// called managePage.php and userProfile_page.php
 function editableForm() {
     $readonly = "readonly";
     if (isset($_POST["edit"]) && !empty($_POST["edit"])){
-        return ""; // editable, you can see the submit button
+        return ""; // Editable, you can see the submit button
     } else {
-        return "readonly "; // not editable, you can see the edit button
+        return "readonly "; // Not editable, you can see the edit button
     }
 }
 
 // -------------------------------------
-// ONLY CALLED ON navigation.php
+// Button switches for the navigation bar
 // -------------------------------------
  
 // Called on navigation.php
@@ -146,5 +129,13 @@ function isAdmin(){
         return true;
     } else {
         return false;
+    }
+}
+
+
+function memberArea() {   
+    if (!logged_in()) {
+        redirectTo("/../presentation/noAccess.php");
+        die;
     }
 }
