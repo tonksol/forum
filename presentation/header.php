@@ -17,11 +17,10 @@
     <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="all.css">
     <!-- 
-      base: so I can use relative paths change this if you are in another enviroment 
-      http://tonkebultnl.000webhostapp.com/
+      base: To use relative paths. Change the URL depending on the enviroment. 
       http://localhost:41062/www/Forum/
   -->
-    <base href="http://localhost:41062/www/Forum/"> 
+    <base href="https://tonkebult.nl"> 
 
     <!-- for text editor -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">

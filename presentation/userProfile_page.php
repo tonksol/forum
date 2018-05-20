@@ -6,19 +6,18 @@ memberArea();
 require_once (__DIR__ . "/../presentation/header.php");
 
 $userID = $_SESSION['user_id'];
-$userID = trim(mysqli_real_escape_string($userID));
+$userID = trim(mysqli_real_escape_string($connection, $userID));
 $badges = getBadges($userID); // badges = array 
 $row = getUserProfile($userID); // row = array
   
 if (isset($_POST['submit'])) {
-     
-    $firstname = trim(mysqli_real_escape_string($_POST["firstname"])); 
-    $prefix = trim(mysqli_real_escape_string($_POST["prefix"])); 
-    $lastname = trim(mysqli_real_escape_string($_POST["lastname"])); 
-    $birthday = trim(mysqli_real_escape_string($_POST["birthday"])); 
-    $email = trim(mysqli_real_escape_string($_POST["email"])); 
-    $username = trim(mysqli_real_escape_string($_POST["username"])); 
-    $quote = trim(mysqli_real_escape_string($_POST["quote"]));
+    $firstname = trim(mysqli_real_escape_string($connection, $_POST["firstname"])); 
+    $prefix = trim(mysqli_real_escape_string($connection, $_POST["prefix"])); 
+    $lastname = trim(mysqli_real_escape_string($connection, $_POST["lastname"])); 
+    $birthday = trim(mysqli_real_escape_string($connection, $_POST["birthday"])); 
+    $email = trim(mysqli_real_escape_string($connection, $_POST["email"])); 
+    $username = trim(mysqli_real_escape_string($connection, $_POST["username"])); 
+    $quote = trim(mysqli_real_escape_string($connection, $_POST["quote"]));
     updateUserInfo($userID, $firstname, $prefix, $lastname, $birthday, $email, $username, $quote);
 }
 ?>
