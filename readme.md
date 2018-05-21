@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Project Title
+=======
+# Boardgame Forum
+>>>>>>> 1a3d4d82815578b6793c774dee56a67558a73bc9
 
 A forum written in php, html and css. In this case the forum is ment to be a discussion board for boardgames. 
 
