@@ -1,8 +1,8 @@
 <?php
-require_once(__DIR__ . "/../include/functions.php");
-require_once(__DIR__ . "/../business/topicDAO.php");
-require_once(__DIR__ . "/../business/categoryDAO.php");
-require_once(__DIR__ . "/../business/postDAO.php");
+require_once(__DIR__ . "../../include/functions.php");
+require_once(__DIR__ . "../../business/topicDAO.php");
+require_once(__DIR__ . "../../business/categoryDAO.php");
+require_once(__DIR__ . "../../business/postDAO.php");
 memberArea();
 
 $userID = $_SESSION['user_id'];
@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
    redirectTo("postReplies.php?postID=" . $result);
 }
 
-require_once(__DIR__ . "/../presentation/header.php");
+require_once(__DIR__ . "../../presentation/header.php");
 ?>
 
 <!-- https://stackoverflow.com/questions/8315887/onchange-this-form-submit-versus-two-submit-buttons?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa -->

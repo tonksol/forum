@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 require_once(__DIR__ . "/../include/functions.php");
 require_once(__DIR__ . "/../business/replyDAO.php");
 memberArea();
@@ -7,14 +10,13 @@ $userID = $_SESSION['user_id'];
 $userID = mysqlPrepare($userID);
 
 $replyDAO = new ReplyDAO($connection);
-
 if (isset($_POST['submit'])) {
     $result = $replyDAO->updateReply(mysqlPrepare($_POST['replyID']), mysqlPrepare($_POST['replyContent']));
     redirectTo("postReplies.php?postID=" . $result);
 }
 
-if (isset($_GET["replyID"])) {
-    $replyID = mysqlPrepare($_GET["replyID"]);
+if (isset($_GET['replyID'])) {
+    $replyID = mysqlPrepare($_GET['replyID']);
     $replyContent = $replyDAO->getReplyContent($replyID);
 }
 

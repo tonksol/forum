@@ -1,8 +1,8 @@
 <?php
 // see all topics from one category
-require_once(__DIR__ . "/../presentation/header.php");
-require_once(__DIR__ . "/../business/postDAO.php");
-require_once(__DIR__ . "/../business/topicDAO.php");
+require_once(__DIR__ . "../../presentation/header.php");
+require_once(__DIR__ . "../../business/postDAO.php");
+require_once(__DIR__ . "../../business/topicDAO.php");
 ?>
 
 <br><br>
@@ -41,4 +41,4 @@ require_once(__DIR__ . "/../business/topicDAO.php");
 <br><br><br>
 
 
-<?php require (__DIR__ . "/../presentation/footer.php"); ?>
+<?php require (__DIR__ . "../../presentation/footer.php"); ?>

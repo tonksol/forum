@@ -1,9 +1,9 @@
 <?php
 // overview of all categories
 
-require_once(__DIR__ . "/../business/ReplyDAO.php");
-require_once(__DIR__ . "/../business/postDAO.php");
-require_once(__DIR__ . "/../business/topicDAO.php");
+require_once(__DIR__ . "../../business/ReplyDAO.php");
+require_once(__DIR__ . "../../business/postDAO.php");
+require_once(__DIR__ . "../../business/topicDAO.php");
 
 $replyDAO = new ReplyDAO($connection);
 
@@ -104,4 +104,4 @@ require_once(__DIR__ . "/../presentation/header.php");
 <br><br><br>
 
 
-<?php require (__DIR__ . "/../presentation/footer.php"); ?>
+<?php require (__DIR__ . "../../presentation/footer.php"); ?>

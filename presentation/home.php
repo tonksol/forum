@@ -5,7 +5,7 @@ require_once (__DIR__ . "/../business/forumPageDAO.php");
 require_once (__DIR__ . "/../presentation/header.php"); 
 // echo loginFirst_message();
 if (isset($_POST['newpost'])) {
-    redirectTo("/../presentation/newPost.php");
+    redirectTo("../../presentation/newPost.php");
 }
 ?>
 
@@ -47,7 +47,7 @@ if (isset($_POST['newpost'])) {
             <!-- creat new post -->
             <?php if (logged_in()) { ?>
             <h4> Create New Post </h4>
-            <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
+            <a href="../../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
             <br><br><hr><br><br>
             <?php } ?>
             
@@ -80,6 +80,6 @@ if (isset($_POST['newpost'])) {
         </div> <!-- ./ container -->
 
     </body>
-    <?php require (__DIR__ . "/../presentation/footer.php"); ?>
+    <?php require (__DIR__ . "../../presentation/footer.php"); ?>
 
 </html>

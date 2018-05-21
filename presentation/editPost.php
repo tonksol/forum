@@ -1,6 +1,6 @@
 <?php
-require_once(__DIR__ . "/../include/functions.php");
-require_once(__DIR__ . "/../business/postDAO.php");
+require_once(__DIR__ . "../../include/functions.php");
+require_once(__DIR__ . "../../business/postDAO.php");
 memberArea();
 
 $userID = $_SESSION['user_id'];
@@ -16,7 +16,7 @@ if (isset($_GET["postID"])) {
     $postDetails = getPostDetails($postID);
 }
 
-require_once(__DIR__ . "/../presentation/header.php");
+require_once(__DIR__ . "../../presentation/header.php");
 ?>
 
 <div class="container"> 
@@ -34,5 +34,5 @@ require_once(__DIR__ . "/../presentation/header.php");
     </div>
     <input class='btn btn-primary btn-block' type='submit' name='submit' value='submit'>
     </form>
-
+    <?php require (__DIR__ . "../../presentation/footer.php"); ?>
 </div> <!-- ./ container -->

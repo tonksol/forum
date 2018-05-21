@@ -1,15 +1,15 @@
 
 <?php
-require_once (__DIR__ . "/../include/functions.php");  
-require_once (__DIR__ . "/../business/forumPageDAO.php"); 
+require_once (__DIR__ . "../../include/functions.php");  
+require_once (__DIR__ . "../../business/forumPageDAO.php"); 
 
 if (isset($_POST['submit']) && !isset($_GET['forumPageID'])) {
     // senatise met trim en htmlspecialchars.. parameters
     insertNewPage(mysqlPrepare($_SESSION['user_id']), mysqlPrepare($_POST["pagename"]), mysqlPrepare($_POST["content"]), mysqlPrepare(date("Y-m-d"))); 
-    redirectTo("/../presentation/pageManager.php");
+    redirectTo("../../presentation/pageManager.php");
 }
 
-require_once (__DIR__ . "/../presentation/header.php"); 
+require_once (__DIR__ . "../../presentation/header.php"); 
 // require_once (__DIR__ . "/../presentation/adminNavigation.php");
 ?>
 
@@ -36,6 +36,6 @@ require_once (__DIR__ . "/../presentation/header.php");
             <br><br>
             <div align="right"><input class="btn btn-primary" type="submit" name="submit" value="Submit"></div>
         </form>
-
     </div> <!-- ./ main -->
 </div> <!-- ./ container-->
+<?php require (__DIR__ . "../../presentation/footer.php"); ?>

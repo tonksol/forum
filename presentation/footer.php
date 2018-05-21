@@ -1,4 +1,4 @@
-<style> <?php require_once(__DIR__ . "/../presentation/all.css"); ?> </style>
+<style> <?php require_once(__DIR__ . "../../presentation/all.css"); ?> </style>
 <!--Footer-->
         <footer class="footer-body">
 
@@ -120,14 +120,7 @@
 
         </footer>
         <!--/.Footer-->
-                            
-
-
-
-
-
     <br>
     <br>
-
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 // overview of all categories
-require_once(__DIR__ . "/../business/categoryDAO.php");
-require_once (__DIR__ . "/../presentation/header.php");
+require_once(__DIR__ . "../../business/categoryDAO.php");
+require_once (__DIR__ . "../../presentation/header.php");
 ?>
 
 <br><br>
@@ -26,10 +26,10 @@ require_once (__DIR__ . "/../presentation/header.php");
 
     <!-- Create new post -->
     <?php if (logged_in()) { ?>
-    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New discussion</a>
+    <a href="../../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New discussion</a>
     <?php } ?>
 </div> <!-- ./ container -->
 <br><br><br>
 
 
-<?php require (__DIR__ . "/../presentation/footer.php"); ?>
+<?php require (__DIR__ . "../../presentation/footer.php"); ?>

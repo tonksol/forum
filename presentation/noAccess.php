@@ -1,7 +1,7 @@
 <?php 
-require_once (__DIR__ . "/../include/functions.php");
+require_once (__DIR__ . "../../include/functions.php");
  // echo loginFirst_message();
-require_once (__DIR__ . "/../presentation/header.php"); 
+require_once (__DIR__ . "../../presentation/header.php"); 
 ?>
 
 
@@ -20,6 +20,6 @@ require_once (__DIR__ . "/../presentation/header.php");
         </div> <!-- ./ container -->
 
     </body>
-    <?php require (__DIR__ . "/../presentation/footer.php"); ?>
+    <?php require (__DIR__ . "../../presentation/footer.php"); ?>
 
 </html>

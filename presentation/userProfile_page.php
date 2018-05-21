@@ -1,9 +1,10 @@
 <?php 
-require_once (__DIR__ . "/../include/functions.php"); // still needed for memerArea()
-require_once (__DIR__ . "/../business/userDAO.php");
-require_once (__DIR__ . "/../business/badgeDAO.php");
+require_once (__DIR__ . "../../include/functions.php"); // still needed for memerArea()
+require_once (__DIR__ . "../../business/userDAO.php");
+require_once (__DIR__ . "../../business/badgeDAO.php");
 memberArea();
-require_once (__DIR__ . "/../presentation/header.php");
+require_once (__DIR__ . "/header.php");
+
 
 $userID = $_SESSION['user_id'];
 $userID = trim(mysqli_real_escape_string($connection, $userID));
@@ -139,4 +140,4 @@ if (isset($_POST['submit'])) {
     </div> <!-- ./ container --> 
 </body>
 
-<?php require (__DIR__ . "/../presentation/footer.php"); ?>
+<?php require (__DIR__ . "../../presentation/footer.php"); ?>

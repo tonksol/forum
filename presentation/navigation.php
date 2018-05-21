@@ -1,6 +1,6 @@
-<?php require_once (__DIR__ . "/../include/functions.php"); ?>  
-<?php require_once (__DIR__ . "/../business/forumPageDAO.php"); ?>  
-<?php require_once (__DIR__ . "/../business/userDAO.php"); ?>  
+<?php require_once (__DIR__ . "../../include/functions.php"); ?>  
+<?php require_once (__DIR__ . "../../business/forumPageDAO.php"); ?>  
+<?php require_once (__DIR__ . "../../business/userDAO.php"); ?>  
 
  <!-- Log in Modal  -->
  <!-- TO DO mysqlPrepare() in action for form -->

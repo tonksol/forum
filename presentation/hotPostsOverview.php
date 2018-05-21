@@ -1,12 +1,12 @@
 <?php
-require_once(__DIR__ . "/../business/postDAO.php");
-require_once(__DIR__ . "/../presentation/header.php");
+require_once(__DIR__ . "../../business/postDAO.php");
+require_once(__DIR__ . "../../presentation/header.php");
 ?>
 
 <br><br>
 <div class="container">
     <br><br>
-    <a href="/../presentation/newestPostsOverview.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussions</a>
+    <a href="../../presentation/newestPostsOverview.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussions</a>
     <br><br><br>
     <h1>Hot Discussions</h1>
     <br><br>
@@ -33,8 +33,8 @@ require_once(__DIR__ . "/../presentation/header.php");
 
     <!-- Create new post -->
     <?php if (logged_in()) { ?>
-    <a href="/../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
+    <a href="../../presentation/newPost.php" class="btn btn-primary btn-block btn-xs" role="button">New Discussion</a>
     <?php } ?>
 <br><br>
 </div> <!-- ./ container -->
-<?php require_once(__DIR__ . "/../presentation/footer.php");
+<?php require_once(__DIR__ . "../../presentation/footer.php");
