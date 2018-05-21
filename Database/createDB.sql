@@ -150,14 +150,6 @@ CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_insert_new_user`(IN input_ema
     END$$
 DELIMITER ;
 
--- sign up userAccesLevel NOG NIET KLAAR!!!!!!!!!!!!!
--- DELIMITER $$
--- CREATE DEFINER= `root`@`localhost` PROCEDURE proc_insert_userAccesLevel()
---     BEGIN
---         INSERT INTO `userAccesLevel` VALUES (`userID`, `accesLevelID`) VALUES ('LAST_INSERT_ID()' ,2);
---     END $$
--- DELIMITER ;
-
 -- forumPageDAO
 DELIMITER $$
 CREATE DEFINER= `root`@`localhost` PROCEDURE `proc_insertNewPage`(IN input_userID INT, IN input_pagename VARCHAR(100), IN input_pagecontent VARCHAR(1000), IN input_todaysdate DATE)
@@ -278,7 +270,7 @@ CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getCategoryHead`(IN input_ca
     END $$
 DELIMITER ;
 
---categoryDAO
+-- categoryDAO
 DELIMITER $$
 CREATE DEFINER = `root`@`localhost` PROCEDURE `proc_getNumberOfTopicsForCategory`(IN input_categoryID int)
     BEGIN

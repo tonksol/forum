@@ -73,7 +73,6 @@ function logoutSuccesMessage() {
 // -------------------------------------
 
 function editableForm() {
-    $readonly = "readonly";
     if (isset($_POST["edit"]) && !empty($_POST["edit"])){
         return ""; // Editable, you can see the submit button
     } else {
@@ -85,6 +84,7 @@ function editableForm() {
 // Button switches for the navigation bar
 // -------------------------------------
  
+
 // Called on navigation.php
 function myprofileSwitch(){
     $which_button = "";
